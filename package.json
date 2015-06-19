@@ -1,19 +1,24 @@
 {
   "name": "titanium",
-  "main": "./lib/titanium",
+  "main": "./lib/main",
   "version": "0.1.0",
   "description": "Atom package for Titanium Alloy",
+  "license": "MIT",
   "keywords": [
     "titanium",
     "alloy"
   ],
-  "activationCommands": {
-    "atom-workspace": ["titanium:openView", "titanium:openStyle", "titanium:openController"]
-  },
   "repository": "https://github.com/yomybaby/titanium",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
+  },
+  "providedServices": {
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "getProvider"
+      }
+    }
   },
   "dependencies": {
   }

@@ -11,14 +11,12 @@ alloyDirectoryMap =
   tss : "styles"
   js : "controllers"
   
-module.exports = Titanium =
+module.exports =
   activate: ->
     atom.commands.add 'atom-workspace', 'titanium:openView': => @openFile('xml')
     atom.commands.add 'atom-workspace', 'titanium:openStyle': => @openFile('tss')
     atom.commands.add 'atom-workspace', 'titanium:openController': => @openFile('js')
 
-  # deactivate: ->
-  # serialize: ->
   openFile: (type)->
     currentFilePath = atom.workspace.getActiveTextEditor().getPath()
     
