@@ -15,6 +15,7 @@ Key Bindings | Command Desc
 ## Todos
 
 - Auto complete (.js, .xml, .tss)
+    - tss ( [autocomplete css](https://github.com/atom/autocomplete-css))
 - Sytax Highlight for tss
 - Move to tss style code from view ( look at [this css package](https://github.com/js-padavan/atom-css-class-checker))
 - Move to Controller from Event handler of View
