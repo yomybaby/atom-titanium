@@ -5,6 +5,9 @@
     "tss"
   ],
   "patterns": [
+    {
+      'include': '#comment-block'
+    }
     { # ID 
       'begin': '\"#'
       'end': '\"'
@@ -26,6 +29,17 @@
         }
       ]
     }
+    { # TAG
+      # TODO: create match generation code (below math from languate-tss package)
+      'begin': "\"(2DMatrix|3DMatrix|ActivityIndicator|ActivityIndicatorStyle|AlertDialog|Android|ProgressIndicator|SearchView|Animation|Button|ButtonBar|Clipboard|CoverFlowView|DashboardItem|DashboardView|EmailDialog|ImageView|Label|ListItem|ListSection|ListView|MaskedImage|MobileWeb|iOS|iPhone|NavigationGroup|TableViewSeparatorStyle|Notification|OptionDialog|Picker|PickerColumn|PickerRow|ProgressBar|RefreshControl|SMSDialog|ScrollView|ScrollableView|SearchBar|Slider|Switch|Tab|TabGroup|TabbedBar|TableView|TableViewRow|TableViewSection|TextArea|TextField|Toolbar|View|WebView|Window|iOS|3DMatrix|AdView|AnchorAttachmentBehavior|Animator|AttributedString|CollisionBehavior|CoverFlowView|DocumentViewer|DynamicItemBehavior|GravityBehavior|NavigationWindow|PushBehavior|SnapBehavior|TabbedBar|Toolbar|ViewAttachmentBehavior|iPad|DocumentViewer|Popover|SplitWindow|iPhone|ActivityIndicatorStyle|AlertDialogStyle|AnimationStyle|ListViewCellSelectionStyle|ListViewScrollPosition|ListViewSeparatorStyle|ListViewStyle|NavigationGroup|ProgressBarStyle|RowAnimationStyle|ScrollIndicatorStyle|StatusBar|SystemButton|SystemButtonStyle|SystemIcon|TableViewCellSelectionStyle|TableViewScrollPosition|TableViewSeparatorStyle|TableViewStyle)"
+      'end': "\""
+      'name' : 'entity.name.tag.css.tss'
+      'patterns':[
+        {
+          'include' : '#query'
+        }
+      ]
+    }
     { # PROPERTIES
       'begin' : '\\{'
       'end' : '\\}'
@@ -33,20 +47,39 @@
       # 'name' : 'punctuation.definition.comment.js'
       'patterns':[
         {
-          # match 확인 필요 - from languate-tss package
+          # TODO: create match generation code (below math from languate-tss package)
           'match': "accessibilityHidden|accessibilityHint|accessibilityLabel|accessibilityValue|active|activeTab|activeTabBackgroundColor|activeTabBackgroundDisabledColor|activeTabBackgroundDisabledImage|activeTabBackgroundFocusedColor|activeTabBackgroundFocusedImage|activeTabBackgroundImage|activeTabBackgroundSelectedColor|activeTabBackgroundSelectedImage|adSize|allowsSelection|allowsSelectionDuringEditing|allowUserCustomization|anchorPoint|appearance|autocapitalization|autocorrect|autoLink|backButtonTitle|backButtonTitleImage|backgroundColor|backgroundDisabledColor|backgroundDisabledImage|backgroundFocusedColor|backgroundFocusedImage|backgroundGradient|backgroundImage|backgroundLeftCap|backgroundPaddingBottom|backgroundPaddingLeft|backgroundPaddingRight|backgroundPaddingTop|backgroundRepeat|backgroundSelectedColor|backgroundSelectedImage|backgroundTopCap|badge|barColor|barImage|borderBottom|borderColor|borderRadius|borderStyle|borderTop|borderWidth|bottom|cacheSize|canCancelEvents|cancel|cancelable|canDelete|canScale|center|className|clearButtonMode|clearOnEdit|color|contentHeight|contentOffset|contentWidth|countDownDuration|currentPage|decodeRetries|defaultImage|disableBounce|disabledLeftTrackImage|disabledRightTrackImage|disabledThumbImage|duration|editable|editButtonTitle|editing|ellipsize|enabled|enableReturnKey|enableZoomControls|endPoint|filterAttribute|filterCaseInsensitive|focusable|fontFamily|fontWeight|fontSize|font|footerTitle|format24|fullscreen|hasCheck|hasChild|hasDetail|headerTitle|height|hideLoadIndicator|hideSearchOnSelection|highlightedColor|highlightedLeftTrackImage|highlightedRightTrackImage|highlightedThumbImage|hintText|hinttextid|hires|hitRect|horizontalBounce|horizontalMargin|horizontalWrap|html|images|image|icon|indentionLevel|keepScreenOn|keyboardToolbarColor|keyboardToolbarHeight|keyboardType|layout|left|leftButton|leftButtonMode|leftButtonPadding|leftImage|leftTrackImage|leftTrackLeftCap|leftTrackTopCap|loading|locale|location|mask|max|maxDate|maxLength|maxRange|maxRowHeight|maxZoomScale|message|messageBody|messageid|min|minDate|minimumFontSize|minRange|minRowHeight|minuteInterval|minZoomScale|modal|mode|moveable|navBarHidden|opacity|orientationModes|overlayEnabled|paddingLeft|paddingRight|pagingControlAlpha|pagingControlColor|pagingControlHeight|pagingControlOnTop|passwordMask|persistent|pluginState|preventDefaultImage|prompt|promptid|repeatCount|returnKeyType|reverse|right|rightButtonMode|rightButtonPadding|rightImage|rightTrackImage|rightTrackLeftCap|rightTrackTopCap|rowHeight|scalesPageToFit|scrollable|scrollIndicatorStyle|scrollingEnabled|scrollsToTop|scrollType|searchHidden|selectedBackgroundColor|selectedBackgroundImage|selectedColor|selectedImage|selectedLeftTrackImage|selectedRightTrackImage|selectedThumbImage|selectionIndicator|selectionStyle|separatorColor|separatorStyle|shadowColor|shadowImage|shadowOffset|showBookmark|showCancel|showHorizontalScrollIndicator|showPagingControl|showScrollbars|showVerticalScrollIndicator|softKeyboardOnFocus|startPoint|style|suppressReturn|systemButton|tabDividerColor|tabDividerWidth|tabHeight|tabsAtBottom|tabsBackgroundColor|tabsBackgroundDisabledColor|tabsBackgroundDisabledImage|tabsBackgroundFocusedColor|tabsBackgroundFocusedImage|tabsBackgroundImage|tabsBackgroundSelectedColor|tabsBackgroundSelectedImage|textAlign|text|textid|thumbImage|tint|title|titleid|titleImage|titleOff|titleOn|titlePrompt|titlepromptid|top|touchEnabled|translucent|type|useSpinner|value|verticalAlign|verticalBounce|verticalMargin|visibleItems|visible|width|willHandleTouches|windowPixelFormat|wobble|wordWrap|xOffset|yOffset|zIndex|zoomScale|exitOnClose"
           # 'end' : ':'
           'name': 'constant.variable'
         }
       ]
     }
-    { # TAG
-      'match' : '\"(View|Window)\"'
-      # match 확인 필요 - from languate-tss package
-      'name' : "\"\\b(2DMatrix|3DMatrix|ActivityIndicator|ActivityIndicatorStyle|AlertDialog|Android|ProgressIndicator|SearchView|Animation|Button|ButtonBar|Clipboard|CoverFlowView|DashboardItem|DashboardView|EmailDialog|ImageView|Label|ListItem|ListSection|ListView|MaskedImage|MobileWeb|iOS|iPhone|NavigationGroup|TableViewSeparatorStyle|Notification|OptionDialog|Picker|PickerColumn|PickerRow|ProgressBar|RefreshControl|SMSDialog|ScrollView|ScrollableView|SearchBar|Slider|Switch|Tab|TabGroup|TabbedBar|TableView|TableViewRow|TableViewSection|TextArea|TextField|Toolbar|View|WebView|Window|iOS|3DMatrix|AdView|AnchorAttachmentBehavior|Animator|AttributedString|CollisionBehavior|CoverFlowView|DocumentViewer|DynamicItemBehavior|GravityBehavior|NavigationWindow|PushBehavior|SnapBehavior|TabbedBar|Toolbar|ViewAttachmentBehavior|iPad|DocumentViewer|Popover|SplitWindow|iPhone|ActivityIndicatorStyle|AlertDialogStyle|AnimationStyle|ListViewCellSelectionStyle|ListViewScrollPosition|ListViewSeparatorStyle|ListViewStyle|NavigationGroup|ProgressBarStyle|RowAnimationStyle|ScrollIndicatorStyle|StatusBar|SystemButton|SystemButtonStyle|SystemIcon|TableViewCellSelectionStyle|TableViewScrollPosition|TableViewSeparatorStyle|TableViewStyle)\\b\""
+    {
+      'begin': '(:)\\s*'
+      'beginCaptures':
+        '1':
+          'name': 'punctuation.separator.key-value.css'
+      'end': '\\s*(;|(?=\\}))'
+      'endCaptures':
+        '1':
+          'name': 'punctuation.terminator.rule.css'
+      'name': 'meta.property-value.css'
+      'patterns': [
+        {
+          'include': '#property-values'
+        }
+      ]
     }
+    
   ],
   'repository' :
+    'comment-block':
+      'begin': '/\\*'
+      'captures':
+        '0':
+          'name': 'punctuation.definition.comment.css'
+      'end': '\\*/'
+      'name': 'comment.block.css'
     'query':
       'begin': '\\['
       'end': '\\]'
@@ -59,6 +92,67 @@
         {
           'match': "android|ios|Alloy\\.Globals\\."
           'name' : 'meta.link'
+        }
+      ]
+    'property-values' :
+      'patterns' : [
+        {
+          'include': '#numeric-values'
+        }
+        {
+          'include': '#string-double'
+        }
+        {
+          'include': '#string-single'
+        }
+      ]
+    'numeric-values':
+      'patterns': [
+        {
+          'captures':
+            '1':
+              'name': 'punctuation.definition.constant.css'
+          'match': '(#)([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\\b'
+          'name': 'constant.other.color.rgb-value.css'
+        }
+        {
+          'captures':
+            '1':
+              'name': 'keyword.other.unit.css'
+          'match': '(?x)\n\t\t\t\t\t    (?:-|\\+)?(?:(?:[0-9]+(?:\\.[0-9]+)?)|(?:\\.[0-9]+))\n\t\t\t\t\t    ((?:px|pt|ch|cm|mm|in|r?em|ex|pc|deg|g?rad|dpi|dpcm|dppx|fr|ms|s|turn|vh|vmax|vmin|vw)\\b|%)?\n\t\t\t\t\t'
+          'name': 'constant.numeric.css'
+        }
+      ]
+    'string-double':
+      'begin': '"'
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.definition.string.begin.css'
+      'end': '"'
+      'endCaptures':
+        '0':
+          'name': 'punctuation.definition.string.end.css'
+      'name': 'string.quoted.double.css'
+      'patterns': [
+        {
+          'match': '\\\\([a-fA-F0-9]{1,6}|.)'
+          'name': 'constant.character.escape.css'
+        }
+      ]
+    'string-single':
+      'begin': '\''
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.definition.string.begin.css'
+      'end': '\''
+      'endCaptures':
+        '0':
+          'name': 'punctuation.definition.string.end.css'
+      'name': 'string.quoted.single.css'
+      'patterns': [
+        {
+          'match': '\\\\([a-fA-F0-9]{1,6}|.)'
+          'name': 'constant.character.escape.css'
         }
       ]
 }
