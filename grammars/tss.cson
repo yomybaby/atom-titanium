@@ -8,10 +8,12 @@
     {
       'include': '#comment-block'
     }
+    # {
+    #   'include': '#selector'
+    # }
     { # ID 
-      'begin': '\"#'
-      'end': '\"'
-      'name': 'entity.other.attribute-name.id.css.tss'
+      'match': '(["\'])#.+?\\1'
+      'name': 'entity.other.attribute-name.id.css'
       'patterns':[
         {
           'include' : '#query'
@@ -19,9 +21,8 @@
       ]
     }
     { # CLASS
-      'begin': '\"\\.'
-      'end': '\"'
-      'name': 'entity.other.attribute-name.class.css.tss'
+      'match': '(["\'])\..+?\\1'
+      'name': 'entity.other.attribute-name.class.css'
       # "match": "\"#(.+)\""
       'patterns':[
         {
@@ -30,56 +31,117 @@
       ]
     }
     { # TAG
-      # TODO: create match generation code (below math from languate-tss package)
-      'begin': "\"(2DMatrix|3DMatrix|ActivityIndicator|ActivityIndicatorStyle|AlertDialog|Android|ProgressIndicator|SearchView|Animation|Button|ButtonBar|Clipboard|CoverFlowView|DashboardItem|DashboardView|EmailDialog|ImageView|Label|ListItem|ListSection|ListView|MaskedImage|MobileWeb|iOS|iPhone|NavigationGroup|TableViewSeparatorStyle|Notification|OptionDialog|Picker|PickerColumn|PickerRow|ProgressBar|RefreshControl|SMSDialog|ScrollView|ScrollableView|SearchBar|Slider|Switch|Tab|TabGroup|TabbedBar|TableView|TableViewRow|TableViewSection|TextArea|TextField|Toolbar|View|WebView|Window|iOS|3DMatrix|AdView|AnchorAttachmentBehavior|Animator|AttributedString|CollisionBehavior|CoverFlowView|DocumentViewer|DynamicItemBehavior|GravityBehavior|NavigationWindow|PushBehavior|SnapBehavior|TabbedBar|Toolbar|ViewAttachmentBehavior|iPad|DocumentViewer|Popover|SplitWindow|iPhone|ActivityIndicatorStyle|AlertDialogStyle|AnimationStyle|ListViewCellSelectionStyle|ListViewScrollPosition|ListViewSeparatorStyle|ListViewStyle|NavigationGroup|ProgressBarStyle|RowAnimationStyle|ScrollIndicatorStyle|StatusBar|SystemButton|SystemButtonStyle|SystemIcon|TableViewCellSelectionStyle|TableViewScrollPosition|TableViewSeparatorStyle|TableViewStyle)"
-      'end': "\""
-      'name' : 'entity.name.tag.css.tss'
+      # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
+      'match': "([\"'])(2DMatrix|3DMatrix|ActivityIndicator|ActivityIndicatorStyle|AlertDialog|Android|ProgressIndicator|SearchView|Animation|Button|ButtonBar|Clipboard|CoverFlowView|DashboardItem|DashboardView|EmailDialog|ImageView|Label|ListItem|ListSection|ListView|MaskedImage|MobileWeb|iOS|iPhone|NavigationGroup|TableViewSeparatorStyle|Notification|OptionDialog|Picker|PickerColumn|PickerRow|ProgressBar|RefreshControl|SMSDialog|ScrollView|ScrollableView|SearchBar|Slider|Switch|Tab|TabGroup|TabbedBar|TableView|TableViewRow|TableViewSection|TextArea|TextField|Toolbar|View|WebView|Window|iOS|3DMatrix|AdView|AnchorAttachmentBehavior|Animator|AttributedString|CollisionBehavior|CoverFlowView|DocumentViewer|DynamicItemBehavior|GravityBehavior|NavigationWindow|PushBehavior|SnapBehavior|TabbedBar|Toolbar|ViewAttachmentBehavior|iPad|DocumentViewer|Popover|SplitWindow|iPhone|ActivityIndicatorStyle|AlertDialogStyle|AnimationStyle|ListViewCellSelectionStyle|ListViewScrollPosition|ListViewSeparatorStyle|ListViewStyle|NavigationGroup|ProgressBarStyle|RowAnimationStyle|ScrollIndicatorStyle|StatusBar|SystemButton|SystemButtonStyle|SystemIcon|TableViewCellSelectionStyle|TableViewScrollPosition|TableViewSeparatorStyle|TableViewStyle)\\1"
+      'name' : 'entity.name.tag.css'
       'patterns':[
         {
           'include' : '#query'
         }
       ]
     }
-    { # PROPERTIES
-      'begin' : '\\{'
-      'end' : '\\}'
-      'name' : 'meta.body'
-      # 'name' : 'punctuation.definition.comment.js'
-      'patterns':[
-        {
-          # TODO: create match generation code (below math from languate-tss package)
-          'match': "accessibilityHidden|accessibilityHint|accessibilityLabel|accessibilityValue|active|activeTab|activeTabBackgroundColor|activeTabBackgroundDisabledColor|activeTabBackgroundDisabledImage|activeTabBackgroundFocusedColor|activeTabBackgroundFocusedImage|activeTabBackgroundImage|activeTabBackgroundSelectedColor|activeTabBackgroundSelectedImage|adSize|allowsSelection|allowsSelectionDuringEditing|allowUserCustomization|anchorPoint|appearance|autocapitalization|autocorrect|autoLink|backButtonTitle|backButtonTitleImage|backgroundColor|backgroundDisabledColor|backgroundDisabledImage|backgroundFocusedColor|backgroundFocusedImage|backgroundGradient|backgroundImage|backgroundLeftCap|backgroundPaddingBottom|backgroundPaddingLeft|backgroundPaddingRight|backgroundPaddingTop|backgroundRepeat|backgroundSelectedColor|backgroundSelectedImage|backgroundTopCap|badge|barColor|barImage|borderBottom|borderColor|borderRadius|borderStyle|borderTop|borderWidth|bottom|cacheSize|canCancelEvents|cancel|cancelable|canDelete|canScale|center|className|clearButtonMode|clearOnEdit|color|contentHeight|contentOffset|contentWidth|countDownDuration|currentPage|decodeRetries|defaultImage|disableBounce|disabledLeftTrackImage|disabledRightTrackImage|disabledThumbImage|duration|editable|editButtonTitle|editing|ellipsize|enabled|enableReturnKey|enableZoomControls|endPoint|filterAttribute|filterCaseInsensitive|focusable|fontFamily|fontWeight|fontSize|font|footerTitle|format24|fullscreen|hasCheck|hasChild|hasDetail|headerTitle|height|hideLoadIndicator|hideSearchOnSelection|highlightedColor|highlightedLeftTrackImage|highlightedRightTrackImage|highlightedThumbImage|hintText|hinttextid|hires|hitRect|horizontalBounce|horizontalMargin|horizontalWrap|html|images|image|icon|indentionLevel|keepScreenOn|keyboardToolbarColor|keyboardToolbarHeight|keyboardType|layout|left|leftButton|leftButtonMode|leftButtonPadding|leftImage|leftTrackImage|leftTrackLeftCap|leftTrackTopCap|loading|locale|location|mask|max|maxDate|maxLength|maxRange|maxRowHeight|maxZoomScale|message|messageBody|messageid|min|minDate|minimumFontSize|minRange|minRowHeight|minuteInterval|minZoomScale|modal|mode|moveable|navBarHidden|opacity|orientationModes|overlayEnabled|paddingLeft|paddingRight|pagingControlAlpha|pagingControlColor|pagingControlHeight|pagingControlOnTop|passwordMask|persistent|pluginState|preventDefaultImage|prompt|promptid|repeatCount|returnKeyType|reverse|right|rightButtonMode|rightButtonPadding|rightImage|rightTrackImage|rightTrackLeftCap|rightTrackTopCap|rowHeight|scalesPageToFit|scrollable|scrollIndicatorStyle|scrollingEnabled|scrollsToTop|scrollType|searchHidden|selectedBackgroundColor|selectedBackgroundImage|selectedColor|selectedImage|selectedLeftTrackImage|selectedRightTrackImage|selectedThumbImage|selectionIndicator|selectionStyle|separatorColor|separatorStyle|shadowColor|shadowImage|shadowOffset|showBookmark|showCancel|showHorizontalScrollIndicator|showPagingControl|showScrollbars|showVerticalScrollIndicator|softKeyboardOnFocus|startPoint|style|suppressReturn|systemButton|tabDividerColor|tabDividerWidth|tabHeight|tabsAtBottom|tabsBackgroundColor|tabsBackgroundDisabledColor|tabsBackgroundDisabledImage|tabsBackgroundFocusedColor|tabsBackgroundFocusedImage|tabsBackgroundImage|tabsBackgroundSelectedColor|tabsBackgroundSelectedImage|textAlign|text|textid|thumbImage|tint|title|titleid|titleImage|titleOff|titleOn|titlePrompt|titlepromptid|top|touchEnabled|translucent|type|useSpinner|value|verticalAlign|verticalBounce|verticalMargin|visibleItems|visible|width|willHandleTouches|windowPixelFormat|wobble|wordWrap|xOffset|yOffset|zIndex|zoomScale|exitOnClose"
-          # 'end' : ':'
-          'name': 'constant.variable'
-        }
-      ]
-    }
+    
+    # {
+    #   'begin': '(:)\\s*'
+    #   'beginCaptures':
+    #     '1':
+    #       'name': 'punctuation.separator.key-value.css'
+    #   'end': '\\s*(;|(?=\\}))'
+    #   'endCaptures':
+    #     '1':
+    #       'name': 'punctuation.terminator.rule.css'
+    #   'name': 'meta.property-value.css'
+    #   'patterns': [
+    #     {
+    #       'include': '#property-values'
+    #     }
+    #   ]
+    # }
     {
-      'begin': '(:)\\s*'
-      'beginCaptures':
-        '1':
-          'name': 'punctuation.separator.key-value.css'
-      'end': '\\s*(;|(?=\\}))'
-      'endCaptures':
-        '1':
-          'name': 'punctuation.terminator.rule.css'
-      'name': 'meta.property-value.css'
+      'begin': '(?=\\{)'
+      'end': '(?!\\G)'
       'patterns': [
         {
-          'include': '#property-values'
+          'include': '#rule-list'
         }
       ]
     }
-    
   ],
   'repository' :
+    'color-values':
+      'patterns': [
+        {
+          'comment': 'http://docs.appcelerator.com/platform/latest/#!/api/Titanium.UI'
+          'match': '\\b(aqua|black|blue|brown|cyan|darkgray|fuchsia|gray|green|lightgray|lime|magenta|maroon|navy|olive|orange|pink|purple|red|silver|teal|white|yellow)\\b'
+          'name': 'support.constant.color.w3c-standard-color-name.css'
+        }
+        {
+          'begin': '(rgba?)\\s*(\\()'
+          'beginCaptures':
+            '1':
+              'name': 'support.function.misc.css'
+            '2':
+              'name': 'punctuation.section.function.css'
+          'end': '(\\))'
+          'endCaptures':
+            '1':
+              'name': 'punctuation.section.function.css'
+          'patterns': [
+            {
+              'match': '(?x)\\b\n\t\t\t\t\t\t\t    (0*((1?[0-9]{1,2})|(2([0-4][0-9]|5[0-5])))\\s*,\\s*){2}\n\t\t\t\t\t\t\t    (0*((1?[0-9]{1,2})|(2([0-4][0-9]|5[0-5])))\\b)\n\t\t\t\t\t\t\t    (\\s*,\\s*((0?\\.[0-9]+)|[0-1]))?\n\t\t\t\t\t\t\t'
+              'name': 'constant.other.color.rgb-value.css'
+            }
+          ]
+        }
+        {
+          'captures':
+            '1':
+              'name': 'punctuation.definition.constant.css'
+          'match': '(#)([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\\b'
+          'name': 'constant.other.color.rgb-value.css'
+        }
+      ]
     'comment-block':
-      'begin': '/\\*'
-      'captures':
-        '0':
-          'name': 'punctuation.definition.comment.css'
-      'end': '\\*/'
-      'name': 'comment.block.css'
+      'patterns': [
+        {
+          'begin': '/\\*\\*(?!/)'
+          'captures':
+            '0':
+              'name': 'punctuation.definition.comment.js'
+          'patterns': [
+            {
+              'include': '#docblock'
+            }
+          ]
+          'end': '\\*/'
+          'name': 'comment.block.documentation.js'
+        }
+        {
+          'begin': '/\\*'
+          'captures':
+            '0':
+              'name': 'punctuation.definition.comment.js'
+          'end': '\\*/'
+          'name': 'comment.block.js'
+        }
+        {
+          'begin': '(^[ \\t]+)?(?=//)'
+          'beginCaptures':
+            '1':
+              'name': 'punctuation.whitespace.comment.leading.js'
+          'end': '(?!\\G)'
+          'patterns': [
+            {
+              'begin': '//'
+              'beginCaptures':
+                '0':
+                  'name': 'punctuation.definition.comment.js'
+              'end': '\\n'
+              'name': 'comment.line.double-slash.js'
+            }
+          ]
+        }
+      ]
     'query':
       'begin': '\\['
       'end': '\\]'
@@ -94,6 +156,7 @@
           'name' : 'meta.link'
         }
       ]
+    
     'property-values' :
       'patterns' : [
         {
@@ -111,17 +174,141 @@
         {
           'captures':
             '1':
-              'name': 'punctuation.definition.constant.css'
-          'match': '(#)([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\\b'
-          'name': 'constant.other.color.rgb-value.css'
-        }
-        {
-          'captures':
-            '1':
               'name': 'keyword.other.unit.css'
           'match': '(?x)\n\t\t\t\t\t    (?:-|\\+)?(?:(?:[0-9]+(?:\\.[0-9]+)?)|(?:\\.[0-9]+))\n\t\t\t\t\t    ((?:px|pt|ch|cm|mm|in|r?em|ex|pc|deg|g?rad|dpi|dpcm|dppx|fr|ms|s|turn|vh|vmax|vmin|vw)\\b|%)?\n\t\t\t\t\t'
           'name': 'constant.numeric.css'
         }
+      ]
+      
+    'selector':
+      'begin': '\\s*"(?=[:.*#a-zA-Z])'
+      'end': '"\\s*(?=:)'
+      'name': 'meta.selector.css'
+      'patterns': [
+        { # TAG
+          # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
+          'match': "(2DMatrix|3DMatrix|ActivityIndicator|ActivityIndicatorStyle|AlertDialog|Android|ProgressIndicator|SearchView|Animation|Button|ButtonBar|Clipboard|CoverFlowView|DashboardItem|DashboardView|EmailDialog|ImageView|Label|ListItem|ListSection|ListView|MaskedImage|MobileWeb|iOS|iPhone|NavigationGroup|TableViewSeparatorStyle|Notification|OptionDialog|Picker|PickerColumn|PickerRow|ProgressBar|RefreshControl|SMSDialog|ScrollView|ScrollableView|SearchBar|Slider|Switch|Tab|TabGroup|TabbedBar|TableView|TableViewRow|TableViewSection|TextArea|TextField|Toolbar|View|WebView|Window|iOS|3DMatrix|AdView|AnchorAttachmentBehavior|Animator|AttributedString|CollisionBehavior|CoverFlowView|DocumentViewer|DynamicItemBehavior|GravityBehavior|NavigationWindow|PushBehavior|SnapBehavior|TabbedBar|Toolbar|ViewAttachmentBehavior|iPad|DocumentViewer|Popover|SplitWindow|iPhone|ActivityIndicatorStyle|AlertDialogStyle|AnimationStyle|ListViewCellSelectionStyle|ListViewScrollPosition|ListViewSeparatorStyle|ListViewStyle|NavigationGroup|ProgressBarStyle|RowAnimationStyle|ScrollIndicatorStyle|StatusBar|SystemButton|SystemButtonStyle|SystemIcon|TableViewCellSelectionStyle|TableViewScrollPosition|TableViewSeparatorStyle|TableViewStyle)"
+          # 'end': "\""
+          'name' : 'entity.name.tag.css'
+          # 'patterns':[
+          #   {
+          #     'include' : '#query'
+          #   }
+          # ]
+        }
+      #   {
+      #     'match': '\\b(a|abbr|acronym|address|area|article|aside|audio|b|base|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|keygen|label|legend|li|link|main|map|mark|math|menu|menuitem|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|small|source|span|strike|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video|wbr)\\b'
+      #     'name': 'entity.name.tag.css'
+      #   }
+      #   {
+      #     'match': '\\b([a-zA-Z0-9]+(-[a-zA-Z0-9]+)+)(?=\\.|\\s++[^:]|\\s*[,{]|:(link|visited|hover|active|focus|target|lang|disabled|enabled|checked|indeterminate|root|nth-child()|nth-last-child()|nth-of-type()|nth-last-of-type()|first-child|last-child|first-of-type|last-of-type|only-child|only-of-type|empty|not|valid|invalid|:shadow)(\\([0-9A-Za-z]*\\))?)'
+      #     'name': 'entity.name.tag.custom.css'
+      #   }
+      #   {
+      #     'captures':
+      #       '1':
+      #         'name': 'punctuation.definition.entity.css'
+      #     'match': '(\\.)[a-zA-Z0-9_-]+'
+      #     'name': 'entity.other.attribute-name.class.css'
+      #   }
+      #   {
+      #     'captures':
+      #       '1':
+      #         'name': 'punctuation.definition.entity.css'
+      #     'match': '(#)[a-zA-Z][a-zA-Z0-9_-]*'
+      #     'name': 'entity.other.attribute-name.id.css'
+      #   }
+      #   {
+      #     'match': '\\*'
+      #     'name': 'entity.name.tag.wildcard.css'
+      #   }
+      #   {
+      #     'captures':
+      #       '1':
+      #         'name': 'punctuation.definition.entity.css'
+      #     'match': '(:+)(after|before|first-letter|first-line|selection)\\b'
+      #     'name': 'entity.other.attribute-name.pseudo-element.css'
+      #   }
+      #   {
+      #     'captures':
+      #       '1':
+      #         'name': 'punctuation.definition.entity.css'
+      #     'match': '(:)((first|last)-child|(first|last|only)-of-type|empty|root|target|first|left|right)\\b'
+      #     'name': 'entity.other.attribute-name.pseudo-class.css'
+      #   }
+      #   {
+      #     'captures':
+      #       '1':
+      #         'name': 'punctuation.definition.entity.css'
+      #     'match': '(:)(checked|enabled|default|disabled|indeterminate|invalid|optional|required|valid)\\b'
+      #     'name': 'entity.other.attribute-name.pseudo-class.ui-state.css'
+      #   }
+      #   {
+      #     'begin': '((:)not)(\\()'
+      #     'beginCaptures':
+      #       '1':
+      #         'name': 'entity.other.attribute-name.pseudo-class.css'
+      #       '2':
+      #         'name': 'punctuation.definition.entity.css'
+      #       '3':
+      #         'name': 'punctuation.section.function.css'
+      #     'end': '\\)'
+      #     'endCaptures':
+      #       '0':
+      #         'name': 'punctuation.section.function.css'
+      #     'patterns': [
+      #       {
+      #         'include': '#selector'
+      #       }
+      #     ]
+      #   }
+      #   {
+      #     'captures':
+      #       '1':
+      #         'name': 'entity.other.attribute-name.pseudo-class.css'
+      #       '2':
+      #         'name': 'punctuation.definition.entity.css'
+      #       '3':
+      #         'name': 'punctuation.section.function.css'
+      #       '4':
+      #         'name': 'constant.numeric.css'
+      #       '5':
+      #         'name': 'punctuation.section.function.css'
+      #     'match': '((:)nth-(?:(?:last-)?child|(?:last-)?of-type))(\\()(\\-?(?:\\d+n?|n)(?:\\+\\d+)?|even|odd)(\\))'
+      #   }
+      #   {
+      #     'captures':
+      #       '1':
+      #         'name': 'punctuation.definition.entity.css'
+      #     'match': '(:)(active|hover|link|visited|focus)\\b'
+      #     'name': 'entity.other.attribute-name.pseudo-class.css'
+      #   }
+      #   {
+      #     'captures':
+      #       '1':
+      #         'name': 'punctuation.definition.entity.css'
+      #     'match': '(::)(shadow)\\b'
+      #     'name': 'entity.other.attribute-name.pseudo-class.css'
+      #   }
+      #   {
+      #     'captures':
+      #       '1':
+      #         'name': 'punctuation.definition.entity.css'
+      #       '2':
+      #         'name': 'entity.other.attribute-name.attribute.css'
+      #       '3':
+      #         'name': 'punctuation.separator.operator.css'
+      #       '4':
+      #         'name': 'string.unquoted.attribute-value.css'
+      #       '5':
+      #         'name': 'string.quoted.double.attribute-value.css'
+      #       '6':
+      #         'name': 'punctuation.definition.string.begin.css'
+      #       '7':
+      #         'name': 'punctuation.definition.string.end.css'
+      #     'match': '(?i)(\\[)\\s*(-?[_a-z\\\\[[:^ascii:]]][_a-z0-9\\-\\\\[[:^ascii:]]]*)(?:\\s*([~|^$*]?=)\\s*(?:(-?[_a-z\\\\[[:^ascii:]]][_a-z0-9\\-\\\\[[:^ascii:]]]*)|((?>([\'"])(?:[^\\\\]|\\\\.)*?(\\6)))))?\\s*(\\])'
+      #     'name': 'meta.attribute-selector.css'
+      #   }
       ]
     'string-double':
       'begin': '"'
@@ -134,6 +321,9 @@
           'name': 'punctuation.definition.string.end.css'
       'name': 'string.quoted.double.css'
       'patterns': [
+        {
+          'include': '#color-values'
+        }
         {
           'match': '\\\\([a-fA-F0-9]{1,6}|.)'
           'name': 'constant.character.escape.css'
@@ -151,8 +341,75 @@
       'name': 'string.quoted.single.css'
       'patterns': [
         {
+          'include': '#color-values'
+        }
+        {
           'match': '\\\\([a-fA-F0-9]{1,6}|.)'
           'name': 'constant.character.escape.css'
+        }
+      ]
+    'rule-list': # PROPERTIES LIST
+      'begin' : '\\{'
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.section.property-list.begin.css'
+      'end' : '\\}'
+      'endCaptures':
+        '0':
+          'name': 'punctuation.section.property-list.end.css'
+      'name': 'meta.property-list.css'
+      # 'name' : 'punctuation.definition.comment.js'
+      'patterns':[
+        {
+          'include': '#comment-block'
+        }
+        {
+          'begin': '(?<![-a-z])(?=[-a-z])'
+          'end': '$|(?![-a-z])'
+          'name': 'meta.property-name.css'
+          # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
+          'patterns': [
+            {
+              'match': "accessibilityHidden|accessibilityHint|accessibilityLabel|accessibilityValue|active|activeTab|activeTabBackgroundColor|activeTabBackgroundDisabledColor|activeTabBackgroundDisabledImage|activeTabBackgroundFocusedColor|activeTabBackgroundFocusedImage|activeTabBackgroundImage|activeTabBackgroundSelectedColor|activeTabBackgroundSelectedImage|adSize|allowsSelection|allowsSelectionDuringEditing|allowUserCustomization|anchorPoint|appearance|autocapitalization|autocorrect|autoLink|backButtonTitle|backButtonTitleImage|backgroundColor|backgroundDisabledColor|backgroundDisabledImage|backgroundFocusedColor|backgroundFocusedImage|backgroundGradient|backgroundImage|backgroundLeftCap|backgroundPaddingBottom|backgroundPaddingLeft|backgroundPaddingRight|backgroundPaddingTop|backgroundRepeat|backgroundSelectedColor|backgroundSelectedImage|backgroundTopCap|badge|barColor|barImage|borderBottom|borderColor|borderRadius|borderStyle|borderTop|borderWidth|bottom|cacheSize|canCancelEvents|cancel|cancelable|canDelete|canScale|center|className|clearButtonMode|clearOnEdit|color|contentHeight|contentOffset|contentWidth|countDownDuration|currentPage|decodeRetries|defaultImage|disableBounce|disabledLeftTrackImage|disabledRightTrackImage|disabledThumbImage|duration|editable|editButtonTitle|editing|ellipsize|enabled|enableReturnKey|enableZoomControls|endPoint|filterAttribute|filterCaseInsensitive|focusable|fontFamily|fontWeight|fontSize|font|footerTitle|format24|fullscreen|hasCheck|hasChild|hasDetail|headerTitle|height|hideLoadIndicator|hideSearchOnSelection|highlightedColor|highlightedLeftTrackImage|highlightedRightTrackImage|highlightedThumbImage|hintText|hinttextid|hires|hitRect|horizontalBounce|horizontalMargin|horizontalWrap|html|images|image|icon|indentionLevel|keepScreenOn|keyboardToolbarColor|keyboardToolbarHeight|keyboardType|layout|left|leftButton|leftButtonMode|leftButtonPadding|leftImage|leftTrackImage|leftTrackLeftCap|leftTrackTopCap|loading|locale|location|mask|max|maxDate|maxLength|maxRange|maxRowHeight|maxZoomScale|message|messageBody|messageid|min|minDate|minimumFontSize|minRange|minRowHeight|minuteInterval|minZoomScale|modal|mode|moveable|navBarHidden|opacity|orientationModes|overlayEnabled|paddingLeft|paddingRight|pagingControlAlpha|pagingControlColor|pagingControlHeight|pagingControlOnTop|passwordMask|persistent|pluginState|preventDefaultImage|prompt|promptid|repeatCount|returnKeyType|reverse|right|rightButtonMode|rightButtonPadding|rightImage|rightTrackImage|rightTrackLeftCap|rightTrackTopCap|rowHeight|scalesPageToFit|scrollable|scrollIndicatorStyle|scrollingEnabled|scrollsToTop|scrollType|searchHidden|selectedBackgroundColor|selectedBackgroundImage|selectedColor|selectedImage|selectedLeftTrackImage|selectedRightTrackImage|selectedThumbImage|selectionIndicator|selectionStyle|separatorColor|separatorStyle|shadowColor|shadowImage|shadowOffset|showBookmark|showCancel|showHorizontalScrollIndicator|showPagingControl|showScrollbars|showVerticalScrollIndicator|softKeyboardOnFocus|startPoint|style|suppressReturn|systemButton|tabDividerColor|tabDividerWidth|tabHeight|tabsAtBottom|tabsBackgroundColor|tabsBackgroundDisabledColor|tabsBackgroundDisabledImage|tabsBackgroundFocusedColor|tabsBackgroundFocusedImage|tabsBackgroundImage|tabsBackgroundSelectedColor|tabsBackgroundSelectedImage|textAlign|text|textid|thumbImage|tint|title|titleid|titleImage|titleOff|titleOn|titlePrompt|titlepromptid|top|touchEnabled|translucent|type|useSpinner|value|verticalAlign|verticalBounce|verticalMargin|visibleItems|visible|width|willHandleTouches|windowPixelFormat|wobble|wordWrap|xOffset|yOffset|zIndex|zoomScale|exitOnClose"
+              'name': 'support.type.property-name.css'
+            }
+          ]
+        }
+        {
+          'begin': '(:)\\s*'
+          'beginCaptures':
+            '1':
+              'name': 'punctuation.separator.key-value.css'
+          'end': '\\s*(;|(?=\\}))'
+          'endCaptures':
+            '1':
+              'name': 'punctuation.terminator.rule.css'
+          'name': 'meta.property-value.css'
+          'patterns': [
+            {
+              'include': '#property-values'
+            }
+          ]
+        }
+      ]
+    'property-values':
+      'patterns': [
+        # {
+        #   'match': '\\b(absolute|all(-scroll)?|alternate-reverse|alternate|always|armenian|auto|avoid|backwards|baseline|below|bidi-override|block|bold|bolder|border-box|both|bottom|break-all|break-word|capitalize|center|char|circle|cjk-ideographic|col-resize|column|column-reverse|collapse|content-box|crosshair|dashed|decimal-leading-zero|decimal|default|disabled|disc|distribute-all-lines|distribute-letter|distribute-space|distribute|dotted|double|ease-in-out|ease-in|ease-out|ease|e-resize|ellipsis|fixed|flex|flex-end|flex-start|forwards|geometricPrecision|georgian|groove|hand|hebrew|help|hidden|hiragana-iroha|hiragana|horizontal|ideograph-alpha|ideograph-numeric|ideograph-parenthesis|ideograph-space|inactive|infinite|inherit|inline-block|inline|inset|inside|inter-ideograph|inter-word|italic|justify|katakana-iroha|katakana|keep-all|left|lighter|line-edge|line-through|line|list-item|loose|lower-alpha|lower-greek|lower-latin|lower-roman|lowercase|lr-tb|ltr|main-size|medium|middle|move|n-resize|ne-resize|newspaper|no-drop|no-repeat|nw-resize|none|normal|not-allowed|nowrap|oblique|optimize(Legibility|Quality|Speed)|outset|outside|overline|padding-box|pointer|pre(-(wrap|line))?|progress|relative|repeat-x|repeat-y|repeat|reverse|right|ridge|row-resize|row-severse|rtl|running|s-resize|scroll|se-resize|separate|small-caps|solid|space-around|space-between|square|start|static|step-end|step-start|stretch|strict|sub|super|sw-resize|table-footer-group|table-header-group|tb-rl|text-bottom|text-top|text|thick|thin|top|transparent|underline|upper-alpha|upper-latin|upper-roman|uppercase|vertical(-(ideographic|text))?|visible(Painted|Fill|Stroke)?|w-resize|wait|whitespace|wrap|wrap-reverse|zero|smaller|larger|((xx?-)?(small|large))|painted|paused|fill|end|stroke)\\b'
+        #   'name': 'support.constant.property-value.css'
+        # }
+        # {
+        #   'match': '(\\b(?i:arial|century|comic|courier|garamond|georgia|helvetica|impact|lucida|symbol|system|tahoma|times|trebuchet|utopia|verdana|webdings|sans-serif|serif|monospace)\\b)'
+        #   'name': 'support.constant.font-name.css'
+        # }
+        {
+          'include': '#numeric-values'
+        }
+        {
+          'include': '#string-double'
+        }
+        {
+          'include': '#string-single'
         }
       ]
 }
