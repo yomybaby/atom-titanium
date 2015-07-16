@@ -8,7 +8,7 @@
     "titanium",
     "alloy"
   ],
-  "repository": "https://github.com/yomybaby/titanium",
+  "repository": "https://github.com/yomybaby/atom-titanium",
   "license": "MIT",
   "engines": {
     "atom": ">=0.174.0 <2.0.0"
