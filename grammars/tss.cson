@@ -8,9 +8,6 @@
     {
       'include': '#comment-block'
     }
-    # {
-    #   'include': '#selector'
-    # }
     { # ID 
       'match': '(["\'])#.+?\\1'
       'name': 'entity.other.attribute-name.id.css'
@@ -40,23 +37,6 @@
         }
       ]
     }
-    
-    # {
-    #   'begin': '(:)\\s*'
-    #   'beginCaptures':
-    #     '1':
-    #       'name': 'punctuation.separator.key-value.css'
-    #   'end': '\\s*(;|(?=\\}))'
-    #   'endCaptures':
-    #     '1':
-    #       'name': 'punctuation.terminator.rule.css'
-    #   'name': 'meta.property-value.css'
-    #   'patterns': [
-    #     {
-    #       'include': '#property-values'
-    #     }
-    #   ]
-    # }
     {
       'begin': '(?=\\{)'
       'end': '(?!\\G)'
@@ -97,7 +77,7 @@
           'captures':
             '1':
               'name': 'punctuation.definition.constant.css'
-          'match': '(#)([0-9a-fA-F]{3}|[0-9a-fA-F]{6})\\b'
+          'match': '(#)([0-9a-fA-F]{3}|[0-9a-fA-F]{6}|[0-9a-fA-F]{8})\\b'
           'name': 'constant.other.color.rgb-value.css'
         }
       ]
@@ -196,119 +176,6 @@
           #   }
           # ]
         }
-      #   {
-      #     'match': '\\b(a|abbr|acronym|address|area|article|aside|audio|b|base|bdi|bdo|big|blockquote|body|br|button|canvas|caption|cite|code|col|colgroup|data|datalist|dd|del|details|dfn|dialog|div|dl|dt|em|embed|eventsource|fieldset|figure|figcaption|footer|form|frame|frameset|(h[1-6])|head|header|hgroup|hr|html|i|iframe|img|input|ins|kbd|keygen|label|legend|li|link|main|map|mark|math|menu|menuitem|meta|meter|nav|noframes|noscript|object|ol|optgroup|option|output|p|param|picture|pre|progress|q|rb|rp|rt|rtc|ruby|s|samp|script|section|select|small|source|span|strike|strong|style|sub|summary|sup|svg|table|tbody|td|template|textarea|tfoot|th|thead|time|title|tr|track|tt|u|ul|var|video|wbr)\\b'
-      #     'name': 'entity.name.tag.css'
-      #   }
-      #   {
-      #     'match': '\\b([a-zA-Z0-9]+(-[a-zA-Z0-9]+)+)(?=\\.|\\s++[^:]|\\s*[,{]|:(link|visited|hover|active|focus|target|lang|disabled|enabled|checked|indeterminate|root|nth-child()|nth-last-child()|nth-of-type()|nth-last-of-type()|first-child|last-child|first-of-type|last-of-type|only-child|only-of-type|empty|not|valid|invalid|:shadow)(\\([0-9A-Za-z]*\\))?)'
-      #     'name': 'entity.name.tag.custom.css'
-      #   }
-      #   {
-      #     'captures':
-      #       '1':
-      #         'name': 'punctuation.definition.entity.css'
-      #     'match': '(\\.)[a-zA-Z0-9_-]+'
-      #     'name': 'entity.other.attribute-name.class.css'
-      #   }
-      #   {
-      #     'captures':
-      #       '1':
-      #         'name': 'punctuation.definition.entity.css'
-      #     'match': '(#)[a-zA-Z][a-zA-Z0-9_-]*'
-      #     'name': 'entity.other.attribute-name.id.css'
-      #   }
-      #   {
-      #     'match': '\\*'
-      #     'name': 'entity.name.tag.wildcard.css'
-      #   }
-      #   {
-      #     'captures':
-      #       '1':
-      #         'name': 'punctuation.definition.entity.css'
-      #     'match': '(:+)(after|before|first-letter|first-line|selection)\\b'
-      #     'name': 'entity.other.attribute-name.pseudo-element.css'
-      #   }
-      #   {
-      #     'captures':
-      #       '1':
-      #         'name': 'punctuation.definition.entity.css'
-      #     'match': '(:)((first|last)-child|(first|last|only)-of-type|empty|root|target|first|left|right)\\b'
-      #     'name': 'entity.other.attribute-name.pseudo-class.css'
-      #   }
-      #   {
-      #     'captures':
-      #       '1':
-      #         'name': 'punctuation.definition.entity.css'
-      #     'match': '(:)(checked|enabled|default|disabled|indeterminate|invalid|optional|required|valid)\\b'
-      #     'name': 'entity.other.attribute-name.pseudo-class.ui-state.css'
-      #   }
-      #   {
-      #     'begin': '((:)not)(\\()'
-      #     'beginCaptures':
-      #       '1':
-      #         'name': 'entity.other.attribute-name.pseudo-class.css'
-      #       '2':
-      #         'name': 'punctuation.definition.entity.css'
-      #       '3':
-      #         'name': 'punctuation.section.function.css'
-      #     'end': '\\)'
-      #     'endCaptures':
-      #       '0':
-      #         'name': 'punctuation.section.function.css'
-      #     'patterns': [
-      #       {
-      #         'include': '#selector'
-      #       }
-      #     ]
-      #   }
-      #   {
-      #     'captures':
-      #       '1':
-      #         'name': 'entity.other.attribute-name.pseudo-class.css'
-      #       '2':
-      #         'name': 'punctuation.definition.entity.css'
-      #       '3':
-      #         'name': 'punctuation.section.function.css'
-      #       '4':
-      #         'name': 'constant.numeric.css'
-      #       '5':
-      #         'name': 'punctuation.section.function.css'
-      #     'match': '((:)nth-(?:(?:last-)?child|(?:last-)?of-type))(\\()(\\-?(?:\\d+n?|n)(?:\\+\\d+)?|even|odd)(\\))'
-      #   }
-      #   {
-      #     'captures':
-      #       '1':
-      #         'name': 'punctuation.definition.entity.css'
-      #     'match': '(:)(active|hover|link|visited|focus)\\b'
-      #     'name': 'entity.other.attribute-name.pseudo-class.css'
-      #   }
-      #   {
-      #     'captures':
-      #       '1':
-      #         'name': 'punctuation.definition.entity.css'
-      #     'match': '(::)(shadow)\\b'
-      #     'name': 'entity.other.attribute-name.pseudo-class.css'
-      #   }
-      #   {
-      #     'captures':
-      #       '1':
-      #         'name': 'punctuation.definition.entity.css'
-      #       '2':
-      #         'name': 'entity.other.attribute-name.attribute.css'
-      #       '3':
-      #         'name': 'punctuation.separator.operator.css'
-      #       '4':
-      #         'name': 'string.unquoted.attribute-value.css'
-      #       '5':
-      #         'name': 'string.quoted.double.attribute-value.css'
-      #       '6':
-      #         'name': 'punctuation.definition.string.begin.css'
-      #       '7':
-      #         'name': 'punctuation.definition.string.end.css'
-      #     'match': '(?i)(\\[)\\s*(-?[_a-z\\\\[[:^ascii:]]][_a-z0-9\\-\\\\[[:^ascii:]]]*)(?:\\s*([~|^$*]?=)\\s*(?:(-?[_a-z\\\\[[:^ascii:]]][_a-z0-9\\-\\\\[[:^ascii:]]]*)|((?>([\'"])(?:[^\\\\]|\\\\.)*?(\\6)))))?\\s*(\\])'
-      #     'name': 'meta.attribute-selector.css'
-      #   }
       ]
     'string-double':
       'begin': '"'

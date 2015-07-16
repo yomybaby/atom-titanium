@@ -7,4 +7,9 @@ module.exports = Titanium =
     related.activate()
   # deactivate: ->
   # serialize: ->
-  getProvider: -> [jsProvider]
+  # getProvider: -> [jsProvider]
+  config:
+    openSourceInSplitWindow:
+      type: 'boolean'
+      default: false
+      title: 'Open source in split window'
