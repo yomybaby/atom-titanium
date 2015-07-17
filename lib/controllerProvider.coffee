@@ -1,5 +1,4 @@
 fs = require('fs')
-_ = require('underscore');
 api = JSON.parse(fs.readFileSync("/usr/local/lib/node_modules/alloy/docs/api.jsca", "utf8"));
 tagRegExp =  /(<([^>]+)>)/ig
 

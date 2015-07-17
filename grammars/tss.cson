@@ -1,5 +1,5 @@
 {
-  "scopeName": "source.tss",
+  "scopeName": "source.css.tss",
   "name": "TSS",
   "fileTypes": [
     "tss"
@@ -40,15 +40,20 @@
         }
       ]
     }
+    # {
+    #   'begin': '(?=\\{)'
+    #   'end': '(?!\\G)'
+    #   'name' : 'entity.name.tag.css'
+    #   'patterns': [
+    #     {
+    #       'include': '#rule-list'
+    #     }
+    #   ]
+    # }
     {
-      'begin': '(?=\\{)'
-      'end': '(?!\\G)'
-      'patterns': [
-        {
-          'include': '#rule-list'
-        }
-      ]
+      'include' : '#object'
     }
+    
   ],
   'repository' :
     'color-values':
@@ -139,19 +144,6 @@
           'name' : 'meta.link'
         }
       ]
-    
-    'property-values' :
-      'patterns' : [
-        {
-          'include': '#numeric-values'
-        }
-        {
-          'include': '#string-double'
-        }
-        {
-          'include': '#string-single'
-        }
-      ]
     'numeric-values':
       'patterns': [
         {
@@ -162,35 +154,16 @@
           'name': 'constant.numeric.css'
         }
       ]
-    'string-double':
-      'begin': '"'
+    'string':
+      'begin': '(["\'])'
       'beginCaptures':
         '0':
           'name': 'punctuation.definition.string.begin.css'
-      'end': '"'
+      'end': '\\1'
       'endCaptures':
         '0':
           'name': 'punctuation.definition.string.end.css'
       'name': 'string.quoted.double.css'
-      'patterns': [
-        {
-          'include': '#color-values'
-        }
-        {
-          'match': '\\\\([a-fA-F0-9]{1,6}|.)'
-          'name': 'constant.character.escape.css'
-        }
-      ]
-    'string-single':
-      'begin': '\''
-      'beginCaptures':
-        '0':
-          'name': 'punctuation.definition.string.begin.css'
-      'end': '\''
-      'endCaptures':
-        '0':
-          'name': 'punctuation.definition.string.end.css'
-      'name': 'string.quoted.single.css'
       'patterns': [
         {
           'include': '#color-values'
@@ -258,10 +231,119 @@
           'include': '#numeric-values'
         }
         {
-          'include': '#string-double'
-        }
-        {
-          'include': '#string-single'
+          'include': '#string'
         }
       ]
+    'object':
+      'begin': '\\{'
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.definition.dictionary.begin.json'
+      'comment': 'a JSON object'
+      'end': '\\}'
+      'endCaptures':
+        '0':
+          'name': 'punctuation.definition.dictionary.end.json'
+      'name': 'meta.structure.dictionary.json'
+      'patterns': [
+        {
+          'comment': 'the JSON object key'
+          # 'include': '#string'
+          'include' : '#titanium-key'
+        }
+        {
+          'begin': ':'
+          'beginCaptures':
+            '0':
+              'name': 'punctuation.separator.dictionary.key-value.json'
+          'end': '(,)|(?=\\})'
+          'endCaptures':
+            '1':
+              'name': 'punctuation.separator.dictionary.pair.json'
+          'name': 'meta.structure.dictionary.value.json'
+          'patterns': [
+            {
+              'comment': 'the JSON object value'
+              'include': '#value'
+            }
+            {
+              'match': '[^\\s,]'
+              'name': 'meta.property-value.css'
+            }
+          ]
+        }
+        {
+          'match': '[^\\s\\}]'
+          'name': 'meta.property-value.css'
+        }
+      ]
+    'array':
+      'begin': '\\['
+      'beginCaptures':
+        '0':
+          'name': 'punctuation.definition.array.begin.json'
+      'end': '\\]'
+      'endCaptures':
+        '0':
+          'name': 'punctuation.definition.array.end.json'
+      'name': 'meta.structure.array.json'
+      'patterns': [
+        {
+          'include': '#value'
+        }
+        {
+          'match': ','
+          'name': 'punctuation.separator.array.json'
+        }
+        {
+          'match': '[^\\s\\]]'
+          'name': 'invalid.illegal.expected-array-separator.json'
+        }
+      ]
+    'constant':
+      'match': '\\b(?:true|false|null|undefined)\\b'
+      'name': 'constant.language.json'
+    'value':
+      'comment': 'the \'value\' diagram at http://json.org'
+      'patterns': [
+        {
+          'include': '#constant'
+        }
+        {
+          'include': '#numeric-values'
+        }
+        {
+          'include': '#titanium-value'
+        }
+        {
+          'include': '#string'
+        }
+        {
+          'include': '#array'
+        }
+        {
+          'include': '#object'
+        }
+      ]
+    'titanium-value':
+      # 'match': '\\b(absolute|all(-scroll)?|alternate-reverse|alternate|always|armenian|auto|avoid|backwards|baseline|below|bidi-override|block|bold|bolder|border-box|both|bottom|break-all|break-word|capitalize|center|char|circle|cjk-ideographic|col-resize|column|column-reverse|collapse|content-box|crosshair|dashed|decimal-leading-zero|decimal|default|disabled|disc|distribute-all-lines|distribute-letter|distribute-space|distribute|dotted|double|ease-in-out|ease-in|ease-out|ease|e-resize|ellipsis|fixed|flex|flex-end|flex-start|forwards|geometricPrecision|georgian|groove|hand|hebrew|help|hidden|hiragana-iroha|hiragana|horizontal|ideograph-alpha|ideograph-numeric|ideograph-parenthesis|ideograph-space|inactive|infinite|inherit|inline-block|inline|inset|inside|inter-ideograph|inter-word|italic|justify|katakana-iroha|katakana|keep-all|left|lighter|line-edge|line-through|line|list-item|loose|lower-alpha|lower-greek|lower-latin|lower-roman|lowercase|lr-tb|ltr|main-size|medium|middle|move|n-resize|ne-resize|newspaper|no-drop|no-repeat|nw-resize|none|normal|not-allowed|nowrap|oblique|optimize(Legibility|Quality|Speed)|outset|outside|overline|padding-box|pointer|pre(-(wrap|line))?|progress|relative|repeat-x|repeat-y|repeat|reverse|right|ridge|row-resize|row-severse|rtl|running|s-resize|scroll|se-resize|separate|small-caps|solid|space-around|space-between|square|start|static|step-end|step-start|stretch|strict|sub|super|sw-resize|table-footer-group|table-header-group|tb-rl|text-bottom|text-top|text|thick|thin|top|transparent|underline|upper-alpha|upper-latin|upper-roman|uppercase|vertical(-(ideographic|text))?|visible(Painted|Fill|Stroke)?|w-resize|wait|whitespace|wrap|wrap-reverse|zero|smaller|larger|((xx?-)?(small|large))|painted|paused|fill|end|stroke)\\b'
+      'name': 'support.constant.property-value.css'
+      'patterns':[
+        {
+          # 
+          # "name": "support.class.tss"
+          # "match": "Titanium|Ti|TEXT_ALIGNMENT_RIGHT|TEXT_ALIGNMENT_LEFT|TEXT_ALIGNMENT_CENTER|FILL|SIZE|UI|Alloy|Globals|PORTRAIT|LANDSCAPE"
+          # 'begin' : 'Ti|Titanium|Alloy'
+        }
+        {
+          "name": "support.constant.tss"
+          # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
+          "match": "([\"'])\\b(transparent|vertical|horizontal|bold|SIZE|FILL)\\b\\1"
+        }
+      ]
+      
+    'titanium-key':
+      # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
+      'match': "accessibilityHidden|accessibilityHint|accessibilityLabel|accessibilityValue|active|activeTab|activeTabBackgroundColor|activeTabBackgroundDisabledColor|activeTabBackgroundDisabledImage|activeTabBackgroundFocusedColor|activeTabBackgroundFocusedImage|activeTabBackgroundImage|activeTabBackgroundSelectedColor|activeTabBackgroundSelectedImage|adSize|allowsSelection|allowsSelectionDuringEditing|allowUserCustomization|anchorPoint|appearance|autocapitalization|autocorrect|autoLink|backButtonTitle|backButtonTitleImage|backgroundColor|backgroundDisabledColor|backgroundDisabledImage|backgroundFocusedColor|backgroundFocusedImage|backgroundGradient|backgroundImage|backgroundLeftCap|backgroundPaddingBottom|backgroundPaddingLeft|backgroundPaddingRight|backgroundPaddingTop|backgroundRepeat|backgroundSelectedColor|backgroundSelectedImage|backgroundTopCap|badge|barColor|barImage|borderBottom|borderColor|borderRadius|borderStyle|borderTop|borderWidth|bottom|cacheSize|canCancelEvents|cancel|cancelable|canDelete|canScale|center|className|clearButtonMode|clearOnEdit|color|contentHeight|contentOffset|contentWidth|countDownDuration|currentPage|decodeRetries|defaultImage|disableBounce|disabledLeftTrackImage|disabledRightTrackImage|disabledThumbImage|duration|editable|editButtonTitle|editing|ellipsize|enabled|enableReturnKey|enableZoomControls|endPoint|filterAttribute|filterCaseInsensitive|focusable|fontFamily|fontWeight|fontSize|font|footerTitle|format24|fullscreen|hasCheck|hasChild|hasDetail|headerTitle|height|hideLoadIndicator|hideSearchOnSelection|highlightedColor|highlightedLeftTrackImage|highlightedRightTrackImage|highlightedThumbImage|hintText|hinttextid|hires|hitRect|horizontalBounce|horizontalMargin|horizontalWrap|html|images|image|icon|indentionLevel|keepScreenOn|keyboardToolbarColor|keyboardToolbarHeight|keyboardType|layout|left|leftButton|leftButtonMode|leftButtonPadding|leftImage|leftTrackImage|leftTrackLeftCap|leftTrackTopCap|loading|locale|location|mask|max|maxDate|maxLength|maxRange|maxRowHeight|maxZoomScale|message|messageBody|messageid|min|minDate|minimumFontSize|minRange|minRowHeight|minuteInterval|minZoomScale|modal|mode|moveable|navBarHidden|opacity|orientationModes|overlayEnabled|paddingLeft|paddingRight|pagingControlAlpha|pagingControlColor|pagingControlHeight|pagingControlOnTop|passwordMask|persistent|pluginState|preventDefaultImage|prompt|promptid|repeatCount|returnKeyType|reverse|right|rightButtonMode|rightButtonPadding|rightImage|rightTrackImage|rightTrackLeftCap|rightTrackTopCap|rowHeight|scalesPageToFit|scrollable|scrollIndicatorStyle|scrollingEnabled|scrollsToTop|scrollType|searchHidden|selectedBackgroundColor|selectedBackgroundImage|selectedColor|selectedImage|selectedLeftTrackImage|selectedRightTrackImage|selectedThumbImage|selectionIndicator|selectionStyle|separatorColor|separatorStyle|shadowColor|shadowImage|shadowOffset|showBookmark|showCancel|showHorizontalScrollIndicator|showPagingControl|showScrollbars|showVerticalScrollIndicator|softKeyboardOnFocus|startPoint|style|suppressReturn|systemButton|tabDividerColor|tabDividerWidth|tabHeight|tabsAtBottom|tabsBackgroundColor|tabsBackgroundDisabledColor|tabsBackgroundDisabledImage|tabsBackgroundFocusedColor|tabsBackgroundFocusedImage|tabsBackgroundImage|tabsBackgroundSelectedColor|tabsBackgroundSelectedImage|textAlign|text|textid|thumbImage|tint|title|titleid|titleImage|titleOff|titleOn|titlePrompt|titlepromptid|top|touchEnabled|translucent|type|useSpinner|value|verticalAlign|verticalBounce|verticalMargin|visibleItems|visible|width|willHandleTouches|windowPixelFormat|wobble|wordWrap|xOffset|yOffset|zIndex|zoomScale|exitOnClose"
+      'name': 'support.type.property-name.css'
 }
