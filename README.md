@@ -11,6 +11,9 @@ Key Bindings | Command Desc
 'ctrl-alt-s' | Open style
 'ctrl-alt-c' | Open Controller
 
+- TSS Sytax Highlight
+
+![tss-highlight](https://github.com/yomybaby/atom-titanium/raw/master/screenshot1.gif)
 
 ## Todos
 
