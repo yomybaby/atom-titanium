@@ -9,7 +9,8 @@
       'include': '#comment-block'
     }
     { # ID 
-      'match': '(["\'])#.+?\\1'
+      'begin': '(["\'])#.+?'
+      'end' : '\\1'
       'name': 'entity.other.attribute-name.id.css'
       'patterns':[
         {
@@ -18,7 +19,8 @@
       ]
     }
     { # CLASS
-      'match': '(["\'])\..+?\\1'
+      'begin': '(["\'])\\..+?'
+      'end' : '\\1'
       'name': 'entity.other.attribute-name.class.css'
       # "match": "\"#(.+)\""
       'patterns':[
@@ -29,7 +31,8 @@
     }
     { # TAG
       # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
-      'match': "([\"'])(2DMatrix|3DMatrix|ActivityIndicator|ActivityIndicatorStyle|AlertDialog|Android|ProgressIndicator|SearchView|Animation|Button|ButtonBar|Clipboard|CoverFlowView|DashboardItem|DashboardView|EmailDialog|ImageView|Label|ListItem|ListSection|ListView|MaskedImage|MobileWeb|iOS|iPhone|NavigationGroup|TableViewSeparatorStyle|Notification|OptionDialog|Picker|PickerColumn|PickerRow|ProgressBar|RefreshControl|SMSDialog|ScrollView|ScrollableView|SearchBar|Slider|Switch|Tab|TabGroup|TabbedBar|TableView|TableViewRow|TableViewSection|TextArea|TextField|Toolbar|View|WebView|Window|iOS|3DMatrix|AdView|AnchorAttachmentBehavior|Animator|AttributedString|CollisionBehavior|CoverFlowView|DocumentViewer|DynamicItemBehavior|GravityBehavior|NavigationWindow|PushBehavior|SnapBehavior|TabbedBar|Toolbar|ViewAttachmentBehavior|iPad|DocumentViewer|Popover|SplitWindow|iPhone|ActivityIndicatorStyle|AlertDialogStyle|AnimationStyle|ListViewCellSelectionStyle|ListViewScrollPosition|ListViewSeparatorStyle|ListViewStyle|NavigationGroup|ProgressBarStyle|RowAnimationStyle|ScrollIndicatorStyle|StatusBar|SystemButton|SystemButtonStyle|SystemIcon|TableViewCellSelectionStyle|TableViewScrollPosition|TableViewSeparatorStyle|TableViewStyle)\\1"
+      'begin': "([\"'])(2DMatrix|3DMatrix|ActivityIndicator|ActivityIndicatorStyle|AlertDialog|Android|ProgressIndicator|SearchView|Animation|Button|ButtonBar|Clipboard|CoverFlowView|DashboardItem|DashboardView|EmailDialog|ImageView|Label|ListItem|ListSection|ListView|MaskedImage|MobileWeb|iOS|iPhone|NavigationGroup|TableViewSeparatorStyle|Notification|OptionDialog|Picker|PickerColumn|PickerRow|ProgressBar|RefreshControl|SMSDialog|ScrollView|ScrollableView|SearchBar|Slider|Switch|Tab|TabGroup|TabbedBar|TableView|TableViewRow|TableViewSection|TextArea|TextField|Toolbar|View|WebView|Window|iOS|3DMatrix|AdView|AnchorAttachmentBehavior|Animator|AttributedString|CollisionBehavior|CoverFlowView|DocumentViewer|DynamicItemBehavior|GravityBehavior|NavigationWindow|PushBehavior|SnapBehavior|TabbedBar|Toolbar|ViewAttachmentBehavior|iPad|DocumentViewer|Popover|SplitWindow|iPhone|ActivityIndicatorStyle|AlertDialogStyle|AnimationStyle|ListViewCellSelectionStyle|ListViewScrollPosition|ListViewSeparatorStyle|ListViewStyle|NavigationGroup|ProgressBarStyle|RowAnimationStyle|ScrollIndicatorStyle|StatusBar|SystemButton|SystemButtonStyle|SystemIcon|TableViewCellSelectionStyle|TableViewScrollPosition|TableViewSeparatorStyle|TableViewStyle)"
+      'end' : '\\1'
       'name' : 'entity.name.tag.css'
       'patterns':[
         {
@@ -157,24 +160,6 @@
               'name': 'keyword.other.unit.css'
           'match': '(?x)\n\t\t\t\t\t    (?:-|\\+)?(?:(?:[0-9]+(?:\\.[0-9]+)?)|(?:\\.[0-9]+))\n\t\t\t\t\t    ((?:px|pt|ch|cm|mm|in|r?em|ex|pc|deg|g?rad|dpi|dpcm|dppx|fr|ms|s|turn|vh|vmax|vmin|vw)\\b|%)?\n\t\t\t\t\t'
           'name': 'constant.numeric.css'
-        }
-      ]
-      
-    'selector':
-      'begin': '\\s*"(?=[:.*#a-zA-Z])'
-      'end': '"\\s*(?=:)'
-      'name': 'meta.selector.css'
-      'patterns': [
-        { # TAG
-          # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
-          'match': "(2DMatrix|3DMatrix|ActivityIndicator|ActivityIndicatorStyle|AlertDialog|Android|ProgressIndicator|SearchView|Animation|Button|ButtonBar|Clipboard|CoverFlowView|DashboardItem|DashboardView|EmailDialog|ImageView|Label|ListItem|ListSection|ListView|MaskedImage|MobileWeb|iOS|iPhone|NavigationGroup|TableViewSeparatorStyle|Notification|OptionDialog|Picker|PickerColumn|PickerRow|ProgressBar|RefreshControl|SMSDialog|ScrollView|ScrollableView|SearchBar|Slider|Switch|Tab|TabGroup|TabbedBar|TableView|TableViewRow|TableViewSection|TextArea|TextField|Toolbar|View|WebView|Window|iOS|3DMatrix|AdView|AnchorAttachmentBehavior|Animator|AttributedString|CollisionBehavior|CoverFlowView|DocumentViewer|DynamicItemBehavior|GravityBehavior|NavigationWindow|PushBehavior|SnapBehavior|TabbedBar|Toolbar|ViewAttachmentBehavior|iPad|DocumentViewer|Popover|SplitWindow|iPhone|ActivityIndicatorStyle|AlertDialogStyle|AnimationStyle|ListViewCellSelectionStyle|ListViewScrollPosition|ListViewSeparatorStyle|ListViewStyle|NavigationGroup|ProgressBarStyle|RowAnimationStyle|ScrollIndicatorStyle|StatusBar|SystemButton|SystemButtonStyle|SystemIcon|TableViewCellSelectionStyle|TableViewScrollPosition|TableViewSeparatorStyle|TableViewStyle)"
-          # 'end': "\""
-          'name' : 'entity.name.tag.css'
-          # 'patterns':[
-          #   {
-          #     'include' : '#query'
-          #   }
-          # ]
         }
       ]
     'string-double':
