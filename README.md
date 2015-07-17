@@ -11,7 +11,7 @@ Key Bindings | Command Desc
 'ctrl-alt-s' | Open style
 'ctrl-alt-c' | Open Controller
 
-- TSS Sytax Highlight : (use grammar of language-css and language-json, refer to language-tss)
+- TSS Sytax Highlight : (refer to language-css and language-json, language-tss)
 ![tss-highlight](https://github.com/yomybaby/atom-titanium/raw/master/screenshot1.gif)  
 This hightlight use css color your current theme. So tss file looks like css file.
 
