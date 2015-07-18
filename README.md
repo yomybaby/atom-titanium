@@ -18,5 +18,6 @@ This hightlight use css color your current theme. So tss file looks like css fil
 ## Todos
 - Auto complete (.js, .xml, .tss)
     - tss ( [autocomplete css](https://github.com/atom/autocomplete-css))
-- Move to tss style code from view ( look at [this css package](https://github.com/js-padavan/atom-css-class-checker))
-- Move to Controller from Event handler of View
+- Jump to definition by clicking (view to style definition, view to controller handler, reverses..)
+    - ref 1 : [css package](https://github.com/js-padavan/atom-css-class-checker))
+    - ref 2 : [hyperclick](https://atom.io/packages/hyperclick)
