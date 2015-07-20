@@ -10,8 +10,8 @@ module.exports = Titanium =
   # serialize: ->
   # getProvider: -> [jsProvider]
   getClickProvider: -> clickProvider.getProvider()
-  config:
-    openSourceInSplitWindow:
-      type: 'boolean'
-      default: false
-      title: 'Open source in split window'
+  # config:
+  #   openSourceInSplitWindow:
+  #     type: 'boolean'
+  #     default: false
+  #     title: 'Open source in split window'
