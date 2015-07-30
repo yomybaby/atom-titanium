@@ -1,4 +1,4 @@
-# Atom package for Titanium Alloy
+# All-in-One package for Titanium Alloy
 This is a Atom package for [Titanium Alloy](https://github.com/appcelerator/alloy)
 
 ## Features
