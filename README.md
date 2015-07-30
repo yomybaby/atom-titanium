@@ -23,14 +23,14 @@ Key Bindings | Command Desc
 'ctrl-alt-c' | Open Controller
 
 ### TSS Sytax Highlight  
-refer to language-css and language-json, language-tss
+refer to language-css and language-json, language-tss  
 ![tss-highlight](https://github.com/yomybaby/atom-titanium/raw/master/screenshot1.gif)  
 This hightlight use css color your current theme. So tss file looks like css file.
 
 ## Todos
 - Auto complete (.js, .xml, .tss)
     - tss ( [autocomplete css](https://github.com/atom/autocomplete-css))
-- Jump to definition by clicking (view to style definition, view to controller handler, reverses..)
+- Jump to definition by clicking (~~view to style definition~~(v0.3.0), view to controller handler, reverses..)
     - ref 1 : [css package](https://github.com/js-padavan/atom-css-class-checker))
     - ref 2 : [hyperclick](https://atom.io/packages/hyperclick)
 
