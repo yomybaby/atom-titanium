@@ -1,6 +1,6 @@
 {CompositeDisposable} = require 'atom'
 related = require './related'
-jsProvider = require './controllerProvider'
+# jsProvider = require './controllerProvider'
 clickProvider = require './clickProvider'
 
 module.exports = Titanium =
