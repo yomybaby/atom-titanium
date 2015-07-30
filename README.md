@@ -1,17 +1,29 @@
 # Atom package for Titanium Alloy
 This is a Atom package for [Titanium Alloy](https://github.com/appcelerator/alloy)
 
-# Features
+## Features
 
-- Open related file depend on current focused file
+### Jump to TSS definition
+You can jump to tss definition from xml [class|id] name.
 
+![jump-to-definition](https://github.com/yomybaby/atom-titanium/raw/master/screenshot2_jumpto.gif)
+
+Hyperclick is triggered by two events:
+- `<alt>` or `<alt-mousemove>` underlines clickable text under the mouse.
+- `<alt-mousedown>` performs the action associated with the clickable text.
+- `<cmd-alt-enter>` performs the action on the text under the cursor.
+
+This feature is a [hyperclick](https://atom.io/packages/hyperclick) provider.   [hyperclick](https://atom.io/packages/hyperclick) package required.
+
+### Open related file depend on current focused file
 Key Bindings | Command Desc
 ----------- | ------------
 'ctrl-alt-v' | Open view
 'ctrl-alt-s' | Open style
 'ctrl-alt-c' | Open Controller
 
-- TSS Sytax Highlight : (refer to language-css and language-json, language-tss)
+### TSS Sytax Highlight  
+refer to language-css and language-json, language-tss
 ![tss-highlight](https://github.com/yomybaby/atom-titanium/raw/master/screenshot1.gif)  
 This hightlight use css color your current theme. So tss file looks like css file.
 
