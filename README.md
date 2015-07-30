@@ -33,3 +33,8 @@ This hightlight use css color your current theme. So tss file looks like css fil
 - Jump to definition by clicking (view to style definition, view to controller handler, reverses..)
     - ref 1 : [css package](https://github.com/js-padavan/atom-css-class-checker))
     - ref 2 : [hyperclick](https://atom.io/packages/hyperclick)
+
+## Release note
+- v0.3.0 : add "jump to TSS definiton" feature.
+- v0.2.0 : add "tss syntax Highlight" feature
+- v0.1.0 : add "Open related file" feature
