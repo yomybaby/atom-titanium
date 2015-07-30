@@ -1,6 +1,7 @@
 {CompositeDisposable} = require 'atom'
 related = require './related'
 jsProvider = require './controllerProvider'
+clickProvider = require './clickProvider'
 
 module.exports = Titanium =
   activate: ->
@@ -8,8 +9,9 @@ module.exports = Titanium =
   # deactivate: ->
   # serialize: ->
   # getProvider: -> [jsProvider]
-  config:
-    openSourceInSplitWindow:
-      type: 'boolean'
-      default: false
-      title: 'Open source in split window'
+  getClickProvider: -> clickProvider.getProvider()
+  # config:
+  #   openSourceInSplitWindow:
+  #     type: 'boolean'
+  #     default: false
+  #     title: 'Open source in split window'
