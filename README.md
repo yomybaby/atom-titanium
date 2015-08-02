@@ -7,8 +7,9 @@ $ apm install titanium-alloy
 
 ## Features
 
-### Jump to TSS definition
-You can jump to tss definition from xml [class|id] name.
+### Jump to definition
+- jump to tss definition from xml [class|id|tag] name
+- jump to event handler definition from xml `onEventName` property.
 
 ![jump-to-definition](https://github.com/yomybaby/atom-titanium/raw/master/screenshot2_jumpto.gif)
 
