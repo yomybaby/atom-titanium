@@ -34,11 +34,12 @@ This hightlight use css color your current theme. So tss file looks like css fil
 ## Todos
 - Auto complete (.js, .xml, .tss)
     - tss ( [autocomplete css](https://github.com/atom/autocomplete-css))
-- Jump to definition by clicking (~~view to style definition~~(v0.3.0), view to controller handler, reverses..)
+- Jump to definition by clicking (~~view to style definition~~(v0.3.0), ~~view to controller handler~~(v0.3.5), reverses..)
     - ref 1 : [css package](https://github.com/js-padavan/atom-css-class-checker))
     - ref 2 : [hyperclick](https://atom.io/packages/hyperclick)
 
 ## Release note
+- v0.3.5 : add more jump to definition (tag style, event handler)
 - v0.3.4 : fix #1
 - v0.3.0 : add "jump to TSS definiton" feature.
 - v0.2.0 : add "tss syntax Highlight" feature
