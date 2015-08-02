@@ -1,6 +1,10 @@
 # All-in-One package for Titanium Alloy
 This is a Atom package for [Titanium Alloy](https://github.com/appcelerator/alloy)
 
+```
+$ apm install titanium-alloy
+```
+
 ## Features
 
 ### Jump to TSS definition
