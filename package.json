@@ -17,6 +17,11 @@
       "versions": {
         "0.0.0": "getClickProvider"
       }
+    },
+    "autocomplete.provider": {
+      "versions": {
+        "2.0.0": "getProvider"
+      }
     }
   },
   "dependencies": {
