@@ -6,7 +6,8 @@
   "license": "MIT",
   "keywords": [
     "titanium",
-    "alloy"
+    "alloy",
+    "jump-to-definition"
   ],
   "repository": "https://github.com/yomybaby/atom-titanium",
   "engines": {

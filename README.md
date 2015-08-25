@@ -23,9 +23,11 @@ This feature is a [hyperclick](https://atom.io/packages/hyperclick) provider.   
 ### Open related file depend on current focused file
 Key Bindings | Command Desc
 ----------- | ------------
-'ctrl-alt-v' | Open view
-'ctrl-alt-s' | Open style
-'ctrl-alt-c' | Open Controller
+`ctrl-alt-a` | Open all relative files
+`ctrl-alt-v` | Open view
+`ctrl-alt-s` | Open style
+`ctrl-alt-c` | Open controller
+
 
 ### TSS Sytax Highlight  
 refer to language-css and language-json, language-tss  
@@ -40,11 +42,7 @@ This hightlight use css color your current theme. So tss file looks like css fil
     - ref 2 : [hyperclick](https://atom.io/packages/hyperclick)
 
 ## Release note
-- v0.3.5 : add more jump to definition (tag style, event handler)
-- v0.3.4 : fix #1
-- v0.3.0 : add "jump to TSS definiton" feature.
-- v0.2.0 : add "tss syntax Highlight" feature
-- v0.1.0 : add "Open related file" feature
+See [github repo release page](https://github.com/yomybaby/atom-titanium/releases).
 
 ## Contribution?
 - Any issue, sugestion, PR makes me happy.
