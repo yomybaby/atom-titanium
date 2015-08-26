@@ -33,29 +33,39 @@ module.exports =
   
   openAllFiles: () ->
     editor = atom.workspace.getActiveTextEditor()
+    previousActivePane = atom.workspace.getActivePane()
     return unless editor?
     
-    [isAlloy, alloyType, filename, fileExt] = editor.getPath().match(alloyRegExp)
-    return unless isAlloy
-    
-    previousActivePane = atom.workspace.getActivePane()
+    editorPath = editor.getPath()
+    [isAlloy, alloyType, filename, fileExt] = editorPath.match(alloyRegExp) || []
+    isAppTss = /app\/styles\/app.tss$/.test editorPath;
+    isAlloyJs = /app\/alloy.js$/.test editorPath;
     
     relatedFilePaths = []
-    _.each alloyDirectoryMap, (folderName,ext)-> 
-      if ext!= fileExt
-        relatedFilePaths.push(getTargetPath(ext,editor.getPath()));
+    if isAppTss
+      relatedFilePaths = [editorPath.replace('app/styles/app.tss','app/alloy.js')]
+    else if isAlloyJs
+      relatedFilePaths = [editorPath.replace('app/alloy.js','app/styles/app.tss')]
+    else if isAlloy
+      _.each alloyDirectoryMap, (folderName,ext)-> 
+        if ext!= fileExt
+          relatedFilePaths.push(getTargetPath(ext,editor.getPath()));
+    else
+      return
+      
     
     if related2ndPane?.isAlive() != true
       related2ndPane = atom.workspace.getActivePane().splitRight()
     related2ndPane.activate();
     atom.workspace.open(relatedFilePaths[0])
     
-    if related3rdPane?.isAlive() != true
-      related3rdPane = related2ndPane.splitDown()
-    related3rdPane.activate();
-    atom.workspace.open(relatedFilePaths[1]).then( -> 
-      previousActivePane.activate();     # restore cursor focus
-    );
+    if relatedFilePaths[1]
+      if related3rdPane?.isAlive() != true
+        related3rdPane = related2ndPane.splitDown()
+      related3rdPane.activate();
+      atom.workspace.open(relatedFilePaths[1]).then( -> 
+        previousActivePane.activate();     # restore cursor focus
+      )
   
   closeAllRelatedPanes: () ->
     # if related2ndPane?.isAlive() == true
