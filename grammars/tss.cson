@@ -8,54 +8,62 @@
     {
       'include': '#comment-block'
     }
-    { # ID 
-      'begin': '(["\'])#.+?'
-      'end' : '\\1'
-      'name': 'entity.other.attribute-name.id.css'
-      'patterns':[
-        {
-          'include' : '#query'
-        }
-      ]
+    {
+      'include': '#selector'
     }
-    { # CLASS
-      'begin': '(["\'])\\..+?'
-      'end' : '\\1'
-      'name': 'entity.other.attribute-name.class.css'
-      # "match": "\"#(.+)\""
-      'patterns':[
-        {
-          'include' : '#query'
-        }
-      ]
-    }
-    { # TAG
-      # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
-      'begin': "([\"'])(2DMatrix|3DMatrix|ActivityIndicator|ActivityIndicatorStyle|AlertDialog|Android|ProgressIndicator|SearchView|Animation|Button|ButtonBar|Clipboard|CoverFlowView|DashboardItem|DashboardView|EmailDialog|ImageView|Label|ListItem|ListSection|ListView|MaskedImage|MobileWeb|iOS|iPhone|NavigationGroup|TableViewSeparatorStyle|Notification|OptionDialog|Picker|PickerColumn|PickerRow|ProgressBar|RefreshControl|SMSDialog|ScrollView|ScrollableView|SearchBar|Slider|Switch|Tab|TabGroup|TabbedBar|TableView|TableViewRow|TableViewSection|TextArea|TextField|Toolbar|View|WebView|Window|iOS|3DMatrix|AdView|AnchorAttachmentBehavior|Animator|AttributedString|CollisionBehavior|CoverFlowView|DocumentViewer|DynamicItemBehavior|GravityBehavior|NavigationWindow|PushBehavior|SnapBehavior|TabbedBar|Toolbar|ViewAttachmentBehavior|iPad|DocumentViewer|Popover|SplitWindow|iPhone|ActivityIndicatorStyle|AlertDialogStyle|AnimationStyle|ListViewCellSelectionStyle|ListViewScrollPosition|ListViewSeparatorStyle|ListViewStyle|NavigationGroup|ProgressBarStyle|RowAnimationStyle|ScrollIndicatorStyle|StatusBar|SystemButton|SystemButtonStyle|SystemIcon|TableViewCellSelectionStyle|TableViewScrollPosition|TableViewSeparatorStyle|TableViewStyle)"
-      'end' : '\\1'
-      'name' : 'entity.name.tag.css'
-      'patterns':[
-        {
-          'include' : '#query'
-        }
-      ]
-    }
-    # {
-    #   'begin': '(?=\\{)'
-    #   'end': '(?!\\G)'
-    #   'name' : 'entity.name.tag.css'
-    #   'patterns': [
-    #     {
-    #       'include': '#rule-list'
-    #     }
-    #   ]
-    # }
     {
       'include' : '#object'
     }
     
   ],
   'repository' :
+    'selector' :
+      'begin': '\\s*(["\'])(?=[:.*#a-zA-Z])'
+      'end': '(\\1)\\s*(?=:)'
+      # 'end': '(?=[/@{)])' #css
+      'beginCaptures':
+        '1':
+          'name': 'punctuation.definition.string.begin.css.tss'
+      'endCaptures':
+        '1':
+          'name': 'punctuation.definition.string.end.css.tss'
+      'name': 'meta.selector.css.tss'
+      'patterns': [
+        { # TAG
+          # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
+          'match': "\\b(2DMatrix|3DMatrix|ActivityIndicator|ActivityIndicatorStyle|AlertDialog|Android|ProgressIndicator|SearchView|Animation|Button|ButtonBar|Clipboard|CoverFlowView|DashboardItem|DashboardView|EmailDialog|ImageView|Label|ListItem|ListSection|ListView|MaskedImage|MobileWeb|iOS|iPhone|NavigationGroup|TableViewSeparatorStyle|Notification|OptionDialog|Picker|PickerColumn|PickerRow|ProgressBar|RefreshControl|SMSDialog|ScrollView|ScrollableView|SearchBar|Slider|Switch|Tab|TabGroup|TabbedBar|TableView|TableViewRow|TableViewSection|TextArea|TextField|Toolbar|View|WebView|Window|iOS|3DMatrix|AdView|AnchorAttachmentBehavior|Animator|AttributedString|CollisionBehavior|CoverFlowView|DocumentViewer|DynamicItemBehavior|GravityBehavior|NavigationWindow|PushBehavior|SnapBehavior|TabbedBar|Toolbar|ViewAttachmentBehavior|iPad|DocumentViewer|Popover|SplitWindow|iPhone|ActivityIndicatorStyle|AlertDialogStyle|AnimationStyle|ListViewCellSelectionStyle|ListViewScrollPosition|ListViewSeparatorStyle|ListViewStyle|NavigationGroup|ProgressBarStyle|RowAnimationStyle|ScrollIndicatorStyle|StatusBar|SystemButton|SystemButtonStyle|SystemIcon|TableViewCellSelectionStyle|TableViewScrollPosition|TableViewSeparatorStyle|TableViewStyle)"
+          'name' : 'entity.name.tag.css.tss'
+        }
+        { # CLASS
+          'captures':
+            '1':
+              'name': 'punctuation.definition.entity.css.class.tss'
+          'match': '(\\.)[a-zA-Z0-9_-]*'
+          'name': 'entity.other.attribute-name.class.css.tss'
+        }
+        { # ID 
+          'captures':
+            '1':
+              'name': 'punctuation.definition.entity.css.id.tss'
+          'match': '(#)[a-zA-Z0-9_-]*'
+          'name': 'entity.other.attribute-name.id.css.tss'
+        }
+        { # query
+          'begin': '\\['
+          'end': '\\]'
+          'name': 'entity.name.tag.css.tss'
+          'patterns': [
+            {
+              'match': "(platform|if)\\="
+              'name' : 'variable.interpolation.tss'
+            }
+            {
+              'match': "android|ios|Alloy\\.Globals\\."
+              'name' : 'meta.link.tss'
+            }
+          ]
+        }
+      ]
     'color-values':
       'patterns': [
         {
@@ -130,20 +138,6 @@
           ]
         }
       ]
-    'query':
-      'begin': '\\['
-      'end': '\\]'
-      'name': 'entity.name.tag.css'
-      'patterns': [
-        {
-          'match': "(platform|if)\\="
-          'name' : 'variable.interpolation'
-        }
-        {
-          'match': "android|ios|Alloy\\.Globals\\."
-          'name' : 'meta.link'
-        }
-      ]
     'numeric-values':
       'patterns': [
         {
@@ -173,50 +167,6 @@
           'name': 'constant.character.escape.css'
         }
       ]
-    'rule-list': # PROPERTIES LIST
-      'begin' : '\\{'
-      'beginCaptures':
-        '0':
-          'name': 'punctuation.section.property-list.begin.css'
-      'end' : '\\}'
-      'endCaptures':
-        '0':
-          'name': 'punctuation.section.property-list.end.css'
-      'name': 'meta.property-list.css'
-      # 'name' : 'punctuation.definition.comment.js'
-      'patterns':[
-        {
-          'include': '#comment-block'
-        }
-        {
-          'begin': '(?<![-a-z])(?=[-a-z])'
-          'end': '$|(?![-a-z])'
-          'name': 'meta.property-name.css'
-          # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
-          'patterns': [
-            {
-              'match': "accessibilityHidden|accessibilityHint|accessibilityLabel|accessibilityValue|active|activeTab|activeTabBackgroundColor|activeTabBackgroundDisabledColor|activeTabBackgroundDisabledImage|activeTabBackgroundFocusedColor|activeTabBackgroundFocusedImage|activeTabBackgroundImage|activeTabBackgroundSelectedColor|activeTabBackgroundSelectedImage|adSize|allowsSelection|allowsSelectionDuringEditing|allowUserCustomization|anchorPoint|appearance|autocapitalization|autocorrect|autoLink|backButtonTitle|backButtonTitleImage|backgroundColor|backgroundDisabledColor|backgroundDisabledImage|backgroundFocusedColor|backgroundFocusedImage|backgroundGradient|backgroundImage|backgroundLeftCap|backgroundPaddingBottom|backgroundPaddingLeft|backgroundPaddingRight|backgroundPaddingTop|backgroundRepeat|backgroundSelectedColor|backgroundSelectedImage|backgroundTopCap|badge|barColor|barImage|borderBottom|borderColor|borderRadius|borderStyle|borderTop|borderWidth|bottom|cacheSize|canCancelEvents|cancel|cancelable|canDelete|canScale|center|className|clearButtonMode|clearOnEdit|color|contentHeight|contentOffset|contentWidth|countDownDuration|currentPage|decodeRetries|defaultImage|disableBounce|disabledLeftTrackImage|disabledRightTrackImage|disabledThumbImage|duration|editable|editButtonTitle|editing|ellipsize|enabled|enableReturnKey|enableZoomControls|endPoint|filterAttribute|filterCaseInsensitive|focusable|fontFamily|fontWeight|fontSize|font|footerTitle|format24|fullscreen|hasCheck|hasChild|hasDetail|headerTitle|height|hideLoadIndicator|hideSearchOnSelection|highlightedColor|highlightedLeftTrackImage|highlightedRightTrackImage|highlightedThumbImage|hintText|hinttextid|hires|hitRect|horizontalBounce|horizontalMargin|horizontalWrap|html|images|image|icon|indentionLevel|keepScreenOn|keyboardToolbarColor|keyboardToolbarHeight|keyboardType|layout|left|leftButton|leftButtonMode|leftButtonPadding|leftImage|leftTrackImage|leftTrackLeftCap|leftTrackTopCap|loading|locale|location|mask|max|maxDate|maxLength|maxRange|maxRowHeight|maxZoomScale|message|messageBody|messageid|min|minDate|minimumFontSize|minRange|minRowHeight|minuteInterval|minZoomScale|modal|mode|moveable|navBarHidden|opacity|orientationModes|overlayEnabled|paddingLeft|paddingRight|pagingControlAlpha|pagingControlColor|pagingControlHeight|pagingControlOnTop|passwordMask|persistent|pluginState|preventDefaultImage|prompt|promptid|repeatCount|returnKeyType|reverse|right|rightButtonMode|rightButtonPadding|rightImage|rightTrackImage|rightTrackLeftCap|rightTrackTopCap|rowHeight|scalesPageToFit|scrollable|scrollIndicatorStyle|scrollingEnabled|scrollsToTop|scrollType|searchHidden|selectedBackgroundColor|selectedBackgroundImage|selectedColor|selectedImage|selectedLeftTrackImage|selectedRightTrackImage|selectedThumbImage|selectionIndicator|selectionStyle|separatorColor|separatorStyle|shadowColor|shadowImage|shadowOffset|showBookmark|showCancel|showHorizontalScrollIndicator|showPagingControl|showScrollbars|showVerticalScrollIndicator|softKeyboardOnFocus|startPoint|style|suppressReturn|systemButton|tabDividerColor|tabDividerWidth|tabHeight|tabsAtBottom|tabsBackgroundColor|tabsBackgroundDisabledColor|tabsBackgroundDisabledImage|tabsBackgroundFocusedColor|tabsBackgroundFocusedImage|tabsBackgroundImage|tabsBackgroundSelectedColor|tabsBackgroundSelectedImage|textAlign|text|textid|thumbImage|tint|title|titleid|titleImage|titleOff|titleOn|titlePrompt|titlepromptid|top|touchEnabled|translucent|type|useSpinner|value|verticalAlign|verticalBounce|verticalMargin|visibleItems|visible|width|willHandleTouches|windowPixelFormat|wobble|wordWrap|xOffset|yOffset|zIndex|zoomScale|exitOnClose"
-              'name': 'support.type.property-name.css'
-            }
-          ]
-        }
-        {
-          'begin': '(:)\\s*'
-          'beginCaptures':
-            '1':
-              'name': 'punctuation.separator.key-value.css'
-          'end': '\\s*(;|(?=\\}))'
-          'endCaptures':
-            '1':
-              'name': 'punctuation.terminator.rule.css'
-          'name': 'meta.property-value.css'
-          'patterns': [
-            {
-              'include': '#property-values'
-            }
-          ]
-        }
-      ]
     'property-values':
       'patterns': [
         # {
@@ -238,29 +188,33 @@
       'begin': '\\{'
       'beginCaptures':
         '0':
-          'name': 'punctuation.definition.dictionary.begin.json'
+          'name': 'punctuation.section.property-list.begin.css.tss'
       'comment': 'a JSON object'
       'end': '\\}'
       'endCaptures':
         '0':
-          'name': 'punctuation.definition.dictionary.end.json'
-      'name': 'meta.structure.dictionary.json'
+          'name': 'punctuation.section.property-list.end.css.tss'
+      'name': 'meta.property-list.css.tss'
       'patterns': [
         {
-          'comment': 'the JSON object key'
-          # 'include': '#string'
+          'include': '#comment-block'
+        }
+        {
           'include' : '#titanium-key'
         }
         {
-          'begin': ':'
+          'begin': '(:)\\s*'
           'beginCaptures':
-            '0':
-              'name': 'punctuation.separator.dictionary.key-value.json'
-          'end': '(,)|(?=\\})'
+            '1':
+              'name': 'punctuation.separator.key-value.css.tss'
+          # 'end': '\\s(,)|(?=\\})'
+          'end': '\\s*(,)|(\\})'
           'endCaptures':
             '1':
-              'name': 'punctuation.separator.dictionary.pair.json'
-          'name': 'meta.structure.dictionary.value.json'
+              'name': 'punctuation.terminator.rule.css.tss'
+            '2':
+              'name': 'punctuation.section.property-list.end.css.tss'
+          'name': 'meta.property-value.css.tss'
           'patterns': [
             {
               'comment': 'the JSON object value'
@@ -268,13 +222,9 @@
             }
             {
               'match': '[^\\s,]'
-              'name': 'meta.property-value.css'
+              'name': 'meta.property-value.css.tss'
             }
           ]
-        }
-        {
-          'match': '[^\\s\\}]'
-          'name': 'meta.property-value.css'
         }
       ]
     'array':
@@ -345,5 +295,5 @@
     'titanium-key':
       # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
       'match': "accessibilityHidden|accessibilityHint|accessibilityLabel|accessibilityValue|active|activeTab|activeTabBackgroundColor|activeTabBackgroundDisabledColor|activeTabBackgroundDisabledImage|activeTabBackgroundFocusedColor|activeTabBackgroundFocusedImage|activeTabBackgroundImage|activeTabBackgroundSelectedColor|activeTabBackgroundSelectedImage|adSize|allowsSelection|allowsSelectionDuringEditing|allowUserCustomization|anchorPoint|appearance|autocapitalization|autocorrect|autoLink|backButtonTitle|backButtonTitleImage|backgroundColor|backgroundDisabledColor|backgroundDisabledImage|backgroundFocusedColor|backgroundFocusedImage|backgroundGradient|backgroundImage|backgroundLeftCap|backgroundPaddingBottom|backgroundPaddingLeft|backgroundPaddingRight|backgroundPaddingTop|backgroundRepeat|backgroundSelectedColor|backgroundSelectedImage|backgroundTopCap|badge|barColor|barImage|borderBottom|borderColor|borderRadius|borderStyle|borderTop|borderWidth|bottom|cacheSize|canCancelEvents|cancel|cancelable|canDelete|canScale|center|className|clearButtonMode|clearOnEdit|color|contentHeight|contentOffset|contentWidth|countDownDuration|currentPage|decodeRetries|defaultImage|disableBounce|disabledLeftTrackImage|disabledRightTrackImage|disabledThumbImage|duration|editable|editButtonTitle|editing|ellipsize|enabled|enableReturnKey|enableZoomControls|endPoint|filterAttribute|filterCaseInsensitive|focusable|fontFamily|fontWeight|fontSize|font|footerTitle|format24|fullscreen|hasCheck|hasChild|hasDetail|headerTitle|height|hideLoadIndicator|hideSearchOnSelection|highlightedColor|highlightedLeftTrackImage|highlightedRightTrackImage|highlightedThumbImage|hintText|hinttextid|hires|hitRect|horizontalBounce|horizontalMargin|horizontalWrap|html|images|image|icon|indentionLevel|keepScreenOn|keyboardToolbarColor|keyboardToolbarHeight|keyboardType|layout|left|leftButton|leftButtonMode|leftButtonPadding|leftImage|leftTrackImage|leftTrackLeftCap|leftTrackTopCap|loading|locale|location|mask|max|maxDate|maxLength|maxRange|maxRowHeight|maxZoomScale|message|messageBody|messageid|min|minDate|minimumFontSize|minRange|minRowHeight|minuteInterval|minZoomScale|modal|mode|moveable|navBarHidden|opacity|orientationModes|overlayEnabled|paddingLeft|paddingRight|pagingControlAlpha|pagingControlColor|pagingControlHeight|pagingControlOnTop|passwordMask|persistent|pluginState|preventDefaultImage|prompt|promptid|repeatCount|returnKeyType|reverse|right|rightButtonMode|rightButtonPadding|rightImage|rightTrackImage|rightTrackLeftCap|rightTrackTopCap|rowHeight|scalesPageToFit|scrollable|scrollIndicatorStyle|scrollingEnabled|scrollsToTop|scrollType|searchHidden|selectedBackgroundColor|selectedBackgroundImage|selectedColor|selectedImage|selectedLeftTrackImage|selectedRightTrackImage|selectedThumbImage|selectionIndicator|selectionStyle|separatorColor|separatorStyle|shadowColor|shadowImage|shadowOffset|showBookmark|showCancel|showHorizontalScrollIndicator|showPagingControl|showScrollbars|showVerticalScrollIndicator|softKeyboardOnFocus|startPoint|style|suppressReturn|systemButton|tabDividerColor|tabDividerWidth|tabHeight|tabsAtBottom|tabsBackgroundColor|tabsBackgroundDisabledColor|tabsBackgroundDisabledImage|tabsBackgroundFocusedColor|tabsBackgroundFocusedImage|tabsBackgroundImage|tabsBackgroundSelectedColor|tabsBackgroundSelectedImage|textAlign|text|textid|thumbImage|tint|title|titleid|titleImage|titleOff|titleOn|titlePrompt|titlepromptid|top|touchEnabled|translucent|type|useSpinner|value|verticalAlign|verticalBounce|verticalMargin|visibleItems|visible|width|willHandleTouches|windowPixelFormat|wobble|wordWrap|xOffset|yOffset|zIndex|zoomScale|exitOnClose"
-      'name': 'support.type.property-name.css'
+      'name': 'support.type.property-name.css.tss'
 }
