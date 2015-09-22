@@ -8,10 +8,10 @@ $ apm install titanium-alloy
 ## Features
 
 ### Autocomplete
-- xml Autocomplete
-![autocomplete](https://github.com/yomybaby/atom-titanium/raw/master/screenshot_autocomplete.gif)
+- xml Autocomplete  
+    ![autocomplete](https://github.com/yomybaby/atom-titanium/raw/master/screenshot_autocomplete.gif)
 
-more powerful autocomplete functions are comming!
+More powerful autocomplete functions are comming!
 
 
 ### Jump to definition
