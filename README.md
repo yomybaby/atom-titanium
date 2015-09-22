@@ -46,3 +46,5 @@ See [github repo release page](https://github.com/yomybaby/atom-titanium/release
 
 ## Contribution?
 - Any issue, sugestion, PR makes me happy.
+
+[![Analytics](https://ga-beacon.appspot.com/UA-67056753-1/atom-titanium/readme)](https://github.com/igrigorik/ga-beacon)
