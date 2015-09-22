@@ -11,7 +11,7 @@ $ apm install titanium-alloy
 - xml Autocomplete  
     ![autocomplete](https://github.com/yomybaby/atom-titanium/raw/master/screenshot_autocomplete.gif)
 
-More powerful autocomplete functions are comming!
+More powerful autocomplete functions are coming!
 
 
 ### Jump to definition
