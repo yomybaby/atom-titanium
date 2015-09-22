@@ -5,6 +5,8 @@ This is a Atom package for [Titanium Alloy](https://github.com/appcelerator/allo
 $ apm install titanium-alloy
 ```
 
+> Conflict Notice: If you using other tss grammar package, such as language-tss. It makes this package doesn't work.
+
 ## Features
 
 ### Autocomplete

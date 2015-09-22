@@ -94,7 +94,6 @@ module.exports =
     isInPropertyList = not isAtTerminator and
       hasScope(scopes, 'meta.property-list.css.tss')
 
-    console.log false unless isInPropertyList 
     return false unless isInPropertyList
     # return false if isAtParentSymbol
 
@@ -274,8 +273,6 @@ module.exports =
 
   getTagSelectorPrefix: (editor, bufferPosition) ->
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
-    console.log line
-    console.log tagSelectorPrefixPattern.exec(line)
     tagSelectorPrefixPattern.exec(line)?[1]
 
   getTagCompletions: ({bufferPosition, editor, prefix}) ->
