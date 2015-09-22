@@ -82,8 +82,8 @@ module.exports =
     previousBufferPosition = [bufferPosition.row, Math.max(0, bufferPosition.column - prefix.length - 1)]
     previousScopes = editor.scopeDescriptorForBufferPosition(previousBufferPosition)
     previousScopesArray = previousScopes.getScopesArray()
-
-    (hasScope(scopes, 'meta.property-value.css.tss') and not hasScope(scopes, 'punctuation.separator.key-value.css.tss'))
+    
+    (hasScope(scopes, 'meta.property-value.css.tss') and not hasScope(scopes, 'punctuation.terminator.rule.css.tss'))
 
   isCompletingName: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
     scopes = scopeDescriptor.getScopesArray()
@@ -215,6 +215,7 @@ module.exports =
     {
       type: 'value'
       text: text
+      displayText: value
       description: "#{value} value for the #{propertyName} property"
       # descriptionMoreURL: "#{cssDocsURL}/#{propertyName}#Values"
     }

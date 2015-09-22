@@ -2,14 +2,12 @@ var fs = require('fs');
 var _ = require('underscore');
 var api = JSON.parse(fs.readFileSync("/Users/yomybaby/Library/Application Support/Titanium/mobilesdk/osx/5.0.0.GA/api.jsca", "utf8"));
 
-console.log(_.keys(api));
-
 var props = {};
 var tags = [];
 _.each(api.types,function(type,idx){
   // /console.log(_.keys(item.properties));
   _.each(type.properties,function(prop,idx){
-    if(prop.permission !== 'read-only')
+    if(prop.permission !== 'read-only'){
       if(props[prop.name]){
         props[prop.name].values = _.union(props[prop.name].values,prop.constants)
         // props[prop.name].description = 
@@ -19,6 +17,16 @@ _.each(api.types,function(type,idx){
           "description": prop.description
         }
       }
+      
+      if(prop.type === 'Boolean'){
+        props[prop.name].values = ['true','false'];
+      }
+      console.log(prop.type);
+    }
+      
+      
+      //   props[prop.name] && props[prop.name].values = ['true','false'];
+      // }
   });
   _.each(type.functions,function(fnc,idx){
     if(fnc.name.indexOf('create')==0){
@@ -29,7 +37,7 @@ _.each(api.types,function(type,idx){
 });
 
 
-var outputFilename = './tiapi.json';
+var outputFilename = '../completions.json';
 
 fs.writeFile(outputFilename, JSON.stringify({
   properties: props,

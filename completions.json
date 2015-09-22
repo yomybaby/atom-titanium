@@ -1,7 +1,10 @@
 {
     "properties": {
         "bubbleParent": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates if the proxy will bubble an event to its parent.</p>"
         },
         "lifecycleContainer": {
@@ -9,7 +12,10 @@
             "description": "<p>The Window or TabGroup whose Activity lifecycle should be triggered on the proxy.</p>"
         },
         "accessibilityHidden": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether the view should be \"hidden\" from (i.e., ignored by) the accessibility service.</p>"
         },
         "accessibilityHint": {
@@ -49,7 +55,10 @@
             "description": "<p>A background gradient for the view.</p>"
         },
         "backgroundRepeat": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether to tile a background across a view.</p>"
         },
         "backgroundLeftCap": {
@@ -77,11 +86,17 @@
             "description": "<p>Sets the elevation of this view</p>"
         },
         "focusable": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether view should be focusable while navigating with the trackball.</p>"
         },
         "overrideCurrentAnimation": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>When on, animate call overrides current animation if applicable.</p>"
         },
         "pullBackgroundColor": {
@@ -113,11 +128,17 @@
             "description": "<p>Determines the offset for the shadow of the view.</p>"
         },
         "horizontalWrap": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the layout has wrapping behavior.</p>"
         },
         "keepScreenOn": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether to keep the device screen on.</p>"
         },
         "backgroundImage": {
@@ -180,11 +201,17 @@
             "description": "<p>The view's top position.</p>"
         },
         "touchEnabled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether view should receive touch events.</p>"
         },
         "visible": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the view is visible.</p>"
         },
         "width": {
@@ -199,11 +226,17 @@
             "description": "<p>Z-index stack order position, relative to other sibling views.</p>"
         },
         "success": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates whether the request succeeded.</p>"
         },
         "error": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates whether the request failed.</p>"
         },
         "meta": {
@@ -254,7 +287,10 @@
             "description": "<p>Location of client.</p>"
         },
         "debug": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates whether internal debug logging should be output to the console.</p>"
         },
         "ondatastream": {
@@ -266,7 +302,10 @@
             "description": "<p>Function to be called at regular intervals as the request data is being transmitted.</p>"
         },
         "useSecure": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates whether to use SSL when sending requests to ArrowDB. **Removed in 3.1.1. To disable SSL, set the <code>acs-base-url</code> and <code>acs-authbase-url</code> properties in the <code>tiapp.xml</code> using the HTTP URL.\nTo enable SSL, use the HTTPS URL.</p>\n\n<pre><code>&lt;property name=\"acs-base-url\" type=\"string\"&gt;http://api.cloud.appcelerator.com&lt;/property&gt;**\n</code></pre>"
         },
         "sessionId": {
@@ -374,27 +413,45 @@
             "description": "<p>Indicates the number of seconds before the access token expires.</p>"
         },
         "enabled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether or not this device will receive push notifications. <strong>Deprecated since 3.2.0. This property was only required to enable push notifications for the legacy MQTT\nprotocol.</strong></p>"
         },
         "showTrayNotification": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether or not to show a tray notification when a new push is received.</p>"
         },
         "showAppOnTrayClick": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether or not clicking the tray notification will bring your application to the foreground.</p>"
         },
         "showTrayNotificationsWhenFocused": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether or not to show tray notifications when your application is in the foreground.</p>"
         },
         "focusAppOnPush": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether or not your application is brought to the foreground whenever a new push is received.</p>"
         },
         "singleCallback": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to true to trigger a single callback for the selected push notification when multiple push notifications are displayed in the tray.</p>"
         },
         "deviceToken": {
@@ -402,11 +459,17 @@
             "description": "<p>The device token which this device was registered for.</p>"
         },
         "displayHomeAsUp": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Displays an \"up\" affordance on the \"home\" area of the action bar.</p>"
         },
         "homeButtonEnabled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Enable or disable the \"home\" button in the corner of the action bar.</p>"
         },
         "icon": {
@@ -552,11 +615,17 @@
             "description": "<p>Custom view that replaces the default menu item button.</p>"
         },
         "checkable": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if the item can be checked.</p>"
         },
         "checked": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if the item is checked.</p>"
         },
         "showAsAction": {
@@ -700,7 +769,10 @@
             "description": "<p>The timestamp for the notification (defaults to the current time).</p>"
         },
         "updateCurrentIntent": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>If this property is true, flag <a href=\"Titanium.Android.FLAG_UPDATE_CURRENT\">FLAG_UPDATE_CURRENT</a> will be\nappended to <code>flags</code> automatically. Default value is true.</p>"
         },
         "layoutId": {
@@ -708,19 +780,31 @@
             "description": "<p>Android layout resource ID for the view to display. Required.</p>"
         },
         "disableNetworkActivityIndicator": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Prevents network activity indicator from being displayed.</p>"
         },
         "forceSplashAsSnapshot": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Shows the application's splash screen on app resume.</p>"
         },
         "idleTimerDisabled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the screen is locked when the device is idle.</p>"
         },
         "proximityDetection": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether proximity detection is enabled.</p>"
         },
         "source": {
@@ -728,7 +812,10 @@
             "description": "<p>This key indicates that the application was launched by another\napplication with the specified bundle ID.</p>"
         },
         "launchOptionsLocationKey": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>If set to <code>true</code>, this key indicates that the application was launched in response to an\nincoming location event.</p>"
         },
         "attributeSet": {
@@ -1160,19 +1247,31 @@
             "description": "<p>Name of the activity type.</p>"
         },
         "eligibleForPublicIndexing": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to <code>true</code> if the user activity can be publicly accessed by all iOS users.</p>"
         },
         "eligibleForSearch": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to true if the user activity should be added to the on-device index.</p>"
         },
         "eligibleForHandoff": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to true if this user activity should be eligible to be handed off to another device</p>"
         },
         "needsSave": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if iOS should fire the <code>useractivitywillsave</code> event for the application to update\nthe state or content of the user activity.</p>"
         },
         "requiredUserInfoKeys": {
@@ -1180,7 +1279,10 @@
             "description": "<p>An array of String keys from the userInfo property which represent the minimal information about the user activity that should be stored for later restoration.</p>"
         },
         "supported": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if user activities are supported (<code>true</code>) or not (<code>false</code>) by the device.</p>"
         },
         "userInfo": {
@@ -1203,11 +1305,17 @@
             "description": "<p>Selects how to activate the application.</p>"
         },
         "authenticationRequired": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to true if the action requires the device to be unlocked.</p>"
         },
         "destructive": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to true if the action causes destructive behavior to the user's data or the application.</p>"
         },
         "actionsForDefaultContext": {
@@ -1277,16 +1385,8 @@
         },
         "value": {
             "values": [
-                "Titanium.UI.ATTRIBUTE_UNDERLINE_STYLE_NONE",
-                "Titanium.UI.ATTRIBUTE_UNDERLINE_STYLE_SINGLE",
-                "Titanium.UI.ATTRIBUTE_UNDERLINE_STYLE_THICK",
-                "Titanium.UI.ATTRIBUTE_UNDERLINE_STYLE_DOUBLE",
-                "Titanium.UI.ATTRIBUTE_WRITING_DIRECTION_EMBEDDING",
-                "Titanium.UI.ATTRIBUTE_WRITING_DIRECTION_OVERRIDE",
-                "Titanium.UI.ATTRIBUTE_WRITING_DIRECTION_NATURAL",
-                "Titanium.UI.ATTRIBUTE_WRITING_DIRECTION_LEFT_TO_RIGHT",
-                "Titanium.UI.ATTRIBUTE_WRITING_DIRECTION_RIGHT_TO_LEFT",
-                "Titanium.UI.ATTRIBUTE_LETTERPRESS_STYLE",
+                "true",
+                "false",
                 "Titanium.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_NONE",
                 "Titanium.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_SINGLE",
                 "Titanium.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_THICK",
@@ -1371,7 +1471,10 @@
             "description": "<p>Alarms associated with the calendar item, as an array of <a href=\"Titanium.Calendar.Alert\">Alert</a> objects.</p>"
         },
         "allDay": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates whether this event is all day.</p>"
         },
         "begin": {
@@ -1451,7 +1554,10 @@
             "description": "<p>Character encoding to use when encoding this string to bytes.</p>"
         },
         "animated": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether to animate the show/hide of the contacts picker (iPhone, iPad only.)</p>"
         },
         "fields": {
@@ -1567,7 +1673,10 @@
             "description": "<p>The number of rows affected by the last query.</p>"
         },
         "cancelBubble": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to true to stop the event from bubbling.</p>"
         },
         "appid": {
@@ -1575,11 +1684,17 @@
             "description": "<p>Your Facebook application id. You need to set this for anything to work.</p>"
         },
         "forceDialogAuth": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates whether the login should use the traditional dialog-based\nauthentication.</p>"
         },
         "loggedIn": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates if the user is logged in.</p>"
         },
         "permissions": {
@@ -1595,7 +1710,10 @@
             "description": "<p>JSON response returned by Facebook.</p>"
         },
         "cancelled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates if the user canceled the dialog.</p>"
         },
         "method": {
@@ -1626,15 +1744,24 @@
             "description": "<p>Sets the login button style.</p>"
         },
         "hidden": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to <code>true</code> if the file is hidden.</p>"
         },
         "remoteBackup": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Value indicating whether or not to back up to a cloud service.</p>"
         },
         "manualMode": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to <code>true</code> to enable manual configuration of location updates through this module.</p>"
         },
         "minUpdateTime": {
@@ -1683,19 +1810,31 @@
             "description": "<p>Text to display in the permission dialog when requesting location\nservices.</p>"
         },
         "showCalibration": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the compass calibration UI is shown if needed.</p>"
         },
         "trackSignificantLocationChange": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates if the location changes should be updated only when a significant change \nin location occurs.</p>"
         },
         "allowsBackgroundLocationUpdates": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if the app can do background location updates.</p>"
         },
         "pauseLocationUpdateAutomatically": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates whether the location updates may be paused. Available in iOS 6.0 and later.</p>"
         },
         "distanceFilter": {
@@ -1842,7 +1981,10 @@
             "description": "<p>The time within which reverse geocoder requests must succeed, in milliseconds.</p>"
         },
         "animate": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean to indicate whether the pin should animate when dropped.</p>"
         },
         "pinImage": {
@@ -1850,7 +1992,10 @@
             "description": "<p>Image for the pin instead of the default image. <strong>Deprecated since 1.4. Use <a href=\"Titanium.Map.Annotation.image\">image</a> property instead.</strong></p>"
         },
         "canShowCallout": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Defines whether the annotation view is able to display extra information in a callout bubble.</p>"
         },
         "centerOffset": {
@@ -1862,7 +2007,10 @@
             "description": "<p>Defines a custom view to be used by the annotation.</p>"
         },
         "draggable": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the pin can be dragged by the user.</p>"
         },
         "leftButton": {
@@ -1894,11 +2042,17 @@
             "description": "<p>Key in the locale file to use for the title property.</p>"
         },
         "hideAnnotationWhenTouchMap": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Hide the annotation when clicking in the map view outside of the annotation.</p>"
         },
         "regionFit": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean indicating if the map region should be modified \nto fit the map view's aspect ratio.</p>"
         },
         "annotations": {
@@ -1914,7 +2068,10 @@
             "description": "<p>A dictionary specifying the location and zoom level of the map.</p>\n\n<p>On the iOS platform, this property can only be set after the map view is loaded.\nTo ensure this property is set when the application starts, wait for the\n[complete][Titanium.UI.Map-event-complete] event.</p>"
         },
         "userLocation": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean indicating if the user's current device location should be shown on the\nmap.</p>"
         },
         "longitudeDelta": {
@@ -1938,7 +2095,10 @@
             "description": "<p>URI to the file if it was scanned and added to the media library, or <code>null</code>\nif the file was not added.</p>"
         },
         "allowBackground": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean to indicate if audio should continue playing even if the associated\nAndroid <a href=\"Titanium.Android.Activity\">Activity</a> is paused.</p>"
         },
         "bitRate": {
@@ -1946,7 +2106,10 @@
             "description": "<p>Bit rate of the current playback stream.</p>"
         },
         "paused": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean indicating if audio playback is paused.</p>"
         },
         "volume": {
@@ -2041,11 +2204,17 @@
             "description": "<p>Determines how the flash is fired when using the device's camera.</p>"
         },
         "autohide": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies that the library should be hidden automatically after media selection is completed.</p>"
         },
         "allowMultipleSelections": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to <code>true</code> to allow the user to select multiple items from the library.</p>"
         },
         "representative": {
@@ -2092,15 +2261,24 @@
             "description": "<p>Filter by whether or not the item is a compilation. Value should be a Boolean.</p>"
         },
         "exact": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether or not the predicate is for an exact match.  The default is <code>true</code>.</p>"
         },
         "saveToPhotoGallery": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies if the media should be saved to the photo gallery upon successful capture.</p>"
         },
         "allowEditing": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies if the media should be editable after capture/selection.</p>"
         },
         "videoMaximumDuration": {
@@ -2112,7 +2290,10 @@
             "description": "<p>Constant to indicate the video quality during capture.</p>"
         },
         "showControls": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates if the built-in camera controls should be displayed.</p>"
         },
         "overlay": {
@@ -2120,7 +2301,10 @@
             "description": "<p>View to added as an overlay to the camera UI (on top).</p>"
         },
         "inPopOver": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Show the camera in a popover.</p>"
         },
         "popoverView": {
@@ -2139,7 +2323,10 @@
             "description": "<p>Controls the type of arrow and position of the popover.</p>"
         },
         "autorotate": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if the camera preview should rotate or not.</p>"
         },
         "media": {
@@ -2183,15 +2370,24 @@
             "description": "<p>Shuffle setting.</p>"
         },
         "looping": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the audio should loop upon completion.</p>"
         },
         "allowsAirPlay": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether or not the current movie can be played on a remote device.</p>"
         },
         "autoplay": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates if a movie should automatically start playback.</p>"
         },
         "endPlaybackTime": {
@@ -2199,7 +2395,10 @@
             "description": "<p>The end time of movie playback, in milliseconds.</p>"
         },
         "fullscreen": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if the movie is presented in the entire screen (obscuring all other application content). </p>"
         },
         "initialPlaybackTime": {
@@ -2243,7 +2442,10 @@
             "description": "<p>The playback type of the movie.</p>"
         },
         "useApplicationAudioSession": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates if the movie player should inherit the application's audio session\ninstead of creating a new session.\n <strong>Deprecated since 3.5.0. There is no replacement for this property and its use is discouraged.</strong></p>"
         },
         "domain": {
@@ -2251,7 +2453,10 @@
             "description": "<p>The domain the browser is searching in</p>"
         },
         "isSearching": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether or not the browser is currently searching</p>"
         },
         "serviceType": {
@@ -2259,7 +2464,10 @@
             "description": "<p>The type of the service the browser searches for</p>"
         },
         "isLocal": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>whether or not the service is local to the device</p>"
         },
         "socket": {
@@ -2271,7 +2479,10 @@
             "description": "<p>The expiration Date of the cookie.</p>"
         },
         "httponly": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>The httponly attribute of the cookie.</p>"
         },
         "originalUrl": {
@@ -2279,23 +2490,38 @@
             "description": "<p>The origual url attribute of the cookie.</p>"
         },
         "secure": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>The secure attribute of the cookie.</p>"
         },
         "autoEncodeUrl": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether automatic encoding is enabled for the specified URL.</p>"
         },
         "autoRedirect": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether automatic automatic handling of HTTP redirects is enabled.</p>"
         },
         "cache": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether HTTP responses are cached.</p>"
         },
         "enableKeepAlive": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the client should attempt to keep a persistent connection.</p>"
         },
         "file": {
@@ -2339,11 +2565,17 @@
             "description": "<p>Sets the username parameter for authentication credentials.</p>"
         },
         "validatesSecureCertificate": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines how SSL certification validation is performed on connection.</p>"
         },
         "withCredentials": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the request should include any cookies and HTTP authentication information.</p>"
         },
         "readyState": {
@@ -2363,7 +2595,10 @@
             "description": "<p>The <code>userinfo</code> dictionary passed to the Apple Push Notification Service.</p>"
         },
         "inBackground": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean indicating if notification was received while app was in background. \nThis property became available in Titanium Mobile 3.1.0 for iOS.</p>"
         },
         "host": {
@@ -2399,7 +2634,10 @@
             "description": "<p>the host name to connect to.  Must be <a href=\"Titanium.Network.INADDR_ANY\">INADDR_ANY</a> or an identifier for the local device in order to listen</p>"
         },
         "isValid": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>whether or not the socket is valid</p>"
         },
         "mode": {
@@ -2439,11 +2677,17 @@
             "description": "<p>the socket's mode</p>"
         },
         "stripTerminator": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>strip terminating null character when sending string data; default is false</p>"
         },
         "batteryMonitoring": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether battery monitoring is enabled.</p>"
         },
         "bytesProcessed": {
@@ -2603,7 +2847,10 @@
             "description": "<p>Key identifying a string in the locale file to use for the <code>ok</code> text.</p>"
         },
         "persistent": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean value indicating if the alert dialog should only be cancelled by user gesture or by hide method.</p>"
         },
         "buttonNames": {
@@ -2611,11 +2858,17 @@
             "description": "<p>Name of each button to create.</p>"
         },
         "cancelable": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>When <code>true</code> allows the user to cancel the progress dialog by pressing the BACK button.</p>"
         },
         "canceledOnTouchOutside": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>When <code>cancelable</code> is set to <code>true</code> and this is set to <code>true</code>, the dialog is canceled when touched outside the window's bounds.</p>"
         },
         "min": {
@@ -2631,19 +2884,31 @@
             "description": "<p>Text to show when the search view field is not focused.</p>"
         },
         "iconified": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Iconifies or expands the search view</p>"
         },
         "iconifiedByDefault": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Sets the default or resting state of the search view</p>"
         },
         "submitEnabled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Whether to display the submit button when necessary or never display.</p>"
         },
         "autoreverse": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies if the animation should be replayed in reverse upon completion.</p>"
         },
         "curve": {
@@ -2660,7 +2925,10 @@
             "description": "<p>Delay, in milliseconds before starting the animation.</p>"
         },
         "opaque": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Value of the <code>opaque</code> property at the end of the animation.</p>"
         },
         "transition": {
@@ -2773,7 +3041,10 @@
             "description": "<p>Index to make selected.</p>"
         },
         "canDelete": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether this item can be deleted when it edit mode.</p>"
         },
         "selectedImage": {
@@ -2789,11 +3060,17 @@
             "description": "<p>The number of rows of items in the view.</p>"
         },
         "editable": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether edit mode is activated by a longpress of an item.</p>"
         },
         "wobble": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the wobble visual editing cue is enabled in edit mode.</p>"
         },
         "barColor": {
@@ -2809,7 +3086,10 @@
             "description": "<p>Recipients of the email included via the <code>CC</code> (Carbon Copy) field.</p>"
         },
         "html": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the email message, specifically the contents of \n<a href=\"Titanium.UI.EmailDialog.messageBody\">messageBody</a>, should be sent as HTML content type \nrather than plain text.</p>"
         },
         "messageBody": {
@@ -2856,15 +3136,24 @@
             "description": "<p>Local path to the default image to display while loading a remote image.</p>"
         },
         "enableZoomControls": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Show zoom controls when the user touches the image view.</p>"
         },
         "hires": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to <code>true</code> to prevent scaling of 2x-resolution remote images for Retina \ndisplays.</p>"
         },
         "preventDefaultImage": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Prevent the default image from being displayed while loading a remote image. This property \nis ignored when the <code>defaultImage</code> property is set.</p>"
         },
         "repeatCount": {
@@ -2872,7 +3161,10 @@
             "description": "<p>Number of times to repeat the image animation.</p>"
         },
         "reverse": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Run the animation in reverse.</p>"
         },
         "attributedString": {
@@ -2912,7 +3204,10 @@
             "description": "<p>Color of the label when in the highlighted state, as a color name or hex triplet.</p>"
         },
         "includeFontPadding": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Includes extra top and bottom padding to make room for accents that go above normal ascent and descent.</p>"
         },
         "lines": {
@@ -2933,15 +3228,16 @@
         },
         "ellipsize": {
             "values": [
-                "Titanium.UI.TEXT_ELLIPSIZE_TRUNCATE_START",
-                "Titanium.UI.TEXT_ELLIPSIZE_TRUNCATE_MIDDLE",
-                "Titanium.UI.TEXT_ELLIPSIZE_TRUNCATE_END",
-                "Titanium.UI.TEXT_ELLIPSIZE_TRUNCATE_MARQUEE"
+                "true",
+                "false"
             ],
             "description": "<p>Causes words in the text that are longer than the view is wide to be ellipsized instead of broken in the middle.</p>"
         },
         "wordWrap": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Enable or disable word wrapping in the label.</p>"
         },
         "itemId": {
@@ -2970,11 +3266,17 @@
             "description": "<p>Background gradient to render when the item is selected.</p>"
         },
         "canEdit": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies if the item can be deleted by a user initiated action.</p>"
         },
         "canMove": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies if the item can be reordered within the list view by a user initiated action.</p>"
         },
         "editActions": {
@@ -3022,19 +3324,31 @@
             "description": "<p>View to use for this section header.</p>"
         },
         "allowsSelection": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether this item can be selected.</p>"
         },
         "canScroll": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if the list view can scroll in response to user actions.</p>"
         },
         "editing": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if the list view is currently in editing mode.</p>"
         },
         "pruneSectionsOnEdit": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if empty sections are retained when the user completes editing the list view.</p>"
         },
         "templates": {
@@ -3046,11 +3360,17 @@
             "description": "<p>height of the ListView separator.</p>"
         },
         "footerDividersEnabled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>When set to false, the ListView will not draw the divider before the footer view.</p>"
         },
         "headerDividersEnabled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>When set to false, the ListView will not draw the divider after the header view.</p>"
         },
         "pullView": {
@@ -3062,7 +3382,10 @@
             "description": "<p>View positioned above the first row that is only revealed when the user drags the list view contents down.</p>"
         },
         "keepSectionsInSearch": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if the section information is displayed in the search results when using the <code>searchText</code> property.</p>"
         },
         "sectionIndexTitles": {
@@ -3078,7 +3401,10 @@
             "description": "<p>Style of the scrollbar.</p>"
         },
         "willScrollOnStatusTap": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Controls the scroll-to-top gesture.</p>"
         },
         "separatorInsets": {
@@ -3105,11 +3431,17 @@
             "description": "<p>Search field to use for the list view.</p>"
         },
         "caseInsensitiveSearch": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if the search performed is case insensitive.</p>"
         },
         "showVerticalScrollIndicator": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether this list view displays a vertical scroll indicator.</p>"
         },
         "separatorColor": {
@@ -3152,7 +3484,10 @@
             "description": "<p>Root window to add to this navigation group.</p>"
         },
         "navBarAtTop": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies whether the navigation should be at the top of the screen or the bottom of the screen.</p>"
         },
         "xOffset": {
@@ -3176,7 +3511,10 @@
             "description": "<p>List of option names to display in the dialog.</p>"
         },
         "opaquebackground": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean value indicating if the option dialog should have an opaque background.</p>"
         },
         "selectedIndex": {
@@ -3196,7 +3534,10 @@
             "description": "<p>Duration in milliseconds used for a Countdown Timer picker.</p>"
         },
         "format24": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the Time pickers display in 24-hour or 12-hour clock format.</p>"
         },
         "locale": {
@@ -3216,15 +3557,24 @@
             "description": "<p>Interval in minutes displayed when one of the Time types of pickers is in use.</p>"
         },
         "selectionIndicator": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the visual selection indicator is shown.</p>"
         },
         "selectionOpens": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether calling the method <code>setSelectedRow</code> opens when called</p>"
         },
         "useSpinner": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the non-native Android control, with a spinning wheel that looks and \nbehaves like the iOS picker, is invoked rather than the default native \"dropdown\" style.</p>"
         },
         "visibleItems": {
@@ -3232,7 +3582,10 @@
             "description": "<p>Number of visible rows to display. This is only applicable to a plain picker and when the \n<code>useSpinner</code> is <code>true</code>.</p>"
         },
         "calendarViewShown": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the calenderView is visible.</p>"
         },
         "selectedRow": {
@@ -3240,7 +3593,10 @@
             "description": "<p>The selected row in this column.</p>"
         },
         "canCancelEvents": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether this scroll view can cancel subview touches in order to scroll instead.</p>"
         },
         "contentOffset": {
@@ -3248,11 +3604,17 @@
             "description": "<p>X and Y coordinates to which to reposition the top-left point of the scrollable region.</p>"
         },
         "disableBounce": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether scroll bounce of the scrollable region is enabled.</p>"
         },
         "horizontalBounce": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether horizontal scroll bounce of the scrollable region is enabled.</p>"
         },
         "maxZoomScale": {
@@ -3264,7 +3626,10 @@
             "description": "<p>Minimum scaling factor of the scrollable region and its content.</p>"
         },
         "scrollsToTop": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Controls whether the scroll-to-top gesture is effective.</p>"
         },
         "scrollType": {
@@ -3272,7 +3637,10 @@
             "description": "<p>Limits the direction of the scrollable region, overriding the deduced setting. Set to \n<code>horizontal</code> or <code>vertical</code>.</p>"
         },
         "verticalBounce": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether vertical scroll bounce of the scrollable region is enabled.</p>"
         },
         "zoomScale": {
@@ -3288,11 +3656,17 @@
             "description": "<p>Height of the scrollable region.</p>"
         },
         "scrollingEnabled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether scrolling is enabled for the view.</p>"
         },
         "showHorizontalScrollIndicator": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the horizontal scroll indicator is visible.</p>"
         },
         "decelerationRate": {
@@ -3327,7 +3701,10 @@
             "description": "<p>Height of the paging control, in pixels.</p>"
         },
         "showPagingControl": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the paging control is visible.</p>"
         },
         "pagingControlTimeout": {
@@ -3339,11 +3716,17 @@
             "description": "<p>Alpha value of the paging control.</p>"
         },
         "pagingControlOnTop": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the paging control is displayed at the top or bottom of the view.</p>"
         },
         "overlayEnabled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the paging control is added as an overlay to the view.</p>"
         },
         "views": {
@@ -3351,7 +3734,10 @@
             "description": "<p>Sets the pages within this Scrollable View.</p>"
         },
         "clipViews": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the previous and next pages are clipped, so that they are not visible \nadjacent to the current page.</p>"
         },
         "hitRect": {
@@ -3368,7 +3754,10 @@
             "description": "<p>Determines how text is capitalized during typing.</p>"
         },
         "autocorrect": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the text in the search bar is autocorrected during typing.</p>"
         },
         "hinttextid": {
@@ -3400,11 +3789,17 @@
             "description": "<p>Key identifying a string from the locale file to use for the\n<a href=\"Titanium.UI.SearchBar.prompt\">prompt</a> property.</p>"
         },
         "showBookmark": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the bookmark button is displayed.</p>"
         },
         "showCancel": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the cancel button is displayed.</p>"
         },
         "disabledLeftTrackImage": {
@@ -3504,7 +3899,10 @@
             "description": "<p>Defines the color of the title of tab when it's active.</p>"
         },
         "active": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p><code>true</code> if this tab is active, <code>false</code> if it is not. </p>"
         },
         "activeIcon": {
@@ -3512,11 +3910,17 @@
             "description": "<p>Icon URL for this tab when active.</p>"
         },
         "iconIsMask": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Defines if the icon property of the tab must be used as a mask. This property is applicable on iOS 7 and greater.</p>"
         },
         "activeIconIsMask": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Defines if the active icon property of the tab must be used as a mask. This property is applicable on iOS 7 and greater.</p>"
         },
         "activeTab": {
@@ -3524,11 +3928,17 @@
             "description": "<p>Active tab.</p>"
         },
         "allowUserCustomization": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Allow the user to reorder tabs in the tab group using the <strong>Edit</strong> button on the <strong>More</strong> \ntab.</p>"
         },
         "translucent": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean value indicating if the nav bar (typically for the <strong>More</strong> tab), is translucent.</p>"
         },
         "titleAttributes": {
@@ -3544,19 +3954,31 @@
             "description": "<p>Title for the edit button on the <strong>More</strong> tab.</p>"
         },
         "exitOnClose": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean value indicating if the application should exit when closing the tab group, whether via Android\nback button or the <a href=\"Titanium.UI.TabGroup.close\">close</a> method.</p>"
         },
         "navBarHidden": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Hide the nav bar (<code>true</code>) or show the nav bar (<code>false</code>) for this tab group.</p>"
         },
         "swipeable": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean value indicating if tab navigation can be done by swipes, in addition to tab clicks.</p>"
         },
         "smoothScrollOnTabClick": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean value indicating if changing pages by tab clicks is animated.</p>"
         },
         "tabs": {
@@ -3665,11 +4087,17 @@
             "description": "<p>Height of the tabs.</p>"
         },
         "tabsAtBottom": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the tabs should be positioned at the top rather than the bottom of the \nscreen.</p>"
         },
         "allowsSelectionDuringEditing": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether this table's rows can be selected while editing the table.</p>"
         },
         "headerPullView": {
@@ -3677,27 +4105,45 @@
             "description": "<p>View positioned above the first row that is only revealed when the user drags the table \ncontents down.</p>"
         },
         "hideSearchOnSelection": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the search field should hide on completion.</p>"
         },
         "moveable": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines the rows' default moveable behavior, which allows them to be re-ordered by the \nuser when the table is in <code>editing</code> or <code>moving</code> mode.</p>"
         },
         "moving": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether row moving mode is active.</p>"
         },
         "scrollable": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>If <code>true</code>, the tableview can be scrolled.</p>"
         },
         "searchAsChild": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the <a href=\"Titanium.UI.SearchBar\">SearchBar</a> or <a href=\"Titanium.UI.Android.SearchView\">SearchView</a> appears as part of the TableView.</p>"
         },
         "searchHidden": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the search field is visible.</p>"
         },
         "filterAttribute": {
@@ -3705,11 +4151,17 @@
             "description": "<p>Filter attribute to be used when searching.</p>"
         },
         "filterAnchored": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the search is limited to the start of the string</p>"
         },
         "filterCaseInsensitive": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the search is case insensitive.</p>"
         },
         "maxRowHeight": {
@@ -3729,7 +4181,10 @@
             "description": "<p>Search field to use for the table view.</p>"
         },
         "hasDetail": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether a system-provided detail disclosure button is displayed on the right-hand \nside of the row.</p>"
         },
         "indentionLevel": {
@@ -3745,11 +4200,17 @@
             "description": "<p>Image to render in the right image area of the row, specified as a local path or URL.</p>"
         },
         "hasCheck": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether a system-provided checkmark is displayed on the right-hand side of \nthe row.</p>"
         },
         "hasChild": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether a system-provided arrow is displayed on the right-hand side of the row.</p>"
         },
         "hintTextColor": {
@@ -3757,7 +4218,10 @@
             "description": "<p>Color of hint text that displays when field is empty.</p>"
         },
         "showUndoRedoActions": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determinates if the undo and redo buttons on the left side of the keyboard should be displayed or not. Only valid on iOS9 and above.</p>"
         },
         "appearance": {
@@ -3768,15 +4232,24 @@
             "description": "<p>Determines the appearance of the keyboard displayed when this text area is focused.</p>"
         },
         "clearOnEdit": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the value of this text area should be cleared when it is focused.</p>"
         },
         "enableReturnKey": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the return key is enabled automatically when there is text in this text \narea.</p>"
         },
         "handleLinks": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies if the text area should allow user interaction with the given URL in the given range of text.</p>"
         },
         "keyboardToolbar": {
@@ -3812,7 +4285,10 @@
             "description": "<p>Specifies the text to display on the keyboard <code>Return</code> key when this text area is focused.</p>"
         },
         "suppressReturn": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines if the return key should be suppressed during text entry.</p>"
         },
         "attributedHintText": {
@@ -3863,7 +4339,10 @@
             "description": "<p>Determines when to display the left button view.</p>"
         },
         "passwordMask": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Obscure the input text from the user.</p>"
         },
         "rightButtonMode": {
@@ -3876,11 +4355,17 @@
             "description": "<p>Determines when to display the right button view.</p>"
         },
         "borderTop": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>If <code>true</code>, a border is drawn on the top of the toolbar.</p>"
         },
         "borderBottom": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>If <code>true</code>, a border is drawn on the bottom of the toolbar.</p>"
         },
         "orientation": {
@@ -3912,11 +4397,17 @@
             "description": "<p>An array of colors, as a color name or hex triplet.</p>"
         },
         "backfillStart": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to <code>true</code> to continue filling with the starting color beyond the <code>startPoint</code>.</p>"
         },
         "backfillEnd": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set to <code>true</code> to continue filling with the final color beyond the <code>endPoint</code>.</p>"
         },
         "offset": {
@@ -3924,19 +4415,31 @@
             "description": "<p>Offset of this color in the gradient, from 0 (start) to 1 (end).</p>"
         },
         "enableJavascriptInterface": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Enable adding javascript interfaces internally to webview prior to JELLY_BEAN_MR1 (Android 4.2)</p>"
         },
         "handlePlatformUrl": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Lets the webview handle platform supported urls</p>"
         },
         "hideLoadIndicator": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Hides activity indicator when loading remote URL.</p>"
         },
         "ignoreSslError": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Controls whether to ignore invalid SSL certificates or not.</p>"
         },
         "onCreateWindow": {
@@ -3961,23 +4464,38 @@
             "description": "<p>Determines how to treat content that requires plugins in this web view.</p>"
         },
         "showScrollbars": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>If <code>true</code>, scrollbars are displayed if content is larger than the web view.</p>"
         },
         "willHandleTouches": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Explicitly specifies if this web view handles touches.</p>"
         },
         "lightTouchEnabled": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Enables using light touches to make a selection and activate mouseovers.</p>"
         },
         "loading": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates if the webview is loading content.</p>"
         },
         "scalesPageToFit": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>If <code>true</code>, scale contents to fit the web view.</p>"
         },
         "backButtonTitle": {
@@ -3993,15 +4511,24 @@
             "description": "<p>Background image for the nav bar, specified as a URL to a local image.</p>"
         },
         "flagSecure": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Treat the content of the window as secure, preventing it from appearing in screenshots or from being viewed on non-secure displays.</p>"
         },
         "includeOpaqueBars": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies if the edges should extend beyond opaque bars (navigation bar, tab bar, toolbar). Valid on iOS 7 and greater.</p>"
         },
         "autoAdjustScrollViewInsets": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies whether or not the view controller should automatically adjust its scroll view insets. Valid on iOS 7 and greater.</p>"
         },
         "leftNavButton": {
@@ -4021,7 +4548,10 @@
             "description": "<p>An Array of views to show in the right nav bar area.</p>"
         },
         "splitActionBar": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean value to enable split action bar.</p>"
         },
         "statusBarStyle": {
@@ -4036,7 +4566,10 @@
             "description": "<p>The status bar style associated with this window.</p>"
         },
         "tabBarHidden": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Boolean value indicating if the tab bar should be hidden. </p>"
         },
         "titleControl": {
@@ -4098,11 +4631,17 @@
             "description": "<p>An array of supported values specified using the EXTEND_EDGE constants in <a href=\"Titanium.UI\">UI</a>. Valid on iOS 7 and greater.</p>"
         },
         "hideShadow": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Set this to true to hide the shadow image of the navigation bar.</p>"
         },
         "modal": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Indicates to open a modal window or not.</p>"
         },
         "orientationModes": {
@@ -4192,7 +4731,10 @@
             "description": "<p>Insets to apply when using the animator's reference view as the boundary.</p>"
         },
         "treatReferenceAsBoundary": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Use the animator's reference view as the boundary.</p>"
         },
         "point1": {
@@ -4204,7 +4746,10 @@
             "description": "<p>End point for the boundary</p>"
         },
         "allowsRotation": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Specifies if this item can rotate.</p>"
         },
         "angularResistance": {
@@ -4263,11 +4808,17 @@
             "description": "<p>View for the master view section of the SplitWindow.</p>"
         },
         "showMasterInPortrait": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether to show the master view in portrait orientation.</p>"
         },
         "masterIsOverlayed": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether to show the master view is overlayed in portrait orientation.</p>"
         },
         "portraitSplit": {
@@ -4279,7 +4830,10 @@
             "description": "<p>Determines the width of the <code>masterView</code> in landscape mode.</p>"
         },
         "extendBackground": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>If <code>true</code>, the background of the toolbar extends upwards.</p>"
         },
         "anchorItem": {
@@ -4311,7 +4865,10 @@
             "description": "<p>Value of the badge for the application's springboard icon.</p>"
         },
         "appSupportsShakeToEdit": {
-            "values": [],
+            "values": [
+                "true",
+                "false"
+            ],
             "description": "<p>Determines whether the shake to edit system-wide capability is enabled.</p>"
         },
         "nodeValue": {
