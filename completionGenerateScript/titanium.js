@@ -21,7 +21,10 @@ _.each(api.types,function(type,idx){
       if(prop.type === 'Boolean'){
         props[prop.name].values = ['true','false'];
       }
-      console.log(prop.type);
+      
+      props[prop.name].values = _.map(props[prop.name].values,function(val){
+        return val.replace(/Titanium\./g,'Ti.')
+      });
     }
       
       

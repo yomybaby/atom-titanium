@@ -105,9 +105,12 @@
         },
         "softKeyboardOnFocus": {
             "values": [
-                "Titanium.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS",
-                "Titanium.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS",
-                "Titanium.UI.Android.SOFT_KEYBOARD_SHOW_ON_FOCUS"
+                "Ti.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS",
+                "Ti.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS",
+                "Ti.UI.Android.SOFT_KEYBOARD_SHOW_ON_FOCUS",
+                "Ti.UI.Android.SOFT_KEYBOARD_DEFAULT_ON_FOCUS",
+                "Ti.UI.Android.SOFT_KEYBOARD_HIDE_ON_FOCUS",
+                "Ti.UI.Android.SOFT_KEYBOARD_SHOW_ON_FOCUS"
             ],
             "description": "<p>Determines keyboard behavior when this view is focused.</p>"
         },
@@ -171,8 +174,10 @@
         },
         "height": {
             "values": [
-                "Titanium.UI.FILL",
-                "Titanium.UI.SIZE"
+                "Ti.UI.FILL",
+                "Ti.UI.SIZE",
+                "Ti.UI.FILL",
+                "Ti.UI.SIZE"
             ],
             "description": "<p>View height, in platform-specific units.</p>"
         },
@@ -216,8 +221,10 @@
         },
         "width": {
             "values": [
-                "Titanium.UI.FILL",
-                "Titanium.UI.SIZE"
+                "Ti.UI.FILL",
+                "Ti.UI.SIZE",
+                "Ti.UI.FILL",
+                "Ti.UI.SIZE"
             ],
             "description": "<p>View's width, in platform-specific units.</p>"
         },
@@ -245,9 +252,9 @@
         },
         "code": {
             "values": [
-                "Titanium.Media.DEVICE_BUSY",
-                "Titanium.Media.NO_CAMERA",
-                "Titanium.Media.UNKNOWN_ERROR"
+                "Ti.Media.DEVICE_BUSY",
+                "Ti.Media.NO_CAMERA",
+                "Ti.Media.UNKNOWN_ERROR"
             ],
             "description": "<p>Error code, if any returned.</p>"
         },
@@ -281,8 +288,8 @@
         },
         "location": {
             "values": [
-                "Titanium.UI.Android.PROGRESS_INDICATOR_DIALOG",
-                "Titanium.UI.Android.PROGRESS_INDICATOR_STATUS_BAR"
+                "Ti.UI.Android.PROGRESS_INDICATOR_DIALOG",
+                "Ti.UI.Android.PROGRESS_INDICATOR_STATUS_BAR"
             ],
             "description": "<p>Location of client.</p>"
         },
@@ -530,13 +537,13 @@
         },
         "requestedOrientation": {
             "values": [
-                "Titanium.Android.SCREEN_ORIENTATION_BEHIND",
-                "Titanium.Android.SCREEN_ORIENTATION_LANDSCAPE",
-                "Titanium.Android.SCREEN_ORIENTATION_NOSENSOR",
-                "Titanium.Android.SCREEN_ORIENTATION_PORTRAIT",
-                "Titanium.Android.SCREEN_ORIENTATION_SENSOR",
-                "Titanium.Android.SCREEN_ORIENTATION_UNSPECIFIED",
-                "Titanium.Android.SCREEN_ORIENTATION_USER"
+                "Ti.Android.SCREEN_ORIENTATION_BEHIND",
+                "Ti.Android.SCREEN_ORIENTATION_LANDSCAPE",
+                "Ti.Android.SCREEN_ORIENTATION_NOSENSOR",
+                "Ti.Android.SCREEN_ORIENTATION_PORTRAIT",
+                "Ti.Android.SCREEN_ORIENTATION_SENSOR",
+                "Ti.Android.SCREEN_ORIENTATION_UNSPECIFIED",
+                "Ti.Android.SCREEN_ORIENTATION_USER"
             ],
             "description": "<p>Specifies a specific orientation for this activity.</p>"
         },
@@ -554,8 +561,8 @@
         },
         "startMode": {
             "values": [
-                "Titanium.Android.START_NOT_STICKY",
-                "Titanium.Android.START_REDELIVER_INTENT"
+                "Ti.Android.START_NOT_STICKY",
+                "Ti.Android.START_REDELIVER_INTENT"
             ],
             "description": "<p>One of the <code>START_</code> constants from <a href=\"Titanium.Android\">Android</a> to specify the \"stickiness\" of the Service when Android shuts down the host application.</p>"
         },
@@ -573,36 +580,40 @@
         },
         "flags": {
             "values": [
-                "Titanium.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT",
-                "Titanium.Android.FLAG_ACTIVITY_CLEAR_TOP",
-                "Titanium.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET",
-                "Titanium.Android.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS",
-                "Titanium.Android.FLAG_ACTIVITY_FORWARD_RESULT",
-                "Titanium.Android.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY",
-                "Titanium.Android.FLAG_ACTIVITY_MULTIPLE_TASK",
-                "Titanium.Android.FLAG_ACTIVITY_NEW_TASK",
-                "Titanium.Android.FLAG_ACTIVITY_NO_ANIMATION",
-                "Titanium.Android.FLAG_ACTIVITY_NO_HISTORY",
-                "Titanium.Android.FLAG_ACTIVITY_NO_USER_ACTION",
-                "Titanium.Android.FLAG_ACTIVITY_PREVIOUS_IS_TOP",
-                "Titanium.Android.FLAG_ACTIVITY_REORDER_TO_FRONT",
-                "Titanium.Android.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED",
-                "Titanium.Android.FLAG_ACTIVITY_SINGLE_TOP",
-                "Titanium.Android.FLAG_DEBUG_LOG_RESOLUTION",
-                "Titanium.Android.FLAG_FROM_BACKGROUND",
-                "Titanium.Android.FLAG_GRANT_READ_URI_PERMISSION",
-                "Titanium.Android.FLAG_GRANT_WRITE_URI_PERMISSION",
-                "Titanium.Android.FLAG_RECEIVER_REGISTERED_ONLY",
-                "Titanium.Android.FLAG_CANCEL_CURRENT",
-                "Titanium.Android.FLAG_NO_CREATE",
-                "Titanium.Android.FLAG_ONE_SHOT",
-                "Titanium.Android.FLAG_UPDATE_CURRENT",
-                "Titanium.Android.FLAG_AUTO_CANCEL",
-                "Titanium.Android.FLAG_INSISTENT",
-                "Titanium.Android.FLAG_NO_CLEAR",
-                "Titanium.Android.FLAG_ONGOING_EVENT",
-                "Titanium.Android.FLAG_ONLY_ALERT_ONCE",
-                "Titanium.Android.FLAG_SHOW_LIGHTS"
+                "Ti.Android.FLAG_ACTIVITY_BROUGHT_TO_FRONT",
+                "Ti.Android.FLAG_ACTIVITY_CLEAR_TOP",
+                "Ti.Android.FLAG_ACTIVITY_CLEAR_WHEN_TASK_RESET",
+                "Ti.Android.FLAG_ACTIVITY_EXCLUDE_FROM_RECENTS",
+                "Ti.Android.FLAG_ACTIVITY_FORWARD_RESULT",
+                "Ti.Android.FLAG_ACTIVITY_LAUNCHED_FROM_HISTORY",
+                "Ti.Android.FLAG_ACTIVITY_MULTIPLE_TASK",
+                "Ti.Android.FLAG_ACTIVITY_NEW_TASK",
+                "Ti.Android.FLAG_ACTIVITY_NO_ANIMATION",
+                "Ti.Android.FLAG_ACTIVITY_NO_HISTORY",
+                "Ti.Android.FLAG_ACTIVITY_NO_USER_ACTION",
+                "Ti.Android.FLAG_ACTIVITY_PREVIOUS_IS_TOP",
+                "Ti.Android.FLAG_ACTIVITY_REORDER_TO_FRONT",
+                "Ti.Android.FLAG_ACTIVITY_RESET_TASK_IF_NEEDED",
+                "Ti.Android.FLAG_ACTIVITY_SINGLE_TOP",
+                "Ti.Android.FLAG_DEBUG_LOG_RESOLUTION",
+                "Ti.Android.FLAG_FROM_BACKGROUND",
+                "Ti.Android.FLAG_GRANT_READ_URI_PERMISSION",
+                "Ti.Android.FLAG_GRANT_WRITE_URI_PERMISSION",
+                "Ti.Android.FLAG_RECEIVER_REGISTERED_ONLY",
+                "Ti.Android.FLAG_CANCEL_CURRENT",
+                "Ti.Android.FLAG_NO_CREATE",
+                "Ti.Android.FLAG_ONE_SHOT",
+                "Ti.Android.FLAG_UPDATE_CURRENT",
+                "Ti.Android.FLAG_AUTO_CANCEL",
+                "Ti.Android.FLAG_INSISTENT",
+                "Ti.Android.FLAG_NO_CLEAR",
+                "Ti.Android.FLAG_ONGOING_EVENT",
+                "Ti.Android.FLAG_ONLY_ALERT_ONCE",
+                "Ti.Android.FLAG_SHOW_LIGHTS",
+                "Ti.Android.FLAG_CANCEL_CURRENT",
+                "Ti.Android.FLAG_NO_CREATE",
+                "Ti.Android.FLAG_ONE_SHOT",
+                "Ti.Android.FLAG_UPDATE_CURRENT"
             ],
             "description": "<p>Intent flags.</p>"
         },
@@ -630,11 +641,11 @@
         },
         "showAsAction": {
             "values": [
-                "Titanium.Android.SHOW_AS_ACTION_ALWAYS",
-                "Titanium.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW",
-                "Titanium.Android.SHOW_AS_ACTION_IF_ROOM",
-                "Titanium.Android.SHOW_AS_ACTION_NEVER",
-                "Titanium.Android.SHOW_AS_ACTION_WITH_TEXT"
+                "Ti.Android.SHOW_AS_ACTION_ALWAYS",
+                "Ti.Android.SHOW_AS_ACTION_COLLAPSE_ACTION_VIEW",
+                "Ti.Android.SHOW_AS_ACTION_IF_ROOM",
+                "Ti.Android.SHOW_AS_ACTION_NEVER",
+                "Ti.Android.SHOW_AS_ACTION_WITH_TEXT"
             ],
             "description": "<p>A set of flags that controls how this item appears in the action bar.</p>"
         },
@@ -644,48 +655,48 @@
         },
         "audioStreamType": {
             "values": [
-                "Titanium.Android.STREAM_ALARM",
-                "Titanium.Android.STREAM_DEFAULT",
-                "Titanium.Android.STREAM_MUSIC",
-                "Titanium.Android.STREAM_NOTIFICATION",
-                "Titanium.Android.STREAM_RING",
-                "Titanium.Android.STREAM_SYSTEM",
-                "Titanium.Android.STREAM_VOICE_CALL"
+                "Ti.Android.STREAM_ALARM",
+                "Ti.Android.STREAM_DEFAULT",
+                "Ti.Android.STREAM_MUSIC",
+                "Ti.Android.STREAM_NOTIFICATION",
+                "Ti.Android.STREAM_RING",
+                "Ti.Android.STREAM_SYSTEM",
+                "Ti.Android.STREAM_VOICE_CALL"
             ],
             "description": "<p>The audio stream type to use when playing the sound.</p>"
         },
         "category": {
             "values": [
-                "Titanium.Android.CATEGORY_ALTERNATIVE",
-                "Titanium.Android.CATEGORY_BROWSABLE",
-                "Titanium.Android.CATEGORY_DEFAULT",
-                "Titanium.Android.CATEGORY_DEVELOPMENT_PREFERENCE",
-                "Titanium.Android.CATEGORY_EMBED",
-                "Titanium.Android.CATEGORY_FRAMEWORK_INSTRUMENTATION_TEST",
-                "Titanium.Android.CATEGORY_HOME",
-                "Titanium.Android.CATEGORY_INFO",
-                "Titanium.Android.CATEGORY_LAUNCHER",
-                "Titanium.Android.CATEGORY_MONKEY",
-                "Titanium.Android.CATEGORY_OPENABLE",
-                "Titanium.Android.CATEGORY_PREFERENCE",
-                "Titanium.Android.CATEGORY_SAMPLE_CODE",
-                "Titanium.Android.CATEGORY_SELECTED_ALTERNATIVE",
-                "Titanium.Android.CATEGORY_TAB",
-                "Titanium.Android.CATEGORY_TEST",
-                "Titanium.Android.CATEGORY_UNIT_TEST",
-                "Titanium.Android.CATEGORY_ALARM",
-                "Titanium.Android.CATEGORY_CALL",
-                "Titanium.Android.CATEGORY_EMAIL",
-                "Titanium.Android.CATEGORY_ERROR",
-                "Titanium.Android.CATEGORY_EVENT",
-                "Titanium.Android.CATEGORY_MESSAGE",
-                "Titanium.Android.CATEGORY_PROGRESS",
-                "Titanium.Android.CATEGORY_PROMO",
-                "Titanium.Android.CATEGORY_RECOMMENDATION",
-                "Titanium.Android.CATEGORY_SERVICE",
-                "Titanium.Android.CATEGORY_SOCIAL",
-                "Titanium.Android.CATEGORY_STATUS",
-                "Titanium.Android.CATEGORY_TRANSPORT"
+                "Ti.Android.CATEGORY_ALTERNATIVE",
+                "Ti.Android.CATEGORY_BROWSABLE",
+                "Ti.Android.CATEGORY_DEFAULT",
+                "Ti.Android.CATEGORY_DEVELOPMENT_PREFERENCE",
+                "Ti.Android.CATEGORY_EMBED",
+                "Ti.Android.CATEGORY_FRAMEWORK_INSTRUMENTATION_TEST",
+                "Ti.Android.CATEGORY_HOME",
+                "Ti.Android.CATEGORY_INFO",
+                "Ti.Android.CATEGORY_LAUNCHER",
+                "Ti.Android.CATEGORY_MONKEY",
+                "Ti.Android.CATEGORY_OPENABLE",
+                "Ti.Android.CATEGORY_PREFERENCE",
+                "Ti.Android.CATEGORY_SAMPLE_CODE",
+                "Ti.Android.CATEGORY_SELECTED_ALTERNATIVE",
+                "Ti.Android.CATEGORY_TAB",
+                "Ti.Android.CATEGORY_TEST",
+                "Ti.Android.CATEGORY_UNIT_TEST",
+                "Ti.Android.CATEGORY_ALARM",
+                "Ti.Android.CATEGORY_CALL",
+                "Ti.Android.CATEGORY_EMAIL",
+                "Ti.Android.CATEGORY_ERROR",
+                "Ti.Android.CATEGORY_EVENT",
+                "Ti.Android.CATEGORY_MESSAGE",
+                "Ti.Android.CATEGORY_PROGRESS",
+                "Ti.Android.CATEGORY_PROMO",
+                "Ti.Android.CATEGORY_RECOMMENDATION",
+                "Ti.Android.CATEGORY_SERVICE",
+                "Ti.Android.CATEGORY_SOCIAL",
+                "Ti.Android.CATEGORY_STATUS",
+                "Ti.Android.CATEGORY_TRANSPORT"
             ],
             "description": "<p>Sets the notification's category.</p>"
         },
@@ -707,10 +718,10 @@
         },
         "defaults": {
             "values": [
-                "Titanium.Android.DEFAULT_ALL",
-                "Titanium.Android.DEFAULT_LIGHTS",
-                "Titanium.Android.DEFAULT_SOUND",
-                "Titanium.Android.DEFAULT_VIBRATE"
+                "Ti.Android.DEFAULT_ALL",
+                "Ti.Android.DEFAULT_LIGHTS",
+                "Ti.Android.DEFAULT_SOUND",
+                "Ti.Android.DEFAULT_VIBRATE"
             ],
             "description": "<p>Specifies which values should be taken from the defaults.</p>"
         },
@@ -740,11 +751,11 @@
         },
         "priority": {
             "values": [
-                "Titanium.Android.PRIORITY_MAX",
-                "Titanium.Android.PRIORITY_HIGH",
-                "Titanium.Android.PRIORITY_DEFAULT",
-                "Titanium.Android.PRIORITY_LOW",
-                "Titanium.Android.PRIORITY_MIN"
+                "Ti.Android.PRIORITY_MAX",
+                "Ti.Android.PRIORITY_HIGH",
+                "Ti.Android.PRIORITY_DEFAULT",
+                "Ti.Android.PRIORITY_LOW",
+                "Ti.Android.PRIORITY_MIN"
             ],
             "description": "<p>Sets the priority of the notification.</p>"
         },
@@ -758,9 +769,9 @@
         },
         "visibility": {
             "values": [
-                "Titanium.Android.VISIBILITY_PRIVATE",
-                "Titanium.Android.VISIBILITY_PUBLIC",
-                "Titanium.Android.VISIBILITY_SECRET"
+                "Ti.Android.VISIBILITY_PRIVATE",
+                "Ti.Android.VISIBILITY_PUBLIC",
+                "Ti.Android.VISIBILITY_SECRET"
             ],
             "description": "<p>Allows user to conceal private information of the notification on the lockscreen.</p>"
         },
@@ -836,39 +847,39 @@
         },
         "itemContentType": {
             "values": [
-                "Titanium.App.iOS.UTTYPE_TEXT",
-                "Titanium.App.iOS.UTTYPE_PLAIN_TEXT",
-                "Titanium.App.iOS.UTTYPE_UTF8_PLAIN_TEXT",
-                "Titanium.App.iOS.UTTYPE_UTF16_EXTERNAL_PLAIN_TEXT",
-                "Titanium.App.iOS.UTTYPE_UTF16_PLAIN_TEXT",
-                "Titanium.App.iOS.UTTYPE_RTF",
-                "Titanium.App.iOS.UTTYPE_HTML",
-                "Titanium.App.iOS.UTTYPE_XML",
-                "Titanium.App.iOS.UTTYPE_PDF",
-                "Titanium.App.iOS.UTTYPE_RTFD",
-                "Titanium.App.iOS.UTTYPE_FLAT_RTFD",
-                "Titanium.App.iOS.UTTYPE_TXN_TEXT_AND_MULTIMEDIA_DATA",
-                "Titanium.App.iOS.UTTYPE_WEB_ARCHIVE",
-                "Titanium.App.iOS.UTTYPE_IMAGE",
-                "Titanium.App.iOS.UTTYPE_JPEG",
-                "Titanium.App.iOS.UTTYPE_JPEG2000",
-                "Titanium.App.iOS.UTTYPE_TIFF",
-                "Titanium.App.iOS.UTTYPE_PICT",
-                "Titanium.App.iOS.UTTYPE_GIF",
-                "Titanium.App.iOS.UTTYPE_PNG",
-                "Titanium.App.iOS.UTTYPE_QUICKTIME_IMAGE",
-                "Titanium.App.iOS.UTTYPE_APPLE_ICNS",
-                "Titanium.App.iOS.UTTYPE_BMP",
-                "Titanium.App.iOS.UTTYPE_ICO",
-                "Titanium.App.iOS.UTTYPE_MOVIE",
-                "Titanium.App.iOS.UTTYPE_VIDEO",
-                "Titanium.App.iOS.UTTYPE_AUDIO",
-                "Titanium.App.iOS.UTTYPE_QUICKTIME_MOVIE",
-                "Titanium.App.iOS.UTTYPE_MPEG",
-                "Titanium.App.iOS.UTTYPE_MPEG4",
-                "Titanium.App.iOS.UTTYPE_MP3",
-                "Titanium.App.iOS.UTTYPE_MPEG4_AUDIO",
-                "Titanium.App.iOS.UTTYPE_APPLE_PROTECTED_MPEG4_AUDIO"
+                "Ti.App.iOS.UTTYPE_TEXT",
+                "Ti.App.iOS.UTTYPE_PLAIN_TEXT",
+                "Ti.App.iOS.UTTYPE_UTF8_PLAIN_TEXT",
+                "Ti.App.iOS.UTTYPE_UTF16_EXTERNAL_PLAIN_TEXT",
+                "Ti.App.iOS.UTTYPE_UTF16_PLAIN_TEXT",
+                "Ti.App.iOS.UTTYPE_RTF",
+                "Ti.App.iOS.UTTYPE_HTML",
+                "Ti.App.iOS.UTTYPE_XML",
+                "Ti.App.iOS.UTTYPE_PDF",
+                "Ti.App.iOS.UTTYPE_RTFD",
+                "Ti.App.iOS.UTTYPE_FLAT_RTFD",
+                "Ti.App.iOS.UTTYPE_TXN_TEXT_AND_MULTIMEDIA_DATA",
+                "Ti.App.iOS.UTTYPE_WEB_ARCHIVE",
+                "Ti.App.iOS.UTTYPE_IMAGE",
+                "Ti.App.iOS.UTTYPE_JPEG",
+                "Ti.App.iOS.UTTYPE_JPEG2000",
+                "Ti.App.iOS.UTTYPE_TIFF",
+                "Ti.App.iOS.UTTYPE_PICT",
+                "Ti.App.iOS.UTTYPE_GIF",
+                "Ti.App.iOS.UTTYPE_PNG",
+                "Ti.App.iOS.UTTYPE_QUICKTIME_IMAGE",
+                "Ti.App.iOS.UTTYPE_APPLE_ICNS",
+                "Ti.App.iOS.UTTYPE_BMP",
+                "Ti.App.iOS.UTTYPE_ICO",
+                "Ti.App.iOS.UTTYPE_MOVIE",
+                "Ti.App.iOS.UTTYPE_VIDEO",
+                "Ti.App.iOS.UTTYPE_AUDIO",
+                "Ti.App.iOS.UTTYPE_QUICKTIME_MOVIE",
+                "Ti.App.iOS.UTTYPE_MPEG",
+                "Ti.App.iOS.UTTYPE_MPEG4",
+                "Ti.App.iOS.UTTYPE_MP3",
+                "Ti.App.iOS.UTTYPE_MPEG4_AUDIO",
+                "Ti.App.iOS.UTTYPE_APPLE_PROTECTED_MPEG4_AUDIO"
             ],
             "description": "<p>Content type of the attribute set.</p>"
         },
@@ -966,8 +977,8 @@
         },
         "kind": {
             "values": [
-                "Titanium.Contacts.CONTACTS_KIND_ORGANIZATION",
-                "Titanium.Contacts.CONTACTS_KIND_PERSON"
+                "Ti.Contacts.CONTACTS_KIND_ORGANIZATION",
+                "Ti.Contacts.CONTACTS_KIND_PERSON"
             ],
             "description": "<p>Kind that the item represents.</p>"
         },
@@ -1109,8 +1120,8 @@
         },
         "duration": {
             "values": [
-                "Titanium.UI.NOTIFICATION_DURATION_LONG",
-                "Titanium.UI.NOTIFICATION_DURATION_SHORT"
+                "Ti.UI.NOTIFICATION_DURATION_LONG",
+                "Ti.UI.NOTIFICATION_DURATION_SHORT"
             ],
             "description": "<p>Duration in seconds of the content of the item (if appropriate).</p>"
         },
@@ -1128,16 +1139,16 @@
         },
         "mediaTypes": {
             "values": [
-                "Titanium.Media.MUSIC_MEDIA_TYPE_ALL",
-                "Titanium.Media.MUSIC_MEDIA_TYPE_ANY_AUDIO",
-                "Titanium.Media.MUSIC_MEDIA_TYPE_AUDIOBOOK",
-                "Titanium.Media.MUSIC_MEDIA_TYPE_MUSIC",
-                "Titanium.Media.MUSIC_MEDIA_TYPE_PODCAST",
-                "Titanium.Media.MEDIA_TYPE_PHOTO",
-                "Titanium.Media.MEDIA_TYPE_VIDEO",
-                "Titanium.Media.VIDEO_MEDIA_TYPE_AUDIO",
-                "Titanium.Media.VIDEO_MEDIA_TYPE_NONE",
-                "Titanium.Media.VIDEO_MEDIA_TYPE_VIDEO"
+                "Ti.Media.MUSIC_MEDIA_TYPE_ALL",
+                "Ti.Media.MUSIC_MEDIA_TYPE_ANY_AUDIO",
+                "Ti.Media.MUSIC_MEDIA_TYPE_AUDIOBOOK",
+                "Ti.Media.MUSIC_MEDIA_TYPE_MUSIC",
+                "Ti.Media.MUSIC_MEDIA_TYPE_PODCAST",
+                "Ti.Media.MEDIA_TYPE_PHOTO",
+                "Ti.Media.MEDIA_TYPE_VIDEO",
+                "Ti.Media.VIDEO_MEDIA_TYPE_AUDIO",
+                "Ti.Media.VIDEO_MEDIA_TYPE_NONE",
+                "Ti.Media.VIDEO_MEDIA_TYPE_VIDEO"
             ],
             "description": "<p>Media types present in the content.</p>"
         },
@@ -1239,10 +1250,10 @@
         },
         "activityType": {
             "values": [
-                "Titanium.Geolocation.ACTIVITYTYPE_AUTOMOTIVE_NAVIGATION",
-                "Titanium.Geolocation.ACTIVITYTYPE_FITNESS",
-                "Titanium.Geolocation.ACTIVITYTYPE_OTHER",
-                "Titanium.Geolocation.ACTIVITYTYPE_OTHER_NAVIGATION"
+                "Ti.Geolocation.ACTIVITYTYPE_AUTOMOTIVE_NAVIGATION",
+                "Ti.Geolocation.ACTIVITYTYPE_FITNESS",
+                "Ti.Geolocation.ACTIVITYTYPE_OTHER",
+                "Ti.Geolocation.ACTIVITYTYPE_OTHER_NAVIGATION"
             ],
             "description": "<p>Name of the activity type.</p>"
         },
@@ -1299,8 +1310,8 @@
         },
         "activationMode": {
             "values": [
-                "Titanium.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_BACKGROUND",
-                "Titanium.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_FOREGROUND"
+                "Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_BACKGROUND",
+                "Ti.App.iOS.USER_NOTIFICATION_ACTIVATION_MODE_FOREGROUND"
             ],
             "description": "<p>Selects how to activate the application.</p>"
         },
@@ -1356,14 +1367,14 @@
         },
         "types": {
             "values": [
-                "Titanium.App.iOS.USER_NOTIFICATION_TYPE_NONE",
-                "Titanium.App.iOS.USER_NOTIFICATION_TYPE_BADGE",
-                "Titanium.App.iOS.USER_NOTIFICATION_TYPE_SOUND",
-                "Titanium.App.iOS.USER_NOTIFICATION_TYPE_ALERT",
-                "Titanium.Network.NOTIFICATION_TYPE_ALERT",
-                "Titanium.Network.NOTIFICATION_TYPE_BADGE",
-                "Titanium.Network.NOTIFICATION_TYPE_SOUND",
-                "Titanium.Network.NOTIFICATION_TYPE_NEWSSTAND"
+                "Ti.App.iOS.USER_NOTIFICATION_TYPE_NONE",
+                "Ti.App.iOS.USER_NOTIFICATION_TYPE_BADGE",
+                "Ti.App.iOS.USER_NOTIFICATION_TYPE_SOUND",
+                "Ti.App.iOS.USER_NOTIFICATION_TYPE_ALERT",
+                "Ti.Network.NOTIFICATION_TYPE_ALERT",
+                "Ti.Network.NOTIFICATION_TYPE_BADGE",
+                "Ti.Network.NOTIFICATION_TYPE_SOUND",
+                "Ti.Network.NOTIFICATION_TYPE_NEWSSTAND"
             ],
             "description": "<p>Notification types to use.</p>"
         },
@@ -1387,70 +1398,71 @@
             "values": [
                 "true",
                 "false",
-                "Titanium.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_NONE",
-                "Titanium.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_SINGLE",
-                "Titanium.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_THICK",
-                "Titanium.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_DOUBLE",
-                "Titanium.UI.iOS.ATTRIBUTE_WRITING_DIRECTION_EMBEDDING",
-                "Titanium.UI.iOS.ATTRIBUTE_WRITING_DIRECTION_OVERRIDE",
-                "Titanium.UI.iOS.ATTRIBUTE_WRITING_DIRECTION_NATURAL",
-                "Titanium.UI.iOS.ATTRIBUTE_WRITING_DIRECTION_LEFT_TO_RIGHT",
-                "Titanium.UI.iOS.ATTRIBUTE_WRITING_DIRECTION_RIGHT_TO_LEFT",
-                "Titanium.UI.iOS.ATTRIBUTE_LETTERPRESS_STYLE"
+                "Ti.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_NONE",
+                "Ti.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_SINGLE",
+                "Ti.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_THICK",
+                "Ti.UI.iOS.ATTRIBUTE_UNDERLINE_STYLE_DOUBLE",
+                "Ti.UI.iOS.ATTRIBUTE_WRITING_DIRECTION_EMBEDDING",
+                "Ti.UI.iOS.ATTRIBUTE_WRITING_DIRECTION_OVERRIDE",
+                "Ti.UI.iOS.ATTRIBUTE_WRITING_DIRECTION_NATURAL",
+                "Ti.UI.iOS.ATTRIBUTE_WRITING_DIRECTION_LEFT_TO_RIGHT",
+                "Ti.UI.iOS.ATTRIBUTE_WRITING_DIRECTION_RIGHT_TO_LEFT",
+                "Ti.UI.iOS.ATTRIBUTE_LETTERPRESS_STYLE"
             ],
             "description": "<p>Data to be encoded.</p>"
         },
         "type": {
             "values": [
-                "Titanium.Codec.TYPE_BYTE",
-                "Titanium.Codec.TYPE_SHORT",
-                "Titanium.Codec.TYPE_INT",
-                "Titanium.Codec.TYPE_FLOAT",
-                "Titanium.Codec.TYPE_LONG",
-                "Titanium.Codec.TYPE_DOUBLE",
-                "Titanium.UI.Android.PROGRESS_INDICATOR_INDETERMINANT",
-                "Titanium.UI.Android.PROGRESS_INDICATOR_DETERMINANT",
-                "Titanium.UI.ATTRIBUTE_FONT",
-                "Titanium.UI.ATTRIBUTE_FOREGROUND_COLOR",
-                "Titanium.UI.ATTRIBUTE_BACKGROUND_COLOR",
-                "Titanium.UI.ATTRIBUTE_STRIKETHROUGH_STYLE",
-                "Titanium.UI.ATTRIBUTE_UNDERLINES_STYLE",
-                "Titanium.UI.ATTRIBUTE_LINK",
-                "Titanium.UI.ATTRIBUTE_UNDERLINE_COLOR",
-                "Titanium.UI.iOS.ATTRIBUTE_LIGATURE",
-                "Titanium.UI.ATTRIBUTE_KERN",
-                "Titanium.UI.ATTRIBUTE_STROKE_COLOR",
-                "Titanium.UI.ATTRIBUTE_STROKE_WIDTH",
-                "Titanium.UI.ATTRIBUTE_SHADOW",
-                "Titanium.UI.ATTRIBUTE_WRITING_DIRECTION",
-                "Titanium.UI.ATTRIBUTE_TEXT_EFFECT",
-                "Titanium.UI.ATTRIBUTE_BASELINE_OFFSET",
-                "Titanium.UI.ATTRIBUTE_STRIKETHROUGH_COLOR",
-                "Titanium.UI.ATTRIBUTE_OBLIQUENESS",
-                "Titanium.UI.ATTRIBUTE_EXPANSION",
-                "Titanium.UI.ATTRIBUTE_LINE_BREAK",
-                "Titanium.UI.PICKER_TYPE_COUNT_DOWN_TIMER",
-                "Titanium.UI.PICKER_TYPE_DATE",
-                "Titanium.UI.PICKER_TYPE_DATE_AND_TIME",
-                "Titanium.UI.PICKER_TYPE_PLAIN",
-                "Titanium.UI.PICKER_TYPE_TIME",
-                "Titanium.UI.iOS.ATTRIBUTE_FONT",
-                "Titanium.UI.iOS.ATTRIBUTE_FOREGROUND_COLOR",
-                "Titanium.UI.iOS.ATTRIBUTE_BACKGROUND_COLOR",
-                "Titanium.UI.iOS.ATTRIBUTE_KERN",
-                "Titanium.UI.iOS.ATTRIBUTE_STRIKETHROUGH_STYLE",
-                "Titanium.UI.iOS.ATTRIBUTE_UNDERLINES_STYLE",
-                "Titanium.UI.iOS.ATTRIBUTE_STROKE_COLOR",
-                "Titanium.UI.iOS.ATTRIBUTE_STROKE_WIDTH",
-                "Titanium.UI.iOS.ATTRIBUTE_SHADOW",
-                "Titanium.UI.iOS.ATTRIBUTE_WRITING_DIRECTION",
-                "Titanium.UI.iOS.ATTRIBUTE_TEXT_EFFECT",
-                "Titanium.UI.iOS.ATTRIBUTE_LINK",
-                "Titanium.UI.iOS.ATTRIBUTE_BASELINE_OFFSET",
-                "Titanium.UI.iOS.ATTRIBUTE_UNDERLINE_COLOR",
-                "Titanium.UI.iOS.ATTRIBUTE_STRIKETHROUGH_COLOR",
-                "Titanium.UI.iOS.ATTRIBUTE_OBLIQUENESS",
-                "Titanium.UI.iOS.ATTRIBUTE_EXPANSION"
+                "Ti.Codec.TYPE_BYTE",
+                "Ti.Codec.TYPE_SHORT",
+                "Ti.Codec.TYPE_INT",
+                "Ti.Codec.TYPE_FLOAT",
+                "Ti.Codec.TYPE_LONG",
+                "Ti.Codec.TYPE_DOUBLE",
+                "Ti.UI.Android.PROGRESS_INDICATOR_INDETERMINANT",
+                "Ti.UI.Android.PROGRESS_INDICATOR_DETERMINANT",
+                "Ti.UI.ATTRIBUTE_FONT",
+                "Ti.UI.ATTRIBUTE_FOREGROUND_COLOR",
+                "Ti.UI.ATTRIBUTE_BACKGROUND_COLOR",
+                "Ti.UI.ATTRIBUTE_STRIKETHROUGH_STYLE",
+                "Ti.UI.ATTRIBUTE_UNDERLINES_STYLE",
+                "Ti.UI.ATTRIBUTE_LINK",
+                "Ti.UI.ATTRIBUTE_UNDERLINE_COLOR",
+                "Ti.UI.iOS.ATTRIBUTE_LIGATURE",
+                "Ti.UI.ATTRIBUTE_KERN",
+                "Ti.UI.ATTRIBUTE_STROKE_COLOR",
+                "Ti.UI.ATTRIBUTE_STROKE_WIDTH",
+                "Ti.UI.ATTRIBUTE_SHADOW",
+                "Ti.UI.ATTRIBUTE_WRITING_DIRECTION",
+                "Ti.UI.ATTRIBUTE_TEXT_EFFECT",
+                "Ti.UI.ATTRIBUTE_BASELINE_OFFSET",
+                "Ti.UI.ATTRIBUTE_STRIKETHROUGH_COLOR",
+                "Ti.UI.ATTRIBUTE_OBLIQUENESS",
+                "Ti.UI.ATTRIBUTE_EXPANSION",
+                "Ti.UI.ATTRIBUTE_LINE_BREAK",
+                "Ti.UI.PICKER_TYPE_COUNT_DOWN_TIMER",
+                "Ti.UI.PICKER_TYPE_DATE",
+                "Ti.UI.PICKER_TYPE_DATE_AND_TIME",
+                "Ti.UI.PICKER_TYPE_PLAIN",
+                "Ti.UI.PICKER_TYPE_TIME",
+                "Ti.UI.iOS.ATTRIBUTE_FONT",
+                "Ti.UI.iOS.ATTRIBUTE_FOREGROUND_COLOR",
+                "Ti.UI.iOS.ATTRIBUTE_BACKGROUND_COLOR",
+                "Ti.UI.iOS.ATTRIBUTE_LIGATURE",
+                "Ti.UI.iOS.ATTRIBUTE_KERN",
+                "Ti.UI.iOS.ATTRIBUTE_STRIKETHROUGH_STYLE",
+                "Ti.UI.iOS.ATTRIBUTE_UNDERLINES_STYLE",
+                "Ti.UI.iOS.ATTRIBUTE_STROKE_COLOR",
+                "Ti.UI.iOS.ATTRIBUTE_STROKE_WIDTH",
+                "Ti.UI.iOS.ATTRIBUTE_SHADOW",
+                "Ti.UI.iOS.ATTRIBUTE_WRITING_DIRECTION",
+                "Ti.UI.iOS.ATTRIBUTE_TEXT_EFFECT",
+                "Ti.UI.iOS.ATTRIBUTE_LINK",
+                "Ti.UI.iOS.ATTRIBUTE_BASELINE_OFFSET",
+                "Ti.UI.iOS.ATTRIBUTE_UNDERLINE_COLOR",
+                "Ti.UI.iOS.ATTRIBUTE_STRIKETHROUGH_COLOR",
+                "Ti.UI.iOS.ATTRIBUTE_OBLIQUENESS",
+                "Ti.UI.iOS.ATTRIBUTE_EXPANSION"
             ],
             "description": "<p>The type of data encoding to use with <code>value</code>.</p>"
         },
@@ -1519,14 +1531,14 @@
         },
         "position": {
             "values": [
-                "Titanium.UI.iPhone.ListViewScrollPosition.BOTTOM",
-                "Titanium.UI.iPhone.ListViewScrollPosition.MIDDLE",
-                "Titanium.UI.iPhone.ListViewScrollPosition.NONE",
-                "Titanium.UI.iPhone.ListViewScrollPosition.TOP",
-                "Titanium.UI.iPhone.TableViewScrollPosition.BOTTOM",
-                "Titanium.UI.iPhone.TableViewScrollPosition.MIDDLE",
-                "Titanium.UI.iPhone.TableViewScrollPosition.NONE",
-                "Titanium.UI.iPhone.TableViewScrollPosition.TOP"
+                "Ti.UI.iPhone.ListViewScrollPosition.BOTTOM",
+                "Ti.UI.iPhone.ListViewScrollPosition.MIDDLE",
+                "Ti.UI.iPhone.ListViewScrollPosition.NONE",
+                "Ti.UI.iPhone.ListViewScrollPosition.TOP",
+                "Ti.UI.iPhone.TableViewScrollPosition.BOTTOM",
+                "Ti.UI.iPhone.TableViewScrollPosition.MIDDLE",
+                "Ti.UI.iPhone.TableViewScrollPosition.NONE",
+                "Ti.UI.iPhone.TableViewScrollPosition.TOP"
             ],
             "description": "<p>Index in the <code>dest</code> buffer of the first byte of encoded data.</p>"
         },
@@ -1544,12 +1556,18 @@
         },
         "charset": {
             "values": [
-                "Titanium.Codec.CHARSET_ASCII",
-                "Titanium.Codec.CHARSET_ISO_LATIN_1",
-                "Titanium.Codec.CHARSET_UTF8",
-                "Titanium.Codec.CHARSET_UTF16",
-                "Titanium.Codec.CHARSET_UTF16BE",
-                "Titanium.Codec.CHARSET_UTF16LE"
+                "Ti.Codec.CHARSET_ASCII",
+                "Ti.Codec.CHARSET_ISO_LATIN_1",
+                "Ti.Codec.CHARSET_UTF8",
+                "Ti.Codec.CHARSET_UTF16",
+                "Ti.Codec.CHARSET_UTF16BE",
+                "Ti.Codec.CHARSET_UTF16LE",
+                "Ti.Codec.CHARSET_ASCII",
+                "Ti.Codec.CHARSET_ISO_LATIN_1",
+                "Ti.Codec.CHARSET_UTF8",
+                "Ti.Codec.CHARSET_UTF16",
+                "Ti.Codec.CHARSET_UTF16BE",
+                "Ti.Codec.CHARSET_UTF16LE"
             ],
             "description": "<p>Character encoding to use when encoding this string to bytes.</p>"
         },
@@ -1722,24 +1740,28 @@
         },
         "style": {
             "values": [
-                "Titanium.UI.iPhone.ActivityIndicatorStyle.BIG",
-                "Titanium.UI.iPhone.ActivityIndicatorStyle.DARK",
-                "Titanium.UI.iPhone.ActivityIndicatorStyle.PLAIN",
-                "Titanium.UI.ActivityIndicatorStyle.BIG",
-                "Titanium.UI.ActivityIndicatorStyle.BIG_DARK",
-                "Titanium.UI.ActivityIndicatorStyle.DARK",
-                "Titanium.UI.ActivityIndicatorStyle.PLAIN",
-                "Titanium.UI.iPhone.SystemButtonStyle.BAR",
-                "Titanium.UI.iPhone.SystemButtonStyle.BORDERED",
-                "Titanium.UI.iPhone.SystemButtonStyle.DONE",
-                "Titanium.UI.iPhone.SystemButtonStyle.PLAIN",
-                "Titanium.UI.iPhone.ListViewStyle.GROUPED",
-                "Titanium.UI.iPhone.ListViewStyle.PLAIN",
-                "Titanium.UI.Android.SWITCH_STYLE_CHECKBOX",
-                "Titanium.UI.Android.SWITCH_STYLE_TOGGLEBUTTON",
-                "Titanium.UI.Android.SWITCH_STYLE_SWITCH",
-                "Titanium.UI.iPhone.TableViewStyle.GROUPED",
-                "Titanium.UI.iPhone.TableViewStyle.PLAIN"
+                "Ti.UI.iPhone.ActivityIndicatorStyle.BIG",
+                "Ti.UI.iPhone.ActivityIndicatorStyle.DARK",
+                "Ti.UI.iPhone.ActivityIndicatorStyle.PLAIN",
+                "Ti.UI.ActivityIndicatorStyle.BIG",
+                "Ti.UI.ActivityIndicatorStyle.BIG_DARK",
+                "Ti.UI.ActivityIndicatorStyle.DARK",
+                "Ti.UI.ActivityIndicatorStyle.PLAIN",
+                "Ti.UI.iPhone.SystemButtonStyle.BAR",
+                "Ti.UI.iPhone.SystemButtonStyle.BORDERED",
+                "Ti.UI.iPhone.SystemButtonStyle.DONE",
+                "Ti.UI.iPhone.SystemButtonStyle.PLAIN",
+                "Ti.UI.iPhone.ListViewStyle.GROUPED",
+                "Ti.UI.iPhone.ListViewStyle.PLAIN",
+                "Ti.UI.Android.SWITCH_STYLE_CHECKBOX",
+                "Ti.UI.Android.SWITCH_STYLE_TOGGLEBUTTON",
+                "Ti.UI.Android.SWITCH_STYLE_SWITCH",
+                "Ti.UI.iPhone.TableViewStyle.GROUPED",
+                "Ti.UI.iPhone.TableViewStyle.PLAIN",
+                "Ti.UI.iPhone.SystemButtonStyle.BAR",
+                "Ti.UI.iPhone.SystemButtonStyle.BORDERED",
+                "Ti.UI.iPhone.SystemButtonStyle.DONE",
+                "Ti.UI.iPhone.SystemButtonStyle.PLAIN"
             ],
             "description": "<p>Sets the login button style.</p>"
         },
@@ -1774,14 +1796,14 @@
         },
         "accuracy": {
             "values": [
-                "Titanium.Geolocation.ACCURACY_BEST",
-                "Titanium.Geolocation.ACCURACY_BEST_FOR_NAVIGATION",
-                "Titanium.Geolocation.ACCURACY_HUNDRED_METERS",
-                "Titanium.Geolocation.ACCURACY_KILOMETER",
-                "Titanium.Geolocation.ACCURACY_NEAREST_TEN_METERS",
-                "Titanium.Geolocation.ACCURACY_THREE_KILOMETERS",
-                "Titanium.Geolocation.ACCURACY_HIGH",
-                "Titanium.Geolocation.ACCURACY_LOW"
+                "Ti.Geolocation.ACCURACY_BEST",
+                "Ti.Geolocation.ACCURACY_BEST_FOR_NAVIGATION",
+                "Ti.Geolocation.ACCURACY_HUNDRED_METERS",
+                "Ti.Geolocation.ACCURACY_KILOMETER",
+                "Ti.Geolocation.ACCURACY_NEAREST_TEN_METERS",
+                "Ti.Geolocation.ACCURACY_THREE_KILOMETERS",
+                "Ti.Geolocation.ACCURACY_HIGH",
+                "Ti.Geolocation.ACCURACY_LOW"
             ],
             "description": "<p>Minimum accuracy required for a location update.</p>"
         },
@@ -1799,9 +1821,9 @@
         },
         "preferredProvider": {
             "values": [
-                "Titanium.Geolocation.PROVIDER_GPS",
-                "Titanium.Geolocation.PROVIDER_NETWORK",
-                "Titanium.Geolocation.PROVIDER_PASSIVE"
+                "Ti.Geolocation.PROVIDER_GPS",
+                "Ti.Geolocation.PROVIDER_NETWORK",
+                "Ti.Geolocation.PROVIDER_PASSIVE"
             ],
             "description": "<p>Determines the preferred location provider.\n <strong>Deprecated since 2.0.0. Android legacy mode operation is deprecated. For new development, use\neither simple mode or manual mode. See \"Configurating Location Updates on Android\"\nin the main description of this class for more information.</strong></p>"
         },
@@ -1847,12 +1869,12 @@
         },
         "locationServicesAuthorization": {
             "values": [
-                "Titanium.Geolocation.AUTHORIZATION_ALWAYS",
-                "Titanium.Geolocation.AUTHORIZATION_AUTHORIZED",
-                "Titanium.Geolocation.AUTHORIZATION_DENIED",
-                "Titanium.Geolocation.AUTHORIZATION_RESTRICTED",
-                "Titanium.Geolocation.AUTHORIZATION_UNKNOWN",
-                "Titanium.Geolocation.AUTHORIZATION_WHEN_IN_USE"
+                "Ti.Geolocation.AUTHORIZATION_ALWAYS",
+                "Ti.Geolocation.AUTHORIZATION_AUTHORIZED",
+                "Ti.Geolocation.AUTHORIZATION_DENIED",
+                "Ti.Geolocation.AUTHORIZATION_RESTRICTED",
+                "Ti.Geolocation.AUTHORIZATION_UNKNOWN",
+                "Ti.Geolocation.AUTHORIZATION_WHEN_IN_USE"
             ],
             "description": "<p>Returns an authorization constant indicating if the application has access to location services.</p>"
         },
@@ -2126,68 +2148,68 @@
         },
         "compression": {
             "values": [
-                "Titanium.Media.AUDIO_FORMAT_AAC",
-                "Titanium.Media.AUDIO_FORMAT_ALAW",
-                "Titanium.Media.AUDIO_FORMAT_APPLE_LOSSLESS",
-                "Titanium.Media.AUDIO_FORMAT_ILBC",
-                "Titanium.Media.AUDIO_FORMAT_IMA4",
-                "Titanium.Media.AUDIO_FORMAT_LINEAR_PCM",
-                "Titanium.Media.AUDIO_FORMAT_ULAW"
+                "Ti.Media.AUDIO_FORMAT_AAC",
+                "Ti.Media.AUDIO_FORMAT_ALAW",
+                "Ti.Media.AUDIO_FORMAT_APPLE_LOSSLESS",
+                "Ti.Media.AUDIO_FORMAT_ILBC",
+                "Ti.Media.AUDIO_FORMAT_IMA4",
+                "Ti.Media.AUDIO_FORMAT_LINEAR_PCM",
+                "Ti.Media.AUDIO_FORMAT_ULAW"
             ],
             "description": "<p>Audio compression to be used for the recording.</p>"
         },
         "format": {
             "values": [
-                "Titanium.Media.AUDIO_FILEFORMAT_3GP2",
-                "Titanium.Media.AUDIO_FILEFORMAT_3GPP",
-                "Titanium.Media.AUDIO_FILEFORMAT_AIFF",
-                "Titanium.Media.AUDIO_FILEFORMAT_AMR",
-                "Titanium.Media.AUDIO_FILEFORMAT_CAF",
-                "Titanium.Media.AUDIO_FILEFORMAT_MP3",
-                "Titanium.Media.AUDIO_FILEFORMAT_MP4",
-                "Titanium.Media.AUDIO_FILEFORMAT_MP4A",
-                "Titanium.Media.AUDIO_FILEFORMAT_WAVE"
+                "Ti.Media.AUDIO_FILEFORMAT_3GP2",
+                "Ti.Media.AUDIO_FILEFORMAT_3GPP",
+                "Ti.Media.AUDIO_FILEFORMAT_AIFF",
+                "Ti.Media.AUDIO_FILEFORMAT_AMR",
+                "Ti.Media.AUDIO_FILEFORMAT_CAF",
+                "Ti.Media.AUDIO_FILEFORMAT_MP3",
+                "Ti.Media.AUDIO_FILEFORMAT_MP4",
+                "Ti.Media.AUDIO_FILEFORMAT_MP4A",
+                "Ti.Media.AUDIO_FILEFORMAT_WAVE"
             ],
             "description": "<p>Audio format to be used for the recording.</p>"
         },
         "audioSessionMode": {
             "values": [
-                "Titanium.Media.AUDIO_SESSION_MODE_AMBIENT",
-                "Titanium.Media.AUDIO_SESSION_MODE_PLAYBACK",
-                "Titanium.Media.AUDIO_SESSION_MODE_PLAY_AND_RECORD",
-                "Titanium.Media.AUDIO_SESSION_MODE_RECORD",
-                "Titanium.Media.AUDIO_SESSION_MODE_SOLO_AMBIENT"
+                "Ti.Media.AUDIO_SESSION_MODE_AMBIENT",
+                "Ti.Media.AUDIO_SESSION_MODE_PLAYBACK",
+                "Ti.Media.AUDIO_SESSION_MODE_PLAY_AND_RECORD",
+                "Ti.Media.AUDIO_SESSION_MODE_RECORD",
+                "Ti.Media.AUDIO_SESSION_MODE_SOLO_AMBIENT"
             ],
             "description": "<p>A constant for the audio session mode to be used. <strong>Deprecated since 3.4.2. Deprecated in favor of the <a href=\"Titanium.Media.audioSessionCategory\">audioSessionCategory</a> property defined in <a href=\"Titanium.Media\">Media</a>.</strong></p>"
         },
         "audioSessionCategory": {
             "values": [
-                "Titanium.Media.AUDIO_SESSION_CATEGORY_AMBIENT",
-                "Titanium.Media.AUDIO_SESSION_CATEGORY_PLAYBACK",
-                "Titanium.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD",
-                "Titanium.Media.AUDIO_SESSION_CATEGORY_RECORD",
-                "Titanium.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT"
+                "Ti.Media.AUDIO_SESSION_CATEGORY_AMBIENT",
+                "Ti.Media.AUDIO_SESSION_CATEGORY_PLAYBACK",
+                "Ti.Media.AUDIO_SESSION_CATEGORY_PLAY_AND_RECORD",
+                "Ti.Media.AUDIO_SESSION_CATEGORY_RECORD",
+                "Ti.Media.AUDIO_SESSION_CATEGORY_SOLO_AMBIENT"
             ],
             "description": "<p>A constant for the audio session category to be used.</p>"
         },
         "availableCameraMediaTypes": {
             "values": [
-                "Titanium.Media.MEDIA_TYPE_PHOTO",
-                "Titanium.Media.MEDIA_TYPE_VIDEO"
+                "Ti.Media.MEDIA_TYPE_PHOTO",
+                "Ti.Media.MEDIA_TYPE_VIDEO"
             ],
             "description": "<p>Array of media type constants supported for the camera.</p>"
         },
         "availablePhotoGalleryMediaTypes": {
             "values": [
-                "Titanium.Media.MEDIA_TYPE_PHOTO",
-                "Titanium.Media.MEDIA_TYPE_VIDEO"
+                "Ti.Media.MEDIA_TYPE_PHOTO",
+                "Ti.Media.MEDIA_TYPE_VIDEO"
             ],
             "description": "<p>Array of media type constants supported for saving to the device's camera roll or saved images album.</p>"
         },
         "availablePhotoMediaTypes": {
             "values": [
-                "Titanium.Media.MEDIA_TYPE_PHOTO",
-                "Titanium.Media.MEDIA_TYPE_VIDEO"
+                "Ti.Media.MEDIA_TYPE_PHOTO",
+                "Ti.Media.MEDIA_TYPE_VIDEO"
             ],
             "description": "<p>Array of media type constants supported for the photo library.</p>"
         },
@@ -2197,9 +2219,9 @@
         },
         "cameraFlashMode": {
             "values": [
-                "Titanium.Media.CAMERA_FLASH_AUTO",
-                "Titanium.Media.CAMERA_FLASH_OFF",
-                "Titanium.Media.CAMERA_FLASH_ON"
+                "Ti.Media.CAMERA_FLASH_AUTO",
+                "Ti.Media.CAMERA_FLASH_OFF",
+                "Ti.Media.CAMERA_FLASH_ON"
             ],
             "description": "<p>Determines how the flash is fired when using the device's camera.</p>"
         },
@@ -2227,24 +2249,24 @@
         },
         "grouping": {
             "values": [
-                "Titanium.Media.MUSIC_MEDIA_GROUP_TITLE",
-                "Titanium.Media.MUSIC_MEDIA_GROUP_ALBUM",
-                "Titanium.Media.MUSIC_MEDIA_GROUP_ARTIST",
-                "Titanium.Media.MUSIC_MEDIA_GROUP_ALBUM_ARTIST",
-                "Titanium.Media.MUSIC_MEDIA_GROUP_COMPOSER",
-                "Titanium.Media.MUSIC_MEDIA_GROUP_GENRE",
-                "Titanium.Media.MUSIC_MEDIA_GROUP_PLAYLIST",
-                "Titanium.Media.MUSIC_MEDIA_GROUP_PODCAST_TITLE"
+                "Ti.Media.MUSIC_MEDIA_GROUP_TITLE",
+                "Ti.Media.MUSIC_MEDIA_GROUP_ALBUM",
+                "Ti.Media.MUSIC_MEDIA_GROUP_ARTIST",
+                "Ti.Media.MUSIC_MEDIA_GROUP_ALBUM_ARTIST",
+                "Ti.Media.MUSIC_MEDIA_GROUP_COMPOSER",
+                "Ti.Media.MUSIC_MEDIA_GROUP_GENRE",
+                "Ti.Media.MUSIC_MEDIA_GROUP_PLAYLIST",
+                "Ti.Media.MUSIC_MEDIA_GROUP_PODCAST_TITLE"
             ],
             "description": "<p>A constant that specifies the ordering of the result array.</p>"
         },
         "mediaType": {
             "values": [
-                "Titanium.Media.MUSIC_MEDIA_TYPE_ALL",
-                "Titanium.Media.MUSIC_MEDIA_TYPE_ANY_AUDIO",
-                "Titanium.Media.MUSIC_MEDIA_TYPE_AUDIOBOOK",
-                "Titanium.Media.MUSIC_MEDIA_TYPE_MUSIC",
-                "Titanium.Media.MUSIC_MEDIA_TYPE_PODCAST"
+                "Ti.Media.MUSIC_MEDIA_TYPE_ALL",
+                "Ti.Media.MUSIC_MEDIA_TYPE_ANY_AUDIO",
+                "Ti.Media.MUSIC_MEDIA_TYPE_AUDIOBOOK",
+                "Ti.Media.MUSIC_MEDIA_TYPE_MUSIC",
+                "Ti.Media.MUSIC_MEDIA_TYPE_PODCAST"
             ],
             "description": "<p>The media type to filter on.</p>"
         },
@@ -2313,12 +2335,17 @@
         },
         "arrowDirection": {
             "values": [
-                "Titanium.UI.iPad.POPOVER_ARROW_DIRECTION_ANY",
-                "Titanium.UI.iPad.POPOVER_ARROW_DIRECTION_DOWN",
-                "Titanium.UI.iPad.POPOVER_ARROW_DIRECTION_LEFT",
-                "Titanium.UI.iPad.POPOVER_ARROW_DIRECTION_RIGHT",
-                "Titanium.UI.iPad.POPOVER_ARROW_DIRECTION_UNKNOWN",
-                "Titanium.UI.iPad.POPOVER_ARROW_DIRECTION_UP"
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_ANY",
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_DOWN",
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_LEFT",
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_RIGHT",
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_UNKNOWN",
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_UP",
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_ANY",
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_DOWN",
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_LEFT",
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_RIGHT",
+                "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_UP"
             ],
             "description": "<p>Controls the type of arrow and position of the popover.</p>"
         },
@@ -2351,21 +2378,21 @@
         },
         "repeatMode": {
             "values": [
-                "Titanium.Media.MUSIC_PLAYER_REPEAT_ALL",
-                "Titanium.Media.MUSIC_PLAYER_REPEAT_DEFAULT",
-                "Titanium.Media.MUSIC_PLAYER_REPEAT_NONE",
-                "Titanium.Media.MUSIC_PLAYER_REPEAT_ONE",
-                "Titanium.Media.VIDEO_REPEAT_MODE_NONE",
-                "Titanium.Media.VIDEO_REPEAT_MODE_ONE"
+                "Ti.Media.MUSIC_PLAYER_REPEAT_ALL",
+                "Ti.Media.MUSIC_PLAYER_REPEAT_DEFAULT",
+                "Ti.Media.MUSIC_PLAYER_REPEAT_NONE",
+                "Ti.Media.MUSIC_PLAYER_REPEAT_ONE",
+                "Ti.Media.VIDEO_REPEAT_MODE_NONE",
+                "Ti.Media.VIDEO_REPEAT_MODE_ONE"
             ],
             "description": "<p>Repeat setting.</p>"
         },
         "shuffleMode": {
             "values": [
-                "Titanium.Media.MUSIC_PLAYER_SHUFFLE_ALBUMS",
-                "Titanium.Media.MUSIC_PLAYER_SHUFFLE_DEFAULT",
-                "Titanium.Media.MUSIC_PLAYER_SHUFFLE_NONE",
-                "Titanium.Media.MUSIC_PLAYER_SHUFFLE_SONGS"
+                "Ti.Media.MUSIC_PLAYER_SHUFFLE_ALBUMS",
+                "Ti.Media.MUSIC_PLAYER_SHUFFLE_DEFAULT",
+                "Ti.Media.MUSIC_PLAYER_SHUFFLE_NONE",
+                "Ti.Media.MUSIC_PLAYER_SHUFFLE_SONGS"
             ],
             "description": "<p>Shuffle setting.</p>"
         },
@@ -2407,12 +2434,12 @@
         },
         "mediaControlStyle": {
             "values": [
-                "Titanium.Media.VIDEO_CONTROL_VOLUME_ONLY",
-                "Titanium.Media.VIDEO_CONTROL_DEFAULT",
-                "Titanium.Media.VIDEO_CONTROL_EMBEDDED",
-                "Titanium.Media.VIDEO_CONTROL_FULLSCREEN",
-                "Titanium.Media.VIDEO_CONTROL_HIDDEN",
-                "Titanium.Media.VIDEO_CONTROL_NONE"
+                "Ti.Media.VIDEO_CONTROL_VOLUME_ONLY",
+                "Ti.Media.VIDEO_CONTROL_DEFAULT",
+                "Ti.Media.VIDEO_CONTROL_EMBEDDED",
+                "Ti.Media.VIDEO_CONTROL_FULLSCREEN",
+                "Ti.Media.VIDEO_CONTROL_HIDDEN",
+                "Ti.Media.VIDEO_CONTROL_NONE"
             ],
             "description": "<p>The style of the playback controls.</p>"
         },
@@ -2426,18 +2453,18 @@
         },
         "scalingMode": {
             "values": [
-                "Titanium.Media.VIDEO_SCALING_ASPECT_FILL",
-                "Titanium.Media.VIDEO_SCALING_ASPECT_FIT",
-                "Titanium.Media.VIDEO_SCALING_MODE_FILL",
-                "Titanium.Media.VIDEO_SCALING_NONE"
+                "Ti.Media.VIDEO_SCALING_ASPECT_FILL",
+                "Ti.Media.VIDEO_SCALING_ASPECT_FIT",
+                "Ti.Media.VIDEO_SCALING_MODE_FILL",
+                "Ti.Media.VIDEO_SCALING_NONE"
             ],
             "description": "<p>Determines how the content scales to fit the view.</p>"
         },
         "sourceType": {
             "values": [
-                "Titanium.Media.VIDEO_SOURCE_TYPE_FILE",
-                "Titanium.Media.VIDEO_SOURCE_TYPE_STREAMING",
-                "Titanium.Media.VIDEO_SOURCE_TYPE_UNKNOWN"
+                "Ti.Media.VIDEO_SOURCE_TYPE_FILE",
+                "Ti.Media.VIDEO_SOURCE_TYPE_STREAMING",
+                "Ti.Media.VIDEO_SOURCE_TYPE_UNKNOWN"
             ],
             "description": "<p>The playback type of the movie.</p>"
         },
@@ -2554,9 +2581,9 @@
         },
         "tlsVersion": {
             "values": [
-                "Titanium.Network.TLS_VERSION_1_0",
-                "Titanium.Network.TLS_VERSION_1_1",
-                "Titanium.Network.TLS_VERSION_1_2"
+                "Ti.Network.TLS_VERSION_1_0",
+                "Ti.Network.TLS_VERSION_1_1",
+                "Ti.Network.TLS_VERSION_1_2"
             ],
             "description": "<p>Sets the TLS version to use for handshakes.</p>"
         },
@@ -2642,37 +2669,37 @@
         },
         "mode": {
             "values": [
-                "Titanium.Stream.MODE_READ",
-                "Titanium.Stream.MODE_WRITE",
-                "Titanium.Stream.MODE_APPEND",
-                "Titanium.UI.iOS.BLEND_MODE_CLEAR",
-                "Titanium.UI.iOS.BLEND_MODE_COLOR",
-                "Titanium.UI.iOS.BLEND_MODE_COLOR_BURN",
-                "Titanium.UI.iOS.BLEND_MODE_COLOR_DODGE",
-                "Titanium.UI.iOS.BLEND_MODE_COPY",
-                "Titanium.UI.iOS.BLEND_MODE_DARKEN",
-                "Titanium.UI.iOS.BLEND_MODE_DESTINATION_ATOP",
-                "Titanium.UI.iOS.BLEND_MODE_DESTINATION_IN",
-                "Titanium.UI.iOS.BLEND_MODE_DESTINATION_OUT",
-                "Titanium.UI.iOS.BLEND_MODE_DESTINATION_OVER",
-                "Titanium.UI.iOS.BLEND_MODE_DIFFERENCE",
-                "Titanium.UI.iOS.BLEND_MODE_EXCLUSION",
-                "Titanium.UI.iOS.BLEND_MODE_HARD_LIGHT",
-                "Titanium.UI.iOS.BLEND_MODE_HUE",
-                "Titanium.UI.iOS.BLEND_MODE_LIGHTEN",
-                "Titanium.UI.iOS.BLEND_MODE_LUMINOSITY",
-                "Titanium.UI.iOS.BLEND_MODE_MULTIPLY",
-                "Titanium.UI.iOS.BLEND_MODE_NORMAL",
-                "Titanium.UI.iOS.BLEND_MODE_OVERLAY",
-                "Titanium.UI.iOS.BLEND_MODE_PLUS_DARKER",
-                "Titanium.UI.iOS.BLEND_MODE_PLUS_LIGHTER",
-                "Titanium.UI.iOS.BLEND_MODE_SATURATION",
-                "Titanium.UI.iOS.BLEND_MODE_SCREEN",
-                "Titanium.UI.iOS.BLEND_MODE_SOFT_LIGHT",
-                "Titanium.UI.iOS.BLEND_MODE_SOURCE_ATOP",
-                "Titanium.UI.iOS.BLEND_MODE_SOURCE_IN",
-                "Titanium.UI.iOS.BLEND_MODE_SOURCE_OUT",
-                "Titanium.UI.iOS.BLEND_MODE_XOR"
+                "Ti.Stream.MODE_READ",
+                "Ti.Stream.MODE_WRITE",
+                "Ti.Stream.MODE_APPEND",
+                "Ti.UI.iOS.BLEND_MODE_CLEAR",
+                "Ti.UI.iOS.BLEND_MODE_COLOR",
+                "Ti.UI.iOS.BLEND_MODE_COLOR_BURN",
+                "Ti.UI.iOS.BLEND_MODE_COLOR_DODGE",
+                "Ti.UI.iOS.BLEND_MODE_COPY",
+                "Ti.UI.iOS.BLEND_MODE_DARKEN",
+                "Ti.UI.iOS.BLEND_MODE_DESTINATION_ATOP",
+                "Ti.UI.iOS.BLEND_MODE_DESTINATION_IN",
+                "Ti.UI.iOS.BLEND_MODE_DESTINATION_OUT",
+                "Ti.UI.iOS.BLEND_MODE_DESTINATION_OVER",
+                "Ti.UI.iOS.BLEND_MODE_DIFFERENCE",
+                "Ti.UI.iOS.BLEND_MODE_EXCLUSION",
+                "Ti.UI.iOS.BLEND_MODE_HARD_LIGHT",
+                "Ti.UI.iOS.BLEND_MODE_HUE",
+                "Ti.UI.iOS.BLEND_MODE_LIGHTEN",
+                "Ti.UI.iOS.BLEND_MODE_LUMINOSITY",
+                "Ti.UI.iOS.BLEND_MODE_MULTIPLY",
+                "Ti.UI.iOS.BLEND_MODE_NORMAL",
+                "Ti.UI.iOS.BLEND_MODE_OVERLAY",
+                "Ti.UI.iOS.BLEND_MODE_PLUS_DARKER",
+                "Ti.UI.iOS.BLEND_MODE_PLUS_LIGHTER",
+                "Ti.UI.iOS.BLEND_MODE_SATURATION",
+                "Ti.UI.iOS.BLEND_MODE_SCREEN",
+                "Ti.UI.iOS.BLEND_MODE_SOFT_LIGHT",
+                "Ti.UI.iOS.BLEND_MODE_SOURCE_ATOP",
+                "Ti.UI.iOS.BLEND_MODE_SOURCE_IN",
+                "Ti.UI.iOS.BLEND_MODE_SOURCE_OUT",
+                "Ti.UI.iOS.BLEND_MODE_XOR"
             ],
             "description": "<p>the socket's mode</p>"
         },
@@ -2913,10 +2940,10 @@
         },
         "curve": {
             "values": [
-                "Titanium.UI.ANIMATION_CURVE_EASE_IN",
-                "Titanium.UI.ANIMATION_CURVE_EASE_IN_OUT",
-                "Titanium.UI.ANIMATION_CURVE_EASE_OUT",
-                "Titanium.UI.ANIMATION_CURVE_LINEAR"
+                "Ti.UI.ANIMATION_CURVE_EASE_IN",
+                "Ti.UI.ANIMATION_CURVE_EASE_IN_OUT",
+                "Ti.UI.ANIMATION_CURVE_EASE_OUT",
+                "Ti.UI.ANIMATION_CURVE_LINEAR"
             ],
             "description": "<p>Animation curve or easing function to apply to the animation.</p>"
         },
@@ -2933,11 +2960,16 @@
         },
         "transition": {
             "values": [
-                "Titanium.UI.iPhone.AnimationStyle.CURL_DOWN",
-                "Titanium.UI.iPhone.AnimationStyle.CURL_UP",
-                "Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT",
-                "Titanium.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT",
-                "Titanium.UI.iPhone.AnimationStyle.NONE"
+                "Ti.UI.iPhone.AnimationStyle.CURL_DOWN",
+                "Ti.UI.iPhone.AnimationStyle.CURL_UP",
+                "Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT",
+                "Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT",
+                "Ti.UI.iPhone.AnimationStyle.NONE",
+                "Ti.UI.iPhone.AnimationStyle.CURL_DOWN",
+                "Ti.UI.iPhone.AnimationStyle.CURL_UP",
+                "Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT",
+                "Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT",
+                "Ti.UI.iPhone.AnimationStyle.NONE"
             ],
             "description": "<p>Transition type to use during a transition animation.</p>"
         },
@@ -2979,48 +3011,54 @@
         },
         "systemButton": {
             "values": [
-                "Titanium.UI.iPhone.SystemButton.ACTION",
-                "Titanium.UI.iPhone.SystemButton.ACTIVITY",
-                "Titanium.UI.iPhone.SystemButton.ADD",
-                "Titanium.UI.iPhone.SystemButton.BOOKMARKS",
-                "Titanium.UI.iPhone.SystemButton.CAMERA",
-                "Titanium.UI.iPhone.SystemButton.CANCEL",
-                "Titanium.UI.iPhone.SystemButton.COMPOSE",
-                "Titanium.UI.iPhone.SystemButton.CONTACT_ADD",
-                "Titanium.UI.iPhone.SystemButton.DISCLOSURE",
-                "Titanium.UI.iPhone.SystemButton.DONE",
-                "Titanium.UI.iPhone.SystemButton.EDIT",
-                "Titanium.UI.iPhone.SystemButton.FAST_FORWARD",
-                "Titanium.UI.iPhone.SystemButton.FIXED_SPACE",
-                "Titanium.UI.iPhone.SystemButton.FLEXIBLE_SPACE",
-                "Titanium.UI.iPhone.SystemButton.INFO_DARK",
-                "Titanium.UI.iPhone.SystemButton.INFO_LIGHT",
-                "Titanium.UI.iPhone.SystemButton.ORGANIZE",
-                "Titanium.UI.iPhone.SystemButton.PAUSE",
-                "Titanium.UI.iPhone.SystemButton.PLAY",
-                "Titanium.UI.iPhone.SystemButton.REFRESH",
-                "Titanium.UI.iPhone.SystemButton.REPLY",
-                "Titanium.UI.iPhone.SystemButton.REWIND",
-                "Titanium.UI.iPhone.SystemButton.SAVE",
-                "Titanium.UI.iPhone.SystemButton.SPINNER",
-                "Titanium.UI.iPhone.SystemButton.STOP",
-                "Titanium.UI.iPhone.SystemButton.TRASH"
+                "Ti.UI.iPhone.SystemButton.ACTION",
+                "Ti.UI.iPhone.SystemButton.ACTIVITY",
+                "Ti.UI.iPhone.SystemButton.ADD",
+                "Ti.UI.iPhone.SystemButton.BOOKMARKS",
+                "Ti.UI.iPhone.SystemButton.CAMERA",
+                "Ti.UI.iPhone.SystemButton.CANCEL",
+                "Ti.UI.iPhone.SystemButton.COMPOSE",
+                "Ti.UI.iPhone.SystemButton.CONTACT_ADD",
+                "Ti.UI.iPhone.SystemButton.DISCLOSURE",
+                "Ti.UI.iPhone.SystemButton.DONE",
+                "Ti.UI.iPhone.SystemButton.EDIT",
+                "Ti.UI.iPhone.SystemButton.FAST_FORWARD",
+                "Ti.UI.iPhone.SystemButton.FIXED_SPACE",
+                "Ti.UI.iPhone.SystemButton.FLEXIBLE_SPACE",
+                "Ti.UI.iPhone.SystemButton.INFO_DARK",
+                "Ti.UI.iPhone.SystemButton.INFO_LIGHT",
+                "Ti.UI.iPhone.SystemButton.ORGANIZE",
+                "Ti.UI.iPhone.SystemButton.PAUSE",
+                "Ti.UI.iPhone.SystemButton.PLAY",
+                "Ti.UI.iPhone.SystemButton.REFRESH",
+                "Ti.UI.iPhone.SystemButton.REPLY",
+                "Ti.UI.iPhone.SystemButton.REWIND",
+                "Ti.UI.iPhone.SystemButton.SAVE",
+                "Ti.UI.iPhone.SystemButton.SPINNER",
+                "Ti.UI.iPhone.SystemButton.STOP",
+                "Ti.UI.iPhone.SystemButton.TRASH"
             ],
             "description": "<p>Specifies an iOS system button appearance, as defined in <a href=\"Titanium.UI.iPhone.SystemButton\">SystemButton</a>.</p>"
         },
         "textAlign": {
             "values": [
-                "Titanium.UI.TEXT_ALIGNMENT_CENTER",
-                "Titanium.UI.TEXT_ALIGNMENT_LEFT",
-                "Titanium.UI.TEXT_ALIGNMENT_RIGHT"
+                "Ti.UI.TEXT_ALIGNMENT_CENTER",
+                "Ti.UI.TEXT_ALIGNMENT_LEFT",
+                "Ti.UI.TEXT_ALIGNMENT_RIGHT",
+                "Ti.UI.TEXT_ALIGNMENT_CENTER",
+                "Ti.UI.TEXT_ALIGNMENT_LEFT",
+                "Ti.UI.TEXT_ALIGNMENT_RIGHT"
             ],
             "description": "<p>Text alignment, specified using one of the <a href=\"Titanium.UI\">UI</a> text alignment constants.</p>"
         },
         "verticalAlign": {
             "values": [
-                "Titanium.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM",
-                "Titanium.UI.TEXT_VERTICAL_ALIGNMENT_CENTER",
-                "Titanium.UI.TEXT_VERTICAL_ALIGNMENT_TOP"
+                "Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM",
+                "Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER",
+                "Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP",
+                "Ti.UI.TEXT_VERTICAL_ALIGNMENT_BOTTOM",
+                "Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER",
+                "Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP"
             ],
             "description": "<p>Vertical alignment for the text field, specified using one of the \nvertical alignment constants from <a href=\"Titanium.UI\">UI</a>.</p>"
         },
@@ -3118,12 +3156,12 @@
         },
         "textStyle": {
             "values": [
-                "Titanium.UI.TEXT_STYLE_BODY",
-                "Titanium.UI.TEXT_STYLE_CAPTION1",
-                "Titanium.UI.TEXT_STYLE_CAPTION2",
-                "Titanium.UI.TEXT_STYLE_FOOTNOTE",
-                "Titanium.UI.TEXT_STYLE_HEADLINE",
-                "Titanium.UI.TEXT_STYLE_SUBHEADLINE"
+                "Ti.UI.TEXT_STYLE_BODY",
+                "Ti.UI.TEXT_STYLE_CAPTION1",
+                "Ti.UI.TEXT_STYLE_CAPTION2",
+                "Ti.UI.TEXT_STYLE_FOOTNOTE",
+                "Ti.UI.TEXT_STYLE_HEADLINE",
+                "Ti.UI.TEXT_STYLE_SUBHEADLINE"
             ],
             "description": "<p>The text style for the font.</p>"
         },
@@ -3173,13 +3211,20 @@
         },
         "autoLink": {
             "values": [
-                "Titanium.UI.AUTOLINK_ALL",
-                "Titanium.UI.AUTOLINK_CALENDAR",
-                "Titanium.UI.AUTOLINK_EMAIL_ADDRESSES",
-                "Titanium.UI.AUTOLINK_MAP_ADDRESSES",
-                "Titanium.UI.AUTOLINK_NONE",
-                "Titanium.UI.AUTOLINK_PHONE_NUMBERS",
-                "Titanium.UI.AUTOLINK_URLS"
+                "Ti.UI.AUTOLINK_ALL",
+                "Ti.UI.AUTOLINK_CALENDAR",
+                "Ti.UI.AUTOLINK_EMAIL_ADDRESSES",
+                "Ti.UI.AUTOLINK_MAP_ADDRESSES",
+                "Ti.UI.AUTOLINK_NONE",
+                "Ti.UI.AUTOLINK_PHONE_NUMBERS",
+                "Ti.UI.AUTOLINK_URLS",
+                "Ti.UI.AUTOLINK_ALL",
+                "Ti.UI.AUTOLINK_CALENDAR",
+                "Ti.UI.AUTOLINK_EMAIL_ADDRESSES",
+                "Ti.UI.AUTOLINK_MAP_ADDRESSES",
+                "Ti.UI.AUTOLINK_NONE",
+                "Ti.UI.AUTOLINK_PHONE_NUMBERS",
+                "Ti.UI.AUTOLINK_URLS"
             ],
             "description": "<p>Automatically convert certain text items in the label to clickable links.</p>"
         },
@@ -3246,10 +3291,10 @@
         },
         "accessoryType": {
             "values": [
-                "Titanium.UI.LIST_ACCESSORY_TYPE_CHECKMARK",
-                "Titanium.UI.LIST_ACCESSORY_TYPE_DETAIL",
-                "Titanium.UI.LIST_ACCESSORY_TYPE_DISCLOSURE",
-                "Titanium.UI.LIST_ACCESSORY_TYPE_NONE"
+                "Ti.UI.LIST_ACCESSORY_TYPE_CHECKMARK",
+                "Ti.UI.LIST_ACCESSORY_TYPE_DETAIL",
+                "Ti.UI.LIST_ACCESSORY_TYPE_DISCLOSURE",
+                "Ti.UI.LIST_ACCESSORY_TYPE_NONE"
             ],
             "description": "<p>Sets an accessory on the right side of an item.</p>"
         },
@@ -3394,9 +3439,12 @@
         },
         "scrollIndicatorStyle": {
             "values": [
-                "Titanium.UI.iPhone.ScrollIndicatorStyle.BLACK",
-                "Titanium.UI.iPhone.ScrollIndicatorStyle.DEFAULT",
-                "Titanium.UI.iPhone.ScrollIndicatorStyle.WHITE"
+                "Ti.UI.iPhone.ScrollIndicatorStyle.BLACK",
+                "Ti.UI.iPhone.ScrollIndicatorStyle.DEFAULT",
+                "Ti.UI.iPhone.ScrollIndicatorStyle.WHITE",
+                "Ti.UI.iPhone.ScrollIndicatorStyle.BLACK",
+                "Ti.UI.iPhone.ScrollIndicatorStyle.DEFAULT",
+                "Ti.UI.iPhone.ScrollIndicatorStyle.WHITE"
             ],
             "description": "<p>Style of the scrollbar.</p>"
         },
@@ -3413,8 +3461,8 @@
         },
         "separatorStyle": {
             "values": [
-                "Titanium.UI.iPhone.ListViewSeparatorStyle.NONE",
-                "Titanium.UI.iPhone.ListViewSeparatorStyle.SINGLE_LINE"
+                "Ti.UI.iPhone.ListViewSeparatorStyle.NONE",
+                "Ti.UI.iPhone.ListViewSeparatorStyle.SINGLE_LINE"
             ],
             "description": "<p>Separator style constant.</p>"
         },
@@ -3454,12 +3502,12 @@
         },
         "animationStyle": {
             "values": [
-                "Titanium.UI.iPhone.RowAnimationStyle.BOTTOM",
-                "Titanium.UI.iPhone.RowAnimationStyle.FADE",
-                "Titanium.UI.iPhone.RowAnimationStyle.LEFT",
-                "Titanium.UI.iPhone.RowAnimationStyle.NONE",
-                "Titanium.UI.iPhone.RowAnimationStyle.RIGHT",
-                "Titanium.UI.iPhone.RowAnimationStyle.TOP"
+                "Ti.UI.iPhone.RowAnimationStyle.BOTTOM",
+                "Ti.UI.iPhone.RowAnimationStyle.FADE",
+                "Ti.UI.iPhone.RowAnimationStyle.LEFT",
+                "Ti.UI.iPhone.RowAnimationStyle.NONE",
+                "Ti.UI.iPhone.RowAnimationStyle.RIGHT",
+                "Ti.UI.iPhone.RowAnimationStyle.TOP"
             ],
             "description": "<p>Type of animation to use for cell insertions and deletions.</p>"
         },
@@ -3671,16 +3719,19 @@
         },
         "decelerationRate": {
             "values": [
-                "Titanium.UI.iOS.SCROLL_DECELERATION_RATE_FAST",
-                "Titanium.UI.iOS.SCROLL_DECELERATION_RATE_NORMAL"
+                "Ti.UI.iOS.SCROLL_DECELERATION_RATE_FAST",
+                "Ti.UI.iOS.SCROLL_DECELERATION_RATE_NORMAL"
             ],
             "description": "<p>The deceleration rate of the ScrollView.</p>"
         },
         "overScrollMode": {
             "values": [
-                "Titanium.UI.Android.OVER_SCROLL_ALWAYS",
-                "Titanium.UI.Android.OVER_SCROLL_IF_CONTENT_SCROLLS",
-                "Titanium.UI.Android.OVER_SCROLL_NEVER"
+                "Ti.UI.Android.OVER_SCROLL_ALWAYS",
+                "Ti.UI.Android.OVER_SCROLL_IF_CONTENT_SCROLLS",
+                "Ti.UI.Android.OVER_SCROLL_NEVER",
+                "Ti.UI.Android.OVER_SCROLL_ALWAYS",
+                "Ti.UI.Android.OVER_SCROLL_IF_CONTENT_SCROLLS",
+                "Ti.UI.Android.OVER_SCROLL_NEVER"
             ],
             "description": "<p>Determines the behavior when the user overscolls the view.</p>"
         },
@@ -3746,10 +3797,14 @@
         },
         "autocapitalization": {
             "values": [
-                "Titanium.UI.TEXT_AUTOCAPITALIZATION_ALL",
-                "Titanium.UI.TEXT_AUTOCAPITALIZATION_NONE",
-                "Titanium.UI.TEXT_AUTOCAPITALIZATION_SENTENCES",
-                "Titanium.UI.TEXT_AUTOCAPITALIZATION_WORDS"
+                "Ti.UI.TEXT_AUTOCAPITALIZATION_ALL",
+                "Ti.UI.TEXT_AUTOCAPITALIZATION_NONE",
+                "Ti.UI.TEXT_AUTOCAPITALIZATION_SENTENCES",
+                "Ti.UI.TEXT_AUTOCAPITALIZATION_WORDS",
+                "Ti.UI.TEXT_AUTOCAPITALIZATION_ALL",
+                "Ti.UI.TEXT_AUTOCAPITALIZATION_NONE",
+                "Ti.UI.TEXT_AUTOCAPITALIZATION_SENTENCES",
+                "Ti.UI.TEXT_AUTOCAPITALIZATION_WORDS"
             ],
             "description": "<p>Determines how text is capitalized during typing.</p>"
         },
@@ -3766,17 +3821,28 @@
         },
         "keyboardType": {
             "values": [
-                "Titanium.UI.KEYBOARD_APPEARANCE_ALERT",
-                "Titanium.UI.KEYBOARD_APPEARANCE_DEFAULT",
-                "Titanium.UI.KEYBOARD_ASCII",
-                "Titanium.UI.KEYBOARD_DECIMAL_PAD",
-                "Titanium.UI.KEYBOARD_DEFAULT",
-                "Titanium.UI.KEYBOARD_EMAIL",
-                "Titanium.UI.KEYBOARD_NAMEPHONE_PAD",
-                "Titanium.UI.KEYBOARD_NUMBERS_PUNCTUATION",
-                "Titanium.UI.KEYBOARD_NUMBER_PAD",
-                "Titanium.UI.KEYBOARD_PHONE_PAD",
-                "Titanium.UI.KEYBOARD_URL"
+                "Ti.UI.KEYBOARD_APPEARANCE_ALERT",
+                "Ti.UI.KEYBOARD_APPEARANCE_DEFAULT",
+                "Ti.UI.KEYBOARD_ASCII",
+                "Ti.UI.KEYBOARD_DECIMAL_PAD",
+                "Ti.UI.KEYBOARD_DEFAULT",
+                "Ti.UI.KEYBOARD_EMAIL",
+                "Ti.UI.KEYBOARD_NAMEPHONE_PAD",
+                "Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION",
+                "Ti.UI.KEYBOARD_NUMBER_PAD",
+                "Ti.UI.KEYBOARD_PHONE_PAD",
+                "Ti.UI.KEYBOARD_URL",
+                "Ti.UI.KEYBOARD_APPEARANCE_ALERT",
+                "Ti.UI.KEYBOARD_APPEARANCE_DEFAULT",
+                "Ti.UI.KEYBOARD_ASCII",
+                "Ti.UI.KEYBOARD_DECIMAL_PAD",
+                "Ti.UI.KEYBOARD_DEFAULT",
+                "Ti.UI.KEYBOARD_EMAIL",
+                "Ti.UI.KEYBOARD_NAMEPHONE_PAD",
+                "Ti.UI.KEYBOARD_NUMBERS_PUNCTUATION",
+                "Ti.UI.KEYBOARD_NUMBER_PAD",
+                "Ti.UI.KEYBOARD_PHONE_PAD",
+                "Ti.UI.KEYBOARD_URL"
             ],
             "description": "<p>Keyboard type constant to use when the field is focused.</p>"
         },
@@ -3987,14 +4053,17 @@
         },
         "windowSoftInputMode": {
             "values": [
-                "Titanium.UI.Android.SOFT_INPUT_ADJUST_PAN",
-                "Titanium.UI.Android.SOFT_INPUT_ADJUST_RESIZE",
-                "Titanium.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED",
-                "Titanium.UI.Android.SOFT_INPUT_STATE_ALWAYS_HIDDEN",
-                "Titanium.UI.Android.SOFT_INPUT_STATE_ALWAYS_VISIBLE",
-                "Titanium.UI.Android.SOFT_INPUT_STATE_HIDDEN",
-                "Titanium.UI.Android.SOFT_INPUT_STATE_UNSPECIFIED",
-                "Titanium.UI.Android.SOFT_INPUT_STATE_VISIBLE"
+                "Ti.UI.Android.SOFT_INPUT_ADJUST_PAN",
+                "Ti.UI.Android.SOFT_INPUT_ADJUST_RESIZE",
+                "Ti.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED",
+                "Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_HIDDEN",
+                "Ti.UI.Android.SOFT_INPUT_STATE_ALWAYS_VISIBLE",
+                "Ti.UI.Android.SOFT_INPUT_STATE_HIDDEN",
+                "Ti.UI.Android.SOFT_INPUT_STATE_UNSPECIFIED",
+                "Ti.UI.Android.SOFT_INPUT_STATE_VISIBLE",
+                "Ti.UI.Android.SOFT_INPUT_ADJUST_PAN",
+                "Ti.UI.Android.SOFT_INPUT_ADJUST_RESIZE",
+                "Ti.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED"
             ],
             "description": "<p>Determines how the tab group is treated when a soft input method (such as a virtual keyboard) \nis displayed.</p>"
         },
@@ -4226,8 +4295,10 @@
         },
         "appearance": {
             "values": [
-                "Titanium.UI.KEYBOARD_APPEARANCE_ALERT",
-                "Titanium.UI.KEYBOARD_APPEARANCE_DEFAULT"
+                "Ti.UI.KEYBOARD_APPEARANCE_ALERT",
+                "Ti.UI.KEYBOARD_APPEARANCE_DEFAULT",
+                "Ti.UI.KEYBOARD_APPEARANCE_ALERT",
+                "Ti.UI.KEYBOARD_APPEARANCE_DEFAULT"
             ],
             "description": "<p>Determines the appearance of the keyboard displayed when this text area is focused.</p>"
         },
@@ -4270,17 +4341,28 @@
         },
         "returnKeyType": {
             "values": [
-                "Titanium.UI.RETURNKEY_DEFAULT",
-                "Titanium.UI.RETURNKEY_DONE",
-                "Titanium.UI.RETURNKEY_EMERGENCY_CALL",
-                "Titanium.UI.RETURNKEY_GO",
-                "Titanium.UI.RETURNKEY_GOOGLE",
-                "Titanium.UI.RETURNKEY_JOIN",
-                "Titanium.UI.RETURNKEY_NEXT",
-                "Titanium.UI.RETURNKEY_ROUTE",
-                "Titanium.UI.RETURNKEY_SEARCH",
-                "Titanium.UI.RETURNKEY_SEND",
-                "Titanium.UI.RETURNKEY_YAHOO"
+                "Ti.UI.RETURNKEY_DEFAULT",
+                "Ti.UI.RETURNKEY_DONE",
+                "Ti.UI.RETURNKEY_EMERGENCY_CALL",
+                "Ti.UI.RETURNKEY_GO",
+                "Ti.UI.RETURNKEY_GOOGLE",
+                "Ti.UI.RETURNKEY_JOIN",
+                "Ti.UI.RETURNKEY_NEXT",
+                "Ti.UI.RETURNKEY_ROUTE",
+                "Ti.UI.RETURNKEY_SEARCH",
+                "Ti.UI.RETURNKEY_SEND",
+                "Ti.UI.RETURNKEY_YAHOO",
+                "Ti.UI.RETURNKEY_DEFAULT",
+                "Ti.UI.RETURNKEY_DONE",
+                "Ti.UI.RETURNKEY_EMERGENCY_CALL",
+                "Ti.UI.RETURNKEY_GO",
+                "Ti.UI.RETURNKEY_GOOGLE",
+                "Ti.UI.RETURNKEY_JOIN",
+                "Ti.UI.RETURNKEY_NEXT",
+                "Ti.UI.RETURNKEY_ROUTE",
+                "Ti.UI.RETURNKEY_SEARCH",
+                "Ti.UI.RETURNKEY_SEND",
+                "Ti.UI.RETURNKEY_YAHOO"
             ],
             "description": "<p>Specifies the text to display on the keyboard <code>Return</code> key when this text area is focused.</p>"
         },
@@ -4313,28 +4395,28 @@
         },
         "borderStyle": {
             "values": [
-                "Titanium.UI.INPUT_BORDERSTYLE_BEZEL",
-                "Titanium.UI.INPUT_BORDERSTYLE_LINE",
-                "Titanium.UI.INPUT_BORDERSTYLE_NONE",
-                "Titanium.UI.INPUT_BORDERSTYLE_ROUNDED"
+                "Ti.UI.INPUT_BORDERSTYLE_BEZEL",
+                "Ti.UI.INPUT_BORDERSTYLE_LINE",
+                "Ti.UI.INPUT_BORDERSTYLE_NONE",
+                "Ti.UI.INPUT_BORDERSTYLE_ROUNDED"
             ],
             "description": "<p>Border style for the field.</p>"
         },
         "clearButtonMode": {
             "values": [
-                "Titanium.UI.INPUT_BUTTONMODE_ALWAYS",
-                "Titanium.UI.INPUT_BUTTONMODE_NEVER",
-                "Titanium.UI.INPUT_BUTTONMODE_ONBLUR",
-                "Titanium.UI.INPUT_BUTTONMODE_ONFOCUS"
+                "Ti.UI.INPUT_BUTTONMODE_ALWAYS",
+                "Ti.UI.INPUT_BUTTONMODE_NEVER",
+                "Ti.UI.INPUT_BUTTONMODE_ONBLUR",
+                "Ti.UI.INPUT_BUTTONMODE_ONFOCUS"
             ],
             "description": "<p>Determines when the clear button is displayed.</p>"
         },
         "leftButtonMode": {
             "values": [
-                "Titanium.UI.INPUT_BUTTONMODE_ALWAYS",
-                "Titanium.UI.INPUT_BUTTONMODE_NEVER",
-                "Titanium.UI.INPUT_BUTTONMODE_ONBLUR",
-                "Titanium.UI.INPUT_BUTTONMODE_ONFOCUS"
+                "Ti.UI.INPUT_BUTTONMODE_ALWAYS",
+                "Ti.UI.INPUT_BUTTONMODE_NEVER",
+                "Ti.UI.INPUT_BUTTONMODE_ONBLUR",
+                "Ti.UI.INPUT_BUTTONMODE_ONFOCUS"
             ],
             "description": "<p>Determines when to display the left button view.</p>"
         },
@@ -4347,10 +4429,10 @@
         },
         "rightButtonMode": {
             "values": [
-                "Titanium.UI.INPUT_BUTTONMODE_ALWAYS",
-                "Titanium.UI.INPUT_BUTTONMODE_NEVER",
-                "Titanium.UI.INPUT_BUTTONMODE_ONBLUR",
-                "Titanium.UI.INPUT_BUTTONMODE_ONFOCUS"
+                "Ti.UI.INPUT_BUTTONMODE_ALWAYS",
+                "Ti.UI.INPUT_BUTTONMODE_NEVER",
+                "Ti.UI.INPUT_BUTTONMODE_ONBLUR",
+                "Ti.UI.INPUT_BUTTONMODE_ONFOCUS"
             ],
             "description": "<p>Determines when to display the right button view.</p>"
         },
@@ -4448,18 +4530,18 @@
         },
         "cacheMode": {
             "values": [
-                "Titanium.UI.Android.WEBVIEW_LOAD_DEFAULT",
-                "Titanium.UI.Android.WEBVIEW_LOAD_NO_CACHE",
-                "Titanium.UI.Android.WEBVIEW_LOAD_CACHE_ONLY",
-                "Titanium.UI.Android.WEBVIEW_LOAD_CACHE_ELSE_NETWORK"
+                "Ti.UI.Android.WEBVIEW_LOAD_DEFAULT",
+                "Ti.UI.Android.WEBVIEW_LOAD_NO_CACHE",
+                "Ti.UI.Android.WEBVIEW_LOAD_CACHE_ONLY",
+                "Ti.UI.Android.WEBVIEW_LOAD_CACHE_ELSE_NETWORK"
             ],
             "description": "<p>Determines how a cache is used in this web view.</p>"
         },
         "pluginState": {
             "values": [
-                "Titanium.UI.Android.WEBVIEW_PLUGINS_OFF",
-                "Titanium.UI.Android.WEBVIEW_PLUGINS_ON",
-                "Titanium.UI.Android.WEBVIEW_PLUGINS_ON_DEMAND"
+                "Ti.UI.Android.WEBVIEW_PLUGINS_OFF",
+                "Ti.UI.Android.WEBVIEW_PLUGINS_ON",
+                "Ti.UI.Android.WEBVIEW_PLUGINS_ON_DEMAND"
             ],
             "description": "<p>Determines how to treat content that requires plugins in this web view.</p>"
         },
@@ -4556,12 +4638,18 @@
         },
         "statusBarStyle": {
             "values": [
-                "Titanium.UI.iPhone.StatusBar.DEFAULT",
-                "Titanium.UI.iPhone.StatusBar.GRAY",
-                "Titanium.UI.iPhone.StatusBar.GREY",
-                "Titanium.UI.iPhone.StatusBar.LIGHT_CONTENT",
-                "Titanium.UI.iPhone.StatusBar.OPAQUE_BLACK",
-                "Titanium.UI.iPhone.StatusBar.TRANSLUCENT_BLACK"
+                "Ti.UI.iPhone.StatusBar.DEFAULT",
+                "Ti.UI.iPhone.StatusBar.GRAY",
+                "Ti.UI.iPhone.StatusBar.GREY",
+                "Ti.UI.iPhone.StatusBar.LIGHT_CONTENT",
+                "Ti.UI.iPhone.StatusBar.OPAQUE_BLACK",
+                "Ti.UI.iPhone.StatusBar.TRANSLUCENT_BLACK",
+                "Ti.UI.iPhone.StatusBar.DEFAULT",
+                "Ti.UI.iPhone.StatusBar.GRAY",
+                "Ti.UI.iPhone.StatusBar.GREY",
+                "Ti.UI.iPhone.StatusBar.LIGHT_CONTENT",
+                "Ti.UI.iPhone.StatusBar.OPAQUE_BLACK",
+                "Ti.UI.iPhone.StatusBar.TRANSLUCENT_BLACK"
             ],
             "description": "<p>The status bar style associated with this window.</p>"
         },
@@ -4602,31 +4690,37 @@
         },
         "windowPixelFormat": {
             "values": [
-                "Titanium.UI.Android.PIXEL_FORMAT_A_8",
-                "Titanium.UI.Android.PIXEL_FORMAT_LA_88",
-                "Titanium.UI.Android.PIXEL_FORMAT_L_8",
-                "Titanium.UI.Android.PIXEL_FORMAT_OPAQUE",
-                "Titanium.UI.Android.PIXEL_FORMAT_RGBA_4444",
-                "Titanium.UI.Android.PIXEL_FORMAT_RGBA_5551",
-                "Titanium.UI.Android.PIXEL_FORMAT_RGBA_8888",
-                "Titanium.UI.Android.PIXEL_FORMAT_RGBX_8888",
-                "Titanium.UI.Android.PIXEL_FORMAT_RGB_332",
-                "Titanium.UI.Android.PIXEL_FORMAT_RGB_565",
-                "Titanium.UI.Android.PIXEL_FORMAT_RGB_888",
-                "Titanium.UI.Android.PIXEL_FORMAT_TRANSLUCENT",
-                "Titanium.UI.Android.PIXEL_FORMAT_TRANSPARENT",
-                "Titanium.UI.Android.PIXEL_FORMAT_UNKNOWN"
+                "Ti.UI.Android.PIXEL_FORMAT_A_8",
+                "Ti.UI.Android.PIXEL_FORMAT_LA_88",
+                "Ti.UI.Android.PIXEL_FORMAT_L_8",
+                "Ti.UI.Android.PIXEL_FORMAT_OPAQUE",
+                "Ti.UI.Android.PIXEL_FORMAT_RGBA_4444",
+                "Ti.UI.Android.PIXEL_FORMAT_RGBA_5551",
+                "Ti.UI.Android.PIXEL_FORMAT_RGBA_8888",
+                "Ti.UI.Android.PIXEL_FORMAT_RGBX_8888",
+                "Ti.UI.Android.PIXEL_FORMAT_RGB_332",
+                "Ti.UI.Android.PIXEL_FORMAT_RGB_565",
+                "Ti.UI.Android.PIXEL_FORMAT_RGB_888",
+                "Ti.UI.Android.PIXEL_FORMAT_TRANSLUCENT",
+                "Ti.UI.Android.PIXEL_FORMAT_TRANSPARENT",
+                "Ti.UI.Android.PIXEL_FORMAT_UNKNOWN"
             ],
             "description": "<p>Set the pixel format for the Activity's Window.</p>"
         },
         "extendEdges": {
             "values": [
-                "Titanium.UI.EXTEND_EDGE_ALL",
-                "Titanium.UI.EXTEND_EDGE_BOTTOM",
-                "Titanium.UI.EXTEND_EDGE_LEFT",
-                "Titanium.UI.EXTEND_EDGE_NONE",
-                "Titanium.UI.EXTEND_EDGE_RIGHT",
-                "Titanium.UI.EXTEND_EDGE_TOP"
+                "Ti.UI.EXTEND_EDGE_ALL",
+                "Ti.UI.EXTEND_EDGE_BOTTOM",
+                "Ti.UI.EXTEND_EDGE_LEFT",
+                "Ti.UI.EXTEND_EDGE_NONE",
+                "Ti.UI.EXTEND_EDGE_RIGHT",
+                "Ti.UI.EXTEND_EDGE_TOP",
+                "Ti.UI.EXTEND_EDGE_ALL",
+                "Ti.UI.EXTEND_EDGE_BOTTOM",
+                "Ti.UI.EXTEND_EDGE_LEFT",
+                "Ti.UI.EXTEND_EDGE_NONE",
+                "Ti.UI.EXTEND_EDGE_RIGHT",
+                "Ti.UI.EXTEND_EDGE_TOP"
             ],
             "description": "<p>An array of supported values specified using the EXTEND_EDGE constants in <a href=\"Titanium.UI\">UI</a>. Valid on iOS 7 and greater.</p>"
         },
@@ -4646,28 +4740,32 @@
         },
         "orientationModes": {
             "values": [
-                "Titanium.UI.LANDSCAPE_LEFT",
-                "Titanium.UI.LANDSCAPE_RIGHT",
-                "Titanium.UI.PORTRAIT",
-                "Titanium.UI.UPSIDE_PORTRAIT"
+                "Ti.UI.LANDSCAPE_LEFT",
+                "Ti.UI.LANDSCAPE_RIGHT",
+                "Ti.UI.PORTRAIT",
+                "Ti.UI.UPSIDE_PORTRAIT",
+                "Ti.UI.LANDSCAPE_LEFT",
+                "Ti.UI.LANDSCAPE_RIGHT",
+                "Ti.UI.PORTRAIT",
+                "Ti.UI.UPSIDE_PORTRAIT"
             ],
             "description": "<p>Array of supported orientation modes, specified using the orientation\nconstants defined in <a href=\"Titanium.UI\">UI</a>.</p>"
         },
         "modalStyle": {
             "values": [
-                "Titanium.UI.iPhone.MODAL_PRESENTATION_CURRENT_CONTEXT",
-                "Titanium.UI.iPhone.MODAL_PRESENTATION_FORMSHEET",
-                "Titanium.UI.iPhone.MODAL_PRESENTATION_FULLSCREEN",
-                "Titanium.UI.iPhone.MODAL_PRESENTATION_PAGESHEET"
+                "Ti.UI.iPhone.MODAL_PRESENTATION_CURRENT_CONTEXT",
+                "Ti.UI.iPhone.MODAL_PRESENTATION_FORMSHEET",
+                "Ti.UI.iPhone.MODAL_PRESENTATION_FULLSCREEN",
+                "Ti.UI.iPhone.MODAL_PRESENTATION_PAGESHEET"
             ],
             "description": "<p>Presentation style of this modal window.</p>"
         },
         "modalTransitionStyle": {
             "values": [
-                "Titanium.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL",
-                "Titanium.UI.iPhone.MODAL_TRANSITION_STYLE_CROSS_DISSOLVE",
-                "Titanium.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL",
-                "Titanium.UI.iPhone.MODAL_TRANSITION_STYLE_PARTIAL_CURL"
+                "Ti.UI.iPhone.MODAL_TRANSITION_STYLE_COVER_VERTICAL",
+                "Ti.UI.iPhone.MODAL_TRANSITION_STYLE_CROSS_DISSOLVE",
+                "Ti.UI.iPhone.MODAL_TRANSITION_STYLE_FLIP_HORIZONTAL",
+                "Ti.UI.iPhone.MODAL_TRANSITION_STYLE_PARTIAL_CURL"
             ],
             "description": "<p>Transition style of this modal window.</p>"
         },
@@ -4689,8 +4787,8 @@
         },
         "adSize": {
             "values": [
-                "Titanium.UI.iOS.AD_SIZE_PORTRAIT",
-                "Titanium.UI.iOS.AD_SIZE_LANDSCAPE"
+                "Ti.UI.iOS.AD_SIZE_PORTRAIT",
+                "Ti.UI.iOS.AD_SIZE_LANDSCAPE"
             ],
             "description": "<p>Size of the advertisement when minimized.</p>"
         },
@@ -4720,9 +4818,9 @@
         },
         "collisionMode": {
             "values": [
-                "Titanium.UI.iOS.COLLISION_MODE_ALL",
-                "Titanium.UI.iOS.COLLISION_MODE_BOUNDARY",
-                "Titanium.UI.iOS.COLLISION_MODE_ITEM"
+                "Ti.UI.iOS.COLLISION_MODE_ALL",
+                "Ti.UI.iOS.COLLISION_MODE_BOUNDARY",
+                "Ti.UI.iOS.COLLISION_MODE_ITEM"
             ],
             "description": "<p>Specifies the collision behavior.</p>"
         },
@@ -4790,8 +4888,8 @@
         },
         "pushMode": {
             "values": [
-                "Titanium.UI.iOS.PUSH_MODE_CONTINUOUS",
-                "Titanium.UI.iOS.PUSH_MODE_INSTANTANEOUS"
+                "Ti.UI.iOS.PUSH_MODE_CONTINUOUS",
+                "Ti.UI.iOS.PUSH_MODE_INSTANTANEOUS"
             ],
             "description": "<p>Specifies the push mode.</p>"
         },
