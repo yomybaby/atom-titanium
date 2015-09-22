@@ -7,7 +7,16 @@ $ apm install titanium-alloy
 
 ## Features
 
+### Autocomplete
+- xml Autocomplete
+![autocomplete](https://github.com/yomybaby/atom-titanium/raw/master/screenshot_autocomplete.gif)
+
+more powerful autocomplete functions are comming!
+
+
 ### Jump to definition
+This feature is a [hyperclick](https://atom.io/packages/hyperclick) provider.   [hyperclick](https://atom.io/packages/hyperclick) package required.
+
 - jump to tss definition from xml [class|id|tag] name
 - jump to event handler definition from xml `onEventName` property.
 
@@ -18,7 +27,7 @@ Hyperclick is triggered by two events:
 - `<alt-mousedown>` performs the action associated with the clickable text.
 - `<cmd-alt-enter>` performs the action on the text under the cursor.
 
-This feature is a [hyperclick](https://atom.io/packages/hyperclick) provider.   [hyperclick](https://atom.io/packages/hyperclick) package required.
+
 
 ### Open related file depend on current focused file
 Key Bindings | Command Desc

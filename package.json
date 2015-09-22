@@ -7,7 +7,8 @@
   "keywords": [
     "titanium",
     "alloy",
-    "jump-to-definition"
+    "jump-to-definition",
+    "autocomplete"
   ],
   "repository": "https://github.com/yomybaby/atom-titanium",
   "engines": {
