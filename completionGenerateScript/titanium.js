@@ -1,6 +1,17 @@
 var fs = require('fs');
 var _ = require('underscore');
-var api = JSON.parse(fs.readFileSync("/Users/yomybaby/Library/Application Support/Titanium/mobilesdk/osx/5.0.0.GA/api.jsca", "utf8"));
+var titaniumSdkHomePath = '';
+if (process.platform === 'win32') {
+  titaniumSdkHomePath = process.env['USERPROFILE'];
+} else if (process.platform === 'darwin') {
+  titaniumSdkHomePath = process.env['HOME'] + 
+  "/Library/Application Support/Titanium/mobilesdk/osx";
+} else if (process.platform === 'linux') {
+  titaniumSdkHomePath = process.env['HOME'] + 
+  "/.titanium/mobilesdk/linux";
+}
+//TODO: get current active Titanium SDK
+var api = JSON.parse(fs.readFileSync(titaniumSdkHomePath + "/5.0.0.GA/api.jsca", "utf8"));
 
 var props = {};
 var tags = [];
