@@ -208,7 +208,7 @@
             '1':
               'name': 'punctuation.separator.key-value.css.tss'
           # 'end': '\\s(,)|(?=\\})'
-          'end': '\\s*(,)|(\\})'
+          'end': '\\s*(,)|(?=\\})'
           'endCaptures':
             '1':
               'name': 'punctuation.terminator.rule.css.tss'
