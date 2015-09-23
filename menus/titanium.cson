@@ -1,22 +1,28 @@
-# See https://atom.io/docs/latest/hacking-atom-package-word-count#menus for more details
 'context-menu':
   'atom-text-editor': [
     {
-      'label': 'Toggle titanium'
-      'command': 'titanium:toggle'
-    }
-  ]
-'menu': [
-  {
-    'label': 'Packages'
-    'submenu': [
-      'label': 'titanium'
+      'label': 'Alloy'
       'submenu': [
         {
-          'label': 'Toggle'
-          'command': 'titanium:toggle'
+          'label': 'Open view'
+          'command': 'titanium:openView'
+        }
+        {
+          'label': 'Open style'
+          'command': 'titanium:openStyle'
+        }
+        {
+          'label': 'Open controller'
+          'command': 'titanium:openController'
+        }
+        {
+          'label': 'Open related'
+          'command': 'titanium:openAllRelatedFiles'
+        }
+        {
+          'label': 'Close related'
+          'command': 'titanium:closeAllRelatedPanes'
         }
       ]
-    ]
-  }
-]
+    }
+  ]
