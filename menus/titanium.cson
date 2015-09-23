@@ -20,7 +20,7 @@
           'command': 'titanium:openAllRelatedFiles'
         }
         {
-          'label': 'Clode related'
+          'label': 'Close related'
           'command': 'titanium:closeAllRelatedPanes'
         }
       ]
