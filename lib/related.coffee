@@ -61,7 +61,10 @@ module.exports =
     
     if relatedFilePaths[1]
       if related3rdPane?.isAlive() != true
-        related3rdPane = related2ndPane.splitDown()
+        if atom.config.get('titanium-alloy.numberOfSplitPane')==2
+          related3rdPane = related2ndPane.splitDown()
+        else
+          related3rdPane = related2ndPane.splitRight()
       related3rdPane.activate();
       atom.workspace.open(relatedFilePaths[1]).then( -> 
         previousActivePane.activate();     # restore cursor focus

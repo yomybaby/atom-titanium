@@ -12,8 +12,10 @@ module.exports = Titanium =
   # serialize: ->
   getProvider: -> styleProvider
   getClickProvider: -> clickProvider.getProvider()
-  # config:
-  #   openSourceInSplitWindow:
-  #     type: 'boolean'
-  #     default: false
-  #     title: 'Open source in split window'
+  config:
+    numberOfSplitPane:
+      title: 'Number of pane column'
+      description: 'Layout of "Open All related files"'
+      type: 'integer'
+      default: 2
+      enum: [2,3]

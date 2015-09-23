@@ -39,6 +39,8 @@ Key Bindings | Command Desc
 `ctrl-alt-s` | Open style
 `ctrl-alt-c` | Open controller
 
+On package setting, there is an option to change layout of "Open All related files" command. (2 columns or 3columns)
+
 
 ### TSS Sytax Highlight  
 refer to language-css and language-json, language-tss  
