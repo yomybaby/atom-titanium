@@ -1,16 +1,17 @@
 {CompositeDisposable} = require 'atom'
 related = require './related'
-# jsProvider = require './controllerProvider'
 styleProvider = require './styleProvider'
+viewProvider = require './viewProvider'
 clickProvider = require './clickProvider'
 
 module.exports = Titanium =
   activate: ->
     related.activate()
     styleProvider.loadProperties()
+    viewProvider.loadCompletions() 
   # deactivate: ->
   # serialize: ->
-  getProvider: -> styleProvider
+  getProvider: -> [styleProvider,viewProvider]
   getClickProvider: -> clickProvider.getProvider()
   config:
     numberOfSplitPane:
