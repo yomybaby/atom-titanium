@@ -7,10 +7,10 @@ propertyNamePrefixPattern = /[a-zA-Z]+[-a-zA-Z]*$/
 pesudoSelectorPrefixPattern = /:(:)?([a-z]+[a-z-]*)?$/
 tagSelectorPrefixPattern = /["']([A-Za-z]+)?$/
 importantPrefixPattern = /(![a-z]+)$/
-cssDocsURL = "https://developer.mozilla.org/en-US/docs/Web/CSS"
+cssDocsURL = "http://docs.appcelerator.com/platform/latest/#!/api"
 
 module.exports =
-  selector: '.source.css.tss'
+  selector: '.source.css.tss'  
   disableForSelector: '.source.css.tss .comment, .source.css.tss .string'
 
   # Tell autocomplete to fuzzy filter the results of getSuggestions(). We are
@@ -58,8 +58,8 @@ module.exports =
 
   loadProperties: ->
     @properties = {}
-    fs.readFile path.resolve(__dirname, '..', 'completions.json'), (error, content) =>
-      {@pseudoSelectors, @properties, @tags} = JSON.parse(content) unless error?
+    fs.readFile path.resolve(__dirname, '..', 'tiCompletions.json'), (error, content) =>
+      {@pseudoSelectors, @properties, @tags, @types} = JSON.parse(content) unless error?
       return
 
   isCompletingClassName : ({scopeDescriptor, bufferPosition, prefix, editor}) ->
@@ -216,6 +216,8 @@ module.exports =
       text: text
       displayText: value
       description: "#{value} value for the #{propertyName} property"
+      # leftLabel: 'leftLabel'
+      # rightLabel: 'right'
       # descriptionMoreURL: "#{cssDocsURL}/#{propertyName}#Values"
     }
 
@@ -277,15 +279,16 @@ module.exports =
 
   getTagCompletions: ({bufferPosition, editor, prefix}) ->
     completions = []
+    that = this
     if prefix
-      for tag in @tags when firstCharsEqual(tag, prefix)
-        completions.push(@buildTagCompletion(tag))
+      _.each @tags, (value,key) -> 
+        if firstCharsEqual(key, prefix)
+            completions.push({
+              type: 'tag'
+              text: key
+              description: that.types[value.apiName]?.description
+            })
     completions
-
-  buildTagCompletion: (tag) ->
-    type: 'tag'
-    text: tag
-    description: "Selector for <#{tag}> elements"
 
 hasScope = (scopesArray, scope) ->
   scopesArray.indexOf(scope) isnt -1
