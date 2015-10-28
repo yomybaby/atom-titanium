@@ -33,7 +33,7 @@ _.each(fns,function(fn) {
     }
   }else if(tagName=='_ProxyProperty' && fn.indexOf('Ti.UI')===0){
     tagDic[ar[ar.length-3]] = { // Ti.UI.Window._ProxyProperty
-      apiName : fn.replace('.js','')
+      apiName : fn.replace('.js','').replace('._ProxyProperty','')
     }
   }
 });
@@ -53,18 +53,22 @@ _.each(api.types,function(type,idx){
   
   var propertyNamesOfType =[]
   _.each(type.properties,function(prop,idx){
-    if(prop.permission !== 'read-only'){
+    if(prop.permission !== 'read-only' && prop.name.indexOf('Modules.')!==0){
       
       propertyNamesOfType.push(prop.name);
       
       // property name
       if(props[prop.name]){ //if duplicated propertie name, merge available vales.
-        props[prop.name].values = _.union(props[prop.name].values,prop.constants)
-        // props[prop.name].description = "";
+        _.extend(props[prop.name],{
+          values : _.union(props[prop.name].values,prop.constants),
+          description : props[prop.name].description==prop.description.replace( /<p>|<\/p\>/g, '')?props[prop.name].description:'...'
+        });
+        
       }else{
         props[prop.name] = {
           "values": prop.constants,
-          "description": prop.description.replace( /<p>|<\/p\>/g, '')
+          "description": prop.description.replace( /<p>|<\/p\>/g, ''),
+          // "types": [type.name]
         }
       }
       

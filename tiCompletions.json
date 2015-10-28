@@ -24,7 +24,7 @@
         },
         "accessibilityLabel": {
             "values": [],
-            "description": "A succint label identifying the view for the device's accessibility service."
+            "description": "..."
         },
         "accessibilityValue": {
             "values": [],
@@ -32,7 +32,7 @@
         },
         "anchorPoint": {
             "values": [],
-            "description": "Coordinate of the view about which to pivot an animation."
+            "description": "..."
         },
         "backgroundDisabledColor": {
             "values": [],
@@ -40,19 +40,19 @@
         },
         "backgroundDisabledImage": {
             "values": [],
-            "description": "Disabled background image for the view, specified as a local file path or URL."
+            "description": "..."
         },
         "backgroundFocusedColor": {
             "values": [],
-            "description": "Focused background color of the view, as a color name or hex triplet."
+            "description": "..."
         },
         "backgroundFocusedImage": {
             "values": [],
-            "description": "Focused background image for the view, specified as a local file path or URL."
+            "description": "..."
         },
         "backgroundGradient": {
             "values": [],
-            "description": "A background gradient for the view."
+            "description": "..."
         },
         "backgroundRepeat": {
             "values": [
@@ -71,7 +71,7 @@
         },
         "backgroundSelectedImage": {
             "values": [],
-            "description": "Selected background image url for the view, specified as a local file path or URL."
+            "description": "..."
         },
         "backgroundTopCap": {
             "values": [],
@@ -116,7 +116,7 @@
         },
         "transform": {
             "values": [],
-            "description": "Transformation matrix to apply to the view."
+            "description": "..."
         },
         "viewShadowRadius": {
             "values": [],
@@ -146,11 +146,11 @@
         },
         "backgroundImage": {
             "values": [],
-            "description": "Background image for the view, specified as a local file path or URL."
+            "description": "..."
         },
         "backgroundColor": {
             "values": [],
-            "description": "Background color of the view, as a color name or hex triplet."
+            "description": "..."
         },
         "borderColor": {
             "values": [],
@@ -166,11 +166,11 @@
         },
         "bottom": {
             "values": [],
-            "description": "View's bottom position, in platform-specific units."
+            "description": "..."
         },
         "center": {
             "values": [],
-            "description": "View's center position, in the parent view's coordinates."
+            "description": "..."
         },
         "height": {
             "values": [
@@ -179,7 +179,7 @@
                 "Ti.UI.FILL",
                 "Ti.UI.SIZE"
             ],
-            "description": "View height, in platform-specific units."
+            "description": "..."
         },
         "layout": {
             "values": [],
@@ -187,23 +187,23 @@
         },
         "left": {
             "values": [],
-            "description": "View's left position, in platform-specific units."
+            "description": "..."
         },
         "opacity": {
             "values": [],
-            "description": "Opacity of this view, from 0.0 (transparent) to 1.0 (opaque)."
+            "description": "..."
         },
         "right": {
             "values": [],
-            "description": "View's right position, in platform-specific units."
+            "description": "..."
         },
         "tintColor": {
             "values": [],
-            "description": "The view's tintColor. This property is applicable on iOS 7 and greater."
+            "description": "..."
         },
         "top": {
             "values": [],
-            "description": "The view's top position."
+            "description": "..."
         },
         "touchEnabled": {
             "values": [
@@ -217,7 +217,7 @@
                 "true",
                 "false"
             ],
-            "description": "Determines whether the view is visible."
+            "description": "..."
         },
         "width": {
             "values": [
@@ -226,25 +226,25 @@
                 "Ti.UI.FILL",
                 "Ti.UI.SIZE"
             ],
-            "description": "View's width, in platform-specific units."
+            "description": "..."
         },
         "zIndex": {
             "values": [],
-            "description": "Z-index stack order position, relative to other sibling views."
+            "description": "..."
         },
         "success": {
             "values": [
                 "true",
                 "false"
             ],
-            "description": "Indicates whether the request succeeded."
+            "description": "..."
         },
         "error": {
             "values": [
                 "true",
                 "false"
             ],
-            "description": "Indicates whether the request failed."
+            "description": "..."
         },
         "meta": {
             "values": [],
@@ -256,11 +256,11 @@
                 "Ti.Media.NO_CAMERA",
                 "Ti.Media.UNKNOWN_ERROR"
             ],
-            "description": "Error code, if any returned."
+            "description": "..."
         },
         "message": {
             "values": [],
-            "description": "Error message, if any returned."
+            "description": "..."
         },
         "acls": {
             "values": [],
@@ -291,7 +291,7 @@
                 "Ti.UI.Android.PROGRESS_INDICATOR_DIALOG",
                 "Ti.UI.Android.PROGRESS_INDICATOR_STATUS_BAR"
             ],
-            "description": "Location of client."
+            "description": "..."
         },
         "debug": {
             "values": [
@@ -321,7 +321,7 @@
         },
         "accessToken": {
             "values": [],
-            "description": "Identifies the current access token when using 3-Legged OAuth"
+            "description": "..."
         },
         "progress": {
             "values": [],
@@ -329,11 +329,11 @@
         },
         "url": {
             "values": [],
-            "description": "The URL for the request, to help identify it."
+            "description": "..."
         },
         "events": {
             "values": [],
-            "description": "Set of <code>event</code> objects, if any exist."
+            "description": "..."
         },
         "event_occurrences": {
             "values": [],
@@ -345,7 +345,7 @@
         },
         "users": {
             "values": [],
-            "description": "Set of <code>user</code> objects, if any exist."
+            "description": "..."
         },
         "friend_requests": {
             "values": [],
@@ -381,7 +381,7 @@
         },
         "places": {
             "values": [],
-            "description": "Set of <code>places</code> objects, if any exist."
+            "description": "..."
         },
         "posts": {
             "values": [],
@@ -413,7 +413,7 @@
         },
         "title": {
             "values": [],
-            "description": "Defines the title for the dialog."
+            "description": "..."
         },
         "expiresIn": {
             "values": [],
@@ -424,7 +424,7 @@
                 "true",
                 "false"
             ],
-            "description": "Whether or not this device will receive push notifications. <strong>Deprecated since 3.2.0. This property was only required to enable push notifications for the legacy MQTT\nprotocol.</strong>"
+            "description": "..."
         },
         "showTrayNotification": {
             "values": [
@@ -481,7 +481,7 @@
         },
         "icon": {
             "values": [],
-            "description": "Sets the application icon displayed in the \"home\" area of the action bar, specified as a local file path or URL."
+            "description": "..."
         },
         "logo": {
             "values": [],
@@ -497,7 +497,7 @@
         },
         "subtitle": {
             "values": [],
-            "description": "Sets the subtitle of the action bar."
+            "description": "..."
         },
         "onCreate": {
             "values": [],
@@ -557,7 +557,7 @@
         },
         "intent": {
             "values": [],
-            "description": "Intent that can contain data returned to the caller. Data can be attached to\nthe intent as \"extras\")."
+            "description": "..."
         },
         "startMode": {
             "values": [
@@ -576,7 +576,7 @@
         },
         "className": {
             "values": [],
-            "description": "The Java class name of the activity associated with this intent\n(<a href=\"Titanium.Android.Intent.packageName\">packageName</a> must also be set)."
+            "description": "..."
         },
         "flags": {
             "values": [
@@ -615,11 +615,11 @@
                 "Ti.Android.FLAG_ONE_SHOT",
                 "Ti.Android.FLAG_UPDATE_CURRENT"
             ],
-            "description": "Intent flags."
+            "description": "..."
         },
         "packageName": {
             "values": [],
-            "description": "The fully-qualified Java package name of the activity."
+            "description": "..."
         },
         "actionView": {
             "values": [],
@@ -698,7 +698,7 @@
                 "Ti.Android.CATEGORY_STATUS",
                 "Ti.Android.CATEGORY_TRANSPORT"
             ],
-            "description": "Sets the notification's category."
+            "description": "..."
         },
         "contentIntent": {
             "values": [],
@@ -714,7 +714,7 @@
         },
         "contentView": {
             "values": [],
-            "description": "Custom layout to display in the notification."
+            "description": "..."
         },
         "defaults": {
             "values": [
@@ -761,7 +761,7 @@
         },
         "sound": {
             "values": [],
-            "description": "A URL to the sound to play."
+            "description": "..."
         },
         "tickerText": {
             "values": [],
@@ -820,7 +820,7 @@
         },
         "source": {
             "values": [],
-            "description": "This key indicates that the application was launched by another\napplication with the specified bundle ID."
+            "description": "..."
         },
         "launchOptionsLocationKey": {
             "values": [
@@ -839,7 +839,7 @@
         },
         "expirationDate": {
             "values": [],
-            "description": "Searchable items have an expiration date or time to live.  By default it is set to one month."
+            "description": "..."
         },
         "uniqueIdentifier": {
             "values": [],
@@ -893,11 +893,11 @@
         },
         "path": {
             "values": [],
-            "description": "The complete path to the item."
+            "description": "..."
         },
         "contentURL": {
             "values": [],
-            "description": "File URL representing the content to be indexed."
+            "description": "..."
         },
         "thumbnailURL": {
             "values": [],
@@ -925,15 +925,15 @@
         },
         "keywords": {
             "values": [],
-            "description": "Represents keywords associated with this particular item. Example keywords might be Birthday etc."
+            "description": "..."
         },
         "subject": {
             "values": [],
-            "description": "Subject of the the item."
+            "description": "..."
         },
         "theme": {
             "values": [],
-            "description": "Theme of the the item."
+            "description": "..."
         },
         "contentDescription": {
             "values": [],
@@ -941,7 +941,7 @@
         },
         "identifier": {
             "values": [],
-            "description": "Used to reference to the resource within a given context."
+            "description": "..."
         },
         "audiences": {
             "values": [],
@@ -980,7 +980,7 @@
                 "Ti.Contacts.CONTACTS_KIND_ORGANIZATION",
                 "Ti.Contacts.CONTACTS_KIND_PERSON"
             ],
-            "description": "Kind that the item represents."
+            "description": "..."
         },
         "fontNames": {
             "values": [],
@@ -1012,7 +1012,7 @@
         },
         "composer": {
             "values": [],
-            "description": "The composer of the song/composition contained in the audio file."
+            "description": "..."
         },
         "lyricist": {
             "values": [],
@@ -1024,7 +1024,7 @@
         },
         "artist": {
             "values": [],
-            "description": "The artist for the media."
+            "description": "..."
         },
         "audioTrackNumber": {
             "values": [],
@@ -1112,7 +1112,7 @@
         },
         "comment": {
             "values": [],
-            "description": "Comment related to a file."
+            "description": "..."
         },
         "copyright": {
             "values": [],
@@ -1123,7 +1123,7 @@
                 "Ti.UI.NOTIFICATION_DURATION_LONG",
                 "Ti.UI.NOTIFICATION_DURATION_SHORT"
             ],
-            "description": "Duration in seconds of the content of the item (if appropriate)."
+            "description": "..."
         },
         "contactKeywords": {
             "values": [],
@@ -1150,11 +1150,11 @@
                 "Ti.Media.VIDEO_MEDIA_TYPE_NONE",
                 "Ti.Media.VIDEO_MEDIA_TYPE_VIDEO"
             ],
-            "description": "Media types present in the content."
+            "description": "..."
         },
         "version": {
             "values": [],
-            "description": "A version specifier for this item."
+            "description": "..."
         },
         "role": {
             "values": [],
@@ -1226,7 +1226,7 @@
         },
         "genre": {
             "values": [],
-            "description": "Genre of the item, for example, movie genre."
+            "description": "..."
         },
         "performers": {
             "values": [],
@@ -1255,7 +1255,7 @@
                 "Ti.Geolocation.ACTIVITYTYPE_OTHER",
                 "Ti.Geolocation.ACTIVITYTYPE_OTHER_NAVIGATION"
             ],
-            "description": "Name of the activity type."
+            "description": "..."
         },
         "eligibleForPublicIndexing": {
             "values": [
@@ -1298,7 +1298,7 @@
         },
         "userInfo": {
             "values": [],
-            "description": "The userInfo dictionary contains application-specific state needed to continue an activity on another device."
+            "description": "..."
         },
         "webpageURL": {
             "values": [],
@@ -1327,7 +1327,7 @@
                 "true",
                 "false"
             ],
-            "description": "Set to true if the action causes destructive behavior to the user's data or the application."
+            "description": "..."
         },
         "actionsForDefaultContext": {
             "values": [],
@@ -1351,15 +1351,15 @@
         },
         "badge": {
             "values": [],
-            "description": "Application badge value."
+            "description": "..."
         },
         "date": {
             "values": [],
-            "description": "Date and time for the notification to occur."
+            "description": "..."
         },
         "repeat": {
             "values": [],
-            "description": "Interval to repeat the notification. One of <code>weekly</code>, <code>daily</code>, <code>yearly,</code> <code>monthly</code>."
+            "description": "..."
         },
         "timezone": {
             "values": [],
@@ -1376,7 +1376,7 @@
                 "Ti.Network.NOTIFICATION_TYPE_SOUND",
                 "Ti.Network.NOTIFICATION_TYPE_NEWSSTAND"
             ],
-            "description": "Notification types to use."
+            "description": "..."
         },
         "categories": {
             "values": [],
@@ -1384,22 +1384,22 @@
         },
         "x": {
             "values": [],
-            "description": "Left coordinate of the cropped rectangle within the source image."
+            "description": "..."
         },
         "y": {
             "values": [],
-            "description": "Top coordinate of the cropped rectangle within the source image."
+            "description": "..."
         },
         "length": {
             "values": [],
-            "description": "Length of the buffer in bytes."
+            "description": "..."
         },
         "value": {
             "values": [
                 "true",
                 "false"
             ],
-            "description": "Data to be encoded."
+            "description": "..."
         },
         "type": {
             "values": [
@@ -1436,11 +1436,11 @@
                 "Ti.UI.PICKER_TYPE_PLAIN",
                 "Ti.UI.PICKER_TYPE_TIME"
             ],
-            "description": "The type of data encoding to use with <code>value</code>."
+            "description": "..."
         },
         "byteOrder": {
             "values": [],
-            "description": "Byte order of this buffer."
+            "description": "..."
         },
         "absoluteDate": {
             "values": [],
@@ -1512,7 +1512,7 @@
                 "Ti.UI.iPhone.TableViewScrollPosition.NONE",
                 "Ti.UI.iPhone.TableViewScrollPosition.TOP"
             ],
-            "description": "Index in the <code>dest</code> buffer of the first byte of encoded data."
+            "description": "..."
         },
         "destPosition": {
             "values": [],
@@ -1541,14 +1541,14 @@
                 "Ti.Codec.CHARSET_UTF16BE",
                 "Ti.Codec.CHARSET_UTF16LE"
             ],
-            "description": "Character encoding to use when encoding this string to bytes."
+            "description": "..."
         },
         "animated": {
             "values": [
                 "true",
                 "false"
             ],
-            "description": "Determines whether to animate the show/hide of the contacts picker (iPhone, iPad only.)"
+            "description": "..."
         },
         "fields": {
             "values": [],
@@ -1556,7 +1556,7 @@
         },
         "cancel": {
             "values": [],
-            "description": "Function to call when selection is canceled."
+            "description": "..."
         },
         "selectedPerson": {
             "values": [],
@@ -1568,15 +1568,15 @@
         },
         "name": {
             "values": [],
-            "description": "Name of this group."
+            "description": "..."
         },
         "recordId": {
             "values": [],
-            "description": "Record identifier of the group. Single value. Deprecated for >= iOS9."
+            "description": "..."
         },
         "address": {
             "values": [],
-            "description": "Addresses for the person. Multi-value. Read-only on Android."
+            "description": "..."
         },
         "birthday": {
             "values": [],
@@ -1604,7 +1604,7 @@
         },
         "image": {
             "values": [],
-            "description": "Image for the person. Single value. Read-only for >= iOS9"
+            "description": "..."
         },
         "instantMessage": {
             "values": [],
@@ -1671,7 +1671,7 @@
         },
         "result": {
             "values": [],
-            "description": "JSON response returned by Facebook."
+            "description": "..."
         },
         "cancelled": {
             "values": [
@@ -1724,7 +1724,7 @@
                 "Ti.Geolocation.ACCURACY_HIGH",
                 "Ti.Geolocation.ACCURACY_LOW"
             ],
-            "description": "Minimum accuracy required for a location update."
+            "description": "..."
         },
         "minAge": {
             "values": [],
@@ -1732,11 +1732,11 @@
         },
         "maxAge": {
             "values": [],
-            "description": "Controls the freshness of location updates. Do not forward an update\nunless it is newer than <code>maxAge</code> milliseconds."
+            "description": "..."
         },
         "frequency": {
             "values": [],
-            "description": "Requested frequency for location updates, in milliseconds. <strong>Deprecated since 2.0.0. Android legacy mode operation is deprecated. For new development, use\neither simple mode or manual mode. See \"Configurating Location Updates on Android\"\nin the main description of this class for more information.</strong>"
+            "description": "..."
         },
         "preferredProvider": {
             "values": [
@@ -1807,11 +1807,11 @@
         },
         "latitude": {
             "values": [],
-            "description": "Latitude of the location update, in decimal degrees."
+            "description": "..."
         },
         "longitude": {
             "values": [],
-            "description": "Longitude of the location update, in decimal degrees."
+            "description": "..."
         },
         "altitude": {
             "values": [],
@@ -1823,7 +1823,7 @@
         },
         "heading": {
             "values": [],
-            "description": "Compass heading, in degrees. May be unknown if device is not moving. On \niOS, a negative value indicates that the heading data is not valid."
+            "description": "..."
         },
         "speed": {
             "values": [],
@@ -1831,7 +1831,7 @@
         },
         "timestamp": {
             "values": [],
-            "description": "Timestamp for this location update, in milliseconds."
+            "description": "..."
         },
         "floor": {
             "values": [],
@@ -1863,7 +1863,7 @@
         },
         "postalCode": {
             "values": [],
-            "description": "Postal code."
+            "description": "..."
         },
         "country": {
             "values": [],
@@ -1871,11 +1871,11 @@
         },
         "countryCode": {
             "values": [],
-            "description": "Country code."
+            "description": "..."
         },
         "country_code": {
             "values": [],
-            "description": "Country code. Same as <code>countryCode</code>."
+            "description": "..."
         },
         "displayAddress": {
             "values": [],
@@ -1949,7 +1949,7 @@
         },
         "color": {
             "values": [],
-            "description": "Color to use when drawing the route, as a color name or hex triplet."
+            "description": "..."
         },
         "uri": {
             "values": [],
@@ -1960,7 +1960,7 @@
                 "true",
                 "false"
             ],
-            "description": "Boolean to indicate if audio should continue playing even if the associated\nAndroid <a href=\"Titanium.Android.Activity\">Activity</a> is paused."
+            "description": "..."
         },
         "bitRate": {
             "values": [],
@@ -1971,11 +1971,11 @@
                 "true",
                 "false"
             ],
-            "description": "Boolean indicating if audio playback is paused."
+            "description": "..."
         },
         "volume": {
             "values": [],
-            "description": "Volume of the audio, from 0.0 (muted) to 1.0 (loudest)."
+            "description": "..."
         },
         "bufferSize": {
             "values": [],
@@ -1983,7 +1983,7 @@
         },
         "time": {
             "values": [],
-            "description": "Current playback position of the audio."
+            "description": "..."
         },
         "compression": {
             "values": [
@@ -2069,7 +2069,7 @@
                 "true",
                 "false"
             ],
-            "description": "Specifies that the library should be hidden automatically after media selection is completed."
+            "description": "..."
         },
         "allowMultipleSelections": {
             "values": [
@@ -2084,7 +2084,7 @@
         },
         "items": {
             "values": [],
-            "description": "A list of all the items chosen by the user."
+            "description": "..."
         },
         "grouping": {
             "values": [
@@ -2107,7 +2107,7 @@
                 "Ti.Media.MUSIC_MEDIA_TYPE_MUSIC",
                 "Ti.Media.MUSIC_MEDIA_TYPE_PODCAST"
             ],
-            "description": "The media type to filter on."
+            "description": "..."
         },
         "albumTitle": {
             "values": [],
@@ -2170,7 +2170,7 @@
         },
         "popoverView": {
             "values": [],
-            "description": "View to position the camera or photo gallery popover on top of."
+            "description": "..."
         },
         "arrowDirection": {
             "values": [
@@ -2186,18 +2186,18 @@
                 "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_RIGHT",
                 "Ti.UI.iPad.POPOVER_ARROW_DIRECTION_UP"
             ],
-            "description": "Controls the type of arrow and position of the popover."
+            "description": "..."
         },
         "autorotate": {
             "values": [
                 "true",
                 "false"
             ],
-            "description": "Determines if the camera preview should rotate or not."
+            "description": "..."
         },
         "media": {
             "values": [],
-            "description": "The media object, as a <a href=\"Titanium.Blob\">Blob</a>."
+            "description": "..."
         },
         "cropRect": {
             "values": [],
@@ -2213,7 +2213,7 @@
         },
         "currentPlaybackTime": {
             "values": [],
-            "description": "Current point in song playback, in seconds."
+            "description": "..."
         },
         "repeatMode": {
             "values": [
@@ -2224,7 +2224,7 @@
                 "Ti.Media.VIDEO_REPEAT_MODE_NONE",
                 "Ti.Media.VIDEO_REPEAT_MODE_ONE"
             ],
-            "description": "Repeat setting."
+            "description": "..."
         },
         "shuffleMode": {
             "values": [
@@ -2265,7 +2265,7 @@
                 "true",
                 "false"
             ],
-            "description": "Determines if the movie is presented in the entire screen (obscuring all other application content). "
+            "description": "..."
         },
         "initialPlaybackTime": {
             "values": [],
@@ -2316,7 +2316,7 @@
         },
         "domain": {
             "values": [],
-            "description": "The domain the browser is searching in"
+            "description": "..."
         },
         "isSearching": {
             "values": [
@@ -2338,7 +2338,7 @@
         },
         "socket": {
             "values": [],
-            "description": "the TCPSocket object that is used to connect to the service"
+            "description": "..."
         },
         "expiryDate": {
             "values": [],
@@ -2416,7 +2416,7 @@
         },
         "timeout": {
             "values": [],
-            "description": "Timeout in milliseconds when the connection should be aborted."
+            "description": "..."
         },
         "tlsVersion": {
             "values": [
@@ -2458,7 +2458,7 @@
         },
         "data": {
             "values": [],
-            "description": "The <code>userinfo</code> dictionary passed to the Apple Push Notification Service."
+            "description": "..."
         },
         "inBackground": {
             "values": [
@@ -2473,7 +2473,7 @@
         },
         "port": {
             "values": [],
-            "description": "The port to connect to or listen on."
+            "description": "..."
         },
         "listenQueueSize": {
             "values": [],
@@ -2536,11 +2536,11 @@
                 "Ti.UI.iOS.BLEND_MODE_SOURCE_OUT",
                 "Ti.UI.iOS.BLEND_MODE_XOR"
             ],
-            "description": "Mode to open the stream in."
+            "description": "..."
         },
         "bytesProcessed": {
             "values": [],
-            "description": "Number of bytes processed, or -1 in the event of an error or end of stream."
+            "description": "..."
         },
         "errorState": {
             "values": [],
@@ -2568,7 +2568,7 @@
         },
         "userAgent": {
             "values": [],
-            "description": "User-agent string used by Titanium."
+            "description": "..."
         },
         "a": {
             "values": [],
@@ -2668,7 +2668,7 @@
         },
         "font": {
             "values": [],
-            "description": "Font used for the message text."
+            "description": "..."
         },
         "messageid": {
             "values": [],
@@ -2699,7 +2699,7 @@
                 "Ti.UI.iPhone.SystemButtonStyle.DONE",
                 "Ti.UI.iPhone.SystemButtonStyle.PLAIN"
             ],
-            "description": "The style for the activity indicator."
+            "description": "..."
         },
         "indicatorColor": {
             "values": [],
@@ -2715,7 +2715,7 @@
         },
         "titleid": {
             "values": [],
-            "description": "Key identifying a string in the locale file to use for the title text."
+            "description": "..."
         },
         "ok": {
             "values": [],
@@ -2730,11 +2730,11 @@
                 "true",
                 "false"
             ],
-            "description": "Boolean value indicating if the alert dialog should only be cancelled by user gesture or by hide method."
+            "description": "..."
         },
         "buttonNames": {
             "values": [],
-            "description": "Name of each button to create."
+            "description": "..."
         },
         "cancelable": {
             "values": [
@@ -2752,15 +2752,15 @@
         },
         "min": {
             "values": [],
-            "description": "Minimum value of the progress bar."
+            "description": "..."
         },
         "max": {
             "values": [],
-            "description": "Maximum value of the progress bar."
+            "description": "..."
         },
         "hintText": {
             "values": [],
-            "description": "Text to show when the search view field is not focused."
+            "description": "..."
         },
         "iconified": {
             "values": [
@@ -2823,11 +2823,11 @@
                 "Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT",
                 "Ti.UI.iPhone.AnimationStyle.NONE"
             ],
-            "description": "Transition type to use during a transition animation."
+            "description": "..."
         },
         "view": {
             "values": [],
-            "description": "New view to transition to."
+            "description": "..."
         },
         "range": {
             "values": [],
@@ -2835,7 +2835,7 @@
         },
         "text": {
             "values": [],
-            "description": "The text applied to the attributed string."
+            "description": "..."
         },
         "attributes": {
             "values": [],
@@ -2847,19 +2847,19 @@
         },
         "selectedColor": {
             "values": [],
-            "description": "Button text color used to indicate the selected state, as a color name or hex triplet."
+            "description": "..."
         },
         "shadowColor": {
             "values": [],
-            "description": "Shadow color of the <a href=\"Titanium.UI.Button.title\">title</a>, as a color name or hex triplet."
+            "description": "..."
         },
         "shadowOffset": {
             "values": [],
-            "description": "Shadow offset of the <a href=\"Titanium.UI.Button.title\">title</a>, as a dictionary with the properties <code>x</code> and <code>y</code>."
+            "description": "..."
         },
         "shadowRadius": {
             "values": [],
-            "description": "Shadow radius of the <a href=\"Titanium.UI.Button.title\">title</a>."
+            "description": "..."
         },
         "systemButton": {
             "values": [
@@ -2901,7 +2901,7 @@
                 "Ti.UI.TEXT_ALIGNMENT_LEFT",
                 "Ti.UI.TEXT_ALIGNMENT_RIGHT"
             ],
-            "description": "Text alignment, specified using one of the <a href=\"Titanium.UI\">UI</a> text alignment constants."
+            "description": "..."
         },
         "verticalAlign": {
             "values": [
@@ -2912,15 +2912,15 @@
                 "Ti.UI.TEXT_VERTICAL_ALIGNMENT_CENTER",
                 "Ti.UI.TEXT_VERTICAL_ALIGNMENT_TOP"
             ],
-            "description": "Vertical alignment for the text field, specified using one of the \nvertical alignment constants from <a href=\"Titanium.UI\">UI</a>."
+            "description": "..."
         },
         "index": {
             "values": [],
-            "description": "Index of the currently selected button."
+            "description": "..."
         },
         "labels": {
             "values": [],
-            "description": "Array of labels for the button bar."
+            "description": "..."
         },
         "canDelete": {
             "values": [
@@ -2946,7 +2946,7 @@
                 "true",
                 "false"
             ],
-            "description": "Determines whether edit mode is activated by a longpress of an item."
+            "description": "..."
         },
         "wobble": {
             "values": [
@@ -2957,7 +2957,7 @@
         },
         "barColor": {
             "values": [],
-            "description": "Bar color of the email dialog window, as a color name or hex triplet."
+            "description": "..."
         },
         "bccRecipients": {
             "values": [],
@@ -2972,7 +2972,7 @@
                 "true",
                 "false"
             ],
-            "description": "Determines whether the email message, specifically the contents of \n<a href=\"Titanium.UI.EmailDialog.messageBody\">messageBody</a>, should be sent as HTML content type \nrather than plain text."
+            "description": "..."
         },
         "messageBody": {
             "values": [],
@@ -3022,7 +3022,7 @@
                 "true",
                 "false"
             ],
-            "description": "Show zoom controls when the user touches the image view."
+            "description": "..."
         },
         "hires": {
             "values": [
@@ -3033,7 +3033,7 @@
         },
         "images": {
             "values": [],
-            "description": "Array of images to animate, defined using local filesystem paths, <code>File</code> objects, \nremote URLs (Android only), or <code>Blob</code> objects containing image data. <code>Blob</code> and <code>File</code> \nobjects are not supported on Mobile Web."
+            "description": "..."
         },
         "preventDefaultImage": {
             "values": [
@@ -3055,7 +3055,7 @@
         },
         "attributedString": {
             "values": [],
-            "description": "Specify an attributed string for the label."
+            "description": "..."
         },
         "autoLink": {
             "values": [
@@ -3074,7 +3074,7 @@
                 "Ti.UI.AUTOLINK_PHONE_NUMBERS",
                 "Ti.UI.AUTOLINK_URLS"
             ],
-            "description": "Automatically convert certain text items in the label to clickable links."
+            "description": "..."
         },
         "backgroundPaddingBottom": {
             "values": [],
@@ -3113,7 +3113,7 @@
         },
         "minimumFontSize": {
             "values": [],
-            "description": "Minimum font size when the font is sized based on the contents."
+            "description": "..."
         },
         "textid": {
             "values": [],
@@ -3124,7 +3124,7 @@
                 "true",
                 "false"
             ],
-            "description": "Causes words in the text that are longer than the view is wide to be ellipsized instead of broken in the middle."
+            "description": "..."
         },
         "wordWrap": {
             "values": [
@@ -3148,11 +3148,11 @@
         },
         "selectedBackgroundColor": {
             "values": [],
-            "description": "Background color of the view, as a color name or hex triplet when item is selected."
+            "description": "..."
         },
         "selectedBackgroundImage": {
             "values": [],
-            "description": "Background image to render when the item is selected."
+            "description": "..."
         },
         "selectedBackgroundGradient": {
             "values": [],
@@ -3186,7 +3186,7 @@
         },
         "properties": {
             "values": [],
-            "description": "Contains key-value pairs of view properties and their values that are applied to the ListItem."
+            "description": "..."
         },
         "childTemplates": {
             "values": [],
@@ -3202,26 +3202,26 @@
         },
         "footerTitle": {
             "values": [],
-            "description": "Title of this section footer."
+            "description": "..."
         },
         "headerTitle": {
             "values": [],
-            "description": "Title of this section header."
+            "description": "..."
         },
         "footerView": {
             "values": [],
-            "description": "View to use for this section footer."
+            "description": "..."
         },
         "headerView": {
             "values": [],
-            "description": "View to use for this section header."
+            "description": "..."
         },
         "allowsSelection": {
             "values": [
                 "true",
                 "false"
             ],
-            "description": "Determines whether this item can be selected."
+            "description": "..."
         },
         "canScroll": {
             "values": [
@@ -3235,7 +3235,7 @@
                 "true",
                 "false"
             ],
-            "description": "Determines if the list view is currently in editing mode."
+            "description": "..."
         },
         "pruneSectionsOnEdit": {
             "values": [
@@ -3305,7 +3305,7 @@
         },
         "separatorInsets": {
             "values": [],
-            "description": "The insets for list view separators (applies to all cells). This property is applicable on iOS 7 and greater."
+            "description": "..."
         },
         "separatorStyle": {
             "values": [
@@ -3316,7 +3316,7 @@
         },
         "sections": {
             "values": [],
-            "description": "Sections of this list."
+            "description": "..."
         },
         "searchText": {
             "values": [],
@@ -3338,7 +3338,7 @@
                 "true",
                 "false"
             ],
-            "description": "Determines whether this list view displays a vertical scroll indicator."
+            "description": "..."
         },
         "separatorColor": {
             "values": [],
@@ -3357,7 +3357,7 @@
                 "Ti.UI.iPhone.RowAnimationStyle.RIGHT",
                 "Ti.UI.iPhone.RowAnimationStyle.TOP"
             ],
-            "description": "Type of animation to use for cell insertions and deletions."
+            "description": "..."
         },
         "sectionIndex": {
             "values": [],
@@ -3377,7 +3377,7 @@
         },
         "window": {
             "values": [],
-            "description": "Root window to add to this navigation group."
+            "description": "..."
         },
         "navBarAtTop": {
             "values": [
@@ -3419,7 +3419,7 @@
         },
         "rect": {
             "values": [],
-            "description": "Positions the arrow of the option dialog relative to the attached view's dimensions."
+            "description": "..."
         },
         "columns": {
             "values": [],
@@ -3504,7 +3504,7 @@
                 "true",
                 "false"
             ],
-            "description": "Determines whether scroll bounce of the scrollable region is enabled."
+            "description": "..."
         },
         "horizontalBounce": {
             "values": [
@@ -3581,7 +3581,7 @@
                 "Ti.UI.Android.OVER_SCROLL_IF_CONTENT_SCROLLS",
                 "Ti.UI.Android.OVER_SCROLL_NEVER"
             ],
-            "description": "Determines the behavior when the user overscolls the view."
+            "description": "..."
         },
         "cacheSize": {
             "values": [],
@@ -3661,7 +3661,7 @@
                 "true",
                 "false"
             ],
-            "description": "Determines whether the text in the search bar is autocorrected during typing."
+            "description": "..."
         },
         "hinttextid": {
             "values": [],
@@ -3692,7 +3692,7 @@
                 "Ti.UI.KEYBOARD_PHONE_PAD",
                 "Ti.UI.KEYBOARD_URL"
             ],
-            "description": "Keyboard type constant to use when the field is focused."
+            "description": "..."
         },
         "prompt": {
             "values": [],
@@ -3817,7 +3817,7 @@
                 "true",
                 "false"
             ],
-            "description": "<code>true</code> if this tab is active, <code>false</code> if it is not. "
+            "description": "..."
         },
         "activeIcon": {
             "values": [],
@@ -3853,15 +3853,15 @@
                 "true",
                 "false"
             ],
-            "description": "Boolean value indicating if the nav bar (typically for the <strong>More</strong> tab), is translucent."
+            "description": "..."
         },
         "titleAttributes": {
             "values": [],
-            "description": "Title text attributes of the window to be applied on the <strong>More</strong> tab."
+            "description": "..."
         },
         "navTintColor": {
             "values": [],
-            "description": "The tintColor to apply to the navigation bar (typically for the <strong>More</strong> tab). This property is applicable on iOS 7 and greater."
+            "description": "..."
         },
         "editButtonTitle": {
             "values": [],
@@ -3872,14 +3872,14 @@
                 "true",
                 "false"
             ],
-            "description": "Boolean value indicating if the application should exit when closing the tab group, whether via Android\nback button or the <a href=\"Titanium.UI.TabGroup.close\">close</a> method."
+            "description": "..."
         },
         "navBarHidden": {
             "values": [
                 "true",
                 "false"
             ],
-            "description": "Hide the nav bar (<code>true</code>) or show the nav bar (<code>false</code>) for this tab group."
+            "description": "..."
         },
         "swipeable": {
             "values": [
@@ -3913,7 +3913,7 @@
                 "Ti.UI.Android.SOFT_INPUT_ADJUST_RESIZE",
                 "Ti.UI.Android.SOFT_INPUT_ADJUST_UNSPECIFIED"
             ],
-            "description": "Determines how the tab group is treated when a soft input method (such as a virtual keyboard) \nis displayed."
+            "description": "..."
         },
         "tabsBackgroundColor": {
             "values": [],
@@ -3929,7 +3929,7 @@
         },
         "shadowImage": {
             "values": [],
-            "description": "Image of the shadow placed between the tab bar and the content area."
+            "description": "..."
         },
         "activeTabIconTint": {
             "values": [],
@@ -4033,7 +4033,7 @@
                 "true",
                 "false"
             ],
-            "description": "Determines the rows' default moveable behavior, which allows them to be re-ordered by the \nuser when the table is in <code>editing</code> or <code>moving</code> mode."
+            "description": "..."
         },
         "moving": {
             "values": [
@@ -4047,7 +4047,7 @@
                 "true",
                 "false"
             ],
-            "description": "If <code>true</code>, the tableview can be scrolled."
+            "description": "..."
         },
         "searchAsChild": {
             "values": [
@@ -4132,7 +4132,7 @@
         },
         "hintTextColor": {
             "values": [],
-            "description": "Color of hint text that displays when field is empty."
+            "description": "..."
         },
         "showUndoRedoActions": {
             "values": [
@@ -4148,21 +4148,21 @@
                 "Ti.UI.KEYBOARD_APPEARANCE_ALERT",
                 "Ti.UI.KEYBOARD_APPEARANCE_DEFAULT"
             ],
-            "description": "Determines the appearance of the keyboard displayed when this text area is focused."
+            "description": "..."
         },
         "clearOnEdit": {
             "values": [
                 "true",
                 "false"
             ],
-            "description": "Determines whether the value of this text area should be cleared when it is focused."
+            "description": "..."
         },
         "enableReturnKey": {
             "values": [
                 "true",
                 "false"
             ],
-            "description": "Determines whether the return key is enabled automatically when there is text in this text \narea."
+            "description": "..."
         },
         "handleLinks": {
             "values": [
@@ -4212,14 +4212,14 @@
                 "Ti.UI.RETURNKEY_SEND",
                 "Ti.UI.RETURNKEY_YAHOO"
             ],
-            "description": "Specifies the text to display on the keyboard <code>Return</code> key when this text area is focused."
+            "description": "..."
         },
         "suppressReturn": {
             "values": [
                 "true",
                 "false"
             ],
-            "description": "Determines if the return key should be suppressed during text entry."
+            "description": "..."
         },
         "attributedHintText": {
             "values": [],
@@ -4336,7 +4336,7 @@
         },
         "offset": {
             "values": [],
-            "description": "Offset of this color in the gradient, from 0 (start) to 1 (end)."
+            "description": "..."
         },
         "enableJavascriptInterface": {
             "values": [
@@ -4457,7 +4457,7 @@
         },
         "leftNavButton": {
             "values": [],
-            "description": "View to show in the left nav bar area."
+            "description": "..."
         },
         "leftNavButtons": {
             "values": [],
@@ -4465,7 +4465,7 @@
         },
         "rightNavButton": {
             "values": [],
-            "description": "View to show in the right nav bar area."
+            "description": "..."
         },
         "rightNavButtons": {
             "values": [],
@@ -4578,7 +4578,7 @@
                 "true",
                 "false"
             ],
-            "description": "Indicates to open a modal window or not."
+            "description": "..."
         },
         "orientationModes": {
             "values": [
@@ -4613,11 +4613,11 @@
         },
         "activityEnterAnimation": {
             "values": [],
-            "description": "Animation resource to run on the activity (heavyweight window) being opened."
+            "description": "..."
         },
         "activityExitAnimation": {
             "values": [],
-            "description": "Animation resource to run on the activity that is being put in background as a heavyweight window is being opened above it."
+            "description": "..."
         },
         "shadow": {
             "values": [],
@@ -4640,7 +4640,7 @@
         },
         "damping": {
             "values": [],
-            "description": "Amount of damping to apply to the attachment behavior."
+            "description": "..."
         },
         "distance": {
             "values": [],
@@ -4648,7 +4648,7 @@
         },
         "item": {
             "values": [],
-            "description": "Item to connect to use the attachment behavior."
+            "description": "..."
         },
         "behaviors": {
             "values": [],
@@ -4718,7 +4718,7 @@
         },
         "angle": {
             "values": [],
-            "description": "Specifies the angle of the gravity vector in radians."
+            "description": "..."
         },
         "gravityDirection": {
             "values": [],
@@ -4726,7 +4726,7 @@
         },
         "magnitude": {
             "values": [],
-            "description": "Specifies the magnitude of the gravity vector."
+            "description": "..."
         },
         "pushDirection": {
             "values": [],
@@ -4986,7 +4986,7 @@
             "apiName": "Ti.UI.PickerColumn"
         },
         "Popover": {
-            "apiName": "Ti.UI.iPad.Popover._ProxyProperty"
+            "apiName": "Ti.UI.iPad.Popover"
         },
         "README": {
             "apiName": "README.md"
@@ -5046,7 +5046,7 @@
             "apiName": "Alloy.Widget"
         },
         "Window": {
-            "apiName": "Ti.UI.Window._ProxyProperty"
+            "apiName": "Ti.UI.Window"
         },
         "WindowToolbar": {
             "apiName": "Ti.UI.Window.WindowToolbar"
