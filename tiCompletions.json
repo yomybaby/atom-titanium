@@ -5027,6 +5027,7 @@
         "TableViewSection": {
             "apiName": "Ti.UI.TableViewSection"
         },
+        "Templates": {},
         "TextArea": {
             "apiName": "Ti.UI.TextArea"
         },
@@ -5040,7 +5041,7 @@
             "apiName": "Ti.UI.iOS.Toolbar"
         },
         "View": {
-            "apiName": "Ti.Map.View"
+            "apiName": "Ti.UI.View"
         },
         "Widget": {
             "apiName": "Alloy.Widget"

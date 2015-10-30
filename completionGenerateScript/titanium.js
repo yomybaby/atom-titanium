@@ -38,6 +38,16 @@ _.each(fns,function(fn) {
   }
 });
 
+// add Missing Tags
+_.extend(tagDic,{
+  "View" : {
+    apiName : "Ti.UI.View"
+  },
+  "Templates" : {
+  }
+});
+
+
 var sortedTagDic = {};
 _.keys(tagDic)
   .sort()
@@ -83,7 +93,6 @@ _.each(api.types,function(type,idx){
       }
     }
   });
-  
   
   // 
   types[type.name.replace(/Titanium\./g,'Ti.')] = {

@@ -121,6 +121,16 @@ module.exports =
     for attribute, options of @completions.attributes when not prefix or firstCharsEqual(attribute, prefix)
       completions.push(@buildAttributeCompletion(attribute)) if options.global
 
+    # Additional properties
+    additionalAttr =
+      id : 
+        description : 'TSS id'
+      class : 
+        description : 'TSS class'
+      
+    for attribute of additionalAttr when not prefix or firstCharsEqual(attribute, prefix)
+      completions.push(@buildAttributeCompletion(attribute))
+      
     completions
 
   buildAttributeCompletion: (attribute, tag) ->
