@@ -168,10 +168,7 @@ module.exports =
       descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
 
   loadCompletions: ->
-    @completions = {}
-    fs.readFile path.resolve(__dirname, '..', 'tiCompletions.json'), (error, content) =>
-      @completions = JSON.parse(content) unless error?
-      return
+    @completions = require('../tiCompletions');
 
   getPreviousTag: (editor, bufferPosition) ->
     {row} = bufferPosition

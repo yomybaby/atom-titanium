@@ -58,9 +58,7 @@ module.exports =
 
   loadProperties: ->
     @properties = {}
-    fs.readFile path.resolve(__dirname, '..', 'tiCompletions.json'), (error, content) =>
-      {@pseudoSelectors, @properties, @tags, @types} = JSON.parse(content) unless error?
-      return
+    {@pseudoSelectors, @properties, @tags, @types} = require('../tiCompletions')
 
   isCompletingClassName : ({scopeDescriptor, bufferPosition, prefix, editor}) ->
     previousBufferPosition = [bufferPosition.row, Math.max(0, bufferPosition.column - 1)]

@@ -109,9 +109,9 @@ _.each(api.types,function(type,idx){
 });
 
 
-var outputFilename = '../tiCompletions.json';
+var outputFilename = '../tiCompletions.js';
 
-fs.writeFile(outputFilename, JSON.stringify({
+fs.writeFile(outputFilename, 'module.exports = ' + JSON.stringify({
   properties: props,
   tags: sortedTagDic,
   types : types
