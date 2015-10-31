@@ -13,10 +13,17 @@ module.exports =
 
   getSuggestions: (request) ->
     scopes = request.scopeDescriptor.getScopesArray()
+    
+    # if xml start with <Alloy, change grammars to text.alloyxml
     if scopes.indexOf('text.xml') isnt -1
+      editor = request.editor
+      lineCnt = editor.getLineCount()
+      for i in [0...lineCnt] by 1
+        lineText = editor.lineTextForBufferRow(i).trim()
+        if lineText && lineText.indexOf('<Alloy') isnt -1
+          editor.setGrammar(atom.grammars.grammarForScopeName('text.alloyxml')) 
+        break if lineText.length > 0;
       
-    else
-      console.log 'ALOOOOOOY'
     {prefix} = request
     if @isAttributeValueStartWithNoPrefix(request)
       @getAttributeValueCompletions(request)
