@@ -1,19 +1,16 @@
 fs = require 'fs'
 path = require 'path'
-_ = require 'underscore'
 
 trailingWhitespace = /\s$/
 attributePattern = /\s+([a-zA-Z][-a-zA-Z]*)\s*=\s*$/
 tagPattern = /<([a-zA-Z][-a-zA-Z]*)(?:\s|$)/
 
 module.exports =
-  selector: '.text.xml'
-  disableForSelector: '.text.xml .comment'
+  selector: '.text.html'
+  disableForSelector: '.text.html .comment'
   filterSuggestions: true
 
   getSuggestions: (request) ->
-    console.log request
-    
     {prefix} = request
     if @isAttributeValueStartWithNoPrefix(request)
       @getAttributeValueCompletions(request)
@@ -26,11 +23,9 @@ module.exports =
     else if @isTagStartWithNoPrefix(request)
       @getTagNameCompletions()
     else if @isTagStartTagWithPrefix(request)
-      console.log '0-0000'
       @getTagNameCompletions(prefix)
     else
       []
-      console.log 'not'
 
   onDidInsertSuggestion: ({editor, suggestion}) ->
     setTimeout(@triggerAutocomplete.bind(this, editor), 1) if suggestion.type is 'attribute'
@@ -40,20 +35,16 @@ module.exports =
 
   isTagStartWithNoPrefix: ({prefix, scopeDescriptor}) ->
     scopes = scopeDescriptor.getScopesArray()
-    console.log prefix
     if prefix is '<' and scopes.length is 1
-      scopes[0] is 'text.xml'
+      scopes[0] is 'text.html.basic'
     else if prefix is '<' and scopes.length is 2
-      scopes[0] is 'text.xml' and scopes[1] is 'meta.scope.outside-tag.html'
+      scopes[0] is 'text.html.basic' and scopes[1] is 'meta.scope.outside-tag.html'
     else
       false
 
   isTagStartTagWithPrefix: ({prefix, scopeDescriptor}) ->
-    console.log 0
     return false unless prefix
-    console.log 1
     return false if trailingWhitespace.test(prefix)
-    console.log 2
     @hasTagScope(scopeDescriptor.getScopesArray())
 
   isAttributeStartWithNoPrefix: ({prefix, scopeDescriptor}) ->
@@ -65,11 +56,11 @@ module.exports =
     return false if trailingWhitespace.test(prefix)
 
     scopes = scopeDescriptor.getScopesArray()
-    return true if scopes.indexOf('entity.other.attribute-name.localname.xml') isnt -1
+    return true if scopes.indexOf('entity.other.attribute-name.html') isnt -1
     return false unless @hasTagScope(scopes)
 
-    scopes.indexOf('punctuation.definition.tag.xml') isnt -1 or
-      scopes.indexOf('punctuation.definition.tag.end.xml') isnt -1
+    scopes.indexOf('punctuation.definition.tag.html') isnt -1 or
+      scopes.indexOf('punctuation.definition.tag.end.html') isnt -1
 
   isAttributeValueStartWithNoPrefix: ({scopeDescriptor, prefix}) ->
     lastPrefixCharacter = prefix[prefix.length - 1]
@@ -84,12 +75,11 @@ module.exports =
     @hasStringScope(scopes) and @hasTagScope(scopes)
 
   hasTagScope: (scopes) ->
-    console.log scopes
-    # scopes.indexOf('meta.tag.xml') isnt -1 or
-    scopes.indexOf('entity.name.tag.localname.xml') isnt -1 #or
-      # scopes.indexOf('meta.tag.block.any.html') isnt -1 or
-      # scopes.indexOf('meta.tag.inline.any.html') isnt -1 or
-      # scopes.indexOf('meta.tag.structure.any.html') isnt -1
+    scopes.indexOf('meta.tag.any.html') isnt -1 or
+      scopes.indexOf('meta.tag.other.html') isnt -1 or
+      scopes.indexOf('meta.tag.block.any.html') isnt -1 or
+      scopes.indexOf('meta.tag.inline.any.html') isnt -1 or
+      scopes.indexOf('meta.tag.structure.any.html') isnt -1
 
   hasStringScope: (scopes) ->
     scopes.indexOf('string.quoted.double.html') isnt -1 or
@@ -97,17 +87,14 @@ module.exports =
 
   getTagNameCompletions: (prefix) ->
     completions = []
-    for tag of @completions.tags when not prefix or firstCharsEqual(tag, prefix)
-      completions.push(@buildTagCompletion(tag, @completions.tags[tag]))
-    console.log  @completions
+    for tag, attributes of @completions.tags when not prefix or firstCharsEqual(tag, prefix)
+      completions.push(@buildTagCompletion(tag))
     completions
 
-  buildTagCompletion: (tag, tagObj) ->
-    console.log tagObj
-    snippet: "#{tag}$1>$2</#{tag}>$0"
-    displayText: tag
+  buildTagCompletion: (tag) ->
+    text: tag
     type: 'tag'
-    description: tagObj.apiName #"HTML <#{tag}> tag"
+    description: "HTML <#{tag}> tag"
     descriptionMoreURL: @getTagDocsURL(tag)
 
   getAttributeNameCompletions: ({editor, bufferPosition}, prefix) ->
@@ -121,16 +108,6 @@ module.exports =
     for attribute, options of @completions.attributes when not prefix or firstCharsEqual(attribute, prefix)
       completions.push(@buildAttributeCompletion(attribute)) if options.global
 
-    # Additional properties
-    additionalAttr =
-      id : 
-        description : 'TSS id'
-      class : 
-        description : 'TSS class'
-      
-    for attribute of additionalAttr when not prefix or firstCharsEqual(attribute, prefix)
-      completions.push(@buildAttributeCompletion(attribute))
-      
     completions
 
   buildAttributeCompletion: (attribute, tag) ->
@@ -168,7 +145,10 @@ module.exports =
       descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
 
   loadCompletions: ->
-    @completions = require('../tiCompletions');
+    @completions = {}
+    fs.readFile path.resolve(__dirname, '..', 'completions.json'), (error, content) =>
+      @completions = JSON.parse(content) unless error?
+      return
 
   getPreviousTag: (editor, bufferPosition) ->
     {row} = bufferPosition
