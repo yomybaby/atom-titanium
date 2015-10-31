@@ -1,28 +1,38 @@
 fs = require 'fs'
 path = require 'path'
+_ = require 'underscore'
 
 trailingWhitespace = /\s$/
 attributePattern = /\s+([a-zA-Z][-a-zA-Z]*)\s*=\s*$/
 tagPattern = /<([a-zA-Z][-a-zA-Z]*)(?:\s|$)/
 
 module.exports =
-  selector: '.text.html'
-  disableForSelector: '.text.html .comment'
+  selector: '.text.alloyxml, .text.xml'
+  disableForSelector: 'text.alloyxml .comment'
   filterSuggestions: true
 
   getSuggestions: (request) ->
+    scopes = request.scopeDescriptor.getScopesArray()
+    if scopes.indexOf('text.xml') isnt -1
+      
+    else
+      console.log 'ALOOOOOOY'
     {prefix} = request
     if @isAttributeValueStartWithNoPrefix(request)
       @getAttributeValueCompletions(request)
     else if @isAttributeValueStartWithPrefix(request)
       @getAttributeValueCompletions(request, prefix)
     else if @isAttributeStartWithNoPrefix(request)
+      console.log 'isAttributeStartWithNoPrefix'
       @getAttributeNameCompletions(request)
     else if @isAttributeStartWithPrefix(request)
+      console.log 'isAttributeStartWithPrefix'
       @getAttributeNameCompletions(request, prefix)
     else if @isTagStartWithNoPrefix(request)
+      console.log 'isTagStartWithNoPrefix'
       @getTagNameCompletions()
     else if @isTagStartTagWithPrefix(request)
+      console.log 'isTagStartTagWithPrefix'
       @getTagNameCompletions(prefix)
     else
       []
@@ -35,10 +45,12 @@ module.exports =
 
   isTagStartWithNoPrefix: ({prefix, scopeDescriptor}) ->
     scopes = scopeDescriptor.getScopesArray()
+    console.log scopes
+    console.log prefix
     if prefix is '<' and scopes.length is 1
-      scopes[0] is 'text.html.basic'
+      scopes[0] is 'text.alloyxml'
     else if prefix is '<' and scopes.length is 2
-      scopes[0] is 'text.html.basic' and scopes[1] is 'meta.scope.outside-tag.html'
+      scopes[0] is 'text.alloyxml' and scopes[1] is 'meta.scope.outside-tag.html'
     else
       false
 
@@ -87,43 +99,68 @@ module.exports =
 
   getTagNameCompletions: (prefix) ->
     completions = []
-    for tag, attributes of @completions.tags when not prefix or firstCharsEqual(tag, prefix)
-      completions.push(@buildTagCompletion(tag))
+    for tag of @completions.tags when not prefix or firstCharsEqual(tag, prefix)
+      completions.push(@buildTagCompletion(tag, @completions.tags[tag]))
     completions
 
-  buildTagCompletion: (tag) ->
-    text: tag
+  buildTagCompletion: (tag, tagObj) ->
+    snippet: "#{tag}$1>$2</#{tag}>"
+    displayText: tag
     type: 'tag'
-    description: "HTML <#{tag}> tag"
-    descriptionMoreURL: @getTagDocsURL(tag)
+    description: tagObj.apiName #"HTML <#{tag}> tag"
+    # descriptionMoreURL: @getTagDocsURL(tag)
 
   getAttributeNameCompletions: ({editor, bufferPosition}, prefix) ->
     completions = []
     tag = @getPreviousTag(editor, bufferPosition)
     tagAttributes = @getTagAttributes(tag)
-
+    
+    # tag attributes
     for attribute in tagAttributes when not prefix or firstCharsEqual(attribute, prefix)
       completions.push(@buildAttributeCompletion(attribute, tag))
 
-    for attribute, options of @completions.attributes when not prefix or firstCharsEqual(attribute, prefix)
-      completions.push(@buildAttributeCompletion(attribute)) if options.global
+    # events
+    for event in @completions.types[@completions.tags[tag]?.apiName].events when not prefix or firstCharsEqual('on'+capitalizeFirstLetter(event), prefix)
+      completions.push(@buildAttributeCompletion('on'+capitalizeFirstLetter(event), tag, event))
 
+    ## global properties ..
+    # for attribute, options of @completions.properties when not prefix or firstCharsEqual(attribute, prefix)
+    #   completions.push(@buildAttributeCompletion(attribute)) if options.global
+    
+    # Additional properties
+    additionalAttr =
+      id : 
+        description : 'TSS id'
+      class : 
+        description : 'TSS class'
+      
+    for attribute of additionalAttr when not prefix or firstCharsEqual(attribute, prefix)
+      completions.push(@buildAttributeCompletion(attribute))
+      
     completions
 
-  buildAttributeCompletion: (attribute, tag) ->
-    if tag?
+  buildAttributeCompletion: (attribute, tag, event) ->
+    if event?
+      snippet: "#{attribute}=\"$1\"$0"
+      displayText: attribute
+      type: 'function'
+      iconHTML: '<i class="icon-zap"></i>'
+      rightLabel: "<#{tag}>"
+      description: "#{event} event of <#{tag}>"
+      # descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
+    else if tag?
       snippet: "#{attribute}=\"$1\"$0"
       displayText: attribute
       type: 'attribute'
       rightLabel: "<#{tag}>"
       description: "#{attribute} attribute local to <#{tag}> tags"
-      descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
+      # descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
     else
       snippet: "#{attribute}=\"$1\"$0"
       displayText: attribute
       type: 'attribute'
-      description: "Global #{attribute} attribute"
-      descriptionMoreURL: @getGlobalAttributeDocsURL(attribute)
+      description:"Global #{attribute} attribute"
+      # descriptionMoreURL: @getGlobalAttributeDocsURL(attribute)
 
   getAttributeValueCompletions: ({editor, bufferPosition}, prefix) ->
     tag = @getPreviousTag(editor, bufferPosition)
@@ -133,22 +170,19 @@ module.exports =
       @buildAttributeValueCompletion(tag, attribute, value)
 
   buildAttributeValueCompletion: (tag, attribute, value) ->
-    if @completions.attributes[attribute].global
+    if @completions.properties[attribute].global
       text: value
       type: 'value'
       description: "#{value} value for global #{attribute} attribute"
-      descriptionMoreURL: @getGlobalAttributeDocsURL(attribute)
+      # descriptionMoreURL: @getGlobalAttributeDocsURL(attribute)
     else
       text: value
       type: 'value'
       description: "#{value} value for #{attribute} attribute local to <#{tag}>"
-      descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
+      # descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
 
   loadCompletions: ->
-    @completions = {}
-    fs.readFile path.resolve(__dirname, '..', 'completions.json'), (error, content) =>
-      @completions = JSON.parse(content) unless error?
-      return
+    @completions = require('../tiCompletions');
 
   getPreviousTag: (editor, bufferPosition) ->
     {row} = bufferPosition
@@ -169,11 +203,11 @@ module.exports =
     attributePattern.exec(line)?[1]
 
   getAttributeValues: (attribute) ->
-    attribute = @completions.attributes[attribute]
-    attribute?.attribOption ? []
+    attribute = @completions.properties[attribute]
+    attribute?.values ? []
 
   getTagAttributes: (tag) ->
-    @completions.tags[tag]?.attributes ? []
+   @completions.types[@completions.tags[tag]?.apiName]?.properties ? []
 
   getTagDocsURL: (tag) ->
     "https://developer.mozilla.org/en-US/docs/Web/HTML/Element/#{tag}"
@@ -186,3 +220,6 @@ module.exports =
 
 firstCharsEqual = (str1, str2) ->
   str1[0].toLowerCase() is str2[0].toLowerCase()
+
+capitalizeFirstLetter = (string) ->
+  string.charAt(0).toUpperCase() + string.slice(1)
