@@ -28,16 +28,12 @@ module.exports =
     else if @isAttributeValueStartWithPrefix(request)
       @getAttributeValueCompletions(request, prefix)
     else if @isAttributeStartWithNoPrefix(request)
-      console.log 'isAttributeStartWithNoPrefix'
       @getAttributeNameCompletions(request)
     else if @isAttributeStartWithPrefix(request)
-      console.log 'isAttributeStartWithPrefix'
       @getAttributeNameCompletions(request, prefix)
     else if @isTagStartWithNoPrefix(request)
-      console.log 'isTagStartWithNoPrefix'
       @getTagNameCompletions()
     else if @isTagStartTagWithPrefix(request)
-      console.log 'isTagStartTagWithPrefix'
       @getTagNameCompletions(prefix)
     else
       []
@@ -50,8 +46,6 @@ module.exports =
 
   isTagStartWithNoPrefix: ({prefix, scopeDescriptor}) ->
     scopes = scopeDescriptor.getScopesArray()
-    console.log scopes
-    console.log prefix
     if prefix is '<' and scopes.length is 1
       scopes[0] is 'text.alloyxml'
     else if prefix is '<' and scopes.length is 2
@@ -125,7 +119,8 @@ module.exports =
       completions.push(@buildAttributeCompletion(attribute, tag))
 
     # events
-    for event in @completions.types[@completions.tags[tag]?.apiName].events when not prefix or firstCharsEqual('on'+capitalizeFirstLetter(event), prefix)
+    events = @completions.types[@completions.tags[tag]?.apiName]?.events || {};
+    for event in  events when not prefix or firstCharsEqual('on'+capitalizeFirstLetter(event), prefix)
       completions.push(@buildAttributeCompletion('on'+capitalizeFirstLetter(event), tag, event))
 
     ## global properties ..
@@ -158,24 +153,31 @@ module.exports =
       displayText: attribute
       type: 'attribute'
       rightLabel: "<#{tag}>"
-      description: "#{attribute} attribute local to <#{tag}> tags"
+      description: "#{attribute} attribute to <#{tag}> tags"
       # descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
     else
       snippet: "#{attribute}=\"$1\"$0"
       displayText: attribute
       type: 'attribute'
-      description:"Global #{attribute} attribute"
+      # description:"Global #{attribute} attribute"
       # descriptionMoreURL: @getGlobalAttributeDocsURL(attribute)
 
   getAttributeValueCompletions: ({editor, bufferPosition}, prefix) ->
     tag = @getPreviousTag(editor, bufferPosition)
     attribute = @getPreviousAttribute(editor, bufferPosition)
-    values = @getAttributeValues(attribute)
+    
+    if attribute == 'id'
+      values = [] # find id name from tss 
+    else if attribute == 'class'
+      values = [] # find class name from tss
+    else
+      values = @getAttributeValues(attribute)
+    
     for value in values when not prefix or firstCharsEqual(value, prefix)
       @buildAttributeValueCompletion(tag, attribute, value)
 
   buildAttributeValueCompletion: (tag, attribute, value) ->
-    if @completions.properties[attribute].global
+    if @completions.properties[attribute]?.global
       text: value
       type: 'value'
       description: "#{value} value for global #{attribute} attribute"
@@ -183,7 +185,7 @@ module.exports =
     else
       text: value
       type: 'value'
-      description: "#{value} value for #{attribute} attribute local to <#{tag}>"
+      description: "#{value} value for #{attribute} attribute to <#{tag}>"
       # descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
 
   loadCompletions: ->
