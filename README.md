@@ -16,7 +16,7 @@ $ apm install titanium-alloy
 ### Autocomplete
 - XML Autocomplete : tagName, property names of current Tag, values of current property
 - TSS autocomplete : tagName, property names, values of current property
-    ![autocomplete](https://github.com/yomybaby/atom-titanium/raw/master/screenshot_autocomplete.gif)
+    ![autocomplete](https://github.com/yomybaby/atom-titanium/raw/master/screenshot_autocomplete_2.gif)
 
 More powerful autocomplete functions are coming!
 - id and class name complete baseon definition of related files.
