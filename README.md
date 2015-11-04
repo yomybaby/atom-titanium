@@ -7,7 +7,8 @@ $ apm install titanium-alloy
 
 > **Conflict & Requires Notice**  
 - Requires
-  - [Hyperclick](https://atom.io/packages/hyperclick) for Jump to definition
+  - [Hyperclick](https://atom.io/packages/hyperclick) package for Jump to definition   
+  (Now It will be installed automatically.  After relaunch atom, Hyperclick works. Thanks @HazemKhaled #16)
 - Conflict
   - If you using other tss grammar package, such as language-tss. It makes this package doesn't work.
 
@@ -31,11 +32,11 @@ This feature is a [hyperclick](https://atom.io/packages/hyperclick) provider.   
 ![jump-to-definition](https://github.com/yomybaby/atom-titanium/raw/master/screenshot2_jumpto.gif)
 
 Hyperclick is triggered by two events:
-- `<alt>` or `<alt-mousemove>` underlines clickable text under the mouse.
-- `<alt-mousedown>` performs the action associated with the clickable text.
+- `<cmd>` or `<cmd-mousemove>` underlines clickable text under the mouse.
+- `<cmd-mousedown>` performs the action associated with the clickable text.
 - `<cmd-alt-enter>` performs the action on the text under the cursor.
 
-Alt mousedown doesn't work? Check [this](https://github.com/facebook/nuclide/pull/231) out?
+If you want to change trigger key from `cmd` to `alt`, check [this](https://github.com/facebook/nuclide/pull/231) out and see [changed](https://github.com/facebook/nuclide/pull/231/files).
 
 ### Open related file depend on current focused file
 Key Bindings | Command Desc
