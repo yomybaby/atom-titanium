@@ -27,6 +27,10 @@
     }
   },
   "dependencies": {
+    "atom-package-dependencies": "latest",
     "underscore": "*"
+  },
+  "package-dependencies": {
+    "hyperclick": "latest"
   }
 }
