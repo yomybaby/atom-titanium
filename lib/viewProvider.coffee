@@ -1,6 +1,8 @@
 fs = require 'fs'
 path = require 'path'
 _ = require 'underscore'
+util = require './ti-pkg-util'
+related = require './related'
 
 trailingWhitespace = /\s$/
 attributePattern = /\s+([a-zA-Z][-a-zA-Z]*)\s*=\s*$/
@@ -168,8 +170,16 @@ module.exports =
     
     if attribute == 'id'
       values = [] # find id name from tss 
+      sourceBuffer = util.getFileBuffer related.getTargetPath('tss')
+      if(!sourceBuffer.isEmpty())
+        sourceBuffer.scan /"#(.*?)"/g, (item) -> 
+          values.push item.match[1].split('[')[0] #remove condition (eg.[platform=ios])
     else if attribute == 'class'
       values = [] # find class name from tss
+      sourceBuffer = util.getFileBuffer related.getTargetPath('tss')
+      if(!sourceBuffer.isEmpty())
+        sourceBuffer.scan /"\.(.*?)"/g, (item) -> 
+          values.push item.match[1].split('[')[0] #remove condition (eg.[platform=ios])
     else
       values = @getAttributeValues(attribute)
     

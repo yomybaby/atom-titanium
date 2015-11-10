@@ -1,6 +1,8 @@
 fs = require 'fs'
 path = require 'path'
 _ = require 'underscore'
+util = require './ti-pkg-util'
+related = require './related'
 
 propertyNameWithColonPattern = /^\s*(\S+)\s*:/
 propertyNamePrefixPattern = /[a-zA-Z]+[-a-zA-Z]*$/
@@ -37,10 +39,33 @@ module.exports =
       console.log 'CLASS -----------'
       # find class names from view(xml)
       # filter using request.prefix
+      completions = []
+      sourceBuffer = util.getFileBuffer related.getTargetPath('xml')
+      if(!sourceBuffer.isEmpty())
+        sourceBuffer.scan /class="(.*?)"/g, (item) -> 
+          _.each item.match[1].split(' '), (className)->
+            completions.push({
+              type: '.'
+              text: className
+              # description: item.match[1]'class definition'
+            })
+      
+      
     else if @isCompletingIdName(request)
       console.log 'ID -----------'
       # find class names from view(xml)
       # filter using request.prefix
+      completions = []
+      sourceBuffer = util.getFileBuffer related.getTargetPath('xml')
+      if(!sourceBuffer.isEmpty())
+        sourceBuffer.scan /id="(.*?)"/g, (item) -> 
+          console.log item.match[1]
+          completions.push({
+            type: '#'
+            text: item.match[1]
+            # description: item.match[1]'class definition'
+          })
+      
     else if @isCompletingTagSelector(request)
       console.log 'TAG -----------'
       tagCompletions = @getTagCompletions(request)
