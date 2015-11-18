@@ -37,9 +37,9 @@ module.exports =
       # find class names from view(xml)
       # filter using request.prefix
       completions = []
-      sourceBuffer = util.getFileBuffer related.getTargetPath('xml')
-      if(!sourceBuffer.isEmpty())
-        sourceBuffer.scan /class="(.*?)"/g, (item) -> 
+      sourceEditor = util.getFileEditor related.getTargetPath('xml')
+      if(!sourceEditor.isEmpty())
+        sourceEditor.scan /class="(.*?)"/g, (item) -> 
           _.each item.match[1].split(' '), (className)->
             completions.push({
               type: '.'
@@ -52,9 +52,9 @@ module.exports =
       # find class names from view(xml)
       # filter using request.prefix
       completions = []
-      sourceBuffer = util.getFileBuffer related.getTargetPath('xml')
-      if(!sourceBuffer.isEmpty())
-        sourceBuffer.scan /id="(.*?)"/g, (item) -> 
+      sourceEditor = util.getFileEditor related.getTargetPath('xml')
+      if(!sourceEditor.isEmpty())
+        sourceEditor.scan /id="(.*?)"/g, (item) -> 
           console.log item.match[1]
           completions.push({
             type: '#'
