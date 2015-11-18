@@ -261,7 +261,6 @@ capitalizeFirstLetter = (string) ->
   string.charAt(0).toUpperCase() + string.slice(1)
 
 tokenTextForSelector = (tokenizedBuffer, selectorType) ->
-  console.log tokenizedBuffer
   matchingTokens = []
   for {tokens} in tokenizedBuffer.tokenizedLines
       for token in tokens

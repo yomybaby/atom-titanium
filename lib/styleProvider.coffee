@@ -26,17 +26,14 @@ module.exports =
     
     # for key & value
     if @isCompletingValue(request)
-      console.log 'VALUE -----------'
       completions = @getPropertyValueCompletions(request)
     # # else if @isCompletingPseudoSelector(request)
     # #   comfpletions = @getPseudoSelectorCompletions(request)
     else if @isCompletingName(request)
-      console.log 'NAME -----------'
       completions = @getPropertyNameCompletions(request)
     
     # for Selector
     if @isCompletingClassName(request)
-      console.log 'CLASS -----------'
       # find class names from view(xml)
       # filter using request.prefix
       completions = []
@@ -52,7 +49,6 @@ module.exports =
       
       
     else if @isCompletingIdName(request)
-      console.log 'ID -----------'
       # find class names from view(xml)
       # filter using request.prefix
       completions = []
@@ -67,7 +63,6 @@ module.exports =
           })
       
     else if @isCompletingTagSelector(request)
-      console.log 'TAG -----------'
       tagCompletions = @getTagCompletions(request)
       if tagCompletions?.length
         completions ?= []

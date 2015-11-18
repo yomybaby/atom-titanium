@@ -17,7 +17,6 @@ module.exports =
 
   # Required: Return a promise, an array of suggestions, or null.
   getSuggestions: ({editor, bufferPosition, scopeDescriptor, prefix}) ->
-    console.log bufferPosition, prefix, scopeDescriptor
     return unless prefix?.length
     
     completions = []
@@ -32,7 +31,6 @@ module.exports =
       }
       
       for func in item.functions
-        # console.log func.name
         completions.push {
           text : item.name+'.'+func.name
           description : func.description.replace tagRegExp, ""
