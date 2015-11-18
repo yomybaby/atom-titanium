@@ -28,7 +28,7 @@
   },
   "dependencies": {
     "atom-package-dependencies": "latest",
-    "underscore": "*"
+    "underscore": "1.8.x"
   },
   "package-dependencies": {
     "hyperclick": "latest"

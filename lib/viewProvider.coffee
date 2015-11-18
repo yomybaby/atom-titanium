@@ -168,24 +168,37 @@ module.exports =
     tag = @getPreviousTag(editor, bufferPosition)
     attribute = @getPreviousAttribute(editor, bufferPosition)
     
-    if attribute == 'id'
-      values = [] # find id name from tss 
-      sourceBuffer = util.getFileBuffer related.getTargetPath('tss')
-      if(!sourceBuffer.isEmpty())
-        sourceBuffer.scan /"#(.*?)"/g, (item) -> 
-          values.push item.match[1].split('[')[0] #remove condition (eg.[platform=ios])
-    else if attribute == 'class'
-      values = [] # find class name from tss
-      sourceBuffer = util.getFileBuffer related.getTargetPath('tss')
-      if(!sourceBuffer.isEmpty())
-        sourceBuffer.scan /"\.(.*?)"/g, (item) -> 
-          values.push item.match[1].split('[')[0] #remove condition (eg.[platform=ios])
+    # realted .tss 
+    if attribute == 'id' or attribute == 'class'
+      completions = []
+      sourceEditor = util.getFileEditor related.getTargetPath('tss')
+      if(!sourceEditor.isEmpty())
+        values = tokenTextForSelector(sourceEditor.displayBuffer.tokenizedBuffer, attribute)
+        fileName = _.last(sourceEditor.getPath().split('/'))
+        for value in values when not prefix or firstCharsEqual(value, prefix)
+          completions.push @buildStyleSelectorCompletion(attribute, value, fileName)
+      
+      # app.tss 
+      arr = related.getTargetPath('tss').split('/');
+      arr[arr.length-1] = 'app.tss';
+      sourceEditor = util.getFileEditor arr.join('/');
+      if(!sourceEditor.isEmpty())
+        values = tokenTextForSelector(sourceEditor.displayBuffer.tokenizedBuffer, attribute)
+        fileName = _.last(sourceEditor.getPath().split('/'))
+        for value in values when not prefix or firstCharsEqual(value, prefix)
+          completions.push @buildStyleSelectorCompletion(attribute, value, fileName)
+      
+      completions
     else
       values = @getAttributeValues(attribute)
-    
-    for value in values when not prefix or firstCharsEqual(value, prefix)
-      @buildAttributeValueCompletion(tag, attribute, value)
+      for value in values when not prefix or firstCharsEqual(value, prefix)
+        @buildAttributeValueCompletion(tag, attribute, value)
 
+  buildStyleSelectorCompletion: (attribute, value,fileName) ->
+    text : value
+    type : if attribute=='id' then "#" else '.'
+    rightLabel : fileName.split('.')[0]
+    
   buildAttributeValueCompletion: (tag, attribute, value) ->
     if @completions.properties[attribute]?.global
       text: value
@@ -240,3 +253,15 @@ firstCharsEqual = (str1, str2) ->
 
 capitalizeFirstLetter = (string) ->
   string.charAt(0).toUpperCase() + string.slice(1)
+
+tokenTextForSelector = (tokenizedBuffer, selectorType) ->
+  console.log tokenizedBuffer
+  matchingTokens = []
+  for {tokens} in tokenizedBuffer.tokenizedLines
+      for token in tokens
+        if hasScope(token.scopes, "entity.other.attribute-name.#{selectorType}.css.tss") and !hasScope(token.scopes, "punctuation.definition.entity.css.#{selectorType}.tss")
+          matchingTokens.push token.value
+  matchingTokens
+
+hasScope = (scopesArray, scope) ->
+  scopesArray.indexOf(scope) != -1
