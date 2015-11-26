@@ -44,6 +44,12 @@ _.extend(tagDic,{
     apiName : "Ti.UI.View"
   },
   "Templates" : {
+  },
+  "HeaderView": {
+    
+  },
+  "FooterView": {
+    
   }
 });
 
@@ -91,6 +97,20 @@ _.each(api.types,function(type,idx){
           return val.replace(/Titanium\./g,'Ti.')
         });
       }
+    }
+  });
+  
+  // missing types
+  _.extend(types,{
+    "Alloy.Abstract.ItemTemplate" : {
+      "description": "Template that represents the basic appearance of a list item.",
+      "functions": [
+      ],
+      "properties": [
+          "name",
+          "height"
+      ],
+      "events": []
     }
   });
   

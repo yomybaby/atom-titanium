@@ -5054,6 +5054,14 @@ module.exports = {
         }
     },
     "types": {
+        "Alloy.Abstract.ItemTemplate": {
+            "description": "Template that represents the basic appearance of a list item.",
+            "functions": [],
+            "properties": [
+                "name"
+            ],
+            "events": []
+        },
         "Ti.Proxy": {
             "description": "The base for all Titanium objects.",
             "functions": [
