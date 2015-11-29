@@ -13,7 +13,7 @@ cssDocsURL = "http://docs.appcelerator.com/platform/latest/#!/api"
 
 module.exports =
   selector: '.source.css.tss'  
-  disableForSelector: '.source.css.tss .comment, .source.css.tss .string'
+  # disableForSelector: '.source.css.tss .comment, .source.css.tss .string'
 
   # Tell autocomplete to fuzzy filter the results of getSuggestions(). We are
   # still filtering by the first character of the prefix in this provider for
@@ -21,11 +21,14 @@ module.exports =
   filterSuggestions: true
 
   getSuggestions: (request) ->
+    console.log '=-=====request'
+    console.log request
     completions = null
     scopes = request.scopeDescriptor.getScopesArray()
     
     # for key & value
     if @isCompletingValue(request)
+      console.log '---value'
       completions = @getPropertyValueCompletions(request)
     # # else if @isCompletingPseudoSelector(request)
     # #   comfpletions = @getPseudoSelectorCompletions(request)
@@ -55,7 +58,7 @@ module.exports =
       sourceEditor = util.getFileEditor related.getTargetPath('xml')
       if(!sourceEditor.isEmpty())
         sourceEditor.scan /id="(.*?)"/g, (item) -> 
-          console.log item.match[1]
+          # console.log item.match[1]
           completions.push({
             type: '#'
             text: item.match[1]
@@ -68,6 +71,7 @@ module.exports =
         completions ?= []
         completions = completions.concat(tagCompletions)
 
+    # console.log completions
     completions
 
   onDidInsertSuggestion: ({editor, suggestion}) ->
@@ -101,6 +105,7 @@ module.exports =
     previousScopes = editor.scopeDescriptorForBufferPosition(previousBufferPosition)
     previousScopesArray = previousScopes.getScopesArray()
     
+    console.log (hasScope(scopes, 'meta.property-value.css.tss') and not hasScope(scopes, 'punctuation.terminator.rule.css.tss'))
     (hasScope(scopes, 'meta.property-value.css.tss') and not hasScope(scopes, 'punctuation.terminator.rule.css.tss'))
 
   isCompletingName: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
@@ -198,7 +203,8 @@ module.exports =
       row--
     return
 
-  getPropertyValueCompletions: ({bufferPosition, editor, prefix, scopeDescriptor}) ->
+  getPropertyValueCompletions: (request) ->
+    {bufferPosition, editor, prefix, scopeDescriptor} = request
     property = @getPreviousPropertyName(bufferPosition, editor)
     values = @properties[property]?.values
     return null unless values?
@@ -207,11 +213,14 @@ module.exports =
 
     completions = []
     if @isPropertyValuePrefix(prefix)
-      for value in values when firstCharsEqual(value, prefix)
-        completions.push(@buildPropertyValueCompletion(value, property, scopes))
+      for value in values when firstCharsEqual(value.replace(/\"/g,''), prefix.replace(/\"/g,''))
+        if firstCharsEqual(value, prefix)
+          completions.push(@buildPropertyValueCompletion(value, property, scopes, request))
+        else
+          completions.push(@buildPropertyValueCompletionWidthQuotation(value, property, scopes, request))
     else
       for value in values
-        completions.push(@buildPropertyValueCompletion(value, property, scopes))
+        completions.push(@buildPropertyValueCompletion(value, property, scopes, request))
 
     # if importantPrefix = @getImportantPrefix(editor, bufferPosition)
     #   # attention: règle dangereux
@@ -225,24 +234,39 @@ module.exports =
 
     completions
 
-  buildPropertyValueCompletion: (value, propertyName, scopes) ->
-    text = value
-    text += ','
-
+  buildPropertyValueCompletion: (value, propertyName, scopes, {scopeDescriptor, bufferPosition, prefix, editor}) ->
+    text = "#{value},"
+    
     {
       type: 'value'
       text: text
       displayText: value
       description: "#{value} value for the #{propertyName} property"
+    }
+      
+  buildPropertyValueCompletionWidthQuotation: (value, propertyName, scopes, {scopeDescriptor, bufferPosition, prefix, editor}) ->
+    text = "#{value}"
+    
+    {
+      type: 'value'
+      text: text
+      # snippet: "",
+      displayText: value
+      description: "#{value} value for the #{propertyName} property"
+      replacementPrefix : "\"#{prefix}"
       # leftLabel: 'leftLabel'
       # rightLabel: 'right'
       # descriptionMoreURL: "#{cssDocsURL}/#{propertyName}#Values"
     }
-
+    # completion.replacementPrefix = "#{prefix}" if /^".+?"$/.test(value)
+    
+    # if /^".+?"$/.test(value)
+      # completion.replacementPrefix = "\"#{prefix}"
+  
   getPropertyNamePrefix: (bufferPosition, editor) ->
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
     propertyNamePrefixPattern.exec(line)?[0]
-
+    
   getPropertyNameCompletions: ({bufferPosition, editor, scopeDescriptor, activatedManually}) ->
     # Don't autocomplete property names in SASS on root level
     scopes = scopeDescriptor.getScopesArray()
