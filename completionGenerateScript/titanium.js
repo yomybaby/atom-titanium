@@ -61,6 +61,15 @@ _.keys(tagDic)
     sortedTagDic[k] = tagDic[k];
   });
 
+
+var colorValues = [
+  '\"transparent\"','\"aqua\"', '\"black\"', '\"blue\"', '\"brown\"', 
+  '\"cyan\"', '\"darkgray\"', '\"fuchsia\"', '\"gray\"', '\"green\"', 
+  '\"lightgray\"', '\"lime\"', '\"magenta\"', '\"maroon\"', '\"navy\"', 
+  '\"olive\"', '\"orange\"', '\"pink\"', '\"purple\"', '\"red\"', 
+  '\"silver\"', '\"teal\"', '\"white\"', '\"yellow\"'
+];
+
 // Generate Available Property List
 var types = {};
 var props = {};
@@ -97,8 +106,13 @@ _.each(api.types,function(type,idx){
           return val.replace(/Titanium\./g,'Ti.')
         });
       }
+      
+      if(/[Cc]olor$/.test(prop.name)){
+        props[prop.name].values = _.union(props[prop.name].values, colorValues);
+      }
     }
   });
+  
   
   // missing types
   _.extend(types,{
@@ -114,7 +128,7 @@ _.each(api.types,function(type,idx){
     }
   });
   
-  // 
+  
   types[type.name.replace(/Titanium\./g,'Ti.')] = {
     description : type.description.replace( /<p>|<\/p\>/g, ''),
     functions :  _.map(type.functions,function(f){
@@ -128,6 +142,8 @@ _.each(api.types,function(type,idx){
   
 });
 
+// missing values
+props.layout.values = ['\"vertical\"', '\"horizontal\"','\"composite\"'];
 
 var outputFilename = '../tiCompletions.js';
 

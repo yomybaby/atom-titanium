@@ -198,6 +198,7 @@ module.exports =
     else
       values = @getAttributeValues(attribute)
       for value in values when not prefix or firstCharsEqual(value, prefix)
+        value=value.replace(/\"/g,'');
         @buildAttributeValueCompletion(tag, attribute, value)
 
   buildStyleSelectorCompletion: (attribute, value,fileName) ->
@@ -255,6 +256,8 @@ module.exports =
     "https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/#{attribute}"
 
 firstCharsEqual = (str1, str2) ->
+  str1 = str1.replace(/\"/g,'');
+  str2 = str2.replace(/\"/g,'');
   str1[0].toLowerCase() is str2[0].toLowerCase()
 
 capitalizeFirstLetter = (string) ->
