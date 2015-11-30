@@ -50,6 +50,12 @@ _.extend(tagDic,{
   },
   "FooterView": {
     
+  },
+  "ScrollView" : {
+    apiName : "Ti.UI.ScrollView"
+  },
+  "TableViewRow": {
+    apiName : "Ti.UI.TableViewRow"
   }
 });
 
