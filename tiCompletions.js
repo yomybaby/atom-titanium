@@ -6178,6 +6178,9 @@ module.exports = {
         "RightNavButtons": {
             "apiName": "Ti.UI.Window.RightNavButtons"
         },
+        "ScrollView": {
+            "apiName": "Ti.UI.ScrollView"
+        },
         "ScrollableView": {
             "apiName": "Ti.UI.ScrollableView"
         },
@@ -6198,6 +6201,9 @@ module.exports = {
         },
         "TableView": {
             "apiName": "Ti.UI.TableView"
+        },
+        "TableViewRow": {
+            "apiName": "Ti.UI.TableViewRow"
         },
         "TableViewSection": {
             "apiName": "Ti.UI.TableViewSection"
