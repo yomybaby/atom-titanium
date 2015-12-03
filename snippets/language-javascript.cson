@@ -1,4 +1,0 @@
-'.source.js':
-  'Ti: addEventListener':
-    'prefix': 'aelf'
-    'body': 'addEventListener(\'${1:eventName}\', function(e) {\n\t$2\n});'

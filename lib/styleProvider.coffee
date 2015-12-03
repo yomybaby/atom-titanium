@@ -5,6 +5,7 @@ util = require './ti-pkg-util'
 related = require './related'
 
 propertyNameWithColonPattern = /^\s*(\S+)\s*:/
+objectNameWithColonPattern = /^\s*(\S+)\s*:\s*\{/
 propertyNamePrefixPattern = /[a-zA-Z]+[-a-zA-Z]*$/
 pesudoSelectorPrefixPattern = /:(:)?([a-z]+[a-z-]*)?$/
 tagSelectorPrefixPattern = /["']([A-Za-z]+)?$/
@@ -21,15 +22,18 @@ module.exports =
   filterSuggestions: true
 
   getSuggestions: (request) ->
-    console.log '=-=====request'
-    console.log request
+    console.log '=====request'
     completions = null
     scopes = request.scopeDescriptor.getScopesArray()
     
     # for key & value
+    
     if @isCompletingValue(request)
-      console.log '---value'
-      completions = @getPropertyValueCompletions(request)
+      
+      if @isCompletingFontValue(request)
+        completions = @getPropertyNameOfFontCompletion(request)
+      else
+        completions = @getPropertyValueCompletions(request)
     # # else if @isCompletingPseudoSelector(request)
     # #   comfpletions = @getPseudoSelectorCompletions(request)
     else if @isCompletingName(request)
@@ -83,7 +87,15 @@ module.exports =
   loadProperties: ->
     @properties = {}
     {@pseudoSelectors, @properties, @tags, @types} = require('../tiCompletions')
-
+  
+  isCompletingFontValue : ({scopeDescriptor, bufferPosition, prefix, editor}) ->
+    
+    fontPropertyNameScopesArray = ["source.css.tss", "meta.property-list.css.tss", "meta.property-value.css.tss", "meta.property-list.css.tss"]
+    scopesArray = scopeDescriptor.getScopesArray()
+    objectName = @getParentObjectName(bufferPosition, editor)
+    if objectName is 'font' and JSON.stringify(fontPropertyNameScopesArray) is JSON.stringify(scopesArray)
+      true
+  
   isCompletingClassName : ({scopeDescriptor, bufferPosition, prefix, editor}) ->
     previousBufferPosition = [bufferPosition.row, Math.max(0, bufferPosition.column - 1)]
     previousScopes = editor.scopeDescriptorForBufferPosition(previousBufferPosition)
@@ -105,7 +117,6 @@ module.exports =
     previousScopes = editor.scopeDescriptorForBufferPosition(previousBufferPosition)
     previousScopesArray = previousScopes.getScopesArray()
     
-    console.log (hasScope(scopes, 'meta.property-value.css.tss') and not hasScope(scopes, 'punctuation.terminator.rule.css.tss'))
     (hasScope(scopes, 'meta.property-value.css.tss') and not hasScope(scopes, 'punctuation.terminator.rule.css.tss'))
 
   isCompletingName: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
@@ -193,7 +204,16 @@ module.exports =
   getImportantPrefix: (editor, bufferPosition) ->
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
     importantPrefixPattern.exec(line)?[1]
-
+  
+  getParentObjectName : (bufferPosition, editor) ->
+    {row} = bufferPosition
+    while row >= 0
+      line = editor.lineTextForBufferRow(row)
+      propertyName = objectNameWithColonPattern.exec(line)?[1]
+      return propertyName if propertyName
+      row--
+    return
+    
   getPreviousPropertyName: (bufferPosition, editor) ->
     {row} = bufferPosition
     while row >= 0
@@ -266,7 +286,15 @@ module.exports =
   getPropertyNamePrefix: (bufferPosition, editor) ->
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
     propertyNamePrefixPattern.exec(line)?[0]
+  
+  getPropertyNameOfFontCompletion: ({bufferPosition, editor, scopeDescriptor, activatedManually}) ->
+    fontPropertyNames = 
+    completions = []
+    prefix = @getPropertyNamePrefix(bufferPosition, editor)
+    for name in ['fontFamily','fontSize','fontStyle','fontWeight','fontStyle']
+      completions.push(@buildPropertyNameCompletion(name, prefix, {description:''}))
     
+    completions
   getPropertyNameCompletions: ({bufferPosition, editor, scopeDescriptor, activatedManually}) ->
     # Don't autocomplete property names in SASS on root level
     scopes = scopeDescriptor.getScopesArray()

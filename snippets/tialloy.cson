@@ -1,0 +1,21 @@
+'.source.js':
+  'Ti: addEventListener function':
+    'prefix': 'aelf'
+    'body': 'addEventListener(\'${1:eventName}\', function (e) {\n\t$2\n});'
+  'Ti: addEventListener':
+    'prefix': 'ael'
+    'body': 'addEventListener(\'${1:eventName}\', );'
+  'on: event on function':
+    'prefix': 'onf'
+    'body': 'on(\'${1:eventName}\', function (e) {\n\t$2\n});'
+  'on: event off function':
+    'prefix': 'off'
+    'body': 'off(\'${1:eventName}\', function (e) {\n\t$2\n});'
+
+'.source.css.tss .meta.property-list.css.tss':
+  'Ti: new Style':
+    'prefix': 'ns'
+    'body': '"${1}" : {\n\t${2}\n}'
+  'Ti: font':
+    'prefix': 'font'
+    'body': 'font : {\n\t\${1}\t\n},'
