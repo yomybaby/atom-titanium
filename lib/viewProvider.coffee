@@ -141,6 +141,8 @@ module.exports =
         description : 'TSS id'
       class : 
         description : 'TSS class'
+      platform :
+        description : 'Platform condition'
       
     for attribute of additionalAttr when not prefix or firstCharsEqual(attribute, prefix)
       completions.push(@buildAttributeCompletion(attribute))
