@@ -6244,6 +6244,14 @@ module.exports = {
             ],
             "events": []
         },
+        "Alloy.Widget": {
+            "description": "Widgets are self-contained components that can be easily dropped into an Alloy project.",
+            "functions": [],
+            "properties": [
+                "src"
+            ],
+            "events": []
+        },
         "Ti.Proxy": {
             "description": "The base for all Titanium objects.",
             "functions": [

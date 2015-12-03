@@ -131,6 +131,14 @@ _.each(api.types,function(type,idx){
           "height"
       ],
       "events": []
+    },
+    "Alloy.Widget" : {
+      "description": "Widgets are self-contained components that can be easily dropped into an Alloy project.",
+      "functions": [],
+      "properties": [
+        "src"
+      ],
+      "events": []
     }
   });
   
