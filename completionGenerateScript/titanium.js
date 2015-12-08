@@ -91,22 +91,22 @@ _.each(api.types,function(type,idx){
       // property name
       if(props[prop.name]){ //if duplicated propertie name, merge available vales.
         _.extend(props[prop.name],{
-          values : _.union(props[prop.name].values,prop.constants),
-          description : props[prop.name].description==prop.description.replace( /<p>|<\/p\>/g, '')?props[prop.name].description:'...'
+          description : props[prop.name].description==prop.description.replace( /<p>|<\/p\>/g, '')?props[prop.name].description:''
         });
+        if(prop.constants.length) props[prop.name].values = _.union(props[prop.name].values,prop.constants);
         
       }else{
         props[prop.name] = {
-          "values": prop.constants,
           "description": prop.description.replace( /<p>|<\/p\>/g, ''),
-          // "types": [type.name]
-        }
+          "type": prop.type //[type.name]
+        };
+        if(prop.constants.length) props[prop.name].values = prop.constants;
       }
       
       // property value
       if(prop.type === 'Boolean'){
         props[prop.name].values = ['true','false'];
-      }else {
+      }else if(props[prop.name].values){
         // alias Titanium -> Ti
         props[prop.name].values = _.map(props[prop.name].values,function(val){
           return val.replace(/Titanium\./g,'Ti.')
@@ -161,8 +161,16 @@ props.layout.values = ['\"vertical\"', '\"horizontal\"','\"composite\"'];
 
 var outputFilename = '../tiCompletions.js';
 
+
+var sortedProps = {};
+_.keys(props)
+  .sort()
+  .forEach(function(k){
+    sortedProps[k] = props[k];
+  });
+  
 fs.writeFile(outputFilename, 'module.exports = ' + JSON.stringify({
-  properties: props,
+  properties: sortedProps,
   tags: sortedTagDic,
   types : types
 }, null, 4), function(err) {

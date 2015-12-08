@@ -29,11 +29,7 @@ module.exports =
     # for key & value
     
     if @isCompletingValue(request)
-      
-      if @isCompletingFontValue(request)
-        completions = @getPropertyNameOfFontCompletion(request)
-      else
-        completions = @getPropertyValueCompletions(request)
+      completions = @getPropertyValueCompletions(request)
     # # else if @isCompletingPseudoSelector(request)
     # #   comfpletions = @getPseudoSelectorCompletions(request)
     else if @isCompletingName(request)
@@ -88,14 +84,6 @@ module.exports =
   loadProperties: ->
     @properties = {}
     {@pseudoSelectors, @properties, @tags, @types} = require('../tiCompletions')
-  
-  isCompletingFontValue : ({scopeDescriptor, bufferPosition, prefix, editor}) ->
-    
-    fontPropertyNameScopesArray = ["source.css.tss", "meta.property-list.css.tss", "meta.property-value.css.tss", "meta.property-list.css.tss"]
-    scopesArray = scopeDescriptor.getScopesArray()
-    objectName = @getParentObjectName(bufferPosition, editor)
-    if objectName is 'font' and JSON.stringify(fontPropertyNameScopesArray) is JSON.stringify(scopesArray)
-      true
   
   isCompletingClassName : ({scopeDescriptor, bufferPosition, prefix, editor}) ->
     previousBufferPosition = [bufferPosition.row, Math.max(0, bufferPosition.column - 1)]
@@ -228,6 +216,13 @@ module.exports =
     {bufferPosition, editor, prefix, scopeDescriptor} = request
     property = @getPreviousPropertyName(bufferPosition, editor)
     values = @properties[property]?.values
+    
+    if @types[@properties[property].type] # such as FONT
+      candidateProperties = {};
+      _.each @types[@properties[property].type].properties, (item)->
+        candidateProperties[item] = {}
+      return this.getPropertyNameCompletions(request, candidateProperties)
+    
     return null unless values?
 
     scopes = scopeDescriptor.getScopesArray()
@@ -258,11 +253,14 @@ module.exports =
   buildPropertyValueCompletion: (value, propertyName, scopes, {scopeDescriptor, bufferPosition, prefix, editor}) ->
     text = "#{value},"
     
+    
+    description = @properties[propertyName]?.description
+    description = "#{value} value for the #{propertyName} property" unless description
     {
       type: 'value'
       text: text
       displayText: value
-      description: "#{value} value for the #{propertyName} property"
+      description: description
     }
       
   buildPropertyValueCompletionWidthQuotation: (value, propertyName, scopes, {scopeDescriptor, bufferPosition, prefix, editor}) ->
@@ -282,15 +280,8 @@ module.exports =
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
     propertyNamePrefixPattern.exec(line)?[0]
   
-  getPropertyNameOfFontCompletion: ({bufferPosition, editor, scopeDescriptor, activatedManually}) ->
-    fontPropertyNames = 
-    completions = []
-    prefix = @getPropertyNamePrefix(bufferPosition, editor)
-    for name in ['fontFamily','fontSize','fontStyle','fontWeight','fontStyle']
-      completions.push(@buildPropertyNameCompletion(name, prefix, {description:''}))
-    
-    completions
-  getPropertyNameCompletions: ({bufferPosition, editor, scopeDescriptor, activatedManually}) ->
+
+  getPropertyNameCompletions: ({bufferPosition, editor, scopeDescriptor, activatedManually}, candidateProperties) ->
     # Don't autocomplete property names in SASS on root level
     scopes = scopeDescriptor.getScopesArray()
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
@@ -300,8 +291,17 @@ module.exports =
     return null unless activatedManually or prefix
 
     completions = []
-    for property, options of @properties when not prefix or firstCharsEqual(property, prefix)
-      completions.push(@buildPropertyNameCompletion(property, prefix, options))
+    candidateProperties = candidateProperties || @properties
+    for property, options of candidateProperties when not prefix or firstCharsEqual(property, prefix)
+      jsObjectTypes = ['Font']
+      if jsObjectTypes.indexOf(@properties[property].type) > -1
+        completions.push
+          type: 'property'
+          snippet: "#{property}: {\n\t\${1}\t\n}"
+          displayText: property
+          description: options.description
+      else  
+        completions.push(@buildPropertyNameCompletion(property, prefix, options))
     completions
 
   buildPropertyNameCompletion: (propertyName, prefix, {description}) ->
