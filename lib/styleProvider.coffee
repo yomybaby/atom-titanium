@@ -78,7 +78,8 @@ module.exports =
     # console.log completions
     completions
 
-  onDidInsertSuggestion: ({editor, suggestion}) ->
+  onDidInsertSuggestion: ({editor, triggerPosition, suggestion}) ->
+    suggestion.onDidInsertSuggestion and suggestion.onDidInsertSuggestion({editor, triggerPosition, suggestion})
     setTimeout(@triggerAutocomplete.bind(this, editor), 1) if suggestion.type is 'property'
 
   triggerAutocomplete: (editor) ->
@@ -265,23 +266,17 @@ module.exports =
     }
       
   buildPropertyValueCompletionWidthQuotation: (value, propertyName, scopes, {scopeDescriptor, bufferPosition, prefix, editor}) ->
-    text = "#{value}"
-    
     {
-      type: 'value'
-      text: text
-      # snippet: "",
+      text: value
       displayText: value
-      description: "#{value} value for the #{propertyName} property"
-      replacementPrefix : "\"#{prefix}"
-      # leftLabel: 'leftLabel'
-      # rightLabel: 'right'
-      # descriptionMoreURL: "#{cssDocsURL}/#{propertyName}#Values"
+      description: "quo #{value} value for the #{propertyName} property"
+      replacementPrefix : "\"#{prefix}",
+      onDidInsertSuggestion : ({editor, triggerPosition, suggestion}) ->
+        targetRange = [[triggerPosition.row,0 ],[triggerPosition.row, triggerPosition.column]]
+        originText = editor.getTextInRange targetRange
+        if !(new RegExp("#{suggestion.replacementPrefix}$")).test(originText)
+          editor.setTextInBufferRange targetRange, originText.replace(new RegExp("#{prefix}$"),"#{value}")
     }
-    # completion.replacementPrefix = "#{prefix}" if /^".+?"$/.test(value)
-    
-    # if /^".+?"$/.test(value)
-      # completion.replacementPrefix = "\"#{prefix}"
   
   getPropertyNamePrefix: (bufferPosition, editor) ->
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
