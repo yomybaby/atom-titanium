@@ -215,7 +215,8 @@ module.exports =
   getPropertyValueCompletions: (request) ->
     {bufferPosition, editor, prefix, scopeDescriptor} = request
     property = @getPreviousPropertyName(bufferPosition, editor)
-    values = @properties[property]?.values
+
+    return null unless @properties[property]
     
     if @types[@properties[property].type] # such as FONT
       candidateProperties = {};
@@ -223,6 +224,7 @@ module.exports =
         candidateProperties[item] = {}
       return this.getPropertyNameCompletions(request, candidateProperties)
     
+    values = @properties[property].values
     return null unless values?
 
     scopes = scopeDescriptor.getScopesArray()
