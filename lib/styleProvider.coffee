@@ -73,7 +73,8 @@ module.exports =
 
     # console.log completions
     completions
-
+    completions?.sort util.completionSortFun
+    
   onDidInsertSuggestion: ({editor, triggerPosition, suggestion}) ->
     suggestion.onDidInsertSuggestion and suggestion.onDidInsertSuggestion({editor, triggerPosition, suggestion})
     setTimeout(@triggerAutocomplete.bind(this, editor), 1) if suggestion.type is 'property'

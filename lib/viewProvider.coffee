@@ -15,7 +15,7 @@ module.exports =
 
   getSuggestions: (request) ->
     scopes = request.scopeDescriptor.getScopesArray()
-    
+    completions = []
     # if xml start with <Alloy, change grammars to text.alloyxml
     if scopes.indexOf('text.xml') isnt -1
       editor = request.editor
@@ -23,22 +23,22 @@ module.exports =
       for i in [0...lineCnt] by 1 when editor.lineTextForBufferRow(i).indexOf('<Alloy') isnt -1 
         editor.setGrammar(atom.grammars.grammarForScopeName('text.alloyxml')) 
         break
-      
+    
     {prefix} = request
     if @isAttributeValueStartWithNoPrefix(request)
-      @getAttributeValueCompletions(request)
+      completions = @getAttributeValueCompletions(request)
     else if @isAttributeValueStartWithPrefix(request)
-      @getAttributeValueCompletions(request, prefix)
+      completions = @getAttributeValueCompletions(request, prefix)
     else if @isAttributeStartWithNoPrefix(request)
-      @getAttributeNameCompletions(request)
+      completions = @getAttributeNameCompletions(request)
     else if @isAttributeStartWithPrefix(request)
-      @getAttributeNameCompletions(request, prefix)
+      completions = @getAttributeNameCompletions(request, prefix)
     else if @isTagStartWithNoPrefix(request)
-      @getTagNameCompletions()
+      completions = @getTagNameCompletions()
     else if @isTagStartTagWithPrefix(request)
-      @getTagNameCompletions(prefix)
-    else
-      []
+      completions = @getTagNameCompletions(prefix)
+    
+    completions?.sort util.completionSortFun
 
   onDidInsertSuggestion: ({editor, suggestion}) ->
     setTimeout(@triggerAutocomplete.bind(this, editor), 1) if suggestion.type is 'attribute'
