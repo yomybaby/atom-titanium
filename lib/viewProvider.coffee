@@ -175,10 +175,10 @@ module.exports =
   getAttributeValueCompletions: ({editor, bufferPosition}, prefix) ->
     tag = @getPreviousTag(editor, bufferPosition)
     attribute = @getPreviousAttribute(editor, bufferPosition)
+    completions = []
     
     # realted .tss 
     if attribute == 'id' or attribute == 'class'
-      completions = []
       sourceEditor = util.getFileEditor related.getTargetPath('tss')
       if(!sourceEditor.isEmpty())
         values = tokenTextForSelector(sourceEditor.displayBuffer.tokenizedBuffer, attribute)
@@ -197,6 +197,17 @@ module.exports =
           completions.push @buildStyleSelectorCompletion(attribute, value, fileName)
       
       completions
+    if attribute is 'src'
+      if tag is 'Require'
+        arr = related.getTargetPath('js').split('/');
+        files = fs.readdirSync arr.slice(0,arr.length-1).join('/')
+        console.log files
+        for file in files
+          if path.extname(file) is '.js' 
+            completions.push @buildAttributeValueCompletion(tag, attribute, file.split('.')[0]) 
+        completions
+      else if tag is 'Widget'
+        completions
     else
       values = @getAttributeValues(attribute)
       for value in values when not prefix or firstCharsEqual(value, prefix)
