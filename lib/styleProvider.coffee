@@ -22,7 +22,7 @@ module.exports =
   filterSuggestions: true
 
   getSuggestions: (request) ->
-    console.log '=====request'
+    console.log request if atom.inDevMode()
     completions = null
     scopes = request.scopeDescriptor.getScopesArray()
     
@@ -219,13 +219,15 @@ module.exports =
 
     return null unless @properties[property]
     
-    if @types[@properties[property].type] # such as FONT
+    values = @properties[property].values
+    
+    if @types[@properties[property].type] and !values?.length # such as FONT
       candidateProperties = {};
       _.each @types[@properties[property].type].properties, (item)->
         candidateProperties[item] = {}
       return this.getPropertyNameCompletions(request, candidateProperties)
     
-    values = @properties[property].values
+    
     return null unless values?
 
     scopes = scopeDescriptor.getScopesArray()
