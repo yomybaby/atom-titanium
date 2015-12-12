@@ -175,6 +175,8 @@ module.exports =
   getAttributeValueCompletions: ({editor, bufferPosition}, prefix) ->
     tag = @getPreviousTag(editor, bufferPosition)
     attribute = @getPreviousAttribute(editor, bufferPosition)
+    currentPath  = atom.workspace.getActiveTextEditor().getPath()
+    currentControllerName = path.basename(currentPath, path.extname(currentPath))
     completions = []
     
     # realted .tss 
@@ -198,15 +200,26 @@ module.exports =
       
       completions
     if attribute is 'src'
+      tiProjectRootPath = util.getTiProjectRootPath()
       if tag is 'Require'
-        arr = related.getTargetPath('js').split('/');
-        files = fs.readdirSync arr.slice(0,arr.length-1).join('/')
-        console.log files
+        files = fs.readdirSync path.join(tiProjectRootPath,'app','controllers')
         for file in files
-          if path.extname(file) is '.js' 
-            completions.push @buildAttributeValueCompletion(tag, attribute, file.split('.')[0]) 
+          if path.extname(file) is '.js' and currentControllerName!=file.split('.')[0] # exclude current controller
+            completions.push 
+              text: file.split('.')[0]
+              type: 'require'
         completions
       else if tag is 'Widget'
+        if tiProjectRootPath
+          alloyConfigPath = path.join(tiProjectRootPath, 'app','config.json')
+          try
+            configObj = JSON.parse(fs.readFileSync(alloyConfigPath));
+            for widgetName, value of configObj?.dependencies
+              completions.push
+                text : widgetName
+                type : 'require'
+          catch e 
+            return []
         completions
     else
       values = @getAttributeValues(attribute)
