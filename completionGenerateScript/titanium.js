@@ -139,6 +139,14 @@ _.each(api.types,function(type,idx){
         "src"
       ],
       "events": []
+    },
+    "Alloy.Require" : {
+      "description": "Require alloy controller",
+      "functions": [],
+      "properties": [
+        "src"
+      ],
+      "events": []
     }
   });
   

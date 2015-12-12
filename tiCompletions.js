@@ -6567,6 +6567,14 @@ module.exports = {
             ],
             "events": []
         },
+        "Alloy.Require": {
+            "description": "Require alloy controller",
+            "functions": [],
+            "properties": [
+                "src"
+            ],
+            "events": []
+        },
         "Ti.Proxy": {
             "description": "The base for all Titanium objects.",
             "functions": [
