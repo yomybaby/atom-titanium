@@ -120,7 +120,7 @@ module.exports =
   getAttributeNameCompletions: ({editor, bufferPosition}, prefix) ->
     completions = []
     tag = @getPreviousTag(editor, bufferPosition)
-    tagAttributes = @getTagAttributes(tag)
+    tagAttributes = @getTagAttributes(tag).concat(['id','class','platform'])
     
     # tag attributes
     for attribute in tagAttributes when not prefix or firstCharsEqual(attribute, prefix)
@@ -135,18 +135,6 @@ module.exports =
     # for attribute, options of @completions.properties when not prefix or firstCharsEqual(attribute, prefix)
     #   completions.push(@buildAttributeCompletion(attribute)) if options.global
     
-    # Additional properties
-    additionalAttr =
-      id : 
-        description : 'TSS id'
-      class : 
-        description : 'TSS class'
-      platform :
-        description : 'Platform condition'
-      
-    for attribute of additionalAttr when not prefix or firstCharsEqual(attribute, prefix)
-      completions.push(@buildAttributeCompletion(attribute))
-      
     completions
 
   buildAttributeCompletion: (attribute, tag, event) ->
@@ -246,6 +234,21 @@ module.exports =
 
   loadCompletions: ->
     @completions = require('../tiCompletions');
+    _.extend( @completions.properties,{
+      id : 
+        description : 'TSS id'
+      class : 
+        description : 'TSS class'
+      platform :
+        type: "String",
+        description : 'Platform condition'
+        values : [
+          "android"
+          "ios",
+          "mobileweb",
+          "windows"
+        ]
+    })
 
   getPreviousTag: (editor, bufferPosition) ->
     {row} = bufferPosition
