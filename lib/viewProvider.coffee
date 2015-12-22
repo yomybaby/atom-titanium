@@ -175,7 +175,7 @@ module.exports =
         fileName = _.last(sourceEditor.getPath().split('/'))
         for value in values when not prefix or firstCharsEqual(value, prefix)
           completions.push @buildStyleSelectorCompletion(attribute, value, fileName)
-      
+        
       # app.tss 
       arr = related.getTargetPath('tss').split('/');
       arr[arr.length-1] = 'app.tss';
@@ -185,9 +185,8 @@ module.exports =
         fileName = _.last(sourceEditor.getPath().split('/'))
         for value in values when not prefix or firstCharsEqual(value, prefix)
           completions.push @buildStyleSelectorCompletion(attribute, value, fileName)
-      
-      completions
-    if attribute is 'src'
+
+    else if attribute is 'src'
       tiProjectRootPath = util.getTiProjectRootPath()
       if tag is 'Require'
         files = fs.readdirSync path.join(tiProjectRootPath,'app','controllers')
@@ -196,7 +195,6 @@ module.exports =
             completions.push 
               text: file.split('.')[0]
               type: 'require'
-        completions
       else if tag is 'Widget'
         if tiProjectRootPath
           alloyConfigPath = path.join(tiProjectRootPath, 'app','config.json')
@@ -208,13 +206,14 @@ module.exports =
                 type : 'require'
           catch e 
             return []
-        completions
     else
       values = @getAttributeValues(attribute)
       for value in values when not prefix or firstCharsEqual(value, prefix)
         value=value.replace(/\"/g,'');
-        @buildAttributeValueCompletion(tag, attribute, value)
-
+        completions = @buildAttributeValueCompletion(tag, attribute, value)
+    
+    return completions
+    
   buildStyleSelectorCompletion: (attribute, value,fileName) ->
     text : value
     type : if attribute=='id' then "#" else '.'
