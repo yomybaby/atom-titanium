@@ -1,7 +1,8 @@
 fs = require('fs')
-api = JSON.parse(fs.readFileSync("/usr/local/lib/node_modules/alloy/docs/api.jsca", "utf8"));
 tagRegExp =  /(<([^>]+)>)/ig
+util = require './ti-pkg-util'
 
+propertyNamePrefixPattern = /\.([a-zA-Z]+[-a-zA-Z]*)$/
 
 module.exports =
   # This will work on JavaScript and CoffeeScript files, but not in js comments.
@@ -14,32 +15,40 @@ module.exports =
   # i.e. The default provider will be suppressed
   inclusionPriority: 1
   # excludeLowerPriority: true
-
+  completions : {}
+  
+  loadCompletions: () ->
+    @completions = require('../tiCompletions');
   # Required: Return a promise, an array of suggestions, or null.
-  getSuggestions: ({editor, bufferPosition, scopeDescriptor, prefix}) ->
+  getSuggestions: (request) ->
+    {editor, bufferPosition, scopeDescriptor, prefix} = request
     return unless prefix?.length
     
     completions = []
     
-    for item in api.types
-      # continue unless prefix and firstCharsEqual(item.name, prefix)
-      
-      completions.push {
-        text : item.name
-        description : item.description.replace tagRegExp, ""
-        type : "object"
-      }
-      
-      for func in item.functions
-        completions.push {
-          text : item.name+'.'+func.name
-          description : func.description.replace tagRegExp, ""
-          type : "function"
-        }
-          
-        
-        
-        # replacementPrefix : prefix
+    completions = @getPropertyNameCompletions(request)
+    console.log completions
+    
+    completions?.sort  util.completionSortFun
+    # for item in api.types
+    #   # continue unless prefix and firstCharsEqual(item.name, prefix)
+    #   
+    #   completions.push {
+    #     text : item.name
+    #     description : item.description.replace tagRegExp, ""
+    #     type : "object"
+    #   }
+    #   
+    #   for func in item.functions
+    #     completions.push {
+    #       text : item.name+'.'+func.name
+    #       description : func.description.replace tagRegExp, ""
+    #       type : "function"
+    #     }
+    #       
+    #     
+    #     
+    #     # replacementPrefix : prefix
     
     
     # completions.sort(ascendingPrefixComparator)
@@ -47,6 +56,43 @@ module.exports =
     new Promise (resolve) ->
       resolve(completions)
 
+  getPropertyNamePrefix: (bufferPosition, editor) ->
+    line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
+    propertyNamePrefixPattern.exec(line)?[1]
+    
+    
+  getPropertyNameCompletions: ({bufferPosition, editor, scopeDescriptor, activatedManually}, candidateProperties) ->
+    # Don't autocomplete property names in SASS on root level
+    scopes = scopeDescriptor.getScopesArray()
+    line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
+    # return [] if hasScope(scopes, 'source.sass') and not line.match(/^(\s|\t)/)
+
+    prefix = @getPropertyNamePrefix(bufferPosition, editor)
+    console.log prefix
+    return null unless activatedManually or prefix
+
+    completions = []
+    candidateProperties = candidateProperties || @completions.properties
+    for property, options of candidateProperties when not prefix or firstCharsEqual(property, prefix)
+      # jsObjectTypes = ['Font']
+      # if jsObjectTypes.indexOf(@properties[property].type) > -1
+      #   completions.push
+      #     type: 'property'
+      #     snippet: "#{property}: {\n\t\${1}\t\n}"
+      #     displayText: property
+      #     description: options.description
+      # else  
+      completions.push(
+        type: 'property'
+        text: "#{property}: "
+        displayText: property
+        replacementPrefix: prefix
+        description: options.description
+        # descriptionMoreURL: "#{cssDocsURL}/#{propertyName}"
+      )
+    
+    completions
+    
   # (optional): called _after_ the suggestion `replacementPrefix` is replaced
   # by the suggestion `text` in the buffer
   onDidInsertSuggestion: ({editor, triggerPosition, suggestion}) ->

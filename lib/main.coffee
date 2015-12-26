@@ -3,15 +3,17 @@ related = require './related'
 styleProvider = require './styleProvider'
 viewProvider = require './viewProvider'
 clickProvider = require './clickProvider'
+controllerProvider = require './controllerProvider'
 
 module.exports = Titanium =
   activate: ->
     related.activate()
     styleProvider.loadProperties()
-    viewProvider.loadCompletions() 
+    viewProvider.loadCompletions()
+    controllerProvider.loadCompletions()
   # deactivate: ->
   # serialize: ->
-  getProvider: -> [styleProvider,viewProvider]
+  getProvider: -> [styleProvider,viewProvider,controllerProvider]
   getClickProvider: -> clickProvider.getProvider()
   config:
     numberOfSplitPane:
