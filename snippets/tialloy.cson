@@ -5,10 +5,16 @@
   'Ti: addEventListener':
     'prefix': 'ael'
     'body': 'addEventListener(\'${1:eventName}\', );'
+  'Ti: removeEventListener function':
+    'prefix': 'relf'
+    'body': 'removeEventListener(\'${1:eventName}\', function (e) {\n\t$2\n});'
+  'Ti: removeEventListener':
+    'prefix': 'rel'
+    'body': 'removeEventListener(\'${1:eventName}\', );'
   'on: event on function':
     'prefix': 'onf'
     'body': 'on(\'${1:eventName}\', function (e) {\n\t$2\n});'
-  'on: event off function':
+  'off: event off function':
     'prefix': 'off'
     'body': 'off(\'${1:eventName}\', function (e) {\n\t$2\n});'
 
