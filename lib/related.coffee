@@ -56,7 +56,7 @@ module.exports =
     
     while atom.workspace.getPanes().length<3
       lastPane = _.last(atom.workspace.getPanes())
-      if atom.config.get('titanium-alloy.numberOfSplitPane')==2 and atom.workspace.getActivePane().length == 2
+      if atom.config.get('titanium-alloy.numberOfSplitPane')==2 and atom.workspace.getPanes().length == 2
         lastPane.splitDown()
       else
         lastPane.splitRight()
