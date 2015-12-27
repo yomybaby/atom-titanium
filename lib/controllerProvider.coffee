@@ -1,8 +1,10 @@
 fs = require('fs')
 tagRegExp =  /(<([^>]+)>)/ig
 util = require './ti-pkg-util'
+related = require './related'
 
-propertyNamePrefixPattern = /\.([a-zA-Z]+[-a-zA-Z]*)$/
+propertyNamePrefixPattern = /\.([a-zA-Z]+[-a-zA-Z-_]*)$/
+alloyIdNamePatter = /\$\.([-a-zA-Z0-9-_]*)$/
 
 module.exports =
   # This will work on JavaScript and CoffeeScript files, but not in js comments.
@@ -26,7 +28,29 @@ module.exports =
     
     completions = []
     
-    completions = @getPropertyNameCompletions(request)
+    line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
+    
+    # if(@isPropertyNameCompletion()){
+    console.log alloyIdNamePatter.test(line)
+    console.log alloyIdNamePatter.exec(line)
+    console.log line
+    if alloyIdNamePatter.test(line)
+      sourceEditor = util.getFileEditor related.getTargetPath('xml')
+      if(!sourceEditor.isEmpty())
+        sourceEditor.scan /id="(.*?)"/g, (item) -> 
+          # console.log item.match[1]
+          completions.push({
+            type: '#'
+            text: item.match[1]
+            # description: item.match[1]'class definition'
+          })
+    else
+      completions = @getPropertyNameCompletions(request)
+    
+    # else if(@isAlloyIdCompletion()){
+    #   
+    # }
+    
     
     completions?.sort  util.completionSortFun
     # for item in api.types
@@ -54,7 +78,10 @@ module.exports =
 
     new Promise (resolve) ->
       resolve(completions)
-
+  
+  isPropertyNameCompletion : () -> 
+    
+  
   getPropertyNamePrefix: (bufferPosition, editor) ->
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
     propertyNamePrefixPattern.exec(line)?[1]
@@ -82,7 +109,7 @@ module.exports =
       # else  
       completions.push(
         type: 'property'
-        text: "#{property}: "
+        text: "#{property} = "
         displayText: property
         replacementPrefix: prefix
         description: options.description
