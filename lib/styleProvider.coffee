@@ -36,7 +36,7 @@ module.exports =
       completions = @getPropertyNameCompletions(request)
     
     # for Selector
-    if @isCompletingClassName(request)
+    else if @isCompletingClassName(request)
       # find class names from view(xml)
       # filter using request.prefix
       completions = []
@@ -72,8 +72,8 @@ module.exports =
         completions = completions.concat(tagCompletions)
 
     # console.log completions
-    completions
     completions?.sort util.completionSortFun
+    completions
     
   onDidInsertSuggestion: ({editor, triggerPosition, suggestion}) ->
     suggestion.onDidInsertSuggestion and suggestion.onDidInsertSuggestion({editor, triggerPosition, suggestion})
@@ -107,7 +107,10 @@ module.exports =
     previousScopes = editor.scopeDescriptorForBufferPosition(previousBufferPosition)
     previousScopesArray = previousScopes.getScopesArray()
     
-    (hasScope(scopes, 'meta.property-value.css.tss') and not hasScope(scopes, 'punctuation.terminator.rule.css.tss'))
+    lastValueScopeIndex = _.lastIndexOf(scopes,'meta.property-value.css.tss')
+    lastListScopeIndex = _.lastIndexOf(scopes,'meta.property-list.css.tss')
+    
+    (hasScope(scopes, 'meta.property-value.css.tss') and not hasScope(scopes, 'punctuation.terminator.rule.css.tss')) and lastListScopeIndex < lastValueScopeIndex
 
   isCompletingName: ({scopeDescriptor, bufferPosition, prefix, editor}) ->
     scopes = scopeDescriptor.getScopesArray()
@@ -199,11 +202,16 @@ module.exports =
     {row} = bufferPosition
     while row >= 0
       line = editor.lineTextForBufferRow(row)
-      propertyName = objectNameWithColonPattern.exec(line)?[1]
+      regexResult = objectNameWithColonPattern.exec(line)
+      propertyName = regexResult?[1]
+      
+      parentNameIndex = regexResult?.index || -1;
+      console.log parentNameIndex, line.lastIndexOf('}')
+      return if parentNameIndex <  line.lastIndexOf('}')
       return propertyName if propertyName
       row--
     return
-    
+  
   getPreviousPropertyName: (bufferPosition, editor) ->
     {row} = bufferPosition
     while row >= 0
@@ -216,17 +224,11 @@ module.exports =
   getPropertyValueCompletions: (request) ->
     {bufferPosition, editor, prefix, scopeDescriptor} = request
     property = @getPreviousPropertyName(bufferPosition, editor)
-
-    return null unless @properties[property]
+    parentPropertyName = @getParentObjectName(bufferPosition, editor)
+    
+    return null unless @properties[property] #and @properties[parentPropertyName]
     
     values = @properties[property].values
-    
-    if @types[@properties[property].type] and !values?.length # such as FONT
-      candidateProperties = {};
-      _.each @types[@properties[property].type].properties, (item)->
-        candidateProperties[item] = {}
-      return this.getPropertyNameCompletions(request, candidateProperties)
-    
     
     return null unless values?
 
@@ -286,7 +288,7 @@ module.exports =
     propertyNamePrefixPattern.exec(line)?[0]
   
 
-  getPropertyNameCompletions: ({bufferPosition, editor, scopeDescriptor, activatedManually}, candidateProperties) ->
+  getPropertyNameCompletions: ({bufferPosition, editor, scopeDescriptor, activatedManually}) ->
     # Don't autocomplete property names in SASS on root level
     scopes = scopeDescriptor.getScopesArray()
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
@@ -294,9 +296,16 @@ module.exports =
 
     prefix = @getPropertyNamePrefix(bufferPosition, editor)
     return null unless activatedManually or prefix
-
+    
+    parentObjName = @getParentObjectName(bufferPosition, editor)
+    
+    innerProperties = {} 
+    if @properties[parentObjName]?.type && @types[@properties[parentObjName]?.type]?.properties.length
+      _.each @types[@properties[parentObjName]?.type].properties, (innerKey) ->
+        innerProperties[innerKey] = {} 
+    
     completions = []
-    candidateProperties = candidateProperties || @properties
+    candidateProperties = if _.isEmpty(innerProperties) then @properties else innerProperties
     for property, options of candidateProperties when not prefix or firstCharsEqual(property, prefix)
       jsObjectTypes = ['Font']
       if jsObjectTypes.indexOf(@properties[property].type) > -1
