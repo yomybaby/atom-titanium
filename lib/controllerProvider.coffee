@@ -27,7 +27,6 @@ module.exports =
     completions = []
     
     completions = @getPropertyNameCompletions(request)
-    console.log completions
     
     completions?.sort  util.completionSortFun
     # for item in api.types
@@ -68,7 +67,6 @@ module.exports =
     # return [] if hasScope(scopes, 'source.sass') and not line.match(/^(\s|\t)/)
 
     prefix = @getPropertyNamePrefix(bufferPosition, editor)
-    console.log prefix
     return null unless activatedManually or prefix
 
     completions = []
