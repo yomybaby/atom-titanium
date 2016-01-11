@@ -1,3 +1,5 @@
+# This is based on https://github.com/atom/autocomplete-html/blob/master/lib/provider.coffee
+
 fs = require 'fs'
 path = require 'path'
 _ = require 'underscore'
@@ -210,7 +212,7 @@ module.exports =
       values = @getAttributeValues(attribute)
       for value in values when not prefix or firstCharsEqual(value, prefix)
         value=value.replace(/\"/g,'');
-        completions = @buildAttributeValueCompletion(tag, attribute, value)
+        completions.push @buildAttributeValueCompletion(tag, attribute, value)
     
     return completions
     
