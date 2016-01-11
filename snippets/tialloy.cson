@@ -17,6 +17,21 @@
   'off: event off function':
     'prefix': 'off'
     'body': 'off(\'${1:eventName}\', function (e) {\n\t$2\n});'
+  'Alloy Globals':
+    'prefix': 'AG.'
+    'body': 'Alloy.Globals.'
+  'Alloy Create Controller':
+    'prefix': 'ACC'
+    'body': 'Alloy.createController(\'${1}\')'
+  'Alloy Create Model':
+    'prefix': 'ACM'
+    'body': 'Alloy.createModel(\'${1}\')'
+  'Alloy Create Collection':
+    'prefix': 'ACMC'
+    'body': 'Alloy.createCollection(\'${1}\')'
+  'Alloy Create Widget':
+    'prefix': 'ACW'
+    'body': 'Alloy.createWidget(\'${1}\')'
 
 # '.source.css.tss':
   # 'Ti: new Style':
