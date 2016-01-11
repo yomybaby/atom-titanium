@@ -40,7 +40,8 @@ module.exports =
     else if @isTagStartTagWithPrefix(request)
       completions = @getTagNameCompletions(prefix)
     
-    completions?.sort util.completionSortFun
+    completions.sort util.completionSortFun if _.isFunction(completions.sort)
+    return completions
 
   onDidInsertSuggestion: ({editor, suggestion}) ->
     setTimeout(@triggerAutocomplete.bind(this, editor), 1) if suggestion.type is 'attribute'
@@ -48,6 +49,14 @@ module.exports =
   triggerAutocomplete: (editor) ->
     atom.commands.dispatch(atom.views.getView(editor), 'autocomplete-plus:activate', activatedManually: false)
 
+  isOutsideOfTag: ({prefix, scopeDescriptor, editor, bufferPosition}) ->
+    scopes = scopeDescriptor.getScopesArray()
+    if scopes.length is 1
+      previoudChar = editor.getTextInRange([[bufferPosition.row, bufferPosition.column - 1], bufferPosition])
+      scopes[0] is 'text.alloyxml' and previoudChar isnt "<"
+    else
+      false
+      
   isTagStartWithNoPrefix: ({prefix, scopeDescriptor}) ->
     scopes = scopeDescriptor.getScopesArray()
     if prefix is '<' and scopes.length is 1
