@@ -56,6 +56,12 @@ _.extend(tagDic,{
   },
   "TableViewRow": {
     apiName : "Ti.UI.TableViewRow"
+  },
+  "Alloy" : {
+    
+  },
+  "ActivityIndicator": {
+    apiName : "Ti.UI.ActivityIndicator"
   }
 });
 

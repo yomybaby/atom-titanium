@@ -6341,9 +6341,13 @@ module.exports = {
         "ActionView": {
             "apiName": "_ProxyProperty.ActionView"
         },
+        "ActivityIndicator": {
+            "apiName": "Ti.UI.ActivityIndicator"
+        },
         "AlertDialog": {
             "apiName": "Ti.UI.AlertDialog"
         },
+        "Alloy": {},
         "AndroidView": {
             "apiName": "Ti.UI.AndroidView"
         },
