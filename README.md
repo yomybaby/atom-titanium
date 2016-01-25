@@ -13,16 +13,13 @@ $ apm install titanium-alloy
   - If you using other tss grammar package, such as language-tss. It makes this package doesn't work.
 
 ## Features
+This Documentation will be updated. :)
 
 ### Autocomplete
 - XML Autocomplete : tagName, property names of current Tag, values of current property
     - id and class name completion baseon related tss file and `app.tss` file.
 - TSS autocomplete : tagName, property names, values of current property
     ![autocomplete](https://github.com/yomybaby/atom-titanium/raw/master/screenshot_autocomplete_2.gif)
-
-More powerful autocomplete functions are coming!
-- id and class name complete baseon definition of related files.
-- more and more ..
 
 ### Jump to definition
 This feature is a [hyperclick](https://atom.io/packages/hyperclick) provider.   [hyperclick](https://atom.io/packages/hyperclick) package required.
@@ -37,7 +34,6 @@ Hyperclick is triggered by two events:
 - `<cmd-mousedown>` performs the action associated with the clickable text.
 - `<cmd-alt-enter>` performs the action on the text under the cursor.
 
-If you want to change trigger key from `cmd` to `alt`, check [this](https://github.com/facebook/nuclide/pull/231) out and see [changed](https://github.com/facebook/nuclide/pull/231/files).
 
 ### Open related file depend on current focused file
 Key Bindings | Command Desc
