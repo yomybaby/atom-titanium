@@ -61,7 +61,8 @@ module.exports =
           # console.log item.match[1]
           completions.push({
             type: '#'
-            text: item.match[1]
+            text: item.match[1]+'"',
+            displayText : item.match[1]
             # description: item.match[1]'class definition'
           })
       
@@ -206,7 +207,6 @@ module.exports =
       propertyName = regexResult?[1]
       
       parentNameIndex = regexResult?.index || -1;
-      console.log parentNameIndex, line.lastIndexOf('}')
       return if parentNameIndex <  line.lastIndexOf('}')
       return propertyName if propertyName
       row--
