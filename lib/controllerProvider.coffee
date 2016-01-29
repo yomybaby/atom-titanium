@@ -109,7 +109,7 @@ module.exports =
       # else  
       completions.push(
         type: 'property'
-        text: "#{property} = "
+        text: "#{property}"
         displayText: property
         replacementPrefix: prefix
         description: options.description
