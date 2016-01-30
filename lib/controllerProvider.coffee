@@ -2,9 +2,12 @@ fs = require('fs')
 tagRegExp =  /(<([^>]+)>)/ig
 util = require './ti-pkg-util'
 related = require './related'
+_ = require 'underscore'
+viewAutoProvider = require './viewProvider';
 
 propertyNamePrefixPattern = /\.([a-zA-Z]+[-a-zA-Z-_]*)$/
-alloyIdNamePatter = /\$\.([-a-zA-Z0-9-_]*)$/
+alloyIdNamePattern = /\$\.([-a-zA-Z0-9-_]*)$/
+alloyIdMemberPattern = /\$\.([-a-zA-Z0-9-_]*).([-a-zA-Z0-9-_]*)$/
 
 module.exports =
   # This will work on JavaScript and CoffeeScript files, but not in js comments.
@@ -31,10 +34,10 @@ module.exports =
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
     
     # if(@isPropertyNameCompletion()){
-    console.log alloyIdNamePatter.test(line)
-    console.log alloyIdNamePatter.exec(line)
+    console.log alloyIdNamePattern.test(line)
+    console.log alloyIdNamePattern.exec(line)
     console.log line
-    if alloyIdNamePatter.test(line)
+    if alloyIdNamePattern.test(line) # id name
       sourceEditor = util.getFileEditor related.getTargetPath('xml')
       if(!sourceEditor.isEmpty())
         sourceEditor.scan /id="(.*?)"/g, (item) -> 
@@ -44,6 +47,31 @@ module.exports =
             text: item.match[1]
             # description: item.match[1]'class definition'
           })
+    else if alloyIdMemberPattern.test(line)
+      idName = alloyIdMemberPattern.exec(line)[1]
+      console.log ('View lets find tag name');
+      sourceEditor = util.getFileEditor related.getTargetPath('xml')
+      
+      if(!sourceEditor.isEmpty())
+        curTagName = '';
+        sourceEditor.scan new RegExp("id=[\"']#{idName}[\"']",'g'), (item) -> 
+          curTagName = viewAutoProvider.getPreviousTag(sourceEditor,item.range.start);
+          item.stop();
+        
+        if curTagName
+          apiName = @completions.tags[curTagName].apiName
+          curTagObject = @completions.types[apiName]
+          _.each curTagObject.functions, (value)->
+            completions.push
+              type: 'function'
+              text: value
+              rightLabel: "<#{curTagName}>"
+            
+          _.each curTagObject.properties, (value)->
+            completions.push
+              type: 'attribute'
+              text: value
+              rightLabel: "<#{curTagName}>"
     else
       completions = @getPropertyNameCompletions(request)
     
