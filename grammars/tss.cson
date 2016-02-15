@@ -264,13 +264,16 @@
       'comment': 'the \'value\' diagram at http://json.org'
       'patterns': [
         {
+          'include': '#comment-block'
+        }
+        {
           'include': '#constant'
         }
         {
           'include': '#numeric-values'
         }
         {
-          'include': '#titanium-value'
+          'include': '#titanium-constant'
         }
         {
           'include': '#string'
@@ -282,18 +285,24 @@
           'include': '#object'
         }
       ]
-    'titanium-value':
+    'titanium-constant':
       # 'match': '\\b(absolute|all(-scroll)?|alternate-reverse|alternate|always|armenian|auto|avoid|backwards|baseline|below|bidi-override|block|bold|bolder|border-box|both|bottom|break-all|break-word|capitalize|center|char|circle|cjk-ideographic|col-resize|column|column-reverse|collapse|content-box|crosshair|dashed|decimal-leading-zero|decimal|default|disabled|disc|distribute-all-lines|distribute-letter|distribute-space|distribute|dotted|double|ease-in-out|ease-in|ease-out|ease|e-resize|ellipsis|fixed|flex|flex-end|flex-start|forwards|geometricPrecision|georgian|groove|hand|hebrew|help|hidden|hiragana-iroha|hiragana|horizontal|ideograph-alpha|ideograph-numeric|ideograph-parenthesis|ideograph-space|inactive|infinite|inherit|inline-block|inline|inset|inside|inter-ideograph|inter-word|italic|justify|katakana-iroha|katakana|keep-all|left|lighter|line-edge|line-through|line|list-item|loose|lower-alpha|lower-greek|lower-latin|lower-roman|lowercase|lr-tb|ltr|main-size|medium|middle|move|n-resize|ne-resize|newspaper|no-drop|no-repeat|nw-resize|none|normal|not-allowed|nowrap|oblique|optimize(Legibility|Quality|Speed)|outset|outside|overline|padding-box|pointer|pre(-(wrap|line))?|progress|relative|repeat-x|repeat-y|repeat|reverse|right|ridge|row-resize|row-severse|rtl|running|s-resize|scroll|se-resize|separate|small-caps|solid|space-around|space-between|square|start|static|step-end|step-start|stretch|strict|sub|super|sw-resize|table-footer-group|table-header-group|tb-rl|text-bottom|text-top|text|thick|thin|top|transparent|underline|upper-alpha|upper-latin|upper-roman|uppercase|vertical(-(ideographic|text))?|visible(Painted|Fill|Stroke)?|w-resize|wait|whitespace|wrap|wrap-reverse|zero|smaller|larger|((xx?-)?(small|large))|painted|paused|fill|end|stroke)\\b'
       'name': 'support.constant.property-value.css'
       'patterns':[
         {
           # 
-          # "name": "support.class.tss"
+          "name": "support.class.tss"
           # "match": "Titanium|Ti|TEXT_ALIGNMENT_RIGHT|TEXT_ALIGNMENT_LEFT|TEXT_ALIGNMENT_CENTER|FILL|SIZE|UI|Alloy|Globals|PORTRAIT|LANDSCAPE"
-          # 'begin' : 'Ti|Titanium|Alloy'
+          'begin' : 'Ti|Titanium'
+          'end' : '(?=[,\\}\\]\\n\\r])'
         }
         {
-          "name": "support.constant.tss"
+          "name": "support.class.tss.alloyglobals"
+          'begin' : 'Alloy\\.Globals'
+          'end' : '(?=[,\\}\\]\\n\\r])'
+        }
+        {
+          "name": "support.class.tss"
           # TODO: create match generation code (below math condition from languate-tss package, thanks @m1ga)
           "match": "([\"'])\\b(transparent|vertical|horizontal|bold|SIZE|FILL)\\b\\1"
         }
