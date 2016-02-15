@@ -188,9 +188,7 @@ module.exports =
           completions.push @buildStyleSelectorCompletion(attribute, value, fileName)
         
       # app.tss 
-      arr = related.getTargetPath('tss').split('/');
-      arr[arr.length-1] = 'app.tss';
-      sourceEditor = util.getFileEditor arr.join('/');
+      sourceEditor = util.getFileEditor path.join(util.getTiProjectRootPath(),'app','styles','app.tss')
       if(!sourceEditor.isEmpty())
         values = tokenTextForSelector(sourceEditor.displayBuffer.tokenizedBuffer, attribute)
         fileName = _.last(sourceEditor.getPath().split('/'))
