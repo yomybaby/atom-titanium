@@ -58,20 +58,21 @@ module.exports =
           curTagName = viewAutoProvider.getPreviousTag(sourceEditor,item.range.start);
           item.stop();
         
-        if curTagName
+        if curTagName && @completions.tags[curTagName]
           apiName = @completions.tags[curTagName].apiName
           curTagObject = @completions.types[apiName]
-          _.each curTagObject.functions, (value)->
-            completions.push
-              type: 'function'
-              text: value
-              rightLabel: "<#{curTagName}>"
-            
-          _.each curTagObject.properties, (value)->
-            completions.push
-              type: 'attribute'
-              text: value
-              rightLabel: "<#{curTagName}>"
+          if curTagObject
+            _.each curTagObject.functions, (value)->
+              completions.push
+                type: 'function'
+                text: value
+                rightLabel: "<#{curTagName}>"
+              
+            _.each curTagObject.properties, (value)->
+              completions.push
+                type: 'attribute'
+                text: value
+                rightLabel: "<#{curTagName}>"
     else
       completions = @getPropertyNameCompletions(request)
     
