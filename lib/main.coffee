@@ -22,3 +22,9 @@ module.exports = Titanium =
       type: 'integer'
       default: 2
       enum: [2,3]
+    defaultI18nLanguage:
+      title: 'Default language of i18n'
+      description: 'Use this setting when generating i18n strings with hyperclick or autocomplete'
+      type: 'string'
+      default: 'en'
+      enum: ['en','ko','jp','nl'] # TODO: add all languages
