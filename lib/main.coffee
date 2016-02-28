@@ -4,6 +4,7 @@ styleProvider = require './styleProvider'
 viewProvider = require './viewProvider'
 clickProvider = require './clickProvider'
 controllerProvider = require './controllerProvider'
+pathProvider = require './pathProvider'
 
 module.exports = Titanium =
   activate: ->
@@ -13,7 +14,7 @@ module.exports = Titanium =
     controllerProvider.loadCompletions()
   # deactivate: ->
   # serialize: ->
-  getProvider: -> [styleProvider,viewProvider,controllerProvider]
+  getProvider: -> [pathProvider,styleProvider,viewProvider,controllerProvider]
   getClickProvider: -> clickProvider.getProvider()
   config:
     numberOfSplitPane:
