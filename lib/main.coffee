@@ -24,7 +24,10 @@ module.exports = Titanium =
       enum: [2,3]
     defaultI18nLanguage:
       title: 'Default language of i18n'
-      description: 'Use this setting when generating i18n strings with hyperclick or autocomplete'
+      description: 'Use this setting when generating i18n strings with hyperclick and autocomplete'
       type: 'string'
       default: 'en'
-      enum: ['en','ko','jp','nl'] # TODO: add all languages
+      enum: ['af', 'sq', 'ar', 'eu', 'bg', 'be', 'ca', 'hr', 'cs', 'da', 'nl', 
+        'en', 'eo', 'et', 'fo', 'fi', 'fr', 'gl', 'de', 'el', 'iw', 'hu', 'is', 
+        'ga', 'it', 'ja', 'ko', 'lv', 'lt', 'mk', 'mt', 'no', 'pl', 'pt', 'ro', 
+        'ru', 'gd', 'sr', 'sr', 'sk', 'sl', 'es', 'sv', 'tr', 'uk'] # https://www.w3.org/International/O-charset-lang.html
