@@ -28,6 +28,7 @@
   },
   "dependencies": {
     "atom-package-dependencies": "latest",
+    "mkdirp": "^0.5.1",
     "underscore": "1.8.x"
   },
   "package-dependencies": {
