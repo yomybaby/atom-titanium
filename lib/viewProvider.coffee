@@ -5,6 +5,7 @@ path = require 'path'
 _ = require 'underscore'
 util = require './ti-pkg-util'
 related = require './related'
+find = require 'find'
 
 trailingWhitespace = /\s$/
 attributePattern = /\s+([a-zA-Z][-a-zA-Z]*)\s*=\s*$/
@@ -26,26 +27,25 @@ module.exports =
         editor.setGrammar(atom.grammars.grammarForScopeName('text.alloyxml')) 
         break
     
-    {prefix} = request
     if @isAttributeValueStartWithNoPrefix(request)
       completions = @getAttributeValueCompletions(request)
     else if @isAttributeValueStartWithPrefix(request)
-      completions = @getAttributeValueCompletions(request, prefix)
+      completions = @getAttributeValueCompletions(request)
     else if @isAttributeStartWithNoPrefix(request)
       completions = @getAttributeNameCompletions(request)
     else if @isAttributeStartWithPrefix(request)
-      completions = @getAttributeNameCompletions(request, prefix)
+      completions = @getAttributeNameCompletions(request)
     else if @isTagStartWithNoPrefix(request)
       completions = @getTagNameCompletions()
     else if @isTagStartTagWithPrefix(request)
-      completions = @getTagNameCompletions(prefix)
+      completions = @getTagNameCompletions(request)
     
     completions.sort util.completionSortFun if _.isFunction(completions.sort)
     return completions
 
   onDidInsertSuggestion: ({editor, suggestion}) ->
     setTimeout(@triggerAutocomplete.bind(this, editor), 1) if suggestion.type is 'attribute'
-
+        
   triggerAutocomplete: (editor) ->
     atom.commands.dispatch(atom.views.getView(editor), 'autocomplete-plus:activate', activatedManually: false)
 
@@ -115,7 +115,7 @@ module.exports =
     scopes.indexOf('string.quoted.double.html') isnt -1 or
       scopes.indexOf('string.quoted.single.html') isnt -1
 
-  getTagNameCompletions: (prefix) ->
+  getTagNameCompletions: ({prefix}) ->
     completions = []
     for tag of @completions.tags when not prefix or firstCharsEqual(tag, prefix)
       completions.push(@buildTagCompletion(tag, @completions.tags[tag]))
@@ -128,7 +128,7 @@ module.exports =
     description: tagObj.apiName #"HTML <#{tag}> tag"
     # descriptionMoreURL: @getTagDocsURL(tag)
 
-  getAttributeNameCompletions: ({editor, bufferPosition}, prefix) ->
+  getAttributeNameCompletions: ({editor, bufferPosition, prefix}) ->
     completions = []
     tag = @getPreviousTag(editor, bufferPosition)
     tagAttributes = @getTagAttributes(tag).concat(['id','class','platform'])
@@ -171,7 +171,7 @@ module.exports =
       # description:"Global #{attribute} attribute"
       # descriptionMoreURL: @getGlobalAttributeDocsURL(attribute)
 
-  getAttributeValueCompletions: ({editor, bufferPosition}, prefix) ->
+  getAttributeValueCompletions: ({editor, bufferPosition, prefix}) ->
     tag = @getPreviousTag(editor, bufferPosition)
     attribute = @getPreviousAttribute(editor, bufferPosition)
     currentPath  = atom.workspace.getActiveTextEditor().getPath()
@@ -196,17 +196,19 @@ module.exports =
           completions.push @buildStyleSelectorCompletion(attribute, value, fileName)
 
     else if attribute is 'src'
-      tiProjectRootPath = util.getTiProjectRootPath()
+      alloyRootPath = util.getAlloyRootPath()
       if tag is 'Require'
-        files = fs.readdirSync path.join(tiProjectRootPath,'app','controllers')
+        controllerPath = path.join(alloyRootPath,'controllers');
+        files = find.fileSync /\.js$/, controllerPath
         for file in files
-          if path.extname(file) is '.js' and currentControllerName!=file.split('.')[0] # exclude current controller
+          if currentPath != file # exclude current controller
             completions.push 
-              text: file.split('.')[0]
-              type: 'require'
+              text: file.replace(controllerPath+'/','').split('.')[0]
+              type: 'require',
+              replacementPrefix : util.getCustomPrefix({bufferPosition,editor})
       else if tag is 'Widget'
-        if tiProjectRootPath
-          alloyConfigPath = path.join(tiProjectRootPath, 'app','config.json')
+        if alloyRootPath
+          alloyConfigPath = path.join(alloyRootPath,'config.json')
           try
             configObj = JSON.parse(fs.readFileSync(alloyConfigPath));
             for widgetName, value of configObj?.dependencies
