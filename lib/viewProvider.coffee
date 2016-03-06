@@ -215,6 +215,7 @@ module.exports =
               completions.push
                 text : widgetName
                 type : 'require'
+                replacementPrefix : util.getCustomPrefix({bufferPosition,editor})
           catch e 
             return []
     else

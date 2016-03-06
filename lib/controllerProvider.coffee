@@ -4,10 +4,56 @@ util = require './ti-pkg-util'
 related = require './related'
 _ = require 'underscore'
 viewAutoProvider = require './viewProvider';
+find = require 'find'
+path = require 'path'
 
 propertyNamePrefixPattern = /\.([a-zA-Z]+[-a-zA-Z-_]*)$/
 alloyIdNamePattern = /\$\.([-a-zA-Z0-9-_]*)$/
 alloyIdMemberPattern = /\$\.([-a-zA-Z0-9-_]*).([-a-zA-Z0-9-_]*)$/
+
+getLine = ({editor, bufferPosition}) -> # request
+  line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
+
+
+
+completionRules = [
+  {
+    regExp : /Alloy\.(createController|Controllers\.instance)\(["']([-a-zA-Z0-9-_\/]*)$/
+    getCompletions : (request) ->
+      completions = undefined
+      line = getLine(request)
+      alloyRootPath = util.getAlloyRootPath()
+      if @regExp.test(line)
+        completions = []
+        controllerPath = path.join(alloyRootPath,'controllers');
+        files = find.fileSync /\.js$/, controllerPath
+        for file in files
+          # if currentPath != file # exclude current controller
+          completions.push 
+            text: file.replace(controllerPath+'/','').split('.')[0]
+            type: 'require',
+            replacementPrefix : util.getCustomPrefix(request)
+      return completions
+  }
+  {
+    regExp : /Alloy\.(createWidget|Widgets\.instance)\(["']([-a-zA-Z0-9-_\/\.]*)$/
+    getCompletions : (request) ->
+      completions = undefined
+      line = getLine(request)
+      alloyRootPath = util.getAlloyRootPath()
+      if @regExp.test(line)
+        completions = []
+        alloyConfigPath = path.join(alloyRootPath,'config.json')
+        try
+          configObj = JSON.parse(fs.readFileSync(alloyConfigPath))
+          for widgetName, value of configObj?.dependencies
+            completions.push
+              text : widgetName
+              type : 'require'
+              replacementPrefix : util.getCustomPrefix(request)
+      return completions
+  }
+]
 
 module.exports =
   # This will work on JavaScript and CoffeeScript files, but not in js comments.
@@ -18,7 +64,7 @@ module.exports =
   # This will take priority over the default provider, which has a priority of 0.
   # `excludeLowerPriority` will suppress any providers with a lower priority
   # i.e. The default provider will be suppressed
-  inclusionPriority: 1
+  # inclusionPriority: 1
   # excludeLowerPriority: true
   completions : {}
   
@@ -27,16 +73,13 @@ module.exports =
   # Required: Return a promise, an array of suggestions, or null.
   getSuggestions: (request) ->
     {editor, bufferPosition, scopeDescriptor, prefix} = request
-    return unless prefix?.length
+    # return unless prefix?.length
     
     completions = []
     
     line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition])
     
     # if(@isPropertyNameCompletion()){
-    console.log alloyIdNamePattern.test(line)
-    console.log alloyIdNamePattern.exec(line)
-    console.log line
     if alloyIdNamePattern.test(line) # id name
       sourceEditor = util.getFileEditor related.getTargetPath('xml')
       if(!sourceEditor.isEmpty())
@@ -49,7 +92,6 @@ module.exports =
           })
     else if alloyIdMemberPattern.test(line)
       idName = alloyIdMemberPattern.exec(line)[1]
-      console.log ('View lets find tag name');
       sourceEditor = util.getFileEditor related.getTargetPath('xml')
       
       if(!sourceEditor.isEmpty())
@@ -73,13 +115,11 @@ module.exports =
                 type: 'attribute'
                 text: value
                 rightLabel: "<#{curTagName}>"
-    else
-      completions = @getPropertyNameCompletions(request)
-    
-    # else if(@isAlloyIdCompletion()){
-    #   
-    # }
-    
+    else 
+      for rule in completionRules
+        ruleResult = rule.getCompletions(request);
+        break if ruleResult
+      completions = ruleResult || @getPropertyNameCompletions(request)
     
     completions?.sort  util.completionSortFun
     # for item in api.types
