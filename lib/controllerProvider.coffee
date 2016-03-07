@@ -16,7 +16,7 @@ getLine = ({editor, bufferPosition}) -> # request
 
 
 
-completionRules = [
+alloyCompletionRules = [
   {
     regExp : /Alloy\.(createController|Controllers\.instance)\(["']([-a-zA-Z0-9-_\/]*)$/
     getCompletions : (request) ->
@@ -51,6 +51,24 @@ completionRules = [
               text : widgetName
               type : 'require'
               replacementPrefix : util.getCustomPrefix(request)
+      return completions
+  }
+  {
+    regExp : /Alloy\.(createModel|Models\.instance|createCollection|Collections\.instance)\(["']([-a-zA-Z0-9-_\/]*)$/
+    getCompletions : (request) ->
+      completions = undefined
+      line = getLine(request)
+      alloyRootPath = util.getAlloyRootPath()
+      if @regExp.test(line)
+        completions = []
+        controllerPath = path.join(alloyRootPath,'models');
+        files = find.fileSync /\.js$/, controllerPath
+        for file in files
+          # if currentPath != file # exclude current controller
+          completions.push 
+            text: file.replace(controllerPath+'/','').split('.')[0]
+            type: 'require',
+            replacementPrefix : util.getCustomPrefix(request)
       return completions
   }
 ]
@@ -116,7 +134,7 @@ module.exports =
                 text: value
                 rightLabel: "<#{curTagName}>"
     else 
-      for rule in completionRules
+      for rule in alloyCompletionRules
         ruleResult = rule.getCompletions(request);
         break if ruleResult
       completions = ruleResult || @getPropertyNameCompletions(request)
