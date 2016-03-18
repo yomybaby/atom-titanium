@@ -36,7 +36,7 @@ module.exports =
     else if @isAttributeStartWithPrefix(request)
       completions = @getAttributeNameCompletions(request)
     else if @isTagStartWithNoPrefix(request)
-      completions = @getTagNameCompletions()
+      completions = @getTagNameCompletions(request)
     else if @isTagStartTagWithPrefix(request)
       completions = @getTagNameCompletions(request)
     
@@ -115,14 +115,30 @@ module.exports =
     scopes.indexOf('string.quoted.double.html') isnt -1 or
       scopes.indexOf('string.quoted.single.html') isnt -1
 
-  getTagNameCompletions: ({prefix}) ->
+  getTagNameCompletions: ({prefix, editor, bufferPosition}) ->
     completions = []
+    
+    # Get the text for the line up to the triggered buffer position
+    line = editor.getTextInRange([[bufferPosition.row, 0], bufferPosition]);
+    
+    isClosing = new RegExp("</#{prefix}$").test(line)
     for tag of @completions.tags when not prefix or firstCharsEqual(tag, prefix)
-      completions.push(@buildTagCompletion(tag, @completions.tags[tag]))
+      completions.push(
+        if isClosing
+        then @buildCloseTagCompletion(tag, @completions.tags[tag])
+        else @buildTagCompletion(tag, @completions.tags[tag])
+      )
     completions
 
   buildTagCompletion: (tag, tagObj) ->
     snippet: "#{tag}$1>$2</#{tag}>"
+    displayText: tag
+    type: 'tag'
+    description: tagObj.apiName #"HTML <#{tag}> tag"
+    # descriptionMoreURL: @getTagDocsURL(tag)
+  
+  buildCloseTagCompletion: (tag, tagObj) ->
+    text: "#{tag}>"
     displayText: tag
     type: 'tag'
     description: tagObj.apiName #"HTML <#{tag}> tag"
