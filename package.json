@@ -30,7 +30,8 @@
     "atom-package-dependencies": "latest",
     "find": "^0.2.4",
     "mkdirp": "^0.5.1",
-    "underscore": "1.8.x"
+    "underscore": "1.8.x",
+    "xml2js": "^0.4.16"
   },
   "package-dependencies": {
     "hyperclick": "latest"

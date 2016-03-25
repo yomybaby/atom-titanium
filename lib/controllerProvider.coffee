@@ -6,6 +6,7 @@ _ = require 'underscore'
 viewAutoProvider = require './viewProvider';
 find = require 'find'
 path = require 'path'
+parseString = require('xml2js').parseString;
 
 propertyNamePrefixPattern = /\.([a-zA-Z]+[-a-zA-Z-_]*)$/
 alloyIdNamePattern = /\$\.([-a-zA-Z0-9-_]*)$/
@@ -69,6 +70,39 @@ alloyCompletionRules = [
             text: file.replace(controllerPath+'/','').split('.')[0]
             type: 'require',
             replacementPrefix : util.getCustomPrefix(request)
+      return completions
+  }
+  {
+    # regExp : /L\(["']([-a-zA-Z0-9-_\/]*)$/
+    regExp : /L\(["']([^\s\\\(\)"':,;<>~!@\$%\^&\*\|\+=\[\]\{\}`\?\…]*)$/
+    getCompletions : (request) ->
+      completions = undefined
+      line = getLine(request)
+      alloyRootPath = util.getAlloyRootPath()
+      if @regExp.test(line)
+        console.log '#####'
+        defaultLang = atom.config.get('titanium-alloy.defaultI18nLanguage')
+        i18nStringPath = path.join(util.getTiProjectRootPath(),"i18n",defaultLang,"strings.xml")
+        
+        completions = []
+        parseString(fs.readFileSync(i18nStringPath), (error,result) ->
+          _.each(result?.resources?.string || [], (value) ->
+            completions.push 
+              text: value.$.name
+              leftLabel : defaultLang
+              rightLabel: value._
+              type: 'variable'
+              replacementPrefix : util.getCustomPrefix(request)
+            
+            # completions.push 
+            #   snippet: "#{value._}${0}#{value.$.name}"
+            #   leftLabel : defaultLang
+            #   rightLabel: value.$.name
+            #   type: 'value'
+            #   replacementPrefix : util.getCustomPrefix(request)
+              
+          )
+        )
       return completions
   }
 ]
