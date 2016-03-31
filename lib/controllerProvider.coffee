@@ -80,29 +80,34 @@ alloyCompletionRules = [
       line = getLine(request)
       alloyRootPath = util.getAlloyRootPath()
       if @regExp.test(line)
-        console.log '#####'
         defaultLang = atom.config.get('titanium-alloy.defaultI18nLanguage')
-        i18nStringPath = path.join(util.getTiProjectRootPath(),"i18n",defaultLang,"strings.xml")
+        i18nStringPath = path.join(util.getI18nPath(),defaultLang,"strings.xml")
         
         completions = []
-        parseString(fs.readFileSync(i18nStringPath), (error,result) ->
-          _.each(result?.resources?.string || [], (value) ->
-            completions.push 
-              text: value.$.name
-              leftLabel : defaultLang
-              rightLabel: value._
-              type: 'variable'
-              replacementPrefix : util.getCustomPrefix(request)
-            
-            # completions.push 
-            #   snippet: "#{value._}${0}#{value.$.name}"
-            #   leftLabel : defaultLang
-            #   rightLabel: value.$.name
-            #   type: 'value'
-            #   replacementPrefix : util.getCustomPrefix(request)
+        if util.isExistAsFile(i18nStringPath)
+          parseString(util.getFileEditor(i18nStringPath).getText(), (error,result) ->
+            _.each(result?.resources?.string || [], (value) ->
+              completions.push 
+                text: value.$.name
+                leftLabel : defaultLang
+                rightLabel: value._
+                type: 'variable'
+                replacementPrefix : util.getCustomPrefix(request)
+                description : value._
               
+              # completions.push 
+              #   snippet: "x${0:#{value._}}#{value.$.name}"
+              #   displayText: "#{value._}"
+              #   leftLabel : defaultLang
+              #   rightLabel: value.$.name
+              #   type: 'value'
+              #   replacementPrefix : util.getCustomPrefix(request)
+              #   
+              
+              # i18n key finder로 개별 package 고려
+              
+              )
           )
-        )
       return completions
   }
 ]
