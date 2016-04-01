@@ -6,7 +6,7 @@ _ = require 'underscore'
 util = require './ti-pkg-util'
 related = require './related'
 find = require 'find'
-
+alloyCompletionRules = require './alloyCompletionRules'
 trailingWhitespace = /\s$/
 attributePattern = /\s+([a-zA-Z][-a-zA-Z]*)\s*=\s*$/
 tagPattern = /<([a-zA-Z][-a-zA-Z]*)(?:\s|$)/
@@ -30,7 +30,11 @@ module.exports =
     if @isAttributeValueStartWithNoPrefix(request)
       completions = @getAttributeValueCompletions(request)
     else if @isAttributeValueStartWithPrefix(request)
-      completions = @getAttributeValueCompletions(request)
+      ruleResult = alloyCompletionRules.i18n.getCompletions(request);
+      if ruleResult
+        completions = ruleResult
+      else
+        completions = @getAttributeValueCompletions(request)
     else if @isAttributeStartWithNoPrefix(request)
       completions = @getAttributeNameCompletions(request)
     else if @isAttributeStartWithPrefix(request)

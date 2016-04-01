@@ -12,6 +12,7 @@ tagSelectorPrefixPattern = /["']([A-Za-z]+)?$/
 importantPrefixPattern = /(![a-z]+)$/
 cssDocsURL = "http://docs.appcelerator.com/platform/latest/#!/api"
 
+alloyCompletionRules = require './alloyCompletionRules'
 module.exports =
   selector: '.source.css.tss'  
   # disableForSelector: '.source.css.tss .comment, .source.css.tss .string'
@@ -29,7 +30,11 @@ module.exports =
     # for key & value
     
     if @isCompletingValue(request)
-      completions = @getPropertyValueCompletions(request)
+      ruleResult = alloyCompletionRules.i18n.getCompletions(request);
+      if ruleResult
+        completions = ruleResult
+      else
+        completions = @getPropertyValueCompletions(request)
     # # else if @isCompletingPseudoSelector(request)
     # #   comfpletions = @getPseudoSelectorCompletions(request)
     else if @isCompletingName(request)
