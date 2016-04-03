@@ -5,7 +5,9 @@ This is a Atom package for [Titanium Alloy](https://github.com/appcelerator/allo
 $ apm install titanium-alloy
 ```
 
-> **Conflict & Requires Notice**  
+> **Conflict & Requires Notice** 
+- Alloy 1.8.x setting
+  - If you use alloy 1.7.x or before, you have to un-check the checkbox of "Is Alloy CLI 1.8.x or later?" package setting because [Alloy 1.8 relocates i18n and platform directories](http://www.appcelerator.com/blog/2016/03/alloy-1-8-relocates-i18n-and-platform-directories/). 
 - Requires
   - [Hyperclick](https://atom.io/packages/hyperclick) package for Jump to definition   
   (Now It will be installed automatically.  After relaunch atom, Hyperclick works. Thanks @HazemKhaled #16)
