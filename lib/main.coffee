@@ -31,10 +31,3 @@ module.exports = Titanium =
         'en', 'eo', 'et', 'fo', 'fi', 'fr', 'gl', 'de', 'el', 'iw', 'hu', 'is', 
         'ga', 'it', 'ja', 'ko', 'lv', 'lt', 'mk', 'mt', 'no', 'pl', 'pt', 'ro', 
         'ru', 'gd', 'sr', 'sr', 'sk', 'sl', 'es', 'sv', 'tr', 'uk'] # https://www.w3.org/International/O-charset-lang.html
-    isAlloy1_8later:
-      title: 'Is Alloy CLI 1.8.x or later?'
-      description : 'Alloy 1.8 relocates i18n and platform directories'
-      type : 'boolean'
-      default : true
-      
-      
