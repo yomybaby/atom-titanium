@@ -11,13 +11,26 @@ alloyDirectoryMap =
 getTargetPath = (type, currentFilePath = atom.workspace.getActiveTextEditor().getPath())->
   pathUnderAlloy = path.relative(util.getAlloyRootPath(),currentFilePath)
   pathSplitArr = pathUnderAlloy.split(path.sep)
-  pathSplitArr[0] = alloyDirectoryMap[type];  # change type
+  
+  if pathSplitArr[0] is 'widgets'
+    pathSplitArr[2] = alloyDirectoryMap[type]  # change type
+  else
+    pathSplitArr[0] = alloyDirectoryMap[type]  # change type
+  
   fileSplitArr = pathSplitArr[pathSplitArr.length - 1].split('.') 
   fileSplitArr[1] = type #change ext
   
   path.resolve(util.getAlloyRootPath(), pathSplitArr.join(path.sep),'..',fileSplitArr.join('.'))
 
 getRelatedFilePath = (editorPath) ->
+  
+  pathSplit = path.relative(util.getAlloyRootPath(),editorPath).split(path.sep)
+  currentType = if pathSplit[0] is 'widgets' then pathSplit[2] else pathSplit[0]
+
+  hasRelatedFiles = ['views','styles','controllers'].indexOf(currentType) >= 0
+  
+  return [] if !util.isAlloyProject() or !hasRelatedFiles
+  
   fileExt = path.parse(editorPath).ext.substr(1);
   isAppTss = editorPath.endsWith(path.resolve('/app/styles/app.tss')) # TODO : make more advanced Detection
   isAlloyJs = editorPath.endsWith(path.resolve('/app/alloy.js')) # TODO : make more advanced Detection
@@ -28,7 +41,7 @@ getRelatedFilePath = (editorPath) ->
     relatedFilePaths = [editorPath.replace(path.resolve('/app/styles/app.tss'),path.resolve('/app/alloy.js'))]
   else if isAlloyJs
     relatedFilePaths = [editorPath.replace(path.resolve('/app/alloy.js'),path.resolve('/app/styles/app.tss'))]
-  else if util.isAlloyProject()
+  else
     _.each alloyDirectoryMap, (folderName,ext)->
       if ext!= fileExt
         relatedFilePaths.push(getTargetPath(ext,editorPath));
