@@ -18,7 +18,7 @@ getTargetPath = (type, currentFilePath = atom.workspace.getActiveTextEditor().ge
   path.resolve(util.getAlloyRootPath(), pathSplitArr.join(path.sep),'..',fileSplitArr.join('.'))
 
 getRelatedFilePath = (editorPath) ->
-  fileExt = path.parse(editorPath).ext
+  fileExt = path.parse(editorPath).ext.substr(1);
   isAppTss = editorPath.endsWith(path.resolve('/app/styles/app.tss')) # TODO : make more advanced Detection
   isAlloyJs = editorPath.endsWith(path.resolve('/app/alloy.js')) # TODO : make more advanced Detection
   
