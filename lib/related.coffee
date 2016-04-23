@@ -58,6 +58,10 @@ module.exports =
     previousActivePane = atom.workspace.getActivePane()
     return unless editor?
     
+    relatedFilePaths = getRelatedFilePath(editor.getPath())
+    return unless relatedFilePaths.length
+        
+    
     # if number of panes is under 3, make more.
     numberOfPanes = atom.workspace.getPanes().length;
     
@@ -67,10 +71,7 @@ module.exports =
         lastPane.splitDown()
       else
         lastPane.splitRight()
-    
-    relatedFilePaths = getRelatedFilePath(editor.getPath())
-    return unless relatedFilePaths.length
-      
+        
     panes = atom.workspace.getPanes()
     
     newPaneIdx = 0
