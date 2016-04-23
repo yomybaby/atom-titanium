@@ -3,12 +3,6 @@ _ = require 'underscore'
 util = require './ti-pkg-util'
 path = require 'path'
 
-alloyRegExp = ///
-  \/(controllers|views|styles)\/ # type directory
-  (.*)?\. # filename
-  (.*)  # ext
-///
-
 alloyDirectoryMap =
   xml : "views"
   tss : "styles"
@@ -16,15 +10,15 @@ alloyDirectoryMap =
   
 getTargetPath = (type, currentFilePath = atom.workspace.getActiveTextEditor().getPath())->
   pathUnderAlloy = path.relative(util.getAlloyRootPath(),currentFilePath)
-  pathSplitArr = pathUnderAlloy.split(path.posix.sep)
+  pathSplitArr = pathUnderAlloy.split(path.sep)
   pathSplitArr[0] = alloyDirectoryMap[type];  # change type
   fileSplitArr = pathSplitArr[pathSplitArr.length - 1].split('.') 
   fileSplitArr[1] = type #change ext
   
-  path.resolve(util.getAlloyRootPath(), pathSplitArr.join(path.posix.sep),'..',fileSplitArr.join('.'))
+  path.resolve(util.getAlloyRootPath(), pathSplitArr.join(path.sep),'..',fileSplitArr.join('.'))
 
 getRelatedFilePath = (editorPath) ->
-  [isAlloy, alloyType, filename, fileExt] = editorPath.match(alloyRegExp) || []
+  fileExt = path.parse(editorPath).ext
   isAppTss = editorPath.endsWith(path.resolve('/app/styles/app.tss')) # TODO : make more advanced Detection
   isAlloyJs = editorPath.endsWith(path.resolve('/app/alloy.js')) # TODO : make more advanced Detection
   
@@ -34,8 +28,8 @@ getRelatedFilePath = (editorPath) ->
     relatedFilePaths = [editorPath.replace(path.resolve('/app/styles/app.tss'),path.resolve('/app/alloy.js'))]
   else if isAlloyJs
     relatedFilePaths = [editorPath.replace(path.resolve('/app/alloy.js'),path.resolve('/app/styles/app.tss'))]
-  else if isAlloy
-    _.each alloyDirectoryMap, (folderName,ext)-> 
+  else if util.isAlloyProject()
+    _.each alloyDirectoryMap, (folderName,ext)->
       if ext!= fileExt
         relatedFilePaths.push(getTargetPath(ext,editorPath));
 
