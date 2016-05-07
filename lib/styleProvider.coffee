@@ -67,7 +67,6 @@ module.exports =
       sourceEditor = util.getFileEditor related.getTargetPath('xml')
       if(!sourceEditor.isEmpty())
         sourceEditor.scan /id="(.*?)"/g, (item) -> 
-          # console.log item.match[1]
           completions.push({
             type: '#'
             text: item.match[1]+'"',
@@ -81,7 +80,6 @@ module.exports =
         completions ?= []
         completions = completions.concat(tagCompletions)
 
-    # console.log completions
     completions?.sort util.completionSortFun
     completions
     
