@@ -58,7 +58,7 @@ module.exports = {
       assetPath = path.join(alloyRootPath,'assets')
       imgPath = path.join(assetPath,'images')
       
-      if @regExp.test(line)
+      if @regExp.test(line) and util.isExistAsDirectory(imgPath)
         completions = []
         files = find.fileSync imgPath
         for file in files
