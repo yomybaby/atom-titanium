@@ -71,6 +71,7 @@ alloyCompletionRules = [
       return completions
   }
   alloyCompletionRules.i18n
+  alloyCompletionRules.path
 ]
 
 module.exports =

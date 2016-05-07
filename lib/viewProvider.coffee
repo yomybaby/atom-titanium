@@ -30,7 +30,11 @@ module.exports =
     if @isAttributeValueStartWithNoPrefix(request)
       completions = @getAttributeValueCompletions(request)
     else if @isAttributeValueStartWithPrefix(request)
-      ruleResult = alloyCompletionRules.i18n.getCompletions(request);
+      ruleResult = undefined
+      _.find(alloyCompletionRules, (rule) ->
+        ruleResult = rule.getCompletions(request);
+        return ruleResult;
+      )
       if ruleResult
         completions = ruleResult
       else

@@ -7,11 +7,12 @@ find = require 'find'
 path = require 'path'
 parseString = require('xml2js').parseString;
 getLine = util.getLine
+find = require 'find'
 
 module.exports = {
   i18n : {
     # regExp : /L\(["']([-a-zA-Z0-9-_\/]*)$/
-    regExp : /[:\s=,>\)\("]L\(["']([^\s\\\(\)"':,;<>~!@\$%\^&\*\|\+=\[\]\{\}`\?\…]*)$/
+    regExp : /L\(["']([^\s\\\(\)"':,;<>~!@\$%\^&\*\|\+=\[\]\{\}`\?\…]*)$/
     getCompletions : (request) ->
       completions = undefined
       line = getLine(request)
@@ -45,6 +46,30 @@ module.exports = {
               
               )
           )
+      return completions
+  },
+  path : {
+    regExp : /["']\/i([-a-zA-Z0-9-_\/]*)$/
+    getCompletions : (request) ->
+      {prefix} = request
+      completions = undefined
+      line = getLine(request)
+      alloyRootPath = util.getAlloyRootPath()
+      assetPath = path.join(alloyRootPath,'assets')
+      imgPath = path.join(assetPath,'images')
+      
+      if @regExp.test(line)
+        completions = []
+        files = find.fileSync imgPath
+        for file in files
+          # if currentPath != file # exclude current controller
+          continue if file.endsWith('.DS_Store')
+          continue if file.includes('@')
+          completions.push 
+            text: '/'+file.replace(assetPath+'/','')
+            type: 'file',
+            replacementPrefix : util.getCustomPrefix(request)
+            iconHTML : "<img src='#{file}' width='100%'/>"
       return completions
   }
 }
