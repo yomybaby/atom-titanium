@@ -223,13 +223,14 @@ module.exports =
       alloyRootPath = util.getAlloyRootPath()
       if tag is 'Require'
         controllerPath = path.join(alloyRootPath,'controllers');
-        files = find.fileSync /\.js$/, controllerPath
-        for file in files
-          if currentPath != file # exclude current controller
-            completions.push 
-              text: file.replace(controllerPath+'/','').split('.')[0]
-              type: 'require',
-              replacementPrefix : util.getCustomPrefix({bufferPosition,editor})
+        if util.isExistAsDirectory(controllerPath)
+          files = find.fileSync /\.js$/, controllerPath
+          for file in files
+            if currentPath != file # exclude current controller
+              completions.push 
+                text: file.replace(controllerPath+'/','').split('.')[0]
+                type: 'require',
+                replacementPrefix : util.getCustomPrefix({bufferPosition,editor})
       else if tag is 'Widget'
         if alloyRootPath
           alloyConfigPath = path.join(alloyRootPath,'config.json')

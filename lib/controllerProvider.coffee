@@ -25,13 +25,14 @@ alloyCompletionRules = [
       if @regExp.test(line)
         completions = []
         controllerPath = path.join(alloyRootPath,'controllers');
-        files = find.fileSync /\.js$/, controllerPath
-        for file in files
-          # if currentPath != file # exclude current controller
-          completions.push 
-            text: file.replace(controllerPath+'/','').split('.')[0]
-            type: 'require',
-            replacementPrefix : util.getCustomPrefix(request)
+        if util.isExistAsDirectory(controllerPath)
+          files = find.fileSync /\.js$/, controllerPath
+          for file in files
+            # if currentPath != file # exclude current controller
+            completions.push 
+              text: file.replace(controllerPath+'/','').split('.')[0]
+              type: 'require',
+              replacementPrefix : util.getCustomPrefix(request)
       return completions
   }
   {
@@ -61,13 +62,14 @@ alloyCompletionRules = [
       if @regExp.test(line)
         completions = []
         controllerPath = path.join(alloyRootPath,'models');
-        files = find.fileSync /\.js$/, controllerPath
-        for file in files
-          # if currentPath != file # exclude current controller
-          completions.push 
-            text: file.replace(controllerPath+'/','').split('.')[0]
-            type: 'require',
-            replacementPrefix : util.getCustomPrefix(request)
+        if util.isExistAsDirectory(controllerPath)
+          files = find.fileSync /\.js$/, controllerPath
+          for file in files
+            # if currentPath != file # exclude current controller
+            completions.push 
+              text: file.replace(controllerPath+'/','').split('.')[0]
+              type: 'require',
+              replacementPrefix : util.getCustomPrefix(request)
       return completions
   }
   alloyCompletionRules.i18n
