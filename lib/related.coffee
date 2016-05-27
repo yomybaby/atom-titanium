@@ -28,19 +28,18 @@ getRelatedFilePath = (editorPath) ->
   currentType = if pathSplit[0] is 'widgets' then pathSplit[2] else pathSplit[0]
 
   hasRelatedFiles = ['views','styles','controllers'].indexOf(currentType) >= 0
-  
-  return [] if !util.isAlloyProject() or !hasRelatedFiles
-  
+
   fileExt = path.parse(editorPath).ext.substr(1);
-  isAppTss = editorPath.endsWith(path.resolve('/app/styles/app.tss')) # TODO : make more advanced Detection
-  isAlloyJs = editorPath.endsWith(path.resolve('/app/alloy.js')) # TODO : make more advanced Detection
-  
+  isAppTss = editorPath.endsWith(path.join('/app/styles/app.tss')) # TODO : make more advanced Detection
+  isAlloyJs = editorPath.endsWith(path.join('/app/alloy.js')) # TODO : make more advanced Detection
+  return [] if !util.isAlloyProject() or (!hasRelatedFiles and !isAppTss and !isAlloyJs)
+
   relatedFilePaths = []
   
   if isAppTss
-    relatedFilePaths = [editorPath.replace(path.resolve('/app/styles/app.tss'),path.resolve('/app/alloy.js'))]
+    relatedFilePaths = [editorPath.replace(path.join('/app/styles/app.tss'),path.join('/app/alloy.js'))]
   else if isAlloyJs
-    relatedFilePaths = [editorPath.replace(path.resolve('/app/alloy.js'),path.resolve('/app/styles/app.tss'))]
+    relatedFilePaths = [editorPath.replace(path.join('/app/alloy.js'),path.join('/app/styles/app.tss'))]
   else
     _.each alloyDirectoryMap, (folderName,ext)->
       if ext!= fileExt

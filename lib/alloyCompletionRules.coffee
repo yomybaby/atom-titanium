@@ -65,8 +65,8 @@ module.exports = {
           # if currentPath != file # exclude current controller
           continue if file.endsWith('.DS_Store')
           continue if file.includes('@')
-          completions.push 
-            text: '/'+file.replace(assetPath+'/','')
+          completions.push
+            text: util.toUnixPath(file.replace(assetPath,''))
             type: 'file',
             replacementPrefix : util.getCustomPrefix(request)
             iconHTML : "<img src='#{file}' width='100%'/>"
