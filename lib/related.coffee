@@ -95,8 +95,8 @@ module.exports =
     
     # find and close
     for editor in allEditors
-      for path in relatedFilePaths
-        if path == editor.getPath()
+      for p in relatedFilePaths
+        if p == editor.getPath()
           editor.destroy()
       
   getTargetPath: getTargetPath
