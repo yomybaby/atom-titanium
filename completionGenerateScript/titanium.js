@@ -111,51 +111,6 @@ _.each(api.types,function(type,idx){
         };
         if(prop.constants.length) props[prop.name].values = prop.constants;
       }
-      
-      // property value
-      if(prop.type === 'Boolean'){
-        props[prop.name].values = ['true','false'];
-      }else if(props[prop.name].values){
-        // alias Titanium -> Ti
-        props[prop.name].values = _.map(props[prop.name].values,function(val){
-          return val.replace(/Titanium\./g,'Ti.')
-        });
-      }
-      
-      if(/[Cc]olor$/.test(prop.name)){
-        props[prop.name].values = _.union(props[prop.name].values, colorValues);
-      }
-    }
-  });
-  
-  
-  // missing types
-  _.extend(types,{
-    "Alloy.Abstract.ItemTemplate" : {
-      "description": "Template that represents the basic appearance of a list item.",
-      "functions": [
-      ],
-      "properties": [
-          "name",
-          "height"
-      ],
-      "events": []
-    },
-    "Alloy.Widget" : {
-      "description": "Widgets are self-contained components that can be easily dropped into an Alloy project.",
-      "functions": [],
-      "properties": [
-        "src"
-      ],
-      "events": []
-    },
-    "Alloy.Require" : {
-      "description": "Require alloy controller",
-      "functions": [],
-      "properties": [
-        "src"
-      ],
-      "events": []
     }
   });
   
@@ -171,6 +126,53 @@ _.each(api.types,function(type,idx){
     })
   }
   
+});
+
+// Alias
+_.each(props, function(prop,key) {
+  if(prop.type === 'Boolean'){
+    prop.values = ['true','false'];
+  }else if(prop.values){
+    // alias Titanium -> Ti
+    prop.values = _.map(prop.values,function(val){
+      return val.replace(/Titanium\./g,'Ti.')
+    });
+  }
+  
+  if(/[Cc]olor$/.test(prop.name)){
+    prop.values = _.union(prop.values, colorValues);
+  }
+})
+
+
+// missing types
+_.extend(types,{
+  "Alloy.Abstract.ItemTemplate" : {
+    "description": "Template that represents the basic appearance of a list item.",
+    "functions": [
+    ],
+    "properties": [
+        "name",
+        "height"
+    ],
+    "events": []
+  },
+  "Alloy.Widget" : {
+    "description": "Widgets are self-contained components that can be easily dropped into an Alloy project.",
+    "functions": [],
+    "properties": [
+      "src"
+    ],
+    "events": []
+  },
+  "Alloy.Require" : {
+    "description": "Require alloy controller",
+    "functions": [],
+    "properties": [
+      "src"
+    ],
+    "events": []
+  }
 });
 
 // missing values
