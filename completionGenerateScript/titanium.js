@@ -62,6 +62,9 @@ _.extend(tagDic,{
   },
   "ActivityIndicator": {
     apiName : "Ti.UI.ActivityIndicator"
+  },
+  "WebView": {
+    apiName : "Ti.UI.WebView"
   }
 });
 
