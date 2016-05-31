@@ -72,6 +72,34 @@ alloyCompletionRules = [
               replacementPrefix : util.getCustomPrefix(request)
       return completions
   }
+  { #event name
+    regExp : /\$\.([-a-zA-Z0-9-_]*)\.(add|remove)EventListener\(["']([-a-zA-Z0-9-_\/]*)$/
+    getCompletions: (request) ->
+      tiCompletions = require('../tiCompletions')
+      completions = undefined
+      line = getLine(request)
+      
+      idName = @regExp.exec(line)[1]
+      sourceEditor = util.getFileEditor related.getTargetPath('xml')
+      
+      if(!sourceEditor.isEmpty())
+        completions = []
+        curTagName = '';
+        sourceEditor.scan new RegExp("id=[\"']#{idName}[\"']",'g'), (item) -> 
+          curTagName = viewAutoProvider.getPreviousTag(sourceEditor,item.range.start);
+          item.stop();
+        
+        if curTagName && tiCompletions.tags[curTagName]
+          apiName = tiCompletions.tags[curTagName].apiName
+          curTagObject = tiCompletions.types[apiName]
+          _.each curTagObject.events, (value)->
+            completions.push
+              type: 'event'
+              text: value
+              rightLabel: "<#{curTagName}>"
+        
+        completions
+  }
   alloyCompletionRules.i18n
   alloyCompletionRules.path
 ]

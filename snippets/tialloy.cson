@@ -1,16 +1,16 @@
 '.source.js':
   'Ti: addEventListener function':
     'prefix': 'aelf'
-    'body': 'addEventListener(\'${1:eventName}\', function (e) {\n\t$2\n});'
+    'body': 'addEventListener(\'${1}\', function (e) {\n\t$2\n});'
   'Ti: addEventListener':
     'prefix': 'ael'
-    'body': 'addEventListener(\'${1:eventName}\', );'
+    'body': 'addEventListener(\'${1}\', );'
   'Ti: removeEventListener function':
     'prefix': 'relf'
-    'body': 'removeEventListener(\'${1:eventName}\', function (e) {\n\t$2\n});'
+    'body': 'removeEventListener(\'${1}\', function (e) {\n\t$2\n});'
   'Ti: removeEventListener':
     'prefix': 'rel'
-    'body': 'removeEventListener(\'${1:eventName}\', );'
+    'body': 'removeEventListener(\'${1}\', );'
   'on: event on function':
     'prefix': 'onf'
     'body': 'on(\'${1:eventName}\', function (e) {\n\t$2\n});'
