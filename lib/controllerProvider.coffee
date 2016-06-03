@@ -75,28 +75,63 @@ alloyCompletionRules = [
   { #event name
     regExp : /\$\.([-a-zA-Z0-9-_]*)\.(add|remove)EventListener\(["']([-a-zA-Z0-9-_\/]*)$/
     getCompletions: (request) ->
+      completions = undefined
+      line = getLine(request)
+      
+      tiCompletions = require('../tiCompletions')
+      regResult = @regExp.exec(line)
+      if regResult
+        idName = regResult[1]
+        sourceEditor = util.getFileEditor related.getTargetPath('xml')
+        
+        if(!sourceEditor.isEmpty())
+          completions = []
+          curTagName = ''
+          sourceEditor.scan new RegExp("id=[\"']#{idName}[\"']",'g'), (item) -> 
+            curTagName = viewAutoProvider.getPreviousTag(sourceEditor,item.range.start);
+            item.stop();
+          
+          if curTagName && tiCompletions.tags[curTagName]
+            apiName = tiCompletions.tags[curTagName].apiName
+            curTagObject = tiCompletions.types[apiName]
+            _.each curTagObject.events, (value)->
+              completions.push
+                type: 'event'
+                text: value
+                rightLabel: "<#{curTagName}>"
+        
+      completions
+  }
+  { # value
+    regExp : /\$\.([-a-zA-Z0-9-_]*)\.([-a-zA-Z0-9-_\/]*)\s*=\s*([-a-zA-Z0-9-_\/]*)$/
+    getCompletions: (request) ->
       tiCompletions = require('../tiCompletions')
       completions = undefined
       line = getLine(request)
       
-      idName = @regExp.exec(line)[1]
-      sourceEditor = util.getFileEditor related.getTargetPath('xml')
-      
-      if(!sourceEditor.isEmpty())
-        completions = []
-        curTagName = '';
-        sourceEditor.scan new RegExp("id=[\"']#{idName}[\"']",'g'), (item) -> 
-          curTagName = viewAutoProvider.getPreviousTag(sourceEditor,item.range.start);
-          item.stop();
+      regResult = @regExp.exec(line)
+      if regResult
+        idName = regResult[1]
+        propertyName = regResult[2]
+        sourceEditor = util.getFileEditor related.getTargetPath('xml')
+        if(!sourceEditor.isEmpty())
+          completions = []
+          curTagName = ''
+          sourceEditor.scan new RegExp("id=[\"']#{idName}[\"']",'g'), (item) -> 
+            curTagName = viewAutoProvider.getPreviousTag(sourceEditor,item.range.start);
+            item.stop();
+            
+          
+          if curTagName && tiCompletions.tags[curTagName]
+            apiName = tiCompletions.tags[curTagName].apiName
+            curTagObject = tiCompletions.types[apiName]
         
-        if curTagName && tiCompletions.tags[curTagName]
-          apiName = tiCompletions.tags[curTagName].apiName
-          curTagObject = tiCompletions.types[apiName]
-          _.each curTagObject.events, (value)->
-            completions.push
-              type: 'event'
-              text: value
-              rightLabel: "<#{curTagName}>"
+        _.each tiCompletions.properties[propertyName]?.values, (value)->
+          completions.push
+            type: 'value'
+            text: value
+            rightLabel: if _.contains(curTagObject.properties,propertyName) then "<#{curTagName}>" else ""
+            description: "value of '#{propertyName}' property"
         
         completions
   }
@@ -155,7 +190,8 @@ module.exports =
             _.each curTagObject.functions, (value)->
               completions.push
                 type: 'function'
-                text: value
+                displayText: "#{value}"
+                snippet: "#{value}(${1})${0}"
                 rightLabel: "<#{curTagName}>"
               
             _.each curTagObject.properties, (value)->
