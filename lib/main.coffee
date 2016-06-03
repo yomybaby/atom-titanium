@@ -42,4 +42,4 @@ module.exports = Titanium =
     functionTemplate:
       title: 'Function template'
       type: 'string'
-      default: '\nfunction ${text}(e){\n}'
+      default: '\nfunction ${text}(e){\n}\n'
