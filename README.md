@@ -13,26 +13,37 @@ $ apm install titanium-alloy
   - If you using other tss grammar package, such as language-tss. It makes this package doesn't work.
 
 ## Features
-This Documentation will be updated. :)
-
 ### Autocomplete
-- XML Autocomplete : tagName, property names of current Tag, values of current property
-    - id and class name completion baseon related tss file and `app.tss` file.
-- TSS autocomplete : tagName, property names, values of current property
-    ![autocomplete](https://github.com/yomybaby/atom-titanium/raw/master/screenshot_autocomplete_2.gif)
+- Titanium properties
+    - such as 'Ti.UI.SIZE', true, 'black', `Ti.UI.TEXT_ALIGNMENT_CENTER`.
+- id and class name
+    - based on current controller's tss and `app.tss`.
+- module name
+    - all of controller/widget/model name on XML and JS
+  - on XML : After `<Require src='`, you can see the suggestions.
+  - on JS : After `Alloy.create[Controller|Widget|Model]`, you can see the suggestions.
+- Image path
+    - image path in `app/assets/images` directory. 
+    - When you type `'/i'`, you can see the suggestions.
+- i18n
+  - i18n key base on `app/i18n/{language}/strings.xml`
+  - After `L('`, you can see the suggestions
 
 ### Jump to definition
-This feature is a [hyperclick](https://atom.io/packages/hyperclick) provider.   [hyperclick](https://atom.io/packages/hyperclick) package required.
+This feature is a [hyperclick](https://atom.io/packages/hyperclick) provider.  
 
-- jump to tss definition from xml [class|id|tag] name
-- jump to event handler definition from xml `onEventName` property.
-
-![jump-to-definition](https://github.com/yomybaby/atom-titanium/raw/master/screenshot2_jumpto.gif)
+- Jump to tss definition from xml [class|id|tag] name
+- Jump to event handler definition from xml `onEventName` property
+- Jump to i18n key definition from [js|tss] file.
+- If not exists, Generate a code based on template.
+    - Now, you can chnage template on pacakage configuration. (#42 Thanks @	DouglasHennrich)
 
 Hyperclick is triggered by two events:
 - `<cmd>` or `<cmd-mousemove>` underlines clickable text under the mouse.
 - `<cmd-mousedown>` performs the action associated with the clickable text.
 - `<cmd-alt-enter>` performs the action on the text under the cursor.
+
+![jump-to-definition](https://github.com/yomybaby/atom-titanium/raw/master/screenshot2_jumpto.gif)
 
 
 ### Open related file depend on current focused file
