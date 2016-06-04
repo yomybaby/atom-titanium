@@ -14,6 +14,7 @@ $ apm install titanium-alloy
 
 ## Features
 ### Autocomplete
+![jump-to-definition](https://github.com/yomybaby/atom-titanium/raw/master/screenshots/valueCompletionOnJs.gif)
 - Titanium properties
     - such as 'Ti.UI.SIZE', true, 'black', `Ti.UI.TEXT_ALIGNMENT_CENTER`.
 - id and class name
@@ -36,14 +37,14 @@ This feature is a [hyperclick](https://atom.io/packages/hyperclick) provider.
 - Jump to event handler definition from xml `onEventName` property
 - Jump to i18n key definition from [js|tss] file.
 - If not exists, Generate a code based on template.
-    - Now, you can chnage template on pacakage configuration. (#42 Thanks @	DouglasHennrich)
+    - Now, you can change template on `~/.atom/config.cson`. (#42 Thanks @	DouglasHennrich)
 
 Hyperclick is triggered by two events:
 - `<cmd>` or `<cmd-mousemove>` underlines clickable text under the mouse.
 - `<cmd-mousedown>` performs the action associated with the clickable text.
 - `<cmd-alt-enter>` performs the action on the text under the cursor.
 
-![jump-to-definition](https://github.com/yomybaby/atom-titanium/raw/master/screenshot2_jumpto.gif)
+![jump-to-definition](https://github.com/yomybaby/atom-titanium/raw/master/screenshots/screenshot2_jumpto.gif)
 
 
 ### Open related file depend on current focused file
@@ -58,9 +59,11 @@ On package setting, there is an option to change layout of "Open All related fil
 
 ### TSS Sytax Highlight  
 refer to language-css and language-json, language-tss  
-![tss-highlight](https://github.com/yomybaby/atom-titanium/raw/master/screenshot1.gif)  
+![tss-highlight](https://github.com/yomybaby/atom-titanium/raw/master/screenshots/screenshot1.gif)  
 This hightlight use css color your current theme. So tss file looks like css file.
 
+### Snippet
+See [`snippets/tialloy.cson`](https://github.com/yomybaby/atom-titanium/blob/master/snippets/tialloy.cson)
 ## Reference
 - [Autocomplete css](https://github.com/atom/autocomplete-css)
 - Jump to definition by clicking
