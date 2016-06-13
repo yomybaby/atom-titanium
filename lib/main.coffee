@@ -42,12 +42,12 @@ module.exports = Titanium =
           title: 'Style class(.) template'
           description : 'When hyperclick class name on XML, which not defined, strings based on this template will be inserted.'
           type: 'string'
-          default: '\n".${text}": {\n}\n'
+          default: '\\n".${text}": {\\n}\\n'
         idOnTss :
           title: 'Style id(#) template'
           type: 'string'
-          default: '\n"#${text}": {\n}\n'
+          default: '\\n"#${text}": {\\n}\\n'
         functionOnJs :
           title: 'Function template'
           type: 'string'
-          default: '\nfunction ${text}(e){\n}\n'
+          default: '\\nfunction ${text}(e){\\n}\\n'
