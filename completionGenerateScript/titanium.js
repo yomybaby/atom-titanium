@@ -139,8 +139,8 @@ _.each(props, function(prop,key) {
     });
   }
   
-  if(/[Cc]olor$/.test(prop.name)){
-    prop.values = _.union(prop.values, colorValues);
+  if(/[Cc]olor$/.test(key)){
+    prop.values = _.union(prop.values|| [], colorValues);
   }
 })
 
