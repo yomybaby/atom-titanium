@@ -126,14 +126,14 @@ alloyCompletionRules = [
             apiName = tiCompletions.tags[curTagName].apiName
             curTagObject = tiCompletions.types[apiName]
         
-        _.each tiCompletions.properties[propertyName]?.values, (value)->
-          completions.push
-            type: 'value'
-            text: value
-            rightLabel: if _.contains(curTagObject.properties,propertyName) then "<#{curTagName}>" else ""
-            description: "value of '#{propertyName}' property"
+            _.each tiCompletions.properties[propertyName]?.values, (value)->
+              completions.push
+                type: 'value'
+                text: value
+                rightLabel: if _.contains(curTagObject.properties,propertyName) then "<#{curTagName}>" else ""
+                description: "value of '#{propertyName}' property"
         
-        completions
+      completions
   }
   alloyCompletionRules.i18n
   alloyCompletionRules.path
