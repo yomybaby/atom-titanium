@@ -32,6 +32,18 @@
   'Alloy Create Widget':
     'prefix': 'ACW'
     'body': 'Alloy.createWidget(\'${1}\')'
+  'Ti.API.error':
+    'prefix': 'terror'
+    'body': 'Ti.API.error(${1});'
+  'Ti.API.debug':
+    'prefix': 'tdebug'
+    'body': 'Ti.API.debug(${1});'
+  'Ti.API.info':
+    'prefix': 'tinfo'
+    'body': 'Ti.API.info(${1});'
+  'Ti.API.warn':
+    'prefix': 'twarn'
+    'body': 'Ti.API.warn(${1});'
 
 # '.source.css.tss':
   # 'Ti: new Style':
