@@ -155,7 +155,7 @@ module.exports =
   getAttributeNameCompletions: ({editor, bufferPosition, prefix}) ->
     completions = []
     tag = @getPreviousTag(editor, bufferPosition)
-    tagAttributes = @getTagAttributes(tag).concat(['id','class','platform'])
+    tagAttributes = @getTagAttributes(tag).concat(['id','class','platform','bindId'])
     
     # tag attributes
     for attribute in tagAttributes when not prefix or firstCharsEqual(attribute, prefix)
