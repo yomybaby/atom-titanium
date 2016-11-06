@@ -137,6 +137,7 @@ alloyCompletionRules = [
   }
   alloyCompletionRules.i18n
   alloyCompletionRules.path
+  alloyCompletionRules.cfg
 ]
 
 module.exports =

@@ -10,6 +10,38 @@ getLine = util.getLine
 find = require 'find'
 
 module.exports = {
+  cfg: {
+    regExp : /Alloy\.CFG\.([-a-zA-Z0-9-_\/]*)$/
+    getCompletions : (request) ->
+      completions = undefined
+      line = getLine(request)
+      
+      if @regExp.test(line)
+        cfgPath = path.join(util.getAlloyRootPath(),'config.json')
+        cfgKeys = []
+        completions = []
+        if util.isExistAsFile cfgPath
+          try
+            cfgObj = JSON.parse(util.getFileEditor(cfgPath).getText())
+            allKeys = util.getAllKeys(cfgObj.global)
+            for key in allKeys
+              completions.push
+                text: key
+                type: 'variable'
+                
+                # leftLabel : defaultLang
+                # rightLabel: value._
+                # replacementPrefix : util.getCustomPrefix(request)
+                # description : value._
+                # 
+          catch error
+            console.log error
+          
+      
+      
+      return completions
+    
+  },
   i18n : {
     # regExp : /L\(["']([-a-zA-Z0-9-_\/]*)$/
     regExp : /L\(["']([^\s\\\(\)"':,;<>~!@\$%\^&\*\|\+=\[\]\{\}`\?\…]*)$/
