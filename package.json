@@ -1,7 +1,7 @@
 {
   "name": "titanium-alloy",
   "main": "./lib/main",
-  "version": "0.11.4",
+  "version": "0.11.5",
   "description": "All-in-One package for Titanium Alloy",
   "license": "MIT",
   "keywords": [
