@@ -22,8 +22,17 @@ module.exports = {
         completions = []
         if util.isExistAsFile cfgPath
           try
+            # merge ally evn and platform(os) keys
             cfgObj = JSON.parse(util.getFileEditor(cfgPath).getText())
-            allKeys = util.getAllKeys(cfgObj.global)
+            cfgObj = _.reduce(cfgObj, (memo, value, key) ->
+              if key is "global" or key.startsWith('env:') or key.startsWith('os:')
+                return _.extend(memo,value)
+              else
+                return memo;
+            , {})
+            
+            allKeys = util.getAllKeys(cfgObj)
+            
             for key in allKeys
               completions.push
                 text: key
