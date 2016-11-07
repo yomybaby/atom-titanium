@@ -75,9 +75,25 @@ module.exports =
       for idx of sdks
         completions.push 
           text : sdks[idx]
-      
-      
-      console.log sdks
+    else if tag is 'module'
+      modulePath = path.join(util.getTiProjectRootPath(),'modules')
+      modules = {}
+      _.each(getDirectories(modulePath), (platform) ->
+        # body...
+        platformModulePath = path.join(util.getTiProjectRootPath(),'modules', platform)
+        _.each(getDirectories(platformModulePath) , (moduleName) ->
+          modules[moduleName] = {} unless modules[moduleName]
+          curModule = modules[moduleName];
+          curModule.platform = (curModule.platform || []).concat(platform)
+        )
+      )
+      for key of modules
+        console.log key
+        completions.push
+          text : key
+          rightLabel: modules[key].platform.join(',')
+    
+    console.log completions
     completions.sort util.completionSortFun if _.isFunction(completions.sort)
     return completions
 
