@@ -56,6 +56,9 @@ module.exports =
     atom.commands.add 'atom-workspace', 'titanium:closeAllRelatedPanes': => @closeAllRelatedPanes()
     
   openFile: (type, options = {})->
+    editor = atom.workspace.getActiveTextEditor()
+    return unless editor
+    
     options.searchAllPanes = true
     atom.workspace.open getTargetPath(type), options
   
@@ -92,6 +95,8 @@ module.exports =
     editor = atom.workspace.getActiveTextEditor()
     relatedFilePaths = getRelatedFilePath(editor.getPath())
     allEditors = atom.workspace.getTextEditors()
+  
+    return unless editor
     
     # find and close
     for editor in allEditors
