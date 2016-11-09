@@ -18,27 +18,32 @@ var alloyApi = JSON.parse(fs.readFileSync(alloyPath+"/docs/api.jsca", "utf8"));
 //TODO: get current selected Titanium SDK on windows and linux
 var tiConfig = JSON.parse(fs.readFileSync(process.env['HOME'] + '/.titanium/config.json'));
 var api = JSON.parse(fs.readFileSync(titaniumSdkHomePath + "/" + tiConfig.sdk.selected + "/api.jsca", "utf8"));
-console.log(_.keys(api.types));
+// console.log(_.keys(api.types));
+console.log(titaniumSdkHomePath + "/" + tiConfig.sdk.selected + "/api.jsca");
 
 /// Generate Available Tag List
 var fns = fs.readdirSync(alloyPath+'/Alloy/commands/compile/parsers');
 var tagDic = {};
+console.log('### START TO FIND ALLOY TAGS ###');
 _.each(fns,function(fn) {
-  console.log(fn);
   var ar = fn.split('.');
   var tagName = ar[ar.length-2];
   if(tagName.indexOf('_')!==0 && tagName[0] == tagName[0].toUpperCase()){
+    console.log(fn);
     tagDic[tagName] = {
       apiName : fn.replace('.js','')
     }
   }else if(tagName=='_ProxyProperty' && fn.indexOf('Ti.UI')===0){
+    console.log(fn);
     tagDic[ar[ar.length-3]] = { // Ti.UI.Window._ProxyProperty
       apiName : fn.replace('.js','').replace('._ProxyProperty','')
     }
   }
 });
+console.log('### END TO FIND ALLOY TAGS ###');
 
 // add Missing Tags
+console.log('### ADD MISSING ALLOY TAGS');
 _.extend(tagDic,{
   "View" : {
     apiName : "Ti.UI.View"
