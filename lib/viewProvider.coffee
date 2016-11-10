@@ -263,10 +263,15 @@ module.exports =
       description: "#{value} value for global #{attribute} attribute"
       # descriptionMoreURL: @getGlobalAttributeDocsURL(attribute)
     else
-      text: value
-      type: 'value'
-      description: "#{value} value for #{attribute} attribute to <#{tag}>"
-      # descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
+      valueInfo = value.split('|')
+      
+      return {
+        text: valueInfo[0]
+        type: 'value'
+        description: "#{value} value for #{attribute} attribute to <#{tag}>"
+        rightLabel: valueInfo[1]
+        # descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
+      }
 
   loadCompletions: ->
     @completions = require('../tiCompletions');
