@@ -720,11 +720,11 @@ module.exports = {
             "description": "A constant for the audio session mode to be used. <strong>Removed in 6.0.0. Use <a href=\"Titanium.Media.audioSessionCategory\">audioSessionCategory</a> instead.</strong>",
             "type": "Number",
             "values": [
-                "Ti.Media.AUDIO_SESSION_MODE_AMBIENT",
-                "Ti.Media.AUDIO_SESSION_MODE_PLAYBACK",
-                "Ti.Media.AUDIO_SESSION_MODE_PLAY_AND_RECORD",
-                "Ti.Media.AUDIO_SESSION_MODE_RECORD",
-                "Ti.Media.AUDIO_SESSION_MODE_SOLO_AMBIENT"
+                "Ti.Media.AUDIO_SESSION_MODE_AMBIENT|deprecated",
+                "Ti.Media.AUDIO_SESSION_MODE_PLAYBACK|deprecated",
+                "Ti.Media.AUDIO_SESSION_MODE_PLAY_AND_RECORD|deprecated",
+                "Ti.Media.AUDIO_SESSION_MODE_RECORD|deprecated",
+                "Ti.Media.AUDIO_SESSION_MODE_SOLO_AMBIENT|deprecated"
             ]
         },
         "audioStreamType": {
@@ -3832,7 +3832,7 @@ module.exports = {
                 "Ti.Media.VIDEO_CONTROL_FULLSCREEN",
                 "Ti.Media.VIDEO_CONTROL_HIDDEN",
                 "Ti.Media.VIDEO_CONTROL_NONE",
-                "Ti.Media.VIDEO_CONTROL_VOLUME_ONLY"
+                "Ti.Media.VIDEO_CONTROL_VOLUME_ONLY|deprecated"
             ]
         },
         "mediaType": {
@@ -5724,8 +5724,8 @@ module.exports = {
                 "Ti.UI.iPhone.StatusBar.GRAY",
                 "Ti.UI.iPhone.StatusBar.GREY",
                 "Ti.UI.iPhone.StatusBar.LIGHT_CONTENT",
-                "Ti.UI.iPhone.StatusBar.OPAQUE_BLACK",
-                "Ti.UI.iPhone.StatusBar.TRANSLUCENT_BLACK"
+                "Ti.UI.iPhone.StatusBar.OPAQUE_BLACK|deprecated",
+                "Ti.UI.iPhone.StatusBar.TRANSLUCENT_BLACK|deprecated"
             ]
         },
         "statuses": {
@@ -6428,11 +6428,11 @@ module.exports = {
                 "Ti.UI.iOS.AnimationStyle.FLIP_FROM_LEFT",
                 "Ti.UI.iOS.AnimationStyle.FLIP_FROM_RIGHT",
                 "Ti.UI.iOS.AnimationStyle.NONE",
-                "Ti.UI.iPhone.AnimationStyle.CURL_DOWN",
-                "Ti.UI.iPhone.AnimationStyle.CURL_UP",
-                "Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT",
-                "Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT",
-                "Ti.UI.iPhone.AnimationStyle.NONE"
+                "Ti.UI.iPhone.AnimationStyle.CURL_DOWN|deprecated",
+                "Ti.UI.iPhone.AnimationStyle.CURL_UP|deprecated",
+                "Ti.UI.iPhone.AnimationStyle.FLIP_FROM_LEFT|deprecated",
+                "Ti.UI.iPhone.AnimationStyle.FLIP_FROM_RIGHT|deprecated",
+                "Ti.UI.iPhone.AnimationStyle.NONE|deprecated"
             ]
         },
         "transitionAnimation": {

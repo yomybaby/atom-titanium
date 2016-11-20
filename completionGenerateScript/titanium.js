@@ -140,22 +140,21 @@ _.each(props, function(prop,key) {
   }else if(prop.values){
     // alias Titanium -> Ti
     prop.values = _.map(prop.values,function(val){
+      
+      var splitedName = val.split('.');
+      var typeName = splitedName.slice(0,-1).join('.');
+      var tiUIProps = _.find(api.types,(type)=>{
+        return type.name === typeName
+      }).properties;
+      var curPropInfo = _.find(tiUIProps,(prop)=>{
+        return prop.name == _.last(splitedName)
+      });
+      
       var shortName = val.replace(/Titanium\./g,'Ti.');
-      if(shortName.startsWith('Ti.UI.')){
-        if(shortName.split('.').length == 3){
-          console.log(shortName);
-          var tiUIProps = _.find(api.types,(type)=>{
-            return type.name === "Titanium.UI"
-          }).properties;
-          var curPropInfo = _.find(tiUIProps,(prop)=>{
-            return prop.name == _.last(shortName.split('.'))
-          });
-          if(curPropInfo.deprecated){
-            console.log(curPropInfo.description);
-            shortName +="|deprecated"
-          }
-          
-        }
+      if(curPropInfo.deprecated){
+        console.log('deprecated prop : '+ shortName);
+        // console.log(curPropInfo.description);
+        shortName +="|deprecated"
       }
       return shortName;
     });
