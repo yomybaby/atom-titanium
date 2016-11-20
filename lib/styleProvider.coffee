@@ -265,16 +265,21 @@ module.exports =
     completions
 
   buildPropertyValueCompletion: (value, propertyName, scopes, {scopeDescriptor, bufferPosition, prefix, editor}) ->
-    text = "#{value},"
-    
-    
+    valueInfo = value.split('|')
+    rightLabel = valueInfo[1]
+    if rightLabel is 'deprecated'
+      # rightLabel = undefined
+      iconHTML = '<i class="text-error icon-circle-slash"></i>'
     description = @properties[propertyName]?.description
-    description = "#{value} value for the #{propertyName} property" unless description
-    {
+    description = "#{valueInfo[0]} value for the #{propertyName} property" unless description
+      
+    return {
+      text: valueInfo[0]
       type: 'value'
-      text: text
-      displayText: value
+      iconHTML: iconHTML
       description: description
+      rightLabel: rightLabel
+      priority : if valueInfo[1]=='deprecated' then -1 else 0
     }
       
   buildPropertyValueCompletionWidthQuotation: (value, propertyName, scopes, {scopeDescriptor, bufferPosition, prefix, editor}) ->

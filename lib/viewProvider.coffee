@@ -264,12 +264,18 @@ module.exports =
       # descriptionMoreURL: @getGlobalAttributeDocsURL(attribute)
     else
       valueInfo = value.split('|')
-      
+      rightLabel = valueInfo[1]
+      if rightLabel is 'deprecated'
+        # rightLabel = undefined
+        iconHTML = '<i class="text-error icon-circle-slash"></i>'
+      description = "value for #{attribute} attribute to <#{tag}>"
       return {
         text: valueInfo[0]
         type: 'value'
-        description: "#{value} value for #{attribute} attribute to <#{tag}>"
-        rightLabel: valueInfo[1]
+        iconHTML: iconHTML
+        description: description
+        rightLabel: rightLabel
+        priority : if valueInfo[1]=='deprecated' then -1 else 0
         # descriptionMoreURL: @getLocalAttributeDocsURL(attribute, tag)
       }
 

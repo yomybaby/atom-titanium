@@ -127,11 +127,19 @@ alloyCompletionRules = [
             curTagObject = tiCompletions.types[apiName]
         
             _.each tiCompletions.properties[propertyName]?.values, (value)->
+              valueInfo = value.split('|')
+              if valueInfo[1] is 'deprecated'
+                # rightLabel = undefined
+                iconHTML = '<i class="text-error icon-circle-slash"></i>'
+                
               completions.push
                 type: 'value'
-                text: value
+                text: valueInfo[0],
+                iconHTML: iconHTML
+                # leftLabel: rightLabel
                 rightLabel: if _.contains(curTagObject.properties,propertyName) then "<#{curTagName}>" else ""
-                description: "value of '#{propertyName}' property"
+                description: "value of '#{propertyName}', property",
+                priority : if valueInfo[1]=='deprecated' then -1 else 0
         
       completions
   }
