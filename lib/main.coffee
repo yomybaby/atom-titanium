@@ -53,3 +53,8 @@ module.exports = Titanium =
           title: 'Function template'
           type: 'string'
           default: '\\nfunction ${text}(e){\\n}\\n'
+    isAlloy1_8later:
+      title: 'Is Alloy CLI 1.8.x or later?'
+      description : 'Alloy 1.8 relocates i18n and platform directories'
+      type : 'boolean'
+      default : true
