@@ -49,6 +49,10 @@ module.exports = Titanium =
           title: 'Style id(#) template'
           type: 'string'
           default: '\\n"#${text}": {\\n}\\n'
+        tagOnTss :
+          title: 'Style tag template'
+          type: 'string'
+          default: '\\n"${text}": {\\n}\\n'
         functionOnJs :
           title: 'Function template'
           type: 'string'
