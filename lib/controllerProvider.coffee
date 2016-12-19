@@ -17,6 +17,24 @@ getLine = util.getLine
 
 alloyCompletionRules = [
   {
+    regExp: /require\(["']([-a-zA-Z0-9-_\/]*)$/
+    getCompletions : (request) ->
+      completions = undefined
+      line = getLine(request)
+      alloyRootPath = util.getAlloyRootPath()
+      if @regExp.test(line)
+        completions = []
+        libPath = path.join(alloyRootPath, 'lib')
+        if util.isExistAsDirectory(libPath)
+          files = find.fileSync /\.js$/, libPath
+          for file in files
+            completions.push
+              text : path.parse(file).name
+              type: 'require',
+              replacementPrefix : util.getCustomPrefix(request)
+      return completions
+  }
+  {
     regExp : /Alloy\.(createController|Controllers\.instance)\(["']([-a-zA-Z0-9-_\/]*)$/
     getCompletions : (request) ->
       completions = undefined
@@ -30,7 +48,7 @@ alloyCompletionRules = [
           for file in files
             # if currentPath != file # exclude current controller
             completions.push 
-              text: file.replace(controllerPath+'/','').split('.')[0]
+              text: path.parse(file).name
               type: 'require',
               replacementPrefix : util.getCustomPrefix(request)
       return completions
