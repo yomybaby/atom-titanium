@@ -49,11 +49,17 @@ getRelatedFilePath = (editorPath) ->
         
 module.exports =
   activate: ->
-    atom.commands.add 'atom-workspace', 'titanium:openView': => @openFile('xml')
-    atom.commands.add 'atom-workspace', 'titanium:openStyle': => @openFile('tss')
-    atom.commands.add 'atom-workspace', 'titanium:openController': => @openFile('js')
-    atom.commands.add 'atom-workspace', 'titanium:openAllRelatedFiles': => @openAllFiles()
-    atom.commands.add 'atom-workspace', 'titanium:closeAllRelatedPanes': => @closeAllRelatedPanes()
+    
+    @commands = atom.commands.add 'atom-workspace', 
+      'titanium:openView': => @openFile('xml')
+      'titanium:openStyle': => @openFile('tss')
+      'titanium:openController': => @openFile('js')
+      'titanium:openAllRelatedFiles': => @openAllFiles()
+      'titanium:closeAllRelatedPanes': => @closeAllRelatedPanes()
+  
+  deactive: ->
+    @commands.dispose()
+    @commands = null
     
   openFile: (type, options = {})->
     editor = atom.workspace.getActiveTextEditor()

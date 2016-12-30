@@ -13,7 +13,8 @@ module.exports = Titanium =
     viewProvider.loadCompletions()
     controllerProvider.loadCompletions()
     # tiappxmlProvider.loadCompletions()
-  # deactivate: ->
+  deactivate: ->
+    related.deactive()
   # serialize: ->
   getProvider: -> [styleProvider,viewProvider,controllerProvider,tiappxmlProvider]
   getClickProvider: -> clickProvider.getProvider()
