@@ -29,7 +29,7 @@ alloyCompletionRules = [
           files = find.fileSync /\.js$/, libPath
           for file in files
             completions.push
-              text : path.parse(file).name
+              text : file.replace(libPath+path.sep,'').split('.')[0]
               type: 'require',
               replacementPrefix : util.getCustomPrefix(request)
       return completions
@@ -45,12 +45,14 @@ alloyCompletionRules = [
         controllerPath = path.join(alloyRootPath,'controllers');
         if util.isExistAsDirectory(controllerPath)
           files = find.fileSync /\.js$/, controllerPath
+          console.log files
           for file in files
             # if currentPath != file # exclude current controller
             completions.push 
-              text: path.parse(file).name
+              text: file.replace(controllerPath+path.sep,'').split('.')[0]
               type: 'require',
               replacementPrefix : util.getCustomPrefix(request)
+      console.log completions
       return completions
   }
   {
