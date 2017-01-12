@@ -10,6 +10,9 @@ alloyCompletionRules = require './alloyCompletionRules'
 trailingWhitespace = /\s$/
 attributePattern = /\s+([a-zA-Z][-a-zA-Z]*)\s*=\s*$/
 tagPattern = /<([a-zA-Z][-a-zA-Z]*)(?:\s|$)/
+selectorPatterns =
+  id: /\s*(["'])(?=[:.*#a-zA-Z])#(\S*)(\1)\s*(?=:)/g
+  class : /\s*(["'])(?=[:.*#a-zA-Z])\.(\S*)(\1)\s*(?=:)/g
 
 module.exports =
   selector: '.text.alloyxml, .text.xml'
@@ -206,7 +209,7 @@ module.exports =
     if attribute == 'id' or attribute == 'class'
       sourceEditor = util.getFileEditor related.getTargetPath('tss')
       if(!sourceEditor.isEmpty())
-        values = tokenTextForSelector(sourceEditor.displayBuffer.tokenizedBuffer, attribute)
+        values = tokenTextForSelector(sourceEditor, attribute)
         fileName = _.last(sourceEditor.getPath().split('/'))
         for value in values when not prefix or firstCharsEqual(value, prefix)
           completions.push @buildStyleSelectorCompletion(attribute, value, fileName)
@@ -214,7 +217,7 @@ module.exports =
       # app.tss 
       sourceEditor = util.getFileEditor path.join(util.getTiProjectRootPath(),'app','styles','app.tss')
       if(!sourceEditor.isEmpty())
-        values = tokenTextForSelector(sourceEditor.displayBuffer.tokenizedBuffer, attribute)
+        values = tokenTextForSelector(sourceEditor, attribute)
         fileName = _.last(sourceEditor.getPath().split('/'))
         for value in values when not prefix or firstCharsEqual(value, prefix)
           completions.push @buildStyleSelectorCompletion(attribute, value, fileName)
@@ -339,12 +342,11 @@ firstCharsEqual = (str1, str2) ->
 capitalizeFirstLetter = (string) ->
   string.charAt(0).toUpperCase() + string.slice(1)
 
-tokenTextForSelector = (tokenizedBuffer, selectorType) ->
+tokenTextForSelector = (editor, selectorType) ->
   matchingTokens = []
-  for {tokens} in tokenizedBuffer.tokenizedLines
-      for token in tokens
-        if hasScope(token.scopes, "entity.other.attribute-name.#{selectorType}.css.tss") and !hasScope(token.scopes, "punctuation.definition.entity.css.#{selectorType}.tss")
-          matchingTokens.push token.value
+  editor.scan(selectorPatterns[selectorType],(item) ->
+    matchingTokens.push(item.match[2].split('[')[0]);
+  );
   matchingTokens
 
 hasScope = (scopesArray, scope) ->
