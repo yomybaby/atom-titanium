@@ -33,8 +33,8 @@ module.exports =
 
   getSuggestions: (request) ->
     {editor, bufferPosition} = request
-    console.log request.editor.getPath();
-    console.log 'tiappxmlProvider'
+    # console.log request.editor.getPath();
+    # console.log 'tiappxmlProvider'
     if !request.editor.getPath().endsWith('tiapp.xml')
       return;
     
@@ -65,10 +65,10 @@ module.exports =
     # 
 
     # text 
-    console.log scopes
+    # console.log scopes
     # if scopes.length is 1 && scopes[0] is 'text.xml'
     tag = @getPreviousTag(editor, bufferPosition)
-    console.log tag
+    # console.log tag
     
     if tag is 'sdk-version'
       sdks = getDirectories titaniumSdkHomePath
@@ -77,6 +77,7 @@ module.exports =
           text : sdks[idx]
     else if tag is 'module'
       modulePath = path.join(util.getTiProjectRootPath(),'modules')
+      return unless util.isExistAsDirectory(modulePath)
       modules = {}
       _.each(getDirectories(modulePath), (platform) ->
         # body...
@@ -88,12 +89,12 @@ module.exports =
         )
       )
       for key of modules
-        console.log key
+        # console.log key
         completions.push
           text : key
           rightLabel: modules[key].platform.join(',')
     
-    console.log completions
+    # console.log completions
     completions.sort util.completionSortFun if _.isFunction(completions.sort)
     return completions
 
@@ -317,7 +318,7 @@ module.exports =
   getPreviousTag: (editor, bufferPosition) ->
     {row} = bufferPosition
     while row >= 0
-      console.log editor.lineTextForBufferRow(row)
+      # console.log editor.lineTextForBufferRow(row)
       tag = wrapperTagPattern.exec(editor.lineTextForBufferRow(row))?[1]
       return tag if tag
       row--
