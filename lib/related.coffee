@@ -18,7 +18,7 @@ getTargetPath = (type, currentFilePath = atom.workspace.getActiveTextEditor().ge
     pathSplitArr[0] = alloyDirectoryMap[type]  # change type
   
   fileSplitArr = pathSplitArr[pathSplitArr.length - 1].split('.') 
-  fileSplitArr[1] = type #change ext
+  fileSplitArr[fileSplitArr.length-1] = type #change ext
   
   path.resolve(util.getAlloyRootPath(), pathSplitArr.join(path.sep),'..',fileSplitArr.join('.'))
 
