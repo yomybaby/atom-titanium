@@ -8,11 +8,10 @@ tiappxmlProvider = require './tiappxmlProvider'
 
 module.exports = Titanium =
   activate: ->
-    related.activate()
-    # styleProvider.loadProperties()
-    # viewProvider.loadCompletions()
-    # controllerProvider.loadCompletions()
-    # tiappxmlProvider.loadCompletions()
+    related.activate();
+    
+    return require('atom-package-deps').install('hyperclick')
+    
   deactivate: ->
     related.deactive()
   # serialize: ->

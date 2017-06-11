@@ -1,5 +1,8 @@
 {
   "name": "titanium-alloy",
+  "package-deps": [
+    "hyperclick"
+  ],
   "main": "./lib/main",
   "version": "0.13.10",
   "description": "All-in-One package for Titanium Alloy",
@@ -27,13 +30,10 @@
     }
   },
   "dependencies": {
-    "atom-package-dependencies": "latest",
+    "atom-package-deps": "^4.6.0",
     "find": "^0.2.4",
     "mkdirp": "^0.5.1",
     "underscore": "1.8.x",
     "xml2js": "^0.4.16"
-  },
-  "package-dependencies": {
-    "hyperclick": "latest"
   }
 }
