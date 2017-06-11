@@ -20,6 +20,8 @@ module.exports =
   filterSuggestions: true
 
   getSuggestions: (request) ->
+    if !@completions
+      @loadCompletions()
     scopes = request.scopeDescriptor.getScopesArray()
     completions = []
     # if xml start with <Alloy, change grammars to text.alloyxml

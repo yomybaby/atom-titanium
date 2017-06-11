@@ -9,9 +9,9 @@ tiappxmlProvider = require './tiappxmlProvider'
 module.exports = Titanium =
   activate: ->
     related.activate()
-    styleProvider.loadProperties()
-    viewProvider.loadCompletions()
-    controllerProvider.loadCompletions()
+    # styleProvider.loadProperties()
+    # viewProvider.loadCompletions()
+    # controllerProvider.loadCompletions()
     # tiappxmlProvider.loadCompletions()
   deactivate: ->
     related.deactive()

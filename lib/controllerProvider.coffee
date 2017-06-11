@@ -177,12 +177,14 @@ module.exports =
   # i.e. The default provider will be suppressed
   # inclusionPriority: 1
   # excludeLowerPriority: true
-  completions : {}
+  completions : undefined
   
   loadCompletions: () ->
     @completions = require('../tiCompletions');
   # Required: Return a promise, an array of suggestions, or null.
   getSuggestions: (request) ->
+    if !@completions
+      @loadCompletions()
     {editor, bufferPosition, scopeDescriptor, prefix} = request
     # return unless prefix?.length
     

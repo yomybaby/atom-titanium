@@ -23,6 +23,10 @@ module.exports =
   filterSuggestions: true
 
   getSuggestions: (request) ->
+    if !@tags
+      @loadCompletions()
+      
+    
     console.log request if atom.inDevMode()
     completions = null
     scopes = request.scopeDescriptor.getScopesArray()
@@ -90,7 +94,7 @@ module.exports =
   triggerAutocomplete: (editor) ->
     atom.commands.dispatch(atom.views.getView(editor), 'autocomplete-plus:activate', {activatedManually: false})
 
-  loadProperties: ->
+  loadCompletions: ->
     @properties = {}
     {@pseudoSelectors, @properties, @tags, @types} = require('../tiCompletions')
   
