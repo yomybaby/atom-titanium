@@ -78,16 +78,16 @@ module.exports =
         
     
     # if number of panes is under 3, make more.
-    numberOfPanes = atom.workspace.getPanes().length;
+    numberOfPanes = atom.workspace.getCenter().getPanes();
     
-    while atom.workspace.getPanes().length<3
-      lastPane = _.last(atom.workspace.getPanes())
+    while atom.workspace.getCenter().getPanes().length<3
+      lastPane = _.last(atom.workspace.getCenter().getPanes())
       if atom.config.get('titanium-alloy.numberOfSplitPane')==2 and atom.workspace.getPanes().length == 2
         lastPane.splitDown()
       else
         lastPane.splitRight()
         
-    panes = atom.workspace.getPanes()
+    panes = atom.workspace.getCenter().getPanes()
     
     newPaneIdx = 0
     for pane in panes
