@@ -52,7 +52,8 @@ Hyperclick is triggered by two events:
 ### Open related file depend on current focused file
 Key Bindings | Command Desc
 ----------- | ------------
-`ctrl-alt-a` | Open all relative files
+`ctrl-alt-a` | Toggle(open or close) relative files. When close, current file is remained.
+`ctrl-alt-shift-a` | Close all relative files. Current file is closed also.
 `ctrl-alt-v` | Open view
 `ctrl-alt-s` | Open style
 `ctrl-alt-c` | Open controller
