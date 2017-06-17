@@ -11,5 +11,5 @@
   'ctrl-alt-v': 'titanium:openView'
   'ctrl-alt-s': 'titanium:openStyle'
   'ctrl-alt-c': 'titanium:openController'
-  'ctrl-alt-a': 'titanium:openAllRelatedFiles'
-  'ctrl-alt-shift-a': 'titanium:closeAllRelatedPanes'
+  'ctrl-alt-a': 'titanium:toggleAllRelatedFiles'
+  'ctrl-alt-shift-a': 'titanium:closeAllRelatedFiles'
