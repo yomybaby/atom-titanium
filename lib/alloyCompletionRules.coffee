@@ -110,7 +110,7 @@ module.exports = {
             text: util.toUnixPath(file.replace(assetPath,''))
             type: 'file',
             replacementPrefix : util.getCustomPrefix(request)
-            iconHTML : "<img src='#{file}' width='100%'/>"
+            iconHTML : "<image style='background-position: center; background-repeat: no-repeat; background-size: contain; background-image: url(#{file}); height:29px; width:29px; '></image>"
       return completions
   }
 }
