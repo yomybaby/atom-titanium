@@ -4,7 +4,7 @@
     "hyperclick"
   ],
   "main": "./lib/main",
-  "version": "0.14.3",
+  "version": "0.14.4",
   "description": "All-in-One package for Titanium Alloy",
   "license": "MIT",
   "keywords": [
