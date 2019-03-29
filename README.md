@@ -1,3 +1,5 @@
+# [DEPRECATED] This package will not updated. I recommend [Appcelerator official Package](https://atom.io/packages/appcelerator-titanium) for developing titanium on Atom.
+
 # All-in-One package for Titanium Alloy
 This is a Atom package for [Titanium Alloy](https://github.com/appcelerator/alloy)
 
